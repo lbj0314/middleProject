@@ -18,18 +18,8 @@
 			</otherwise>
 		</choose>
 	</sql>
-	<!-- list -->
-	<select id="boardList" resultType="BoardNoticeVO"
-		parameterType="Pager">
-		SELECT * FROM
-		(SELECT N.*, ROWNUM R FROM
-		(SELECT * FROM notice
-		<include refid="bs"></include>
-		ORDER BY num DESC) N)
-		WHERE R BETWEEN #{startRow} AND #{lastRow}
-	</select>
 	
-	<resultMap type="BoardNoticeVO" id="boardFiles">
+	<resultMap type="RestaurantVO" id="boardFiles">
 		<id property="num" column="num"/>
 		<result property="title" column="title"/>
 		<result property="writer" column="writer"/>
@@ -44,32 +34,32 @@
 	</resultMap>
 	
 	<!-- 1개 -->
- 	<select id="boardSelect" resultMap="boardFiles" parameterType="BoardNoticeVO">
- 		SELECT n.*, f.fnum, f.fname, f.oname 
- 		FROM notice n FULL OUTER JOIN noticefiles f
-		ON (n.num = f.num)
-		WHERE n.num = #{num}
+ 	<select id="restaurantSelect" resultMap="boardFiles" parameterType="RestaurantVO">
+ 		SELECT r.*, f.fnum, f.fname, f.oname 
+ 		FROM restaurant r FULL OUTER JOIN files f
+		ON (r.num = f.num)
+		WHERE r.num = #{num}
  	</select>
-	<select id="boardCount" resultType="Integer"
+	<select id="restaurantCount" resultType="Integer"
 		parameterType="Pager">
-		SELECT COUNT(num) FROM notice
+		SELECT COUNT(num) FROM restaurant
 		<include refid="bs"></include>
 	</select>
-	<insert id="boardWrite" parameterType="BoardVO">
+	<insert id="restaurantWrite" parameterType="RestaurantVO">
 		<selectKey order="BEFORE" resultType="Integer" keyProperty="num">
-			SELECT board_seq.nextval FROM dual
+			SELECT restaurant_seq.nextval FROM dual
 		</selectKey>
-		INSERT INTO notice
+		INSERT INTO restaurant
 		VALUES(
 		#{num}, #{title}, #{writer}, #{contents}, SYSDATE, 0
 		)
 	</insert>
-	<delete id="boardDelete" parameterType="Integer">
- 		DELETE notice
+	<delete id="restaurantDelete" parameterType="Integer">
+ 		DELETE restaurant
  		WHERE num = #{num}
  	</delete>
- 		<update id="boardUpdate" parameterType="BoardVO">
- 		UPDATE notice SET title = #{title}, contents = #{contents}
+ 		<update id="restaurantUpdate" parameterType="RestaurantVO">
+ 		UPDATE restaurant SET title = #{title}, contents = #{contents}
  		WHERE num = #{num}
  	</update>
  	

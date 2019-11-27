@@ -3,13 +3,14 @@
 
 DROP TABLE notice CASCADE CONSTRAINTS;
 DROP TABLE admin CASCADE CONSTRAINTS;
+DROP TABLE files CASCADE CONSTRAINTS;
 DROP TABLE mypage CASCADE CONSTRAINTS;
 DROP TABLE qna CASCADE CONSTRAINTS;
 DROP TABLE reservation CASCADE CONSTRAINTS;
-DROP TABLE review CASCADE CONSTRAINTS;
-DROP TABLE restaurant CASCADE CONSTRAINTS;
-DROP TABLE member CASCADE CONSTRAINTS;
 DROP TABLE menu CASCADE CONSTRAINTS;
+DROP TABLE restaurant CASCADE CONSTRAINTS;
+DROP TABLE review CASCADE CONSTRAINTS;
+DROP TABLE member CASCADE CONSTRAINTS;
 
 
 
@@ -21,8 +22,18 @@ CREATE TABLE admin
 	admin_num number(5,0) NOT NULL,
 	admin_id varchar2(40) NOT NULL,
 	admin_pw varchar2(40) NOT NULL,
-	admin_name varchar2(40) NOT NULL,
 	PRIMARY KEY (admin_num)
+);
+
+
+CREATE TABLE files
+(
+	fnum number(10,0) NOT NULL,
+	-- menu num
+	menu_num number(5,0) NOT NULL,
+	fname varchar2(4000),
+	oname varchar2(4000),
+	PRIMARY KEY (fnum)
 );
 
 
@@ -64,7 +75,8 @@ CREATE TABLE menu
 	price number(5,0) NOT NULL,
 	-- origin
 	origin varchar2(400) NOT NULL,
-	img varchar2(4000),
+	-- rest num
+	rest_num number(10,0) NOT NULL,
 	PRIMARY KEY (menu_num)
 );
 
@@ -73,7 +85,7 @@ CREATE TABLE mypage
 (
 	-- mp_num
 	mp_num number(5,0) NOT NULL,
-	id varchar2(400) NOT NULL,
+	id varchar2(400) NOT NULL UNIQUE,
 	pw varchar2(400) NOT NULL,
 	email varchar2(400) NOT NULL,
 	name varchar2(400) NOT NULL,
@@ -126,7 +138,6 @@ CREATE TABLE qna
 	step number(5,0),
 	-- qna depth
 	depth number(5,0),
-	member_num number(10,0) NOT NULL,
 	PRIMARY KEY (qna_num)
 );
 
@@ -140,10 +151,9 @@ CREATE TABLE reservation
 	member_num number(10,0) NOT NULL,
 	-- reservation_people
 	res_people number(5,0) NOT NULL,
-	-- menu num
-	menu_num number(5,0) NOT NULL,
 	-- reservation_date
 	res_date date NOT NULL UNIQUE,
+	res_state number(1),
 	PRIMARY KEY (res_num)
 );
 
@@ -192,9 +202,6 @@ CREATE TABLE review
 	contents varchar2(4000),
 	-- reg_date
 	reg_date date,
-	-- rest num
-	rest_num number(10,0) NOT NULL,
-	member_num number(10,0) NOT NULL,
 	PRIMARY KEY (review_num)
 );
 
@@ -215,30 +222,12 @@ ALTER TABLE mypage
 
 
 ALTER TABLE qna
-	ADD FOREIGN KEY (member_num)
-	REFERENCES member (member_num)
-;
-
-
-ALTER TABLE qna
 	ADD FOREIGN KEY (id)
 	REFERENCES member (id)
 ;
 
 
 ALTER TABLE reservation
-	ADD FOREIGN KEY (member_num)
-	REFERENCES member (member_num)
-;
-
-
-ALTER TABLE restaurant
-	ADD FOREIGN KEY (id)
-	REFERENCES member (id)
-;
-
-
-ALTER TABLE restaurant
 	ADD FOREIGN KEY (member_num)
 	REFERENCES member (member_num)
 ;
@@ -250,19 +239,25 @@ ALTER TABLE restaurant
 ;
 
 
+ALTER TABLE restaurant
+	ADD FOREIGN KEY (id)
+	REFERENCES member (id)
+;
+
+
+ALTER TABLE restaurant
+	ADD FOREIGN KEY (member_num)
+	REFERENCES member (member_num)
+;
+
+
 ALTER TABLE review
 	ADD FOREIGN KEY (id)
 	REFERENCES member (id)
 ;
 
 
-ALTER TABLE review
-	ADD FOREIGN KEY (member_num)
-	REFERENCES member (member_num)
-;
-
-
-ALTER TABLE reservation
+ALTER TABLE files
 	ADD FOREIGN KEY (menu_num)
 	REFERENCES menu (menu_num)
 ;
@@ -271,6 +266,12 @@ ALTER TABLE reservation
 ALTER TABLE mypage
 	ADD FOREIGN KEY (res_num)
 	REFERENCES reservation (res_num)
+;
+
+
+ALTER TABLE menu
+	ADD FOREIGN KEY (rest_num)
+	REFERENCES restaurant (rest_num)
 ;
 
 
@@ -286,15 +287,10 @@ ALTER TABLE reservation
 ;
 
 
-ALTER TABLE review
-	ADD FOREIGN KEY (rest_num)
-	REFERENCES restaurant (rest_num)
-;
-
-
 
 /* Comments */
 
+COMMENT ON COLUMN files.menu_num IS 'menu num';
 COMMENT ON COLUMN member.pw IS 'pw
 ';
 COMMENT ON COLUMN member.tel IS 'tel
@@ -307,6 +303,7 @@ COMMENT ON COLUMN menu.menu_num IS 'menu num';
 COMMENT ON COLUMN menu.name IS 'menu_name';
 COMMENT ON COLUMN menu.price IS 'price';
 COMMENT ON COLUMN menu.origin IS 'origin';
+COMMENT ON COLUMN menu.rest_num IS 'rest num';
 COMMENT ON COLUMN mypage.mp_num IS 'mp_num';
 COMMENT ON COLUMN mypage.res_num IS 'reservation_num';
 COMMENT ON COLUMN notice.title IS 'notice';
@@ -322,7 +319,6 @@ COMMENT ON COLUMN qna.depth IS 'qna depth';
 COMMENT ON COLUMN reservation.res_num IS 'reservation_num';
 COMMENT ON COLUMN reservation.rest_num IS 'rest num';
 COMMENT ON COLUMN reservation.res_people IS 'reservation_people';
-COMMENT ON COLUMN reservation.menu_num IS 'menu num';
 COMMENT ON COLUMN reservation.res_date IS 'reservation_date';
 COMMENT ON COLUMN restaurant.rest_num IS 'rest num';
 COMMENT ON COLUMN restaurant.rest_name IS 'rest name
@@ -340,7 +336,6 @@ COMMENT ON COLUMN restaurant.res_date IS 'reservation_date';
 COMMENT ON COLUMN review.review_num IS 'review num';
 COMMENT ON COLUMN review.contents IS 'review contents';
 COMMENT ON COLUMN review.reg_date IS 'reg_date';
-COMMENT ON COLUMN review.rest_num IS 'rest num';
 
 
 

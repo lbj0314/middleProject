@@ -3,16 +3,17 @@ package com.mid.pro.controller;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class RestaurantController {
-		
-	//select One
-		
-	//write
-		
-	//update
-		
-	//delete
+public class MenuController {
 	
-	//count
+	//list
+	
+	//select One
+	
+	//write
+	
+	//update
+	
+	//delete
+
 	
 }
