@@ -6,6 +6,9 @@
   
   <mapper namespace="memberMapper">
   
+  <!-- Join -->
+  <insert id="memberJoin"></insert>
+  
   
   
   
