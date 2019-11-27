@@ -4,5 +4,36 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
+		<property name="username" value="mid" />
+		<property name="password" value="mid" />
+		 <property name="url" value="jdbc:oracle:thin:@211.238.142.204:1521:xe" /> 
+		<!-- <property name="url" value="jdbc:oracle:thin:@192.168.0.3:1521:xe"/> -->
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+	</bean>
+	
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath:/mybatis/mappers/*Mapper.xml" />
+		<property name="configLocation" value="classpath:/mybatis/config/mybatisConfig.xml" />
+	</bean>
+	
+	<bean class = "org.springframework.web.multipart.commons.CommonsMultipartResolver" id = "multipartResolver">
+		<property name="defaultEncoding" value = "UTF-8"></property>
+		<property name="maxUploadSize" value="104857600"></property>
+		<property name="maxUploadSizePerFile" value = "10485760"></property>
+	</bean>
+	
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean" />
+	</bean>
+	
+	<!-- transaction Manager 설정 advice-->
+	<bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id ="txManager">
+			<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	
+	
 		
 </beans>
