@@ -103,6 +103,9 @@
                             <div class="mt-10">
                                 <input type="email" name="email" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required class="single-input-primary">
                             </div>
+                               <div class="mt-10">
+                                <input type="text" name="name" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" required class="single-input-primary">
+                            </div>
                             <div class="mt-10">
                                 <input type="text" name="tel" placeholder="tel" onfocus="this.placeholder = ''" onblur="this.placeholder = 'tel'" required class="single-input-primary">
                             </div>
