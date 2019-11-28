@@ -1,10 +1,8 @@
 package com.mid.pro.model;
 
 import java.sql.Date;
+import java.util.List;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class RestaurantVO {
 
 	private int rest_num;
@@ -22,6 +20,7 @@ public class RestaurantVO {
 	private int review_hit;
 	private int member_num;
 	private Date res_date;
+	private List<FilesVO> files;
 	
 	public int getRest_num() {
 		return rest_num;
@@ -113,5 +112,10 @@ public class RestaurantVO {
 	public void setRes_date(Date res_date) {
 		this.res_date = res_date;
 	}
-
+	public List<FilesVO> getFiles() {
+		return files;
+	}
+	public void setFiles(List<FilesVO> files) {
+		this.files = files;
+	}
 }

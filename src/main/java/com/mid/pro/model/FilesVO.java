@@ -1,11 +1,8 @@
 package com.mid.pro.model;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class FilesVO {
 	private int fnum;
-	private int num;
+	private int menu_num;
 	private String fname;
 	private String oname;
 	
@@ -15,11 +12,11 @@ public class FilesVO {
 	public void setFnum(int fnum) {
 		this.fnum = fnum;
 	}
-	public int getNum() {
-		return num;
+	public int getMenu_num() {
+		return menu_num;
 	}
-	public void setNum(int num) {
-		this.num = num;
+	public void setMenu_num(int menu_num) {
+		this.menu_num = menu_num;
 	}
 	public String getFname() {
 		return fname;

@@ -5,10 +5,12 @@
   <configuration>
   	<typeAliases>
   		<typeAlias type="com.mid.pro.model.RestaurantVO" alias="RestaurantVO"/>
+  		<typeAlias type="com.mid.pro.model.MenuVO" alias="MenuVO"/>
   		<typeAlias type="com.mid.pro.util.Pager" alias="Pager"/>
   		<typeAlias type="com.mid.pro.model.FilesVO" alias="FilesVO"/>
   		
   		<typeAlias type="java.lang.String" alias="String"/>
   		<typeAlias type="java.lang.Integer" alias="Integer"/>
+  		<typeAlias type="java.util.List" alias="List"/>
   	</typeAliases>
   </configuration>

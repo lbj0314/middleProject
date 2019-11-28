@@ -4,5 +4,70 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="menuMapper">
-  
+  <!-- sql -->
+	<!-- <sql id="ms">
+		<choose>
+			<when test="kind == 'kn'">
+				WHERE name LIKE '%'||#{search}||'%'
+			</when>
+			<otherwise>
+				WHERE contents LIKE '%'||#{search}||'%'
+			</otherwise>
+		</choose>
+	</sql> -->
+  	<!-- list -->
+  	<select id="menuList" parameterType="Pager" resultType="MenuVO">
+  		SELECT * FROM
+		(SELECT M.*, ROWNUM R FROM
+		(SELECT * FROM menu
+		<!-- <include refid="ms"/> -->
+		ORDER BY menu_num DESC) M)
+	<!-- 	WHERE R BETWEEN #{startRow} AND #{lastRow} -->
+  	</select>
+  	<!-- select -->
+  	<resultMap type="MenuVO" id="menuFiles">
+		<id property="menu_num" column="menu_num"/>
+		<result property="name" column="name"/>
+		<result property="contents" column="contents"/>
+		<result property="price" column="price"/>
+		<collection property="files" javaType="java.util.List" ofType="FilesVO">
+			<id property="fnum" column="fnum"/>
+			<result property="fname" column="fname"/>
+			<result property="oname" column="oname"/>
+		</collection>
+	</resultMap>
+  	<select id="menuSelect" parameterType="menuVO" resultMap="menuFiles">
+  		SELECT m.*, f.fnum, f.fname, f.oname 
+ 		FROM menu m FULL OUTER JOIN files f
+		ON (m.menu_num = f.menu_num)
+		WHERE m.menu_num = #{menu_num}
+  	</select>
+  	<!-- count -->
+  	<!-- <select id="menuCount" resultType="Integer" parameterType="Pager">
+  		SELECT COUNT(menu_num) 
+  		FROM menu
+  		<include refid="ms"/>
+  	</select> -->
+  	<!-- write -->
+  	<insert id="menuWrite" >
+  		<selectKey order="BEFORE" resultType="Integer" keyProperty="menu_num">
+			SELECT menu_seq.nextval FROM dual
+		</selectKey>
+		INSERT INTO menu
+		VALUES 
+		(
+			#{menu_num}, #{name}, #{contents}, #{price}, #{origin}, #{rest_num}
+		)
+  	</insert>
+  	<!-- update -->
+  	<update id="menuUpdate" parameterType="menuVO">
+  		UPDATE menu
+  		SET #{name}, #{contents}, #{price}, #{origin}
+  		WHERE menu_num = #{menu_num}
+  	</update>
+  	<!-- delete -->
+  	<delete id="menuDelete" parameterType="Integer">
+  		DELETE menu
+  		WHERE menu_num = #{menu_num}
+  	</delete>
   </mapper>

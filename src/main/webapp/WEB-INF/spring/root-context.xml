@@ -7,40 +7,8 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
-	<!-- Connection -->
-		<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
-			<property name="username" value="mid" />
-			<property name="password" value="mid" />
-			<property name="url" value="jdbc:oracle:thin:@211.238.142.204:1521:xe" />
-			<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		</bean>
-		<!-- MyBatis 연결 -->
-		<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean">
-			<property name="dataSource" ref="dataSource" />
-			<property name="mapperLocations" value="classpath:/mybatis/mappers/*Mapper.xml" />
-			<property name="configLocation" value="classpath:/mybatis/config/mybatisConfig.xml"></property>
-		</bean>
-		<!--  -->
-		<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
-			<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean" />
-		</bean>
-		<!-- Multipart 합치는 객체 -->
-		<!-- id 속성의 값은 무조건 multipartResolver 로 선택 -->
-		<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
-			<!-- Encoding 설정 -->
-			<property name="defaultEncoding" value="UTF-8"/>
-			<!-- 전체 file의 최대 size 제한 -->
-			<property name="maxUploadSize" value="104857600"/> <!-- 단위는 Byte 현재 100메가 -->
-			<!-- file당 최대 size 제한 -->
-			<property name="maxUploadSizePerFile" value="10485760"/>
-		</bean>
+	
 		
-		<!-- Tx Manager -->
-		<bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="txManager">
-			<property name="dataSource" ref="dataSource"/>
-		</bean>
 		
-		<!-- Tx Annotation -->
-		<tx:annotation-driven/>
 		
 </beans>
