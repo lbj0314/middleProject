@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="../resources/css/bootstrap-4.1.3.min.css">
     <link rel="stylesheet" href="../resources/css/owl-carousel.min.css">
     <link rel="stylesheet" href="../resources/css/style.css">
+    <link rel="stylesheet" href="../resources/css/member/member.css">
 </head>
 <body>
     <!-- Preloader Starts -->
@@ -80,27 +81,15 @@
     <!-- Banner Area End -->
 
     <!--================Blog Categorie Area =================-->
-    <section class="blog_categorie_area">
-        <div class="container">
+    <section class="blog_categorie_area" id = "categorie_area">
+        <div class="container" id = "container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                    <div class="categories_post">
-                        <img src="../resources/images/blog/cat-post/cat-post-3.jpg" alt="post">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0" >
+                    <div class="categories_post" id="post1">
+                        <img src="../resources/images/blog/cat-post/cat-post-2.jpg" alt="post" class="post_img">
                         <div class="categories_details">
                             <div class="categories_text">
-                                <a href="blog-details.html"><h5>Social Life</h5></a>
-                                <div class="border_line"></div>
-                                <p>Enjoy your social life together</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                    <div class="categories_post">
-                        <img src="../resources/images/blog/cat-post/cat-post-2.jpg" alt="post">
-                        <div class="categories_details">
-                            <div class="categories_text">
-                                <a href="blog-details.html"><h5>Politics</h5></a>
+                                <a href="./memberMylist"><h5>Politics</h5></a>  <!-- member_num, 파라미터 -->
                                 <div class="border_line"></div>
                                 <p>Be a part of politics</p>
                             </div>
@@ -108,8 +97,8 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="categories_post">
-                        <img src="../resources/images/blog/cat-post/cat-post-1.jpg" alt="post">
+                    <div class="categories_post" id="post2">
+                        <img src="../resources/images/blog/cat-post/cat-post-1.jpg" alt="post" class="post_img">
                         <div class="categories_details">
                             <div class="categories_text">
                                 <a href="blog-details.html"><h5>Food</h5></a>

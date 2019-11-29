@@ -41,5 +41,20 @@ public class MemberController {
 
 		return mv;
 	}
+	
+	//mypage
+	@GetMapping(value = "memberMypage")
+	public void memberMypage() throws Exception{
+		
+		
+	}
+	
+	//Mylist
+	@GetMapping(value = "memberMylist")
+	public void memberMylist() throws Exception{
+		
+		
+	}
+	
 
 }

@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="../resources/css/owl-carousel.min.css">
     <link rel="stylesheet" href="../resources/css/nice-select.css">
     <link rel="stylesheet" href="../resources/css/style.css">
-    <link rel="stylesheet" href="../resources/css/member/memberJoin.css">
+    <link rel="stylesheet" href="../resources/css/member/member.css">
     
 </head>
 <body>
