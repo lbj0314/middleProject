@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,7 +93,7 @@
                                     <div class="desc">
                                        <h5><p>Id</p></h5>
                                         <p class="comment">
-                                            	Elsie Cum
+                                            	
                                         </p>                                      
                                     </div>
                                 </div>
@@ -126,7 +127,7 @@
                                     <div class="desc">
                                         <h5><p>Name</p></h5>                                                                          
                                      <p class="comment">
-                                           Elsie Cum
+                                           Elsie Cum 
                                        </p>
                                     </div>
                                     
@@ -143,7 +144,7 @@
                                     <div class="desc">
                                         <h5><p>Phone Number</p></h5>                               
                                         <p class="comment">
-                                           010-***-1111
+                                           010-1234-1111
                                         </p>
                                     </div>
                                 </div>
@@ -158,7 +159,7 @@
                                     <div class="desc">
                                         <h5><p>Email</p></h5>                                     
                                         <p class="comment">
-                                         	aa***@n***.com
+                                         	aaaaa@naver.com
                                         </p>
                                     </div>
                                 </div>

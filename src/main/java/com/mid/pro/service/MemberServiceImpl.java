@@ -19,4 +19,14 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAOImpl.memberJoin(memberVO);
 	}
 
+	@Override
+	public MemberVO memberLogin(MemberVO memberVO)throws Exception{
+		return memberDAOImpl.memberLogin(memberVO);
+		
+	}
+	
+	@Override
+	public int memberUpdate(MemberVO memberVO)throws Exception{
+		return memberDAOImpl.memberUpdate(memberVO);
+	}
 }

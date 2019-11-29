@@ -17,6 +17,19 @@
 }
 
 
+/********************** memberLogin *********************************/
+#test{
+	
+	
+	margin-top: 300px;
+	margin-bottom: 300px;
+}
+
+#left{
+	display: block;
+	
+}
+
 
 /******************** memberMypage **********************/
 
@@ -49,7 +62,7 @@
 }  */
 
 #post2{
-	margin-right: 15px;
+	margin-right: 0px;
 }
 
 /********************** Mylist **************************/
@@ -73,3 +86,22 @@
 	margin-left: 15px;
 }
 
+
+/******************* Update *************************/
+#upd_area{
+	margin-bottom: 50px;
+	
+}
+
+
+.upd_input{
+	padding: 8px 20px;
+    background: #fff;
+    border: none;
+    border-radius: 0px;
+    width: 100%;
+    font-size: 14px;
+    color: #777777;
+    border: 1px solid transparent;
+	
+}

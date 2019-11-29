@@ -20,6 +20,13 @@ public class MemberDAOImpl implements MemberDAO{
 		
 	}
 	
+	@Override
+	public MemberVO memberLogin(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"memberLogin", memberVO);		
+	}
 	
-	
+	@Override
+	public int memberUpdate(MemberVO memberVO)throws Exception{
+		return sqlSession.update(NAMESPACE+"memberUpdate", memberVO);
+	}
 }

@@ -14,21 +14,42 @@ public class MemberDAOTest extends TestAbstractCase{
 	@Inject
 	private MemberDAO memberDAO;
 	
-	@Test
+	//@Test
 	public void memberJoinTest()throws Exception{
 		MemberVO memberVO = new MemberVO();
-		memberVO.setId("id1");
-		memberVO.setPw("pw1");
-		memberVO.setName("name1");
-		memberVO.setEmail("a@gmail.com");
-		memberVO.setTel("0101111111");
-		memberVO.setPost1("post1");
-		memberVO.setAddr1("addr1");
-		memberVO.setAddr2("addr2");
-		memberVO.setKind("kind");
-		memberVO.setReg_number(111);
+		memberVO.setId("test");
+		memberVO.setPw("test");
+		memberVO.setName("test1");
+		memberVO.setEmail("t@gmail.com");
+		memberVO.setTel("0102111111");
+		memberVO.setReg_number(211);
 		
 		int result = memberDAO.memberJoin(memberVO);
+		assertEquals(1, result);
+	}
+	
+	//@Test
+	public void memberLoginTest()throws Exception{
+		MemberVO memberVO = new MemberVO();
+		
+		memberVO.getId();
+		memberVO.getPw();
+		
+		memberVO = memberDAO.memberLogin(memberVO);
+		
+		assertEquals(1, memberVO);
+		
+	}
+	
+	@Test
+	public void memberUpdateTest()throws Exception{
+		MemberVO memberVO = new MemberVO();
+		
+		memberVO.setId("test");
+		memberVO.setEmail("k@g.com");
+		
+		int result = memberDAO.memberUpdate(memberVO);
+		
 		assertEquals(1, result);
 	}
 

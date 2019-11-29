@@ -9,11 +9,18 @@
   <!-- Join -->
   <insert id="memberJoin" parameterType="MemberVO">
   	insert into member 
-  	values(member_seq.nextval,#{id},#{pw},#{email},#{name},#{tel},#{post1},#{addr1},#{addr2},sysdate,0,#{kind},#{reg_number},1)
-  
+  	values(member_seq.nextval,#{id},#{pw},#{email},#{name},#{tel},sysdate,0,#{reg_number},1)
   </insert>
   
+  <!-- Login -->
+  <select id="memberLogin" resultType="MemberVO" parameterType="MemberVO">
+  	select member_num, id, email, name, tel, joindate, reg_number, grade from member where id=#{id} and pw = #{pw}
+  </select>
   
+  <!-- update -->
+  <update id="memberUpdate" parameterType="MemberVO">
+  	 update member set pw=#{pw}, email=#{email}, name=#{name}, tel=#{tel}, reg_number=#{reg_number} where id = #{id} 
+  </update>
   
   
   </mapper>

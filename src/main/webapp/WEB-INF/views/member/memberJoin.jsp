@@ -108,31 +108,7 @@
                             </div>
                             <div class="mt-10">
                                 <input type="text" name="tel" placeholder="tel" onfocus="this.placeholder = ''" onblur="this.placeholder = 'tel'" required class="single-input-primary">
-                            </div>
-                            <div class="input-group-icon mt-10">
-                                <div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-                                <input type="text" name="post1" placeholder="post1" onfocus="this.placeholder = ''" onblur="this.placeholder = 'post1'" required class="single-input">
-                            </div>
-                              <div class="input-group-icon mt-10">
-                                <div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-                                <input type="text" name="addr1" placeholder="addr1" onfocus="this.placeholder = ''" onblur="this.placeholder = 'addr1'" required class="single-input">
-                            </div>
-                              <div class="input-group-icon mt-10">
-                                <div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
-                                <input type="text" name="addr2" placeholder="addr2" onfocus="this.placeholder = ''" onblur="this.placeholder = 'addr2'" required class="single-input">
-                            </div>
-                            <div class="input-group-icon mt-10">
-                                <div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
-                                <div class="form-select" id="kind">
-                                    <select name="kind">
-                                        <option value="1">음식종류</option>
-                                        <option value="중식">중식</option>
-                                        <option value="일식">일식</option>
-                                        <option value="양식">양식</option>
-                                        <option value="기타">기타</option>
-                                    </select>
-                                </div>
-                            </div>
+                            </div>                        
                                                  
                             <div class="mt-10">
                                 <input type="text" name="reg_number" placeholder="reg_number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'reg_number'" required class="single-input-primary">

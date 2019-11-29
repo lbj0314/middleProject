@@ -10,12 +10,8 @@ public class MemberVO {
 	private String email;
 	private String name;
 	private String tel;
-	private String post1;
-	private String addr1;
-	private String addr2;
-	private Date date;
+	private Date joindate;
 	private int writecount;
-	private String kind;
 	private int reg_number;
 	private int grade;
 	
@@ -56,41 +52,17 @@ public class MemberVO {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public String getPost1() {
-		return post1;
+	public Date getJoindate() {
+		return joindate;
 	}
-	public void setPost1(String post1) {
-		this.post1 = post1;
-	}
-	public String getAddr1() {
-		return addr1;
-	}
-	public void setAddr1(String addr1) {
-		this.addr1 = addr1;
-	}
-	public String getAddr2() {
-		return addr2;
-	}
-	public void setAddr2(String addr2) {
-		this.addr2 = addr2;
-	}
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setJoindate(Date joindate) {
+		this.joindate = joindate;
 	}
 	public int getWritecount() {
 		return writecount;
 	}
 	public void setWritecount(int writecount) {
 		this.writecount = writecount;
-	}
-	public String getKind() {
-		return kind;
-	}
-	public void setKind(String kind) {
-		this.kind = kind;
 	}
 	public int getReg_number() {
 		return reg_number;
