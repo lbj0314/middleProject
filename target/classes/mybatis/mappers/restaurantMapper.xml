@@ -5,32 +5,22 @@
 
 <mapper namespace="restaurantMapper">
 <!-- sql -->
-	<sql id="bs">
+	<sql id="rs">
 		<choose>
-			<when test="kind == 'kt'">
-				WHERE title LIKE '%'||#{search}||'%'
-			</when>
-			<when test="kind == 'kw'">
-				WHERE writer LIKE '%'||#{search}||'%'
+			<when test="kind == 'kn'">
+				WHERE rest_name LIKE '%'||#{search}||'%'
 			</when>
 			<otherwise>
-				WHERE contents LIKE '%'||#{search}||'%'
+				WHERE rest_contents LIKE '%'||#{search}||'%'
 			</otherwise>
 		</choose>
 	</sql>
-	
+	<!-- 여기부터 수정 시작 -->
 	<resultMap type="RestaurantVO" id="boardFiles">
-		<id property="num" column="num"/>
-		<result property="title" column="title"/>
-		<result property="writer" column="writer"/>
+		<id property="rest_num" column="rest_num"/>
 		<result property="contents" column="contents"/>
 		<result property="reg_date" column="reg_date"/>
 		<result property="hit" column="hit"/>
-		<collection property="files" javaType="java.util.List" ofType="FilesVO">
-			<id property="fnum" column="fnum"/>
-			<result property="fname" column="fname"/>
-			<result property="oname" column="oname"/>
-		</collection>
 	</resultMap>
 	
 	<!-- 1개 -->

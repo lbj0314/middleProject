@@ -46,7 +46,7 @@ public class MenuController {
 			menuVO.setContents(menuVO.getContents().replace("\r\n", "<br>"));
 			mv.setViewName("menu/menuSelect");
 		} else {
-			mv.addObject("msg", "No Contents");
+			mv.addObject("msg", "내용이 없습니다.");
 			mv.addObject("path", "./menuList");
 			mv.setViewName("common/common_result");
 		}

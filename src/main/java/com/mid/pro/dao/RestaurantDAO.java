@@ -1,6 +1,9 @@
 package com.mid.pro.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -15,18 +18,23 @@ public class RestaurantDAO {
 	private SqlSession sqlSession;
 	private static final String NAMESPACE = "restaurantMapper.";
 	
+	//List
+	public List<RestaurantVO> restList(Pager pager) throws Exception{
+		return sqlSession.selectList(NAMESPACE + "restList", pager);
+	}
+	
 	//select One
 	public RestaurantVO restSelect(RestaurantVO restaurantVO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE + "restSelect", restaurantVO);
 	}
 	
 	//write
-	public int restWrite(RestaurantVO restaurantVO) throws Exception{
+	public int restWrite(RestaurantVO restaurantVO, HttpSession session) throws Exception{
 		return sqlSession.insert(NAMESPACE + "restWrite", restaurantVO);
 	}
 	
 	//update
-	public int restUpdate(RestaurantVO restaurantVO) throws Exception{
+	public int restUpdate(RestaurantVO restaurantVO, HttpSession session) throws Exception{
 		return sqlSession.update(NAMESPACE + "restUpdate", restaurantVO);
 	}
 	
