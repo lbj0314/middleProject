@@ -67,8 +67,8 @@
     <!-- Header Area End -->
 
     <!-- Banner Area Starts -->
-    <section class="banner-area banner-area2 blog-page text-center">
-        <div class="container">
+    <section class="banner-area banner-area2 blog-page text-center" >
+        <div class="container" >
             <div class="row">
                 <div class="col-lg-12">
                     <h1><i>Our Blog</i></h1>
@@ -82,7 +82,7 @@
     <!-- Banner Area End -->
     
     <!--================Blog Area =================-->
-                    <div class="comments-area " id= "upd_area">
+                    <div class="comments-area " id= "upd_area" >
                         <h4>My page</h4>
                         <div class="comment-list">
                             <div class="single-comment justify-content-between d-flex">

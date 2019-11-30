@@ -22,5 +22,11 @@
   	 update member set pw=#{pw}, email=#{email}, name=#{name}, tel=#{tel}, reg_number=#{reg_number} where id = #{id} 
   </update>
   
+  <!-- delete -->
+  <delete id="memberDelete" parameterType="MemberVO">
+  	delete from member where id = #{id}
+  </delete>
+  
+  
   
   </mapper>
