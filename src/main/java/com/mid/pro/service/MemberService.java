@@ -6,6 +6,8 @@ public interface MemberService {
 
 	public int memberJoin(MemberVO memberVO)throws Exception;
 	
+	public MemberVO memberCheckId(String id)throws Exception;
+	
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;
 	
 	public int memberUpdate(MemberVO memberVO)throws Exception;

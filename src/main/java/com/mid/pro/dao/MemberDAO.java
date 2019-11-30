@@ -7,6 +7,9 @@ public interface MemberDAO {
 	//join
 	public int memberJoin(MemberVO memberVO)throws Exception;
 	
+	//checkId
+	public MemberVO memberCheckId(String id)throws Exception;
+	
 	//login 
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;
 	

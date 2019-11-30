@@ -82,7 +82,7 @@
     <!-- Banner Area End -->
     
     <!--================Blog Area =================-->
-                    <div class="comments-area">
+                    <div class="comments-area" id="comments-area">
                         <h4>My page</h4>
                         <div class="comment-list">
                             <div class="single-comment justify-content-between d-flex">

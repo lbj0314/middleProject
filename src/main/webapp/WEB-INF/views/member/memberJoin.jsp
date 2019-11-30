@@ -4,9 +4,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Required Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,6 +92,7 @@
                         <form action="./memberJoin" method="post" id = "frm">
                             <div class="mt-10">
                                 <input type="text" name="id" placeholder="Id" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Id'" required class="single-input-primary">
+                            	<h3 id = "text"></h3>
                             </div>
                             <div class="mt-10">
                                 <input type="password" name="pw" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required class="single-input-primary">
@@ -101,7 +101,7 @@
                                 <input type="password" name="last_name" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required class="single-input-primary">
                             </div>
                             <div class="mt-10">
-                                <input type="email" name="email" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required class="single-input-primary">
+                                <input type="email" name="email" id="email"  placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required class="single-input-primary">
                             </div>
                                <div class="mt-10">
                                 <input type="text" name="name" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" required class="single-input-primary">
@@ -123,6 +123,43 @@
                     </div>
        
     <!-- End Align Area -->
+    <script type="text/javascript">
+    	$(function() {
+			$("input[name='id']").on("change",function(){
+				var id = $('#id').val();
+				alert("id:"+id);
+				
+				$.ajax({
+					type: "POST",
+					url:"memberCheckId",
+					data:{
+						id : id
+					},
+					success:function(data) {
+						/* if(id==""){
+							alert("아이디 입력 요망");
+							$("#text").css("color,"gray");
+							$("#text").text("id를 입력해주세요.");
+						}else  */
+							
+							if (data =='0'){
+							$("#text").css("color","blue");
+							$("#text").text("사용가능한 id입니다.");
+						}else if(data =="1"){
+							$("#text").css("color","red");
+							$("#text").text("이미 사용중인 id입니다.")
+							
+						}													
+					}, error :  function(error){
+						alert("error:"+error);
+					}
+			
+				});
+			});
+		});
+    
+    </script>
+    
 
     <!-- Footer Area Starts -->
     <footer class="footer-area">

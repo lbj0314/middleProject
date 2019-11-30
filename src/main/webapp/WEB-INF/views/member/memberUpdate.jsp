@@ -67,7 +67,7 @@
     <!-- Header Area End -->
 
     <!-- Banner Area Starts -->
-    <section class="banner-area banner-area2 blog-page text-center" >
+       <section class="banner-area banner-area2 blog-page text-center" >
         <div class="container" >
             <div class="row">
                 <div class="col-lg-12">
@@ -84,6 +84,7 @@
     <!--================Blog Area =================-->
                     <div class="comments-area " id= "upd_area" >
                         <h4>My page</h4>
+                     <form action="./memberUpdate" method="post">
                         <div class="comment-list">
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">
@@ -93,8 +94,8 @@
                                     <div class="desc">
                                        <h5><p>Id</p></h5>                                     
                                         <p class="comment">
-                                            	
-                                        </p>                                        	                                                                   
+                                            	${member.id}
+                                        </p>                                                                               	                                                                   
                                     </div>
                                 </div>                           
                             </div>
@@ -106,10 +107,9 @@
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">                                  
                                     <div class="desc">
-                                        <h5><p>Password</p></h5>                                                                          
-                                     <p class="comment">
-                                            ********
-                                       </p>
+                                        <h5><p>Password</p></h5>                                                                                                     
+                                            <input type="password" id= "pw" name = "pw" value ="${member.pw}"  class="form-control upd_input" placeholder="${member.pw}" onfocus="this.placeholder = ''" onblur="this.placeholder = '${member.pw}'" required> 
+                                       
                                     </div>
                                     
                                 </div>
@@ -124,7 +124,7 @@
                                     <div class="desc">
                                         <h5><p>Name</p></h5>   
                                        <div>                                                                       
-                                     <input type="text" id= "name" name = "name" class="form-control upd_input" placeholder="기존name" onfocus="this.placeholder = ''" onblur="this.placeholder = '기존 name'" required> 
+                                     <input type="text" id= "name" name = "name" value ="${member.name}"  class="form-control upd_input" placeholder="${member.name}" onfocus="this.placeholder = ''" onblur="this.placeholder = '${member.name}'" required> 
                                    		</div> 
                                     </div>
                                     
@@ -137,7 +137,7 @@
                                 <div class="user justify-content-between d-flex">                             
                                     <div class="desc">
                                         <h5><p>Phone Number</p></h5>                               
-                                        <input type="text" id= "id" name = "id" class="form-control upd_input" placeholder="기존phone" onfocus="this.placeholder = ''" onblur="this.placeholder = '기존 phone'" required> 
+                                        <input type="text" id= "tel" name = "tel" value="${member.tel}"  class="form-control upd_input" placeholder="${member.tel}" onfocus="this.placeholder = ''" onblur="this.placeholder = '${member.tel}'" required> 
                                     </div>
                                 </div>                              
                             </div>
@@ -147,7 +147,7 @@
                                 <div class="user justify-content-between d-flex">                                   
                                     <div class="desc">
                                         <h5><p>Email</p></h5>                                     
-                                        <input type="text" id= "id" name = "id" class="form-control upd_input" placeholder="기존email" onfocus="this.placeholder = ''" onblur="this.placeholder = '기존 email'" required> 
+                                        <input type="text" id= "email" name = "email" value = "${member.email}" class="form-control upd_input" placeholder="${member.email}" onfocus="this.placeholder = ''" onblur="this.placeholder = '${member.email}'" required> 
                                     </div>
                                 </div>                             
                             </div>
@@ -157,15 +157,18 @@
                                 <div class="user justify-content-between d-flex">                                   
                                     <div class="desc">
                                         <h5><p>corporate registration number</p></h5>                                     
-                                         <input type="text" id= "id" name = "id" class="form-control upd_input" placeholder="reg_num" onfocus="this.placeholder = ''" onblur="this.placeholder = 'reg_num'" required> 
+                                         <input type="text" id= "reg_number" name = "reg_number" value="${member.reg_number}" class="form-control upd_input" placeholder="${member.reg_number}" onfocus="this.placeholder = ''" onblur="this.placeholder = '${member.reg_number}'" required> 
                                     </div>
                                 </div>                            
                             </div>
                         </div>
                         <div id= "post_btn">
-                        	 <a href="#" class="genric-btn info" >application</a> 
-                        	 <a href="#" class="genric-btn danger" id="danger_btn">Cancel</a>                           
-                 	      </div>                                       				
+                        	 <a href="./memberUpdate?id=${member.id}" class="genric-btn info" >application1</a> 
+                       		<button class="genric-btn info">application</button>
+                       		<input type="submit" class="genric-btn info" value="application">
+                        	 <input type="button" class="genric-btn danger" id="danger_btn" onclick="history.go(-1)" value="Cancel">                                                
+                 	      </div>  
+                 	      </form>                                     				
                     </div>
                                
     <!--================Blog Area =================-->
