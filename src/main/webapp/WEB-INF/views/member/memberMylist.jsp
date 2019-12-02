@@ -82,7 +82,7 @@
     <!-- Banner Area End -->
     
     <!--================Blog Area =================-->
-                    <div class="comments-area">
+                    <div class="comments-area" id="comments-area">
                         <h4>My page</h4>
                         <div class="comment-list">
                             <div class="single-comment justify-content-between d-flex">
@@ -93,7 +93,7 @@
                                     <div class="desc">
                                        <h5><p>Id</p></h5>
                                         <p class="comment">
-                                            	
+                                            	${member.id}
                                         </p>                                      
                                     </div>
                                 </div>
@@ -111,7 +111,7 @@
                                     <div class="desc">
                                         <h5><p>Password</p></h5>                                                                          
                                      <p class="comment">
-                                            ********
+                                            ${member.pw}
                                        </p>
                                     </div>
                                     
@@ -127,7 +127,7 @@
                                     <div class="desc">
                                         <h5><p>Name</p></h5>                                                                          
                                      <p class="comment">
-                                           Elsie Cum 
+                                           ${member.name}
                                        </p>
                                     </div>
                                     
@@ -144,7 +144,7 @@
                                     <div class="desc">
                                         <h5><p>Phone Number</p></h5>                               
                                         <p class="comment">
-                                           010-1234-1111
+                                           ${member.tel}
                                         </p>
                                     </div>
                                 </div>
@@ -159,7 +159,7 @@
                                     <div class="desc">
                                         <h5><p>Email</p></h5>                                     
                                         <p class="comment">
-                                         	aaaaa@naver.com
+                                         	${member.email}
                                         </p>
                                     </div>
                                 </div>
@@ -174,7 +174,7 @@
                                     <div class="desc">
                                         <h5><p>corporate registration number</p></h5>                                     
                                         <p class="comment">
-                                         	111-11-11111
+                                         	${member.reg_number}
                                         </p>
                                     </div>
                                 </div>
@@ -184,7 +184,7 @@
                             </div>
                         </div>
                         <div id= "post_btn">
-                        	 <a href="#" class="genric-btn info" >application</a> 
+                        	 <a href="./memberUpdate?id=${member.id}#upd_area" class="genric-btn info" >회원정보수정</a> 
                         	 <a href="#" class="genric-btn danger" id="danger_btn">Cancel</a>                           
                  	      </div>                                       				
                     </div>

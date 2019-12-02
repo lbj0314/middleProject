@@ -3,11 +3,14 @@ package com.mid.pro.controller;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mid.pro.model.MemberVO;
@@ -26,8 +29,8 @@ public class MemberController {
 	public void memberJoin()throws Exception{
 
 	}
-
 	
+
 	@PostMapping(value = "memberJoin")
 	public ModelAndView memberJoin(MemberVO memberVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -43,6 +46,20 @@ public class MemberController {
 
 		return mv;
 	}
+	
+	///checkId
+	@ResponseBody
+	@RequestMapping(value = "memberCheckId", method = {RequestMethod.GET,RequestMethod.POST})
+	public String memberCheckId(String id)throws Exception{
+		MemberVO memberVO =  memberServiceImpl.memberCheckId(id);
+		
+		if(memberVO !=null) {
+			return "1";
+		}else {
+			return "0";
+		}
+	}
+	
 	
 	
 	///////////////////Login
@@ -74,24 +91,51 @@ public class MemberController {
 	}
 	
 	@PostMapping(value = "memberUpdate")
-	public String memberUpdate(MemberVO memberVO, HttpSession session)throws Exception{
-		int result = memberServiceImpl.memberUpdate(memberVO);		
+	public ModelAndView memberUpdate(MemberVO memberVO, HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = memberServiceImpl.memberUpdate(memberVO);	
+		
+		String msg = "회원정보수정이 실패하였습니다. 다시 시도해주세요.";	
 		if(result>0) {
+			msg = "회원정보수정이 완료되었습니다.";
 			session.setAttribute("member", memberVO);
 		}
-		return "redirect:../";
+			mv.addObject("msg", msg);
+			mv.addObject("path", "../");
+			mv.setViewName("common/common_result");
+		return mv;
+	}
+	
+	
+	///////////////Delete
+	@GetMapping(value = "memberDelete")
+	public ModelAndView memberDelete(MemberVO memberVO, HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = memberServiceImpl.memberDelete(memberVO);
+		
+		String msg = "회원탈퇴에 실패하였습니다. 다시 시도해주세요.";
+		if(result>0) {
+			msg = "회원탈퇴가 완료되었습니다.";
+		}
+		mv.addObject("msg", msg);
+		mv.addObject("path", "../");
+		mv.setViewName("common/common_result");
+		
+		session.invalidate();
+				
+		return mv;
 	}
 	
 	
 	
-	//mypage
+	/////mypage
 	@GetMapping(value = "memberMypage")
 	public void memberMypage() throws Exception{
 		
 		
 	}
 	
-	//Mylist
+	/////Mylist
 	@GetMapping(value = "memberMylist")
 	public void memberMylist() throws Exception{
 		

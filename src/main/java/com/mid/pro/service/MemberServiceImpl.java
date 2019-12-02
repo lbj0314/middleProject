@@ -14,19 +14,27 @@ public class MemberServiceImpl implements MemberService {
 	private MemberDAOImpl memberDAOImpl;
 
 	@Override
-	public int memberJoin(MemberVO memberVO) throws Exception {
-		
+	public int memberJoin(MemberVO memberVO) throws Exception {		
 		return memberDAOImpl.memberJoin(memberVO);
+	}
+	
+	@Override
+	public MemberVO memberCheckId(String id)throws Exception{
+		return memberDAOImpl.memberCheckId(id);
 	}
 
 	@Override
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception{
-		return memberDAOImpl.memberLogin(memberVO);
-		
+		return memberDAOImpl.memberLogin(memberVO);	
 	}
 	
 	@Override
 	public int memberUpdate(MemberVO memberVO)throws Exception{
 		return memberDAOImpl.memberUpdate(memberVO);
+	}
+	
+	@Override
+	public int memberDelete(MemberVO memberVO)throws Exception{
+		return memberDAOImpl.memberDelete(memberVO);
 	}
 }

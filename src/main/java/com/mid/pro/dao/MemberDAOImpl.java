@@ -16,8 +16,12 @@ public class MemberDAOImpl implements MemberDAO{
 	
 	@Override
 	public int memberJoin(MemberVO memberVO)throws Exception{
-		return sqlSession.insert(NAMESPACE+"memberJoin", memberVO);
-		
+		return sqlSession.insert(NAMESPACE+"memberJoin", memberVO);	
+	}
+	
+	@Override
+	public MemberVO memberCheckId(String id)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"memberCheckId", id);
 	}
 	
 	@Override
@@ -28,5 +32,10 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public int memberUpdate(MemberVO memberVO)throws Exception{
 		return sqlSession.update(NAMESPACE+"memberUpdate", memberVO);
+	}
+	
+	@Override
+	public int memberDelete(MemberVO memberVO)throws Exception{
+		return sqlSession.update(NAMESPACE+"memberDelete", memberVO);
 	}
 }
