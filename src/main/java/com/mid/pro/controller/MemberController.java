@@ -26,7 +26,6 @@ public class MemberController {
 
 
 	////////////Join
-	
 	@GetMapping(value = "memberGrade")
 	public void memberGrade()throws Exception{
 		
