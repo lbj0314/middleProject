@@ -1,12 +1,8 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Required Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,8 +22,6 @@
     <link rel="stylesheet" href="../resources/css/owl-carousel.min.css">
     <link rel="stylesheet" href="../resources/css/nice-select.css">
     <link rel="stylesheet" href="../resources/css/style.css">
-    <link rel="stylesheet" href="../resources/css/member/member.css">
-    
 </head>
 <body>
     <!-- Preloader Starts -->
@@ -71,7 +65,8 @@
         </div>
     </header>
     <!-- Header Area End -->
- <!-- Banner Area Starts -->
+    
+        <!-- Banner Area Starts -->
     <section class="banner-area banner-area2 blog-page text-center">
         <div class="container">
             <div class="row">
@@ -85,119 +80,28 @@
         </div>
     </section>
     <!-- Banner Area End -->
-         
-            <div class="section-top-border">
-                <div class="row">
-                    <div class="col-lg-8 col-md-8" id=join-form>
-                        <h3 class="mb-30 title_color">Create account</h3>
-                        <form action="./memberJoin" method="post" id = "frm">
-                            <div class="mt-10">
-                                <input type="text" id ="id" name="id" placeholder="Id" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Id'" required class="single-input-primary">
-                            	<h3 id = "text"></h3>
-                            </div>
-                            <div class="mt-10">
-                                <input type="password" id = "pw" name="pw" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required class="single-input-primary">
-                            	<div id = "pw_miss"></div>
-                            </div>
-                            <div class="mt-10">
-                                <input type="password" id = "pw2" name="pw2" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required class="single-input-primary">
-                          	  <div id="pw_check"></div>
-                            </div>
-                     
-                            <div></div>
-                            <div class="mt-10 form-group">
-                                <input type="email" name="email" id="email"  placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required class="single-input-primary">
-                            </div>
-                               <div class="mt-10">
-                                <input type="text" name="name" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" required class="single-input-primary">
-                            </div>
-                            <div class="mt-10">
-                                <input type="text" name="tel" placeholder="tel" onfocus="this.placeholder = ''" onblur="this.placeholder = 'tel'" required class="single-input-primary">
-                            </div>                        
-                            <c:if test="${member.grade == 2}">                   
-                            <div class="mt-10">
-                                <input type="text" name="reg_number" placeholder="reg_number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'reg_number'" required class="single-input-primary">
-                            </div>
-                            </c:if>  
-                            	<div id = "btn-form">
-                  			  <input type="submit" class="genric-btn primary radius" id = "btn" value= "Create your account">            
-                  			   </div>
-                        </form>
-                    </div>
-                   
-                        </div>
-                    </div>
-       
-    <!-- End Align Area -->
-   <script type="text/javascript"> 
-   
-   var idj = /^[a-z0-9]{4,12}$/;
-   
-   	$("#id").blur(function() {
-		
-   		var id = $('#id').val();
-   		
-   		$.ajax({
-   			url: "memberCheckId?id="+id,
-   			type : 'get',
-   			success: function(data) {
-				console.log("1=중복/ 0=중복x"+data);
-				
-				if(data ==1){			
-					$("#text").text("사용중인 아이디입니다.");
-					$("#text").css("color","red");
-					$("#btn").attr("disabled",true);
-				}else{
-				
-					if(idj.test(id)){
-						
-						$('#text').text("");
-						$("#btn").attr("disabled",false);
-					
-				}else if(id ==""){
-						$('#text').text('아이디를 입력해주세요.');
-						$('#text').css('color','red');
-						$("#btn").attr("disabled",true);
-					}else{
-						
-						$('#text').text("아이디는 소문자와 숫자, 4~12자리만 가능합니다.");
-						$('#text').css('color','red');
-						$('#btn').attr("disabled",true);
-					}
-					
-				}
-					
-				}, error:function(){
-					
-					console.log("실패");
-				}			
-   		}); 		
-	});
-   
- /* 비밀번호 일치 */  
- 	 $("#pw2").blur(function() {
-			var pw = $("#pw").val();
-			var pw2 = $("#pw2").val();		
-			if(pw == pw2){
-					if(pw !="" && pw2 != ""){
-						$("#pw_check").html("사용가능한 비밀번호입니다.")
-						$("#pw_check").css("color","green")
-					}else{
-				
-					}
-				}else{
-					$("#pw_check").html("비밀번호가 일치하지 않습니다.");		
-					$("#pw_check").css("color","red")
-				}				
-			});
+ <section class="sample-text-area">
  
- 	 	 $("#pw").change(function() {
-			$("#pw2").val("");
-			$("#pw_check").html("");
-		});
- 	 	 	 	    
-   </script>
-    
+ <div class="section-top2 text-center">
+ 					<form action="./memberJoin">	
+                        <h3>Our <span>special</span> deshes</h3>                                                             
+               			<button class="genric-btn primary" id = "pri" name= "grade" value="1">개인회원</button>
+ 						<button class="genric-btn success" id = "cor">기업회원  </button>           			
+  					</form>					
+  					             
+          </div>  
+  
+</section>
+
+<script type="text/javascript">
+
+
+
+
+</script>
+
+
+
 
     <!-- Footer Area Starts -->
     <footer class="footer-area">
@@ -286,9 +190,5 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="../resources/js/vendor/jquery.datetimepicker.full.min.js"></script>
     <script src="../resources/js/vendor/jquery.nice-select.min.js"></script>
     <script src="../resources/js/main.js"></script>
-</body>
-</html>
-
-
 </body>
 </html>

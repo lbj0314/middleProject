@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,6 +26,22 @@ public class MemberController {
 
 
 	////////////Join
+	
+	@GetMapping(value = "memberGrade")
+	public void memberGrade()throws Exception{
+		
+	}
+	
+	@PostMapping(value = "memberGrade")
+	public ModelAndView memberGrade(MemberVO memberVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = memberServiceImpl.memberGrade(memberVO);		
+		mv.setViewName("member/memberGrade");
+		mv.addObject("member", result);
+		
+		return mv;
+	}
+	
 	@GetMapping(value = "memberJoin")	
 	public void memberJoin()throws Exception{
 
@@ -49,19 +66,13 @@ public class MemberController {
 	
 	///checkId
 	@ResponseBody
-	@RequestMapping(value = "memberCheckId", method = {RequestMethod.GET,RequestMethod.POST})
-	public String memberCheckId(String id)throws Exception{
-		MemberVO memberVO =  memberServiceImpl.memberCheckId(id);
-		
-		if(memberVO !=null) {
-			return "1";
-		}else {
-			return "0";
-		}
+	@RequestMapping(value = "memberCheckId", method = RequestMethod.GET)
+	public int memberCheckId(@RequestParam("id") String id)throws Exception{
+			return memberServiceImpl.memberCheckId(id);
+							
 	}
 	
-	
-	
+		
 	///////////////////Login
 	@GetMapping(value = "memberLogin")
 	public void memberLogin()throws Exception{	

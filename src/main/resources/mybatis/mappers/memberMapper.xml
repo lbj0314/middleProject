@@ -9,11 +9,15 @@
   <!-- Join -->
   <insert id="memberJoin" parameterType="MemberVO">
   	insert into member 
-  	values(member_seq.nextval,#{id},#{pw},#{email},#{name},#{tel},sysdate,0,#{reg_number},1)
+  	values(member_seq.nextval,#{id},#{pw},#{email},#{name},#{tel},sysdate,0,#{reg_number},#{grade})
+  </insert>
+  
+  <insert id="memberGrade" parameterType="MemberVO">
+  	insert into member(grade) values(#{grade})
   </insert>
   
   <!-- checkId -->
-  <select id="memberCheckId" parameterType="String" resultType="MemberVO">
+  <select id="memberCheckId" parameterType="String" resultType="Integer">
   	select id from member where id=#{id}
   </select>
   

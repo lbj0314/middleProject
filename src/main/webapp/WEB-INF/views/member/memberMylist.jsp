@@ -96,10 +96,7 @@
                                             	${member.id}
                                         </p>                                      
                                     </div>
-                                </div>
-                                <div class="reply-btn">
-                                        <a href="" class="btn-reply text-uppercase">reply</a> 
-                                </div>
+                                </div>                        
                             </div>
                         <div class = "desc" id = "etc">
                         	 <p class="date">가입날짜 : December 4, 2017 at 3:12 pm</p>                
@@ -131,10 +128,7 @@
                                        </p>
                                     </div>
                                     
-                                </div>
-                                <div class="reply-btn">
-                                        <a href="" class="btn-reply text-uppercase">reply</a> 
-                                </div>
+                                </div>                             
                             </div>
                         </div>	
                         
@@ -147,10 +141,7 @@
                                            ${member.tel}
                                         </p>
                                     </div>
-                                </div>
-                                <div class="reply-btn">
-                                        <a href="" class="btn-reply text-uppercase">reply</a> 
-                                </div>
+                                </div>                          
                             </div>
                         </div>	
                         <div class="comment-list left-padding">
@@ -162,10 +153,7 @@
                                          	${member.email}
                                         </p>
                                     </div>
-                                </div>
-                                <div class="reply-btn">
-                                        <a href="" class="btn-reply text-uppercase">reply</a> 
-                                </div>
+                                </div>                         
                             </div>
                         </div>
                          <div class="comment-list left-padding">
@@ -177,10 +165,7 @@
                                          	${member.reg_number}
                                         </p>
                                     </div>
-                                </div>
-                                <div class="reply-btn">
-                                        <a href="" class="btn-reply text-uppercase">reply</a> 
-                                </div>
+                                </div>                        
                             </div>
                         </div>
                         <div id= "post_btn">

@@ -89,7 +89,7 @@
                     <form action="./memberLogin" method="post">
                         <div class="left" id="left">
                             <input type="text" id= "id" name = "id" placeholder="Enter your id" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" required>                         
-                            <input type="text" id ="pw" name = "pw" placeholder="Enter your password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter subject'" required>
+                            <input type="password"pw" name = "pw" placeholder="Enter your password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter subject'" required>
                         </div>
                     	
                         <button type="submit" class="template-btn">Login</button>
@@ -192,4 +192,3 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="../resources/js/main.js"></script>
 </body>
 </html>
-    
