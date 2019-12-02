@@ -17,7 +17,7 @@
   </insert>
   
   <!-- checkId -->
-  <select id="memberCheckId" parameterType="String" resultType="Integer">
+  <select id="memberCheckId" parameterType="MemberVO" resultType="int">
   	select id from member where id=#{id}
   </select>
   

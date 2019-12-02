@@ -66,8 +66,9 @@ public class MemberController {
 	///checkId
 	@ResponseBody
 	@RequestMapping(value = "memberCheckId", method = RequestMethod.GET)
-	public int memberCheckId(@RequestParam("id") String id)throws Exception{
-			return memberServiceImpl.memberCheckId(id);
+	public int memberCheckId(@RequestParam("id") MemberVO memberVO)throws Exception{
+			System.out.println();
+			return memberServiceImpl.memberCheckId(memberVO);
 							
 	}
 	

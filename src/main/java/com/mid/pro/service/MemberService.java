@@ -8,7 +8,7 @@ public interface MemberService {
 	
 	public int memberGrade(MemberVO memberVO)throws Exception;
 	
-	public int memberCheckId(String id)throws Exception;
+	public int memberCheckId(MemberVO memberVO)throws Exception;
 	
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;
 	

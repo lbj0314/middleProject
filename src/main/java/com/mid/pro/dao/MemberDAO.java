@@ -10,7 +10,7 @@ public interface MemberDAO {
 	public int memberGrade(MemberVO memberVO)throws Exception;
 	
 	//checkId
-	public int memberCheckId(String id)throws Exception;
+	public int memberCheckId(MemberVO memberVO)throws Exception;
 	
 	//login 
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;

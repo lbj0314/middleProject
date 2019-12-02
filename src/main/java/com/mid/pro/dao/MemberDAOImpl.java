@@ -25,8 +25,8 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 	
 	@Override
-	public int memberCheckId(String id)throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"memberCheckId", id);
+	public int memberCheckId(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"memberCheckId", memberVO);
 	}
 	
 	@Override
