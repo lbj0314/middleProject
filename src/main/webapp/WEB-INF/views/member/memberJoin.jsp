@@ -288,7 +288,3 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="../resources/js/main.js"></script>
 </body>
 </html>
-
-
-</body>
-</html>

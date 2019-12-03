@@ -24,18 +24,17 @@ public class MenuController {
 	@Inject
 	private MenuService menuService;
 	
-	
 	//list
 	@GetMapping(value = "menuList")
 	public ModelAndView menuList() throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<MenuVO> list = menuService.menuList();
-//		mv.addObject("pager", pager);
 		mv.addObject("list", list);
 		mv.setViewName("menu/menuList");
 
 		return mv;
 	}
+	
 	//select One
 	@GetMapping(value = "menuSelect")
 	public ModelAndView menuSelect(MenuVO menuVO) throws Exception{

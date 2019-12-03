@@ -7,7 +7,7 @@ public class MenuVO {
 	private int menu_num;
 	private String name;
 	private String contents;
-	private String price;
+	private int price;
 	private String origin;
 	private int rest_num;
 	private List<FilesVO> flies;
@@ -30,10 +30,10 @@ public class MenuVO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	public String getOrigin() {

@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="resources/css/owl-carousel.min.css">
     <link rel="stylesheet" href="resources/css/jquery.datetimepicker.min.css">
     <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/nice-select.css">
+    <link rel="stylesheet" href="resources/fonts/flat-icon/flaticon.css">
     
     <!-- Javascript -->
     <script src="resources/js/vendor/jquery-2.2.4.min.js"></script>

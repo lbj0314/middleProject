@@ -15,9 +15,9 @@
                     </div>  
                     <div class="main-menu main-menu2">
                         <ul>
-                            <li class="active"><a href="./">home</a></li>
-                            <li><a href="#">about</a></li>
-                            <li><a href="#">menu</a></li>
+                            <li class="active"><a href="../">home</a></li>
+                            <li><a href="../restaurant/restList">restaurant</a></li>
+                            <li><a href="./menuList">menu</a></li>
                             <li><a href="#">blog</a>
                                 <ul class="sub-menu">
                                     <li><a href="#">Blog Home</a></li>

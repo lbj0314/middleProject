@@ -21,11 +21,10 @@ public class MenuService {
 	private MenuDAO menuDAO;
 	@Inject
 	private FileSaver fileSaver;
-	
+
 	//list
 	public List<MenuVO> menuList() throws Exception{
-//		pager.makeRow();
-//		pager.makePager(menuDAO.menuCount());
+
 		return menuDAO.menuList();
 	}
 	//select One

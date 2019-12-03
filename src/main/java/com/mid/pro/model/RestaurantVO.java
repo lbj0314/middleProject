@@ -13,7 +13,7 @@ public class RestaurantVO {
 	private String rest_addr2;
 	private String rest_tel;
 	private String rest_url;
-	private String kind;
+	private String rest_kind;
 	private Date reg_date;
 	private int hit;
 	private int review_hit;
@@ -69,11 +69,11 @@ public class RestaurantVO {
 	public void setRest_url(String rest_url) {
 		this.rest_url = rest_url;
 	}
-	public String getKind() {
-		return kind;
+	public String getRest_Kind() {
+		return rest_kind;
 	}
-	public void setKind(String kind) {
-		this.kind = kind;
+	public void setRest_Kind(String rest_kind) {
+		this.rest_kind = rest_kind;
 	}
 	public Date getReg_date() {
 		return reg_date;

@@ -56,13 +56,13 @@
 		INSERT INTO menu
 		VALUES 
 		(
-			#{menu_num}, #{name}, #{contents}, #{price}, #{origin}, #{rest_num}
+			menu_seq.nextval, #{name}, #{contents}, #{price}, #{origin}, #{rest_num}
 		)
   	</insert>
   	<!-- update -->
   	<update id="menuUpdate" parameterType="menuVO">
   		UPDATE menu
-  		SET #{name}, #{contents}, #{price}, #{origin}
+  		SET name = #{name}, contents = #{contents}, price = #{price}, origin = #{origin}
   		WHERE menu_num = #{menu_num}
   	</update>
   	<!-- delete -->
@@ -70,4 +70,23 @@
   		DELETE menu
   		WHERE menu_num = #{menu_num}
   	</delete>
+  	<!-- file -->
+  	<insert id="fileWrite" parameterType="FilesVO" >
+		INSERT INTO files VALUES(
+		file_seq.nextval, #{menu_num}, #{rest_num}, #{fname}, #{oname}
+		)
+	</insert>
+	<select id="fileList" parameterType="Integer" resultType="FilesVO">
+		SELECT * FROM files
+		WHERE menu_num = #{menu_num}
+	</select>
+	<delete id="fileDelete" parameterType="FilesVO">
+		DELETE files
+		WHERE fnum = #{fnum}
+		
+	</delete>
+	<select id="fileSelect" parameterType="FilesVO" resultType="FilesVO">
+		SELECT * FROM files
+		WHERE fnum = #{fnum}
+	</select>
   </mapper>

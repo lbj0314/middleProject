@@ -15,42 +15,89 @@
 			</otherwise>
 		</choose>
 	</sql>
-	<!-- 여기부터 수정 시작 -->
-	<resultMap type="RestaurantVO" id="boardFiles">
+	
+	<resultMap type="RestaurantVO" id="restFiles">
 		<id property="rest_num" column="rest_num"/>
-		<result property="contents" column="contents"/>
+		<result property="rest_name" column="rest_name"/>
+		<result property="rest_contents" column="rest_contents"/>
+		<result property="rest_post1" column="rest_post1"/>
+		<result property="rest_addr1" column="rest_addr1"/>
+		<result property="rest_addr2" column="rest_addr2"/>
+		<result property="rest_tel" column="rest_tel"/>
+		<result property="rest_url" column="rest_url"/>
+		<result property="kind" column="kind"/>
 		<result property="reg_date" column="reg_date"/>
 		<result property="hit" column="hit"/>
+		<result property="review_hit" column="review_hit"/>
+		<result property="rev_date" column="rev_date"/>
+		<result property="member_num" column="member_num"/>
+		<collection property="files" javaType="java.util.List" ofType="FilesVO">
+			<id property="fnum" column="fnum"/>
+			<result property="fname" column="fname"/>
+			<result property="oname" column="oname"/>
+		</collection>
 	</resultMap>
-	
+	<!-- list -->
+	<select id="restaurantList" resultType="RestaurantVO" parameterType="Pager">
+	SELECT * FROM
+		(SELECT RE.*, ROWNUM R FROM
+		(SELECT * FROM restaurant
+		<include refid="rs"></include>
+		ORDER BY rest_num DESC) RE)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
+	</select>
 	<!-- 1개 -->
- 	<select id="restaurantSelect" resultMap="boardFiles" parameterType="RestaurantVO">
- 		SELECT r.*, f.fnum, f.fname, f.oname 
- 		FROM restaurant r FULL OUTER JOIN files f
-		ON (r.num = f.num)
-		WHERE r.num = #{num}
+ 	<select id="restaurantSelect" resultMap="restFiles" parameterType="RestaurantVO">
+ 		SELECT r.*, m.menu_num, f.fnum, f.oname, f.fname
+		FROM restaurant r FULL OUTER JOIN menu m
+		ON (r.rest_num = m.rest_num)
+		FULL OUTER JOIN files f
+		ON (r.rest_num = f.rest_num)
+		WHERE r.rest_num = #{rest_num}
  	</select>
 	<select id="restaurantCount" resultType="Integer"
 		parameterType="Pager">
-		SELECT COUNT(num) FROM restaurant
-		<include refid="bs"></include>
+		SELECT COUNT(rest_num) FROM restaurant
+		<include refid="rs"></include>
 	</select>
 	<insert id="restaurantWrite" parameterType="RestaurantVO">
-		<selectKey order="BEFORE" resultType="Integer" keyProperty="num">
-			SELECT restaurant_seq.nextval FROM dual
+		<selectKey order="BEFORE" resultType="Integer" keyProperty="rest_num">
+			SELECT rest_seq.nextval FROM dual
 		</selectKey>
 		INSERT INTO restaurant
 		VALUES(
-		#{num}, #{title}, #{writer}, #{contents}, SYSDATE, 0
+		#{rest_num}, #{rest_name}, #{rest_contents}, #{rest_post1},
+		#{rest_addr1}, #{rest_addr2}, #{rest_tel}, #{rest_url},
+		#{rest_kind}, SYSDATE, 0, 0, SYSDATE, #{member_num}
 		)
 	</insert>
 	<delete id="restaurantDelete" parameterType="Integer">
  		DELETE restaurant
- 		WHERE num = #{num}
+ 		WHERE rest_num = #{rest_num}
  	</delete>
  		<update id="restaurantUpdate" parameterType="RestaurantVO">
- 		UPDATE restaurant SET title = #{title}, contents = #{contents}
- 		WHERE num = #{num}
+ 		UPDATE restaurant SET rest_name = #{rest_name}, rest_contents = #{rest_contents},
+ 		rest_post1 = #{rest_post1}, rest_addr1 = #{rest_addr1}, rest_addr2 = #{rest_addr2},
+ 		rest_tel = #{rest_tel}, rest_url = #{rest_url}, rest_kind = #{rest_kind}
+ 		WHERE rest_num = #{rest_num}
  	</update>
- 	
+ 		<!-- file -->
+  	<insert id="fileWrite" parameterType="FilesVO" >
+		INSERT INTO files VALUES(
+		file_seq.nextval, #{menu_num}, #{rest_num}, #{fname}, #{oname}
+		)
+	</insert>
+	<select id="fileList" parameterType="Integer" resultType="FilesVO">
+		SELECT * FROM files
+		WHERE rest_num = #{rest_num}
+	</select>
+	<delete id="fileDelete" parameterType="FilesVO">
+		DELETE files
+		WHERE fnum = #{fnum}
+		
+	</delete>
+	<select id="fileSelect" parameterType="FilesVO" resultType="FilesVO">
+		SELECT * FROM files
+		WHERE fnum = #{fnum}
+	</select>
 </mapper>

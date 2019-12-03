@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mid.pro.model.FilesVO;
 import com.mid.pro.model.RestaurantVO;
 import com.mid.pro.service.RestaurantService;
 import com.mid.pro.util.Pager;
@@ -59,9 +60,9 @@ public class RestaurantController {
 		return mv;
 	}
 	@PostMapping(value = "restWrite")
-	public ModelAndView restWrite(RestaurantVO restaurantVO, HttpSession session) throws Exception{
+	public ModelAndView restWrite(RestaurantVO restaurantVO, MultipartFile[] file, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = restaurantService.restWrite(restaurantVO, session);
+		int result = restaurantService.restWrite(restaurantVO, file,session);
 		String msg = "식당 소개글 작성에 실패하였습니다.";
 		
 		if (result > 0) {
@@ -89,9 +90,9 @@ public class RestaurantController {
 		return mv;
 	}
 	@PostMapping(value = "restUpdate")
-	public ModelAndView restUpdate(RestaurantVO restaurantVO, HttpSession session) throws Exception{
+	public ModelAndView restUpdate(RestaurantVO restaurantVO, MultipartFile[] file, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = restaurantService.restUpdate(restaurantVO, session);
+		int result = restaurantService.restUpdate(restaurantVO, file, session);
 		String msg = "식당 소개글 수정에 실패하였습니다.";
 		if (result > 0) {
 			mv.setViewName("redirect:./restList");
@@ -103,7 +104,7 @@ public class RestaurantController {
 		return mv;
 	}
 	//delete
-	@GetMapping
+	@GetMapping(value = "restDelete")
 	public ModelAndView restDelete(RestaurantVO restaurantVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = restaurantService.restDelete(restaurantVO);
@@ -117,6 +118,34 @@ public class RestaurantController {
 		}
 		return mv;
 	}
+	//fileDelete
+		@PostMapping(value = "fileDelete")
+		public ModelAndView fileDelete(FilesVO filesVO) throws Exception{
+			ModelAndView mv = new ModelAndView();
+			int result = restaurantService.fileDelete(filesVO);
+			String msg = "Delete Fail";
+			if (result > 0) {
+				mv.addObject("result", result);
+				mv.setViewName("common/common_ajaxResult");
+			} else {
+				mv.addObject("msg", msg);
+				mv.addObject("path", "./menuList");
+				mv.setViewName("common/common_result");
+			}
+			return mv;
+		}
+		//fileDown
+		@GetMapping(value ="fileDown")
+		public ModelAndView fileDown(FilesVO filesVO) throws Exception{
+			ModelAndView mv = new ModelAndView();
+			filesVO = restaurantService.fileSelect(filesVO);
+
+			mv.addObject("file", filesVO);
+			
+			mv.setViewName("fileDown");
+
+			return mv;
+		}
 	//summerFile
 	@PostMapping(value = "summerFile")
 	public ModelAndView summerFile(MultipartFile file, HttpSession session) throws Exception{

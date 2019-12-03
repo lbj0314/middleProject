@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../resources/css/style.css">
     <link rel="stylesheet" href="../resources/css/nice-select.css">
     <link rel="stylesheet" href="../resources/fonts/flat-icon/flaticon.css">
-    
+
     <!-- Javascript -->
     <script src="../resources/js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="../resources/js/vendor/bootstrap-4.1.3.min.js"></script>
