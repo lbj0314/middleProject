@@ -3,7 +3,9 @@
 <%
 	String msg = (String)request.getAttribute("msg");
 	String path = (String)request.getAttribute("path");
+
 %>
+
 <!DOCTYPE html>
 <html>
 <head>

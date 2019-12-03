@@ -2,8 +2,10 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
   <configuration>
   	<typeAliases>
+  		<typeAlias type="com.mid.pro.model.MemberVO" alias="MemberVO"/>
   		<typeAlias type="com.mid.pro.model.RestaurantVO" alias="RestaurantVO"/>
   		<typeAlias type="com.mid.pro.model.MenuVO" alias="MenuVO"/>
   		<typeAlias type="com.mid.pro.util.Pager" alias="Pager"/>
