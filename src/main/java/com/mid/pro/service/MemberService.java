@@ -12,6 +12,8 @@ public interface MemberService {
 	
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;
 	
+	public MemberVO memberSelect(MemberVO memberVO)throws Exception;
+	
 	public int memberUpdate(MemberVO memberVO)throws Exception;
 	
 	public int memberDelete(MemberVO memberVO)throws Exception;

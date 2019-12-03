@@ -27,6 +27,11 @@
   	select member_num, id, email, name, tel, joindate, reg_number, grade from member where id=#{id} and pw = #{pw}
   </select>
   
+  <!-- Select -->
+  <select id="memberSelect" resultType="MemberVO" parameterType="MemberVO">
+ 	select member_num, id, email, name, tel, reg_number from member where id=#{id}
+  </select>
+  
   <!-- update -->
   <update id="memberUpdate" parameterType="MemberVO">
   	 update member set pw=#{pw}, email=#{email}, name=#{name}, tel=#{tel}, reg_number=#{reg_number} where id = #{id} 

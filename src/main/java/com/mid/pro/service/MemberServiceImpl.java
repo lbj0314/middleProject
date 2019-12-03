@@ -27,6 +27,11 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO memberCheckEmail(String email)throws Exception{
 		return memberDAOImpl.memberCheckEmail(email);
 	}
+	
+	@Override
+	public MemberVO memberSelect(MemberVO memberVO)throws Exception{
+		return memberDAOImpl.memberSelect(memberVO);
+	}
 
 	@Override
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception{

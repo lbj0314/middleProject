@@ -13,6 +13,9 @@ public interface MemberDAO {
 	//checkEmail
 	public MemberVO memberCheckEmail(String email)throws Exception;
 	
+	//select
+	public MemberVO memberSelect(MemberVO memberVO)throws Exception;
+	
 	//login 
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;
 	
