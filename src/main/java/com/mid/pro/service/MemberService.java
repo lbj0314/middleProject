@@ -8,6 +8,8 @@ public interface MemberService {
 		
 	public MemberVO memberCheckId(String id)throws Exception;
 	
+	public MemberVO memberCheckEmail(String email)throws Exception;
+	
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;
 	
 	public int memberUpdate(MemberVO memberVO)throws Exception;

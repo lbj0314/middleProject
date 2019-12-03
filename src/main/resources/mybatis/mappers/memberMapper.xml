@@ -17,6 +17,10 @@
   	select id from member where id=#{id}
   </select>
   
+  <!-- checkEmail -->
+  <select id="memberCheckEmail" resultType="MemberVO">
+  	select email from member where email=#{email}
+  </select>
   
   <!-- Login -->
   <select id="memberLogin" resultType="MemberVO" parameterType="MemberVO">

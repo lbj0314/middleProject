@@ -112,10 +112,7 @@
                                                      	
                                               
                             <div class="mt-10">
-                                <input type="text" id ="id" name="id" placeholder="Id" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Id'" required class="single-input-primary">
-                             <!--    <div id = "id_chk_btn">
-                                  <a href="#" class="genric-btn success-border medium" >중복 확인</a>
-                            	</div> -->
+                                <input type="text" id ="id" name="id" placeholder="Id" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Id'" required class="single-input-primary">                         
                             	<div id ="text"></div>
                             </div>
                             <div class="mt-10">
@@ -130,12 +127,18 @@
                             <div></div>
                             <div class="mt-10 form-group">
                                 <input type="email" name="email" id="email"  placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required class="single-input-primary">
+                            	<div id = "email_check"></div>
+                            	 <div id = "email_chk_btn">
+                                  <a href="#" class="genric-btn success-border medium" >인증하기</a>
+                            	</div>
                             </div>
                                <div class="mt-10">
-                                <input type="text" name="name" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" required class="single-input-primary">
+                                <input type="text" name="name" id="name" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" required class="single-input-primary">
+                            	<div id = "name_check"></div>
                             </div>
                             <div class="mt-10">
-                                <input type="text" name="tel" placeholder="tel" onfocus="this.placeholder = ''" onblur="this.placeholder = 'tel'" required class="single-input-primary">
+                                <input type="text" name="tel" id="tel" placeholder="010-***-****" onfocus="this.placeholder = ''" onblur="this.placeholder = '010-***-****'" required class="single-input-primary">
+                           		<div id = "tel_check"></div>
                             </div>                                                                  
                             <div class="mt-10">
                                 <input type="text" id="reg_number"  name="reg_number" placeholder="reg_number" onfocus="this.placeholder = 'reg_number'" onblur="this.placeholder = 'reg_number'"  class="single-input-primary">
@@ -167,7 +170,7 @@
 	});
     	
 	
-/**** id 형식 *****/			
+/**** id 형식 & 중복확인*****/			
 	$("#id").blur(function(id) {
 		var id = $('#id').val();
 		var idRule = /^[a-z0-9]{4,12}$/;
@@ -186,7 +189,7 @@
 						$('#text').text(" ");
 						$("#btn").attr("disabled",false);			
 					}else if(id ==""){					
-							$('#text').text('아이디를 입력해주세요.');
+							$('#text').text('필수 정보입니다.');
 							$('#text').css('color','red');
 							$("#btn").attr("disabled",true);					
 					}else{
@@ -209,14 +212,13 @@
 /******* 비밀번호 형식 ******/	
 	$("#pw").blur(function(pw) {
 		var pw = $('#pw').val();
-		/*  var pwRule = /^[A-Za-z0-9]{6,12}$/;  */
-		var pwRule = /^[a-z0-9]{4,12}$/;
+		var pwRule = /^[A-Za-z0-9]{6,12}$/;
 		
 		if(pwRule.test(pw)){
 			$('#pw_check').text(" ");
 			$("#btn").attr("disabled",false);
 		}else if(pw ==""){
-			$("#pw_check").html("비밀번호를 입력해주세요.");		
+			$("#pw_check").html("필수 정보입니다.");		
 			$("#pw_check").css("color","red");	
 			$("#btn").attr("disabled",true);
 		}else{
@@ -250,9 +252,100 @@
 			$("#pw2_check").html("");
 		});
  	 	  	
- 	 	 
- 	 	 
- 	 	 
+/********** Email 형식 *********/ 	 	
+
+/*  $("#email").blur(function(email) {
+	var email = $('#email').val();
+	var emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	
+	if(emailRule.test(email)){
+		$('#email_check').text(" ");
+		$("#btn").attr("disabled",false);
+	}else if(email ==""){
+		$("#email_check").html("필수 정보입니다.");		
+		$("#email_check").css("color","red");	
+		$("#btn").attr("disabled",true);
+	}else{
+			$("#email_check").html("이메일 주소를 다시 확인해주세요.");		
+			$("#email_check").css("color","red");			
+			$("#btn").attr("disabled",true);
+			return false;			
+		}			
+});  */
+
+
+ $("#email").blur(function(email) {
+	var email = $('#email').val();
+	var emailRule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	
+	var query= {email: $('#email').val()};	
+	$.ajax({
+		url:"memberCheckEmail",
+		type: "post",
+		data: query,
+		success:function(data){
+			if(data == 1){
+				$("#email_check").text("이미 사용중인 이메일입니다.");
+				$("#email_check").css("color","red");
+				$("#btn").attr("disabled",true);										
+			}else{
+				if(emailRule.test(email)){
+					$('#email_check').text(" ");
+					$("#btn").attr("disabled",false);			
+				}else if(email ==""){					
+						$('#email_check').text('필수 정보입니다.');
+						$('#email_check').css('color','red');
+						$("#btn").attr("disabled",true);					
+				}else{
+					$('#email_check').text("이메일 주소를 다시 확인해주세요.");
+					$('#email_check').css('color','red');
+					$('#btn').attr("disabled",true);
+					return false;					
+				}		
+			}	
+		},error:function(){		
+			
+		}
+				
+	});						
+}); 
+
+
+/******* Name 형식 *********/
+$("#name").blur(function(name) {
+	var name = $('#name').val();
+	if(name == ""){
+		$("#name_check").html("필수 정보입니다.");		
+		$("#name_check").css("color","red");	
+		$("#btn").attr("disabled",true);
+	}else
+		$('#name_check').text(" ");
+		$("#btn").attr("disabled",false);
+});
+
+ 	
+/********* Tel 형식 *************/
+ $("#tel").blur(function(tel) {
+		var tel = $('#tel').val();
+ 		var telRule = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
+			
+		if(telRule.test(tel)){
+			$('#tel_check').text(" ");
+			$("#btn").attr("disabled",false);
+		}else if(tel ==""){
+			$("#tel_check").html("필수 정보입니다.");		
+			$("#tel_check").css("color","red");	
+			$("#btn").attr("disabled",true);
+		}else{
+				$("#tel_check").html("형식에 맞지 않는 번호입니다.");		
+				$("#tel_check").css("color","red");			
+				$("#btn").attr("disabled",true);
+				return false;			
+			}			
+	});
+
+
+
  </script>
     
 

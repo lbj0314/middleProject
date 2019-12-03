@@ -10,6 +10,9 @@ public interface MemberDAO {
 	//checkId
 	public MemberVO memberCheckId(String id)throws Exception;
 	
+	//checkEmail
+	public MemberVO memberCheckEmail(String email)throws Exception;
+	
 	//login 
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;
 	
