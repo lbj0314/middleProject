@@ -1,9 +1,11 @@
 package com.mid.pro.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
+import org.aspectj.weaver.MemberImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,28 +27,12 @@ public class MemberController {
 	private MemberServiceImpl memberServiceImpl;
 
 
-	////////////Join
-	@GetMapping(value = "memberGrade")
-	public void memberGrade()throws Exception{
-		
-	}
-	
-	@PostMapping(value = "memberGrade")
-	public ModelAndView memberGrade(MemberVO memberVO)throws Exception{
-		ModelAndView mv = new ModelAndView();
-		int result = memberServiceImpl.memberGrade(memberVO);		
-		mv.setViewName("member/memberGrade");
-		mv.addObject("member", result);
-		
-		return mv;
-	}
-	
+	////////////Join	
 	@GetMapping(value = "memberJoin")	
 	public void memberJoin()throws Exception{
 
 	}
 	
-
 	@PostMapping(value = "memberJoin")
 	public ModelAndView memberJoin(MemberVO memberVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -65,11 +51,16 @@ public class MemberController {
 	
 	///checkId
 	@ResponseBody
-	@RequestMapping(value = "memberCheckId", method = RequestMethod.GET)
-	public int memberCheckId(@RequestParam("id") MemberVO memberVO)throws Exception{
-			System.out.println();
-			return memberServiceImpl.memberCheckId(memberVO);
-							
+	@PostMapping(value = "memberCheckId")
+	public int memberCheckId(HttpServletRequest req)throws Exception{
+		String id = req.getParameter("id");
+		MemberVO memberVO = memberServiceImpl.memberCheckId(id);	
+		int result = 0;
+		
+		if(memberVO != null) {
+			result = 1;
+		}
+		return result;
 	}
 	
 		

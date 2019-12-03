@@ -12,12 +12,8 @@
   	values(member_seq.nextval,#{id},#{pw},#{email},#{name},#{tel},sysdate,0,#{reg_number},#{grade})
   </insert>
   
-  <insert id="memberGrade" parameterType="MemberVO">
-  	insert into member(grade) values(#{grade})
-  </insert>
-  
   <!-- checkId -->
-  <select id="memberCheckId" parameterType="MemberVO" resultType="int">
+  <select id="memberCheckId" resultType="MemberVO">
   	select id from member where id=#{id}
   </select>
   

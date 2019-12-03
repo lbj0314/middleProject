@@ -90,10 +90,33 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-8" id=join-form>
                         <h3 class="mb-30 title_color">Create account</h3>
+                      	
                         <form action="./memberJoin" method="post" id = "frm">
+                      <div class="single-element-widget">
+                            <h5 class="mb-30 title_color">회원선택</h5>
+                              <div class="switch-wrap d-flex justify-content-between">
+                                <p id=check_pri>개인회원</p>
+                                <div class="primary-radio">
+                                    <input type="radio" id="primary-radio" name="grade" value="1" checked="checked">
+                                  <label for="primary-radio"></label>
+                                </div>
+                            </div>
+                            <div class="switch-wrap d-flex justify-content-between">
+                                <p id = check_cor>기업회원</p>
+                                <div class="confirm-radio">
+                                    <input type="radio" id="confirm-radio" name="grade" value="2">
+                                    <label for="confirm-radio"></label>
+                                </div>
+                            </div>
+                            </div>
+                                                     	
+                                              
                             <div class="mt-10">
                                 <input type="text" id ="id" name="id" placeholder="Id" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Id'" required class="single-input-primary">
-                            	<h3 id = "text"></h3>
+                             <!--    <div id = "id_chk_btn">
+                                  <a href="#" class="genric-btn success-border medium" >중복 확인</a>
+                            	</div> -->
+                            	<div><h5 id ="text"></h5></div>
                             </div>
                             <div class="mt-10">
                                 <input type="password" id = "pw" name="pw" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required class="single-input-primary">
@@ -113,12 +136,10 @@
                             </div>
                             <div class="mt-10">
                                 <input type="text" name="tel" placeholder="tel" onfocus="this.placeholder = ''" onblur="this.placeholder = 'tel'" required class="single-input-primary">
-                            </div>                        
-                            <c:if test="${member.grade == 2}">                   
+                            </div>                                                                  
                             <div class="mt-10">
-                                <input type="text" name="reg_number" placeholder="reg_number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'reg_number'" required class="single-input-primary">
-                            </div>
-                            </c:if>  
+                                <input type="text" id="reg_number"  name="reg_number" placeholder="reg_number" onfocus="this.placeholder = 'reg_number'" onblur="this.placeholder = 'reg_number'"  class="single-input-primary">
+                            </div>                        
                             	<div id = "btn-form">
                   			  <input type="submit" class="genric-btn primary radius" id = "btn" value= "Create your account">            
                   			   </div>
@@ -129,9 +150,86 @@
                     </div>
        
     <!-- End Align Area -->
-   <script type="text/javascript"> 
+  
+  
+  <script type="text/javascript"> 
    
-   var idj = /^[a-z0-9]{4,12}$/;
+  /**** 기업번호div활성화 *****/   
+    $("#reg_number").hide();
+    
+	$('input:radio[name=grade]').click(function() {
+		if($('input:radio[id=confirm-radio]').is(":checked")){
+			$("#reg_number").show();
+		}else{
+			  $("#reg_number").hide();	
+			  $('#reg_number').val('0');
+		}		
+	});
+    	
+	
+	/* id 형식 */		
+	
+	$("#id").blur(function(id) {
+		var id = $('#id').val();
+		var idRule = /^[a-z0-9]{4,12}$/;
+		var query = {id :  $('#id').val()};	
+		$.ajax({
+			url:"memberCheckId",
+			type: "post",
+			data: query,
+			success:function(data){
+				if(data == 1){
+					$("#text").text("사용중인 아이디입니다.");
+					$("#text").css("color","red");
+					$("#btn").attr("disabled",true);										
+				}else{
+					if(idRule.test(id)){
+						$('#text').text(" ");
+						$("#btn").attr("disabled",false);			
+					}else if(id ==""){					
+							$('#text').text('아이디를 입력해주세요.');
+							$('#text').css('color','red');
+							$("#btn").attr("disabled",true);					
+					}else{
+						$('#text').text("아이디는 소문자와 숫자, 4~12자리만 가능합니다.");
+						$('#text').css('color','red');
+						$('#btn').attr("disabled",true);
+						return false;					
+					}					
+				 	$("#text").text("사용가능한 아이디입니다.");
+					$("#text").css("color","green");
+					$("#btn").attr("disabled",false); 
+				}
+			},error:function(){
+				
+			}
+			
+		});
+		
+		
+	/* 	
+		 var idRule = /^[a-z0-9]{4,12}$/;		 		
+		if(id ==""){
+			$('#text').text('아이디를 입력해주세요.');
+			$('#text').css('color','red');
+			$("#btn").attr("disabled",true);		
+		}else{			
+			if(!idRule.test(id)){
+				$('#text').text("아이디는 소문자와 숫자, 4~12자리만 가능합니다.");
+				$('#text').css('color','red');
+				$('#btn').attr("disabled",true);
+				return false;	
+				
+				}else{
+					$('#text').text(" ");
+					$("#btn").attr("disabled",false);				
+				}
+		} */
+		
+	});
+	
+	
+ /*   var idj = /^[a-z0-9]{4,12}$/;
    
    	$("#id").blur(function() {
 		
@@ -154,7 +252,7 @@
 						$('#text').text("");
 						$("#btn").attr("disabled",false);
 					
-				}else if(id ==""){
+					}else if(id ==""){
 						$('#text').text('아이디를 입력해주세요.');
 						$('#text').css('color','red');
 						$("#btn").attr("disabled",true);
@@ -172,31 +270,46 @@
 					console.log("실패");
 				}			
    		}); 		
-	});
+	}); */
    
- /* 비밀번호 일치 */  
+/* 비밀번호 형식 */	
+	$("#pw").blur(function(pw) {
+		var pw = $('#pw').val();
+		var pwRule = /^[A-Za-z0-9]{6,12}$/;
+		
+		if(pw ==""){
+			alert("비밀번호를 입력해주세요.")		
+		}else{			
+			if(!pwRule.test(pw)){
+				alert("비밀번호는 문자와 숫자 포함, 6~12자리만 가능합니다.");
+				return false;			
+				}
+		}
+	});
+	
+/* 비밀번호 일치 */  
  	 $("#pw2").blur(function() {
 			var pw = $("#pw").val();
-			var pw2 = $("#pw2").val();		
+			var pw2 = $("#pw2").val();	
+			
 			if(pw == pw2){
 					if(pw !="" && pw2 != ""){
 						$("#pw_check").html("사용가능한 비밀번호입니다.")
 						$("#pw_check").css("color","green")
+					}else{		
+						}
 					}else{
-				
-					}
-				}else{
-					$("#pw_check").html("비밀번호가 일치하지 않습니다.");		
-					$("#pw_check").css("color","red")
-				}				
+						$("#pw_check").html("비밀번호가 일치하지 않습니다.");		
+						$("#pw_check").css("color","red")
+					}			
 			});
  
  	 	 $("#pw").change(function() {
 			$("#pw2").val("");
 			$("#pw_check").html("");
 		});
- 	 	 	 	    
-   </script>
+ 	 	  	 	 	 	    
+ </script>
     
 
     <!-- Footer Area Starts -->

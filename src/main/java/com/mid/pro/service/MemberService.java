@@ -5,10 +5,8 @@ import com.mid.pro.model.MemberVO;
 public interface MemberService {
 
 	public int memberJoin(MemberVO memberVO)throws Exception;
-	
-	public int memberGrade(MemberVO memberVO)throws Exception;
-	
-	public int memberCheckId(MemberVO memberVO)throws Exception;
+		
+	public MemberVO memberCheckId(String id)throws Exception;
 	
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;
 	
