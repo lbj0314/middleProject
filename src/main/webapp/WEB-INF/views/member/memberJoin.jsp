@@ -116,15 +116,15 @@
                              <!--    <div id = "id_chk_btn">
                                   <a href="#" class="genric-btn success-border medium" >중복 확인</a>
                             	</div> -->
-                            	<div><h5 id ="text"></h5></div>
+                            	<div id ="text"></div>
                             </div>
                             <div class="mt-10">
                                 <input type="password" id = "pw" name="pw" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required class="single-input-primary">
-                            	<div id = "pw_miss"></div>
+                            	<div id = "pw_check"></div>
                             </div>
                             <div class="mt-10">
                                 <input type="password" id = "pw2" name="pw2" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required class="single-input-primary">
-                          	  <div id="pw_check"></div>
+                          	  <div id="pw2_check"></div>
                             </div>
                      
                             <div></div>
@@ -167,8 +167,7 @@
 	});
     	
 	
-	/* id 형식 */		
-	
+/**** id 형식 *****/			
 	$("#id").blur(function(id) {
 		var id = $('#id').val();
 		var idRule = /^[a-z0-9]{4,12}$/;
@@ -196,119 +195,64 @@
 						$('#btn').attr("disabled",true);
 						return false;					
 					}					
-				 	$("#text").text("사용가능한 아이디입니다.");
+				 /* 	$("#text").text("사용가능한 아이디입니다.");
 					$("#text").css("color","green");
-					$("#btn").attr("disabled",false); 
+					$("#btn").attr("disabled",false);  */
 				}
 			},error:function(){
 				
-			}
-			
-		});
-		
-		
-	/* 	
-		 var idRule = /^[a-z0-9]{4,12}$/;		 		
-		if(id ==""){
-			$('#text').text('아이디를 입력해주세요.');
-			$('#text').css('color','red');
-			$("#btn").attr("disabled",true);		
-		}else{			
-			if(!idRule.test(id)){
-				$('#text').text("아이디는 소문자와 숫자, 4~12자리만 가능합니다.");
-				$('#text').css('color','red');
-				$('#btn').attr("disabled",true);
-				return false;	
-				
-				}else{
-					$('#text').text(" ");
-					$("#btn").attr("disabled",false);				
-				}
-		} */
-		
+			}			
+		});						
 	});
 	
-	
- /*   var idj = /^[a-z0-9]{4,12}$/;
    
-   	$("#id").blur(function() {
-		
-   		var id = $('#id').val();
-   		
-   		$.ajax({
-   			url: "memberCheckId?id="+id,
-   			type : 'get',
-   			success: function(data) {
-				console.log("1=중복/ 0=중복x"+data);
-				
-				if(data ==1){			
-					$("#text").text("사용중인 아이디입니다.");
-					$("#text").css("color","red");
-					$("#btn").attr("disabled",true);
-				}else{
-				
-					if(idj.test(id)){
-						
-						$('#text').text("");
-						$("#btn").attr("disabled",false);
-					
-					}else if(id ==""){
-						$('#text').text('아이디를 입력해주세요.');
-						$('#text').css('color','red');
-						$("#btn").attr("disabled",true);
-					}else{
-						
-						$('#text').text("아이디는 소문자와 숫자, 4~12자리만 가능합니다.");
-						$('#text').css('color','red');
-						$('#btn').attr("disabled",true);
-					}
-					
-				}
-					
-				}, error:function(){
-					
-					console.log("실패");
-				}			
-   		}); 		
-	}); */
-   
-/* 비밀번호 형식 */	
+/******* 비밀번호 형식 ******/	
 	$("#pw").blur(function(pw) {
 		var pw = $('#pw').val();
-		var pwRule = /^[A-Za-z0-9]{6,12}$/;
+		/*  var pwRule = /^[A-Za-z0-9]{6,12}$/;  */
+		var pwRule = /^[a-z0-9]{4,12}$/;
 		
-		if(pw ==""){
-			alert("비밀번호를 입력해주세요.")		
-		}else{			
-			if(!pwRule.test(pw)){
-				alert("비밀번호는 문자와 숫자 포함, 6~12자리만 가능합니다.");
+		if(pwRule.test(pw)){
+			$('#pw_check').text(" ");
+			$("#btn").attr("disabled",false);
+		}else if(pw ==""){
+			$("#pw_check").html("비밀번호를 입력해주세요.");		
+			$("#pw_check").css("color","red");	
+			$("#btn").attr("disabled",true);
+		}else{
+				$("#pw_check").html("비밀번호는 문자와 숫자 포함, 6~12자리만 가능합니다.");		
+				$("#pw_check").css("color","red");			
+				$("#btn").attr("disabled",true);
 				return false;			
-				}
-		}
+			}			
 	});
 	
-/* 비밀번호 일치 */  
+/****** 비밀번호 일치 ******/  
  	 $("#pw2").blur(function() {
 			var pw = $("#pw").val();
 			var pw2 = $("#pw2").val();	
 			
 			if(pw == pw2){
 					if(pw !="" && pw2 != ""){
-						$("#pw_check").html("사용가능한 비밀번호입니다.")
-						$("#pw_check").css("color","green")
+						$("#pw2_check").html("사용가능한 비밀번호입니다.")
+						$("#pw2_check").css("color","green")
 					}else{		
 						}
 					}else{
-						$("#pw_check").html("비밀번호가 일치하지 않습니다.");		
-						$("#pw_check").css("color","red")
+						$("#pw2_check").html("비밀번호가 일치하지 않습니다.");		
+						$("#pw2_check").css("color","red");
+						$("#btn").attr("disabled",true);
 					}			
 			});
  
  	 	 $("#pw").change(function() {
 			$("#pw2").val("");
-			$("#pw_check").html("");
+			$("#pw2_check").html("");
 		});
- 	 	  	 	 	 	    
+ 	 	  	
+ 	 	 
+ 	 	 
+ 	 	 
  </script>
     
 
