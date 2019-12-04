@@ -13,14 +13,13 @@ public class RestaurantVO {
 	private String rest_addr2;
 	private String rest_tel;
 	private String rest_url;
-	private String rest_kind;
+	private String kind;
 	private Date reg_date;
 	private int hit;
 	private int review_hit;
 	private Date rev_date;
 	private int member_num;
 	private List<FilesVO> files;
-	
 	public int getRest_num() {
 		return rest_num;
 	}
@@ -69,11 +68,11 @@ public class RestaurantVO {
 	public void setRest_url(String rest_url) {
 		this.rest_url = rest_url;
 	}
-	public String getRest_Kind() {
-		return rest_kind;
+	public String getKind() {
+		return kind;
 	}
-	public void setRest_Kind(String rest_kind) {
-		this.rest_kind = rest_kind;
+	public void setKind(String kind) {
+		this.kind = kind;
 	}
 	public Date getReg_date() {
 		return reg_date;
@@ -111,5 +110,7 @@ public class RestaurantVO {
 	public void setFiles(List<FilesVO> files) {
 		this.files = files;
 	}
+	
+	
 
 }

@@ -18,6 +18,16 @@
 	margin-top: 50px;
 	text-align: center;
 }
+#rest_url{
+display:block;
+width:100%;
+line-height:40px;
+border:none;
+outline:none;
+background:#f9f9ff;
+padding:0 20px
+}
+
 </style>
 </head>
 <body>
@@ -33,42 +43,40 @@
 		<div class="row">
 			<div class="col-lg-8 col-md-8" id="write-div">
 				<h3 class="mb-30 title_color">Restaurant Write</h3>
-				<form action="" method="post" id="frm" enctype="multipart/form-data">
+				<form action="./restWrite" method="post" id="frm" enctype="multipart/form-data">
 					<div class="mt-10">
-						<input type="text" id="rest_name" name="rest_name" placeholder="rest_name"
+						<input type="text" id="rest_name" name="rest_name" placeholder="식당 이름"
 							onfocus="this.placeholder = ''"
 							onblur="this.placeholder = 'Rest Name'" required
 							class="single-input">
 					</div>
 					<div class="mt-10">
-						<textarea id="rest_contents" name="rest_contents" placeholder="rest_contents"
+						<textarea id="rest_contents" name="rest_contents" placeholder="식당 소개"
+							style="width:100%;max-height:300px;min-height:200px;margin:5px 0;"
 							onfocus="this.placeholder = ''"
-							onblur="this.placeholder = 'Rest contents'" required
-							class="single-input" ></textarea>
+							onblur="this.placeholder = 'Rest contents'" required class="single-input" ></textarea>
 					</div>
-					<div class="mt-10">
 					<!-- 주소 API -->
-					<input type="text" id="rest_post1" placeholder="우편번호" readonly="readonly">
-					<input type="button" onclick="daum_execDaumPostcode()" value="우편번호 찾기"><br>
-					<input type="text" id="rest_addr1" placeholder="주소" readonly="readonly"><br>
-					<input type="text" id="rest_addr2" placeholder="상세주소">
+					<div class="mt-10">
+						<input type="text" id="rest_post1" name="rest_post1" placeholder="우편번호" readonly="readonly" 	onfocus="this.placeholder = ''"
+							required class="single-input" >
+						<input type="button" onclick="daum_execDaumPostcode()" value="우편번호 찾기"><br>
+						<input type="text" id="rest_addr1" name="rest_addr1" placeholder="주소" readonly="readonly" required class="single-input"><br>
+						<input type="text" id="rest_addr2" name="rest_addr2" placeholder="상세주소" required class="single-input">
 
-					<div id="wrap" style="display:none;border:1px solid;width:100%;height:300px;margin:5px 0;position:relative">
-					<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
-					</div>
+						<div id="wrap" style="display:none;border:1px solid;width:100%;height:300px;margin:5px 0;position:relative">
+							<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+						</div>
 					</div>
 					<!-- 주소 끝 -->
 					<div class="mt-10">
-						<input type="text" id="rest_tel" name="rest_tel" placeholder="rest_tel"
+						<input type="text" id="rest_tel" name="rest_tel" placeholder="식당 전화번호"
 							onfocus="this.placeholder = ''"
 							onblur="this.placeholder = 'rest_tel'" required
 							class="single-input">
 					</div>
 					<div class="mt-10">
-						<input type="email" name="rest_url" placeholder="rest_url"
-							onfocus="this.placeholder = ''"
-							onblur="this.placeholder = 'rest url'" required
-							class="single-input">
+						<input type="text" id="rest_url" name="rest_url" placeholder="식당 홈페이지 주소">
 					</div>
 					
 					<div class="input-group-icon mt-10">
@@ -76,23 +84,30 @@
 							<i class="fa fa-plane" aria-hidden="true"></i>
 						</div> -->
 						<div class="form-select" id="default-select">
-							<select name="kind">
-								<option id="kor" value="kor">한식</option>
-								<option id="cn" value="cn">중식</option>
-								<option id="jpn" value="jpn">일식</option>
-								<option id="yang" value="yang">양식</option>
-								<option id="fam" value="fam">패밀리 레스토랑</option>
+							<select name="kind" id="kind">
+								<option value="kor">한식</option>
+								<option value="cn">중식</option>
+								<option value="jpn">일식</option>
+								<option value="yang">양식</option>
+								<option value="fam">패밀리 레스토랑</option>
 							</select>
 						</div>
 					</div>
-
+				<div class="mt-10" id="files">
+					<div class="form-group" title="parent">
+						<input type="file" name="file" class="mt-10" id="file">
+						<input type="button" class="genric-btn danger del" value="Del">
+					</div>
+				</div>
+				
+				<input type="button" class="genric-btn info" value="Add File" id="add">
 				<!-- session member, memberDTO -->
 				<div class="mt-10">
 					<c:if test="${ empty member  }">
 						<button type="submit" class="genric-btn primary">WRITE</button>
 					</c:if>
 				</div>
-				</form>
+			</form>
 			</div>
 		</div>
 	</div>
@@ -174,9 +189,9 @@
         // iframe을 넣은 element를 보이게 한다.
         element_wrap.style.display = 'block';
         
+    }   
         
-        
-      /*   //////////////////////////////////////////////////////////
+  /*  //////////////////////////////////////////////////////////
         $("#rest_contents").summernote({
 			 height: 500,
 		  minHeight: null,
@@ -189,7 +204,7 @@
 				deleteFile(files[0], this);
 			} //delete 끝
 		  } // callback 끝
-	}); */
+	});
 	
 	function uploadFile(file, editor) {
 		//form tag 생성
@@ -226,7 +241,7 @@
 			}
 		});
 		
-	}
+	} */
 	
 	var files = $("#files").html();
 	var num = 0;
@@ -252,7 +267,7 @@
 		$("#files").append(files);
 		num++;
 	});
-    }
+    
 </script>
 </body>
 </html>

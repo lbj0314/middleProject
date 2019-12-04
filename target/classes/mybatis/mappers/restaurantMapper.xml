@@ -68,7 +68,7 @@
 		VALUES(
 		#{rest_num}, #{rest_name}, #{rest_contents}, #{rest_post1},
 		#{rest_addr1}, #{rest_addr2}, #{rest_tel}, #{rest_url},
-		#{rest_kind}, SYSDATE, 0, 0, SYSDATE, #{member_num}
+		#{kind}, SYSDATE, 0, 0, SYSDATE, #{member_num}
 		)
 	</insert>
 	<delete id="restaurantDelete" parameterType="Integer">
