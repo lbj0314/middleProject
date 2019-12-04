@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mid.pro.dao.RestaurantDAO;
-import com.mid.pro.model.FilesVO;
+import com.mid.pro.model.MenuFilesVO;
+import com.mid.pro.model.RestaurantFilesVO;
 import com.mid.pro.model.RestaurantVO;
 import com.mid.pro.util.FileSaver;
 import com.mid.pro.util.Pager;
@@ -36,16 +37,16 @@ public class RestaurantService {
 	//write
 	public int restWrite(RestaurantVO restaurantVO, MultipartFile[] file, HttpSession session) throws Exception{
 		String realPath = session.getServletContext().getRealPath("resources/upload/menu");
-		FilesVO filesVO = new FilesVO();
+		RestaurantFilesVO restaurantFilesVO = new RestaurantFilesVO();
 		int result = restaurantDAO.restWrite(restaurantVO);
 
 		for (MultipartFile multipartFile:file) {
 			if (multipartFile.getSize() != 0) {
 				String fileName = fileSaver.save(realPath, multipartFile);
-				filesVO.setFname(fileName);
-				filesVO.setRest_num(restaurantVO.getRest_num());
-				filesVO.setOname(multipartFile.getOriginalFilename());
-				result = restaurantDAO.fileWrite(filesVO);
+				restaurantFilesVO.setFname(fileName);
+				restaurantFilesVO.setRest_num(restaurantVO.getRest_num());
+				restaurantFilesVO.setOname(multipartFile.getOriginalFilename());
+				result = restaurantDAO.fileWrite(restaurantFilesVO);
 				if (result < 1) {
 					throw new SQLException();
 				}
@@ -56,16 +57,16 @@ public class RestaurantService {
 	//update
 	public int restUpdate(RestaurantVO restaurantVO, MultipartFile[] file, HttpSession session) throws Exception{
 		String realPath = session.getServletContext().getRealPath("resources/upload/menu");
-		FilesVO filesVO = new FilesVO();
+		RestaurantFilesVO restaurantFilesVO = new RestaurantFilesVO();
 		int result = restaurantDAO.restUpdate(restaurantVO);
 
 		for (MultipartFile multipartFile:file) {
 			if (multipartFile.getSize() != 0) {
 				String fileName = fileSaver.save(realPath, multipartFile);
-				filesVO.setFname(fileName);
-				filesVO.setRest_num(restaurantVO.getRest_num());
-				filesVO.setOname(multipartFile.getOriginalFilename());
-				result = restaurantDAO.fileWrite(filesVO);
+				restaurantFilesVO.setFname(fileName);
+				restaurantFilesVO.setRest_num(restaurantVO.getRest_num());
+				restaurantFilesVO.setOname(multipartFile.getOriginalFilename());
+				result = restaurantDAO.fileWrite(restaurantFilesVO);
 				if (result < 1) {
 					throw new SQLException();
 				}
@@ -78,12 +79,12 @@ public class RestaurantService {
 		return restaurantDAO.restDelete(restaurantVO);
 	}
 	//fileSelect
-	public FilesVO fileSelect(FilesVO filesVO) throws Exception{
-		return restaurantDAO.fileSelect(filesVO);
+	public RestaurantFilesVO fileSelect(RestaurantFilesVO restaurantFilesVO) throws Exception{
+		return restaurantDAO.fileSelect(restaurantFilesVO);
 	}
 	//fileDelete
-	public int fileDelete(FilesVO filesVO) throws Exception{
-		return restaurantDAO.fileDelete(filesVO);
+	public int fileDelete(RestaurantFilesVO restaurantFilesVO) throws Exception{
+		return restaurantDAO.fileDelete(restaurantFilesVO);
 	}
 	//summerFile
 	public String summerFile(MultipartFile file, HttpSession session) throws Exception{

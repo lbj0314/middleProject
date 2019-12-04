@@ -30,7 +30,7 @@
 		<result property="name" column="name"/>
 		<result property="contents" column="contents"/>
 		<result property="price" column="price"/>
-		<collection property="files" javaType="java.util.List" ofType="FilesVO">
+		<collection property="files" javaType="List" ofType="MenuFilesVO">
 			<id property="fnum" column="fnum"/>
 			<result property="fname" column="fname"/>
 			<result property="oname" column="oname"/>
@@ -38,7 +38,7 @@
 	</resultMap>
   	<select id="menuSelect" parameterType="menuVO" resultMap="menuFiles">
   		SELECT m.*, f.fnum, f.fname, f.oname 
- 		FROM menu m FULL OUTER JOIN files f
+ 		FROM menu m FULL OUTER JOIN menufiles f
 		ON (m.menu_num = f.menu_num)
 		WHERE m.menu_num = #{menu_num}
   	</select>
@@ -71,22 +71,22 @@
   		WHERE menu_num = #{menu_num}
   	</delete>
   	<!-- file -->
-  	<insert id="fileWrite" parameterType="FilesVO" >
-		INSERT INTO files VALUES(
-		file_seq.nextval, #{menu_num}, #{rest_num}, #{fname}, #{oname}
+  	<insert id="fileWrite" parameterType="MenuFilesVO" >
+		INSERT INTO menufiles VALUES(
+		file_seq.nextval, #{menu_num}, #{fname}, #{oname}
 		)
 	</insert>
-	<select id="fileList" parameterType="Integer" resultType="FilesVO">
-		SELECT * FROM files
+	<select id="fileList" parameterType="Integer" resultType="MenuFilesVO">
+		SELECT * FROM menufiles
 		WHERE menu_num = #{menu_num}
 	</select>
-	<delete id="fileDelete" parameterType="FilesVO">
-		DELETE files
+	<delete id="fileDelete" parameterType="MenuFilesVO">
+		DELETE menufiles
 		WHERE fnum = #{fnum}
 		
 	</delete>
-	<select id="fileSelect" parameterType="FilesVO" resultType="FilesVO">
-		SELECT * FROM files
+	<select id="fileSelect" parameterType="MenuFilesVO" resultType="MenuFilesVO">
+		SELECT * FROM menufiles
 		WHERE fnum = #{fnum}
 	</select>
   </mapper>

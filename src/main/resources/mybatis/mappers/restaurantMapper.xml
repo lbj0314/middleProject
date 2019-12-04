@@ -31,7 +31,7 @@
 		<result property="review_hit" column="review_hit"/>
 		<result property="rev_date" column="rev_date"/>
 		<result property="member_num" column="member_num"/>
-		<collection property="files" javaType="java.util.List" ofType="FilesVO">
+		<collection property="files" javaType="List" ofType="RestaurantFilesVO">
 			<id property="fnum" column="fnum"/>
 			<result property="fname" column="fname"/>
 			<result property="oname" column="oname"/>
@@ -51,7 +51,7 @@
  		SELECT r.*, m.menu_num, f.fnum, f.oname, f.fname
 		FROM restaurant r FULL OUTER JOIN menu m
 		ON (r.rest_num = m.rest_num)
-		FULL OUTER JOIN files f
+		FULL OUTER JOIN restfiles f
 		ON (r.rest_num = f.rest_num)
 		WHERE r.rest_num = #{rest_num}
  	</select>
@@ -78,26 +78,26 @@
  		<update id="restaurantUpdate" parameterType="RestaurantVO">
  		UPDATE restaurant SET rest_name = #{rest_name}, rest_contents = #{rest_contents},
  		rest_post1 = #{rest_post1}, rest_addr1 = #{rest_addr1}, rest_addr2 = #{rest_addr2},
- 		rest_tel = #{rest_tel}, rest_url = #{rest_url}, rest_kind = #{rest_kind}
+ 		rest_tel = #{rest_tel}, rest_url = #{rest_url}, kind = #{kind}
  		WHERE rest_num = #{rest_num}
  	</update>
  		<!-- file -->
-  	<insert id="fileWrite" parameterType="FilesVO" >
-		INSERT INTO files VALUES(
-		file_seq.nextval, #{menu_num}, #{rest_num}, #{fname}, #{oname}
+  	<insert id="fileWrite" parameterType="RestaurantFilesVO" >
+		INSERT INTO restfiles VALUES(
+		file_seq.nextval, #{rest_num}, #{fname}, #{oname}
 		)
 	</insert>
-	<select id="fileList" parameterType="Integer" resultType="FilesVO">
-		SELECT * FROM files
+	<select id="fileList" parameterType="Integer" resultType="RestaurantFilesVO">
+		SELECT * FROM restfiles
 		WHERE rest_num = #{rest_num}
 	</select>
-	<delete id="fileDelete" parameterType="FilesVO">
-		DELETE files
+	<delete id="fileDelete" parameterType="RestaurantFilesVO">
+		DELETE restfiles
 		WHERE fnum = #{fnum}
 		
 	</delete>
-	<select id="fileSelect" parameterType="FilesVO" resultType="FilesVO">
-		SELECT * FROM files
+	<select id="fileSelect" parameterType="RestaurantFilesVO" resultType="RestaurantFilesVO">
+		SELECT * FROM restfiles
 		WHERE fnum = #{fnum}
 	</select>
 </mapper>

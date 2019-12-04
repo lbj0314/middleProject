@@ -44,6 +44,7 @@ padding:0 20px
 			<div class="col-lg-8 col-md-8" id="write-div">
 				<h3 class="mb-30 title_color">Restaurant Write</h3>
 				<form action="./restWrite" method="post" id="frm" enctype="multipart/form-data">
+					<input type="hidden" id="num" name="num" value="${vo.num }">
 					<div class="mt-10">
 						<input type="text" id="rest_name" name="rest_name" placeholder="식당 이름"
 							onfocus="this.placeholder = ''"
@@ -103,7 +104,7 @@ padding:0 20px
 				<input type="button" class="genric-btn info" value="Add File" id="add">
 				<!-- session member, memberDTO -->
 				<div class="mt-10">
-					<c:if test="${ empty member  }">
+					<c:if test="${ not empty member  }">
 						<button type="submit" class="genric-btn primary">WRITE</button>
 					</c:if>
 				</div>

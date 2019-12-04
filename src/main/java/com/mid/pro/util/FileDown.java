@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.servlet.view.AbstractView;
 
-import com.mid.pro.model.FilesVO;
+import com.mid.pro.model.MenuFilesVO;
 
 @Component
 public class FileDown extends AbstractView{
@@ -22,7 +22,7 @@ public class FileDown extends AbstractView{
 	protected void renderMergedOutputModel(Map<String, Object> model, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
-		FilesVO filesVO = (FilesVO)model.get("file");
+		MenuFilesVO filesVO = (MenuFilesVO)model.get("file");
 		String board = (String)model.get("board");
 		String realPath = request.getSession().getServletContext().getRealPath("resources/upload/"+board);
 		System.out.println(realPath);

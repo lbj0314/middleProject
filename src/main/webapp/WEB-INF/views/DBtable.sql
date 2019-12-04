@@ -3,11 +3,12 @@
 
 DROP TABLE notice CASCADE CONSTRAINTS;
 DROP TABLE admin CASCADE CONSTRAINTS;
-DROP TABLE files CASCADE CONSTRAINTS;
 DROP TABLE mypage CASCADE CONSTRAINTS;
 DROP TABLE qna CASCADE CONSTRAINTS;
 DROP TABLE reservation CASCADE CONSTRAINTS;
+DROP TABLE menufiles CASCADE CONSTRAINTS;
 DROP TABLE menu CASCADE CONSTRAINTS;
+DROP TABLE restfiles CASCADE CONSTRAINTS;
 DROP TABLE restaurant CASCADE CONSTRAINTS;
 DROP TABLE review CASCADE CONSTRAINTS;
 DROP TABLE member CASCADE CONSTRAINTS;
@@ -23,17 +24,6 @@ CREATE TABLE admin
 	admin_id varchar2(40) NOT NULL,
 	admin_pw varchar2(40) NOT NULL,
 	PRIMARY KEY (admin_num)
-);
-
-
-CREATE TABLE files
-(
-	fnum number(10,0) NOT NULL,
-	-- menu num
-	menu_num number(5,0) NOT NULL,
-	fname varchar2(4000),
-	oname varchar2(4000),
-	PRIMARY KEY (fnum)
 );
 
 
@@ -73,6 +63,17 @@ CREATE TABLE menu
 	-- rest num
 	rest_num number(10,0) NOT NULL,
 	PRIMARY KEY (menu_num)
+);
+
+
+CREATE TABLE menufiles
+(
+	fnum number(10,0) NOT NULL,
+	-- menu num
+	menu_num number(5,0) NOT NULL,
+	fname varchar2(4000),
+	oname varchar2(4000),
+	PRIMARY KEY (fnum)
 );
 
 
@@ -145,6 +146,8 @@ CREATE TABLE reservation
 	-- reservation_date
 	rev_date date NOT NULL,
 	rev_state number(1) NOT NULL,
+	-- reservation_time
+	rev_time varchar2(400),
 	PRIMARY KEY (rev_num)
 );
 
@@ -176,6 +179,17 @@ CREATE TABLE restaurant
 	rev_date date UNIQUE,
 	member_num number(10,0) NOT NULL,
 	PRIMARY KEY (rest_num)
+);
+
+
+CREATE TABLE restfiles
+(
+	fnum number(10,0) NOT NULL,
+	-- rest num
+	rest_num number(10,0) NOT NULL,
+	fname varchar2(4000),
+	oname varchar2(4000),
+	PRIMARY KEY (fnum)
 );
 
 
@@ -232,7 +246,7 @@ ALTER TABLE review
 ;
 
 
-ALTER TABLE files
+ALTER TABLE menufiles
 	ADD FOREIGN KEY (menu_num)
 	REFERENCES menu (menu_num)
 ;
@@ -251,12 +265,18 @@ ALTER TABLE menu
 
 
 ALTER TABLE reservation
+	ADD FOREIGN KEY (rest_num)
+	REFERENCES restaurant (rest_num)
+;
+
+
+ALTER TABLE reservation
 	ADD FOREIGN KEY (rev_date)
 	REFERENCES restaurant (rev_date)
 ;
 
 
-ALTER TABLE reservation
+ALTER TABLE restfiles
 	ADD FOREIGN KEY (rest_num)
 	REFERENCES restaurant (rest_num)
 ;
@@ -265,7 +285,6 @@ ALTER TABLE reservation
 
 /* Comments */
 
-COMMENT ON COLUMN files.menu_num IS 'menu num';
 COMMENT ON COLUMN member.pw IS 'pw
 ';
 COMMENT ON COLUMN member.tel IS 'tel
@@ -277,6 +296,7 @@ COMMENT ON COLUMN menu.name IS 'menu_name';
 COMMENT ON COLUMN menu.price IS 'price';
 COMMENT ON COLUMN menu.origin IS 'origin';
 COMMENT ON COLUMN menu.rest_num IS 'rest num';
+COMMENT ON COLUMN menufiles.menu_num IS 'menu num';
 COMMENT ON COLUMN mypage.mp_num IS 'mp_num';
 COMMENT ON COLUMN mypage.rev_num IS 'reservation_num';
 COMMENT ON COLUMN notice.title IS 'notice';
@@ -293,6 +313,7 @@ COMMENT ON COLUMN reservation.rev_num IS 'reservation_num';
 COMMENT ON COLUMN reservation.rest_num IS 'rest num';
 COMMENT ON COLUMN reservation.rev_people IS 'reservation_people';
 COMMENT ON COLUMN reservation.rev_date IS 'reservation_date';
+COMMENT ON COLUMN reservation.rev_time IS 'reservation_time';
 COMMENT ON COLUMN restaurant.rest_num IS 'rest num';
 COMMENT ON COLUMN restaurant.rest_name IS 'rest name
 ';
@@ -303,6 +324,7 @@ COMMENT ON COLUMN restaurant.rest_url IS 'rest_url';
 COMMENT ON COLUMN restaurant.reg_date IS 'taste_reg_date';
 COMMENT ON COLUMN restaurant.hit IS 'taste_hit';
 COMMENT ON COLUMN restaurant.rev_date IS 'reservation_date';
+COMMENT ON COLUMN restfiles.rest_num IS 'rest num';
 COMMENT ON COLUMN review.review_num IS 'review num';
 COMMENT ON COLUMN review.contents IS 'review contents';
 COMMENT ON COLUMN review.reg_date IS 'reg_date';

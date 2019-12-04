@@ -10,7 +10,7 @@ public class MenuVO {
 	private int price;
 	private String origin;
 	private int rest_num;
-	private List<FilesVO> flies;
+	private List<MenuFilesVO> flies;
 	
 	public int getMenu_num() {
 		return menu_num;
@@ -48,10 +48,10 @@ public class MenuVO {
 	public void setRest_num(int rest_num) {
 		this.rest_num = rest_num;
 	}
-	public List<FilesVO> getFlies() {
+	public List<MenuFilesVO> getFlies() {
 		return flies;
 	}
-	public void setFlies(List<FilesVO> flies) {
+	public void setFlies(List<MenuFilesVO> flies) {
 		this.flies = flies;
 	}
 	

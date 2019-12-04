@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mid.pro.model.FilesVO;
+import com.mid.pro.model.MenuFilesVO;
 import com.mid.pro.model.MenuVO;
 import com.mid.pro.service.MenuService;
 
@@ -121,9 +121,9 @@ public class MenuController {
 	}
 	//fileDelete
 	@PostMapping(value = "fileDelete")
-	public ModelAndView fileDelete(FilesVO filesVO) throws Exception{
+	public ModelAndView fileDelete(MenuFilesVO menufilesVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = menuService.fileDelete(filesVO);
+		int result = menuService.fileDelete(menufilesVO);
 		String msg = "Delete Fail";
 		if (result > 0) {
 			mv.addObject("result", result);
@@ -137,11 +137,11 @@ public class MenuController {
 	}
 	//fileDown
 	@GetMapping(value ="fileDown")
-	public ModelAndView fileDown(FilesVO filesVO) throws Exception{
+	public ModelAndView fileDown(MenuFilesVO menufilesVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		filesVO = menuService.fileSelect(filesVO);
+		menufilesVO = menuService.fileSelect(menufilesVO);
 
-		mv.addObject("file", filesVO);
+		mv.addObject("file", menufilesVO);
 		
 		mv.setViewName("fileDown");
 

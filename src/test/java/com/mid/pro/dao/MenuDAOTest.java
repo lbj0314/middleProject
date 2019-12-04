@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import org.junit.Test;
 
 import com.mid.pro.TestAbstractCase;
-import com.mid.pro.model.FilesVO;
+import com.mid.pro.model.MenuFilesVO;
 import com.mid.pro.model.MemberVO;
 import com.mid.pro.model.MenuVO;
 import com.mid.pro.model.RestaurantVO;
@@ -46,9 +46,8 @@ public class MenuDAOTest extends TestAbstractCase{
 	
 //	@Test
 	public void fileWriteTest() throws Exception{
-		FilesVO filesVO = new FilesVO();
+		MenuFilesVO filesVO = new MenuFilesVO();
 		filesVO.setMenu_num(1);
-		filesVO.setRest_num(1);
 		filesVO.setFname("103131.jpg");
 		filesVO.setOname("jajang.jpg");
 	}

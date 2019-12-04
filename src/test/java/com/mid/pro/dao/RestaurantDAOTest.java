@@ -7,7 +7,8 @@ import javax.inject.Inject;
 import org.junit.Test;
 
 import com.mid.pro.TestAbstractCase;
-import com.mid.pro.model.FilesVO;
+import com.mid.pro.model.MenuFilesVO;
+import com.mid.pro.model.RestaurantFilesVO;
 import com.mid.pro.model.RestaurantVO;
 
 public class RestaurantDAOTest extends TestAbstractCase{
@@ -25,7 +26,7 @@ public class RestaurantDAOTest extends TestAbstractCase{
 		restaurantVO.setRest_addr2("test");
 		restaurantVO.setRest_tel("02-2222-2222");
 		restaurantVO.setRest_url("");
-		restaurantVO.setRest_Kind("test");
+		restaurantVO.setKind("test");
 		restaurantVO.setMember_num(1);
 		int result = restaurantDAO.restWrite(restaurantVO);
 
@@ -41,11 +42,11 @@ public class RestaurantDAOTest extends TestAbstractCase{
 	
 //	@Test
 	public void fileWriteTest() throws Exception{
-		FilesVO filesVO = new FilesVO();
-		filesVO.setMenu_num(1);
-		filesVO.setRest_num(1);
-		filesVO.setFname("103131.jpg");
-		filesVO.setOname("jajang.jpg");
+		RestaurantFilesVO restaurantFilesVO = new RestaurantFilesVO();
+
+		restaurantFilesVO.setRest_num(1);
+		restaurantFilesVO.setFname("103131.jpg");
+		restaurantFilesVO.setOname("jajang.jpg");
 	}
 	
 	

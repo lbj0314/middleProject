@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mid.pro.model.FilesVO;
+import com.mid.pro.model.MenuFilesVO;
+import com.mid.pro.model.RestaurantFilesVO;
 import com.mid.pro.model.RestaurantVO;
 import com.mid.pro.service.RestaurantService;
 import com.mid.pro.util.Pager;
@@ -53,8 +54,10 @@ public class RestaurantController {
 	}
 	//write
 	@GetMapping(value = "restWrite")
-	public ModelAndView restWrite(HttpSession session) throws Exception{
+	public ModelAndView restWrite(RestaurantVO restaurantVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		restaurantVO = restaurantService.restSelect(restaurantVO);
+		mv.addObject("vo", restaurantVO);
 		mv.setViewName("restaurant/restWrite");
 	
 		return mv;
@@ -120,9 +123,9 @@ public class RestaurantController {
 	}
 	//fileDelete
 		@PostMapping(value = "fileDelete")
-		public ModelAndView fileDelete(FilesVO filesVO) throws Exception{
+		public ModelAndView fileDelete(RestaurantFilesVO restaurantFilesVO) throws Exception{
 			ModelAndView mv = new ModelAndView();
-			int result = restaurantService.fileDelete(filesVO);
+			int result = restaurantService.fileDelete(restaurantFilesVO);
 			String msg = "Delete Fail";
 			if (result > 0) {
 				mv.addObject("result", result);
@@ -136,11 +139,11 @@ public class RestaurantController {
 		}
 		//fileDown
 		@GetMapping(value ="fileDown")
-		public ModelAndView fileDown(FilesVO filesVO) throws Exception{
+		public ModelAndView fileDown(RestaurantFilesVO restaurantFilesVO) throws Exception{
 			ModelAndView mv = new ModelAndView();
-			filesVO = restaurantService.fileSelect(filesVO);
+			restaurantFilesVO = restaurantService.fileSelect(restaurantFilesVO);
 
-			mv.addObject("file", filesVO);
+			mv.addObject("file", restaurantFilesVO);
 			
 			mv.setViewName("fileDown");
 

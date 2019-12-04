@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mid.pro.dao.MenuDAO;
-import com.mid.pro.model.FilesVO;
+import com.mid.pro.model.MenuFilesVO;
 import com.mid.pro.model.MenuVO;
 import com.mid.pro.util.FileSaver;
 
@@ -34,16 +34,16 @@ public class MenuService {
 	//write
 	public int menuWrite(MenuVO menuVO, MultipartFile[] file, HttpSession session) throws Exception{
 		String realPath = session.getServletContext().getRealPath("resources/upload/menu");
-		FilesVO filesVO = new FilesVO();
+		MenuFilesVO menufilesVO = new MenuFilesVO();
 		int result = menuDAO.menuWrite(menuVO);
 		
 		for (MultipartFile multipartFile:file) {
 			if (multipartFile.getSize() != 0) {
 				String fileName = fileSaver.save(realPath, multipartFile);
-				filesVO.setFname(fileName);
-				filesVO.setMenu_num(menuVO.getMenu_num());
-				filesVO.setOname(multipartFile.getOriginalFilename());
-				result = menuDAO.fileWrite(filesVO);
+				menufilesVO.setFname(fileName);
+				menufilesVO.setMenu_num(menuVO.getMenu_num());
+				menufilesVO.setOname(multipartFile.getOriginalFilename());
+				result = menuDAO.fileWrite(menufilesVO);
 				if (result < 1) {
 					throw new SQLException();
 				}
@@ -54,16 +54,16 @@ public class MenuService {
 	//update
 	public int menuUpdate(MenuVO menuVO, MultipartFile[] file, HttpSession session) throws Exception{
 		String realPath = session.getServletContext().getRealPath("resources/upload/menu");
-		FilesVO filesVO = new FilesVO();
+		MenuFilesVO menufilesVO = new MenuFilesVO();
 		int result = menuDAO.menuUpdate(menuVO);
 		
 		for (MultipartFile multipartFile:file) {
 			if (multipartFile.getSize() != 0) {
 				String fileName = fileSaver.save(realPath, multipartFile);
-				filesVO.setFname(fileName);
-				filesVO.setMenu_num(menuVO.getMenu_num());
-				filesVO.setOname(multipartFile.getOriginalFilename());
-				result = menuDAO.fileWrite(filesVO);
+				menufilesVO.setFname(fileName);
+				menufilesVO.setMenu_num(menuVO.getMenu_num());
+				menufilesVO.setOname(multipartFile.getOriginalFilename());
+				result = menuDAO.fileWrite(menufilesVO);
 				if (result < 1) {
 					throw new SQLException();
 				}
@@ -76,12 +76,12 @@ public class MenuService {
 		return menuDAO.menuDelete(menuVO);
 	}
 	//fileSelect
-	public FilesVO fileSelect(FilesVO filesVO) throws Exception{
-		return menuDAO.fileSelect(filesVO);
+	public MenuFilesVO fileSelect(MenuFilesVO menufilesVO) throws Exception{
+		return menuDAO.fileSelect(menufilesVO);
 	}
 	//fileDelete
-	public int fileDelete(FilesVO filesVO) throws Exception{
-		return menuDAO.fileDelete(filesVO);
+	public int fileDelete(MenuFilesVO menufilesVO) throws Exception{
+		return menuDAO.fileDelete(menufilesVO);
 	}
 	//summerFile
 	public String summerFile(MultipartFile file, HttpSession session) throws Exception{

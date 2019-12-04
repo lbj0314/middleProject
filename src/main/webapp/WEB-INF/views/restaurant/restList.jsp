@@ -49,7 +49,7 @@
 		</table>
 		<div>
 			<!-- session member, memberDTO -->
-			<c:if test="${ empty member  }">
+			<c:if test="${ not empty member  }">
 				<button type="button" class="genric-btn primary" id="btn_write">WRITE</button>
 			</c:if>
 		</div>
