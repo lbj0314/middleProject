@@ -82,7 +82,7 @@
     <!-- Banner Area End -->
     
     <!--================Blog Area =================-->
-                    <div class="comments-area" id="comments-area">
+                    <div class="comments-area" id="mylist_area">
                         <h4>My page</h4>
                         <div class="comment-list">
                             <div class="single-comment justify-content-between d-flex">
@@ -178,34 +178,10 @@
                         
                         <div id= "post_btn">
                         	 <a href="./memberUpdate?id=${member.id}#upd_area" class="genric-btn info" >회원정보수정</a> 
-                        	 <a href="#" class="genric-btn danger" id="danger_btn">Cancel</a>                           
+                        	 <a href="../" class="genric-btn danger" id="danger_btn">Cancel</a>                           
                  	      </div>                                       				
                     </div>
-                                                   
-                    
-                    <div class="comment-form">
-                        <h4>Leave a Reply</h4>
-                        <form>
-                            <div class="form-group form-inline">
-                                <div class="form-group col-lg-6 col-md-6 name">
-                                <input type="text" class="form-control" id="name" placeholder="Enter Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'">
-                                </div>
-                                <div class="form-group col-lg-6 col-md-6 email">
-                                <input type="email" class="form-control" id="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
-                                </div>										
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'">
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control mb-10" rows="5" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
-                            </div>
-                            <a href="#" class="template-btn">Post Comment</a>	
-                            <a href="#" class="genric-btn info">Post Comment</a>	
-                        </form>
-                    </div>
-                
-               
+    
     <!--================Blog Area =================-->
 
     <!-- Footer Area Starts -->

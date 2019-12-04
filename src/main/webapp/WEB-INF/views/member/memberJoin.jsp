@@ -130,8 +130,11 @@
                             	<div id = "email_check"></div>
                             	 <div id = "email_chk_btn">
                             	</div>
-                                  <a href="#" class="genric-btn success-border medium" >인증하기</a>
                             </div>
+                            	<div>
+                                  <a href="#" class="genric-btn success-border medium" >인증하기</a>
+                                  </div>
+                                  
                                <div class="mt-10">
                                 <input type="text" name="name" id="name" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" required class="single-input-primary">
                             	<div id = "name_check"></div>
@@ -279,6 +282,7 @@
 	var emailRule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 	
 	var query= {email: $('#email').val()};	
+	
 	$.ajax({
 		url:"memberCheckEmail",
 		type: "post",
