@@ -11,9 +11,7 @@ public interface MemberService {
 	public MemberVO memberCheckEmail(String email)throws Exception;
 	
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;
-	
-	public MemberVO memberSelect(MemberVO memberVO)throws Exception;
-	
+		
 	public int memberUpdate(MemberVO memberVO)throws Exception;
 	
 	public int memberDelete(MemberVO memberVO)throws Exception;

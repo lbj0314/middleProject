@@ -96,14 +96,17 @@
                                             	${member.id}
                                         </p>                                      
                                     </div>
-                                </div>                        
+                                </div>                                                   
+                                      <div class="reply-btn">
+                                        <a href="./memberDelete?id=${member.id}" class="btn-reply text-uppercase">탈퇴하기</a> 
+                                	</div>                         
                             </div>
                         <div class = "desc" id = "etc">
                         	 <p class="date">가입날짜 : December 4, 2017 at 3:12 pm</p>                
                         </div>                                                                                                                                                            
                         </div>	   
-                        <div class="comment-list left-padding">
-                            <div class="single-comment justify-content-between d-flex">
+                  <%--       <div class="comment-list left-padding">
+                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">                                  
                                     <div class="desc">
                                         <h5><p>Password</p></h5>                                                                          
@@ -111,13 +114,13 @@
                                             ${member.pw}
                                        </p>
                                     </div>
-                                    
+                                     -
                                 </div>
                                 <div class="reply-btn">
                                         <a href="" class="btn-reply text-uppercase">reply</a> 
                                 </div>
-                            </div>
-                        </div>	
+                            </div> 
+                        </div>	 --%>
                          <div class="comment-list left-padding">
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">                                  
@@ -156,6 +159,8 @@
                                 </div>                         
                             </div>
                         </div>
+                        
+                        <c:if test="${member.grade == 2}">
                          <div class="comment-list left-padding">
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">                                   
@@ -168,14 +173,15 @@
                                 </div>                        
                             </div>
                         </div>
+                        </c:if>
+                        
+                        
                         <div id= "post_btn">
                         	 <a href="./memberUpdate?id=${member.id}#upd_area" class="genric-btn info" >회원정보수정</a> 
                         	 <a href="#" class="genric-btn danger" id="danger_btn">Cancel</a>                           
                  	      </div>                                       				
                     </div>
-                    
-                    
-                    
+                                                   
                     
                     <div class="comment-form">
                         <h4>Leave a Reply</h4>

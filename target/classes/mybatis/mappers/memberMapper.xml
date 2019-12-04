@@ -24,12 +24,8 @@
   
   <!-- Login -->
   <select id="memberLogin" resultType="MemberVO" parameterType="MemberVO">
-  	select member_num, id, email, name, tel, joindate, reg_number, grade from member where id=#{id} and pw = #{pw}
-  </select>
-  
-  <!-- Select -->
-  <select id="memberSelect" resultType="MemberVO" parameterType="MemberVO">
- 	select member_num, id, email, name, tel, reg_number from member where id=#{id}
+  	<!-- select member_num, id, email, name, tel, joindate, reg_number, grade from member where id=#{id} and pw = #{pw} -->
+  select * from member where id=#{id} and pw = #{pw}
   </select>
   
   <!-- update -->

@@ -105,22 +105,12 @@ public class MemberController {
 	}
 	
 	/////////////////Update
-	@GetMapping(value = "memberUpdate")
-	public ModelAndView memberUpdate(String id)throws Exception{
-			ModelAndView mv = new ModelAndView();
-			MemberVO memberVO = new MemberVO();
+	@GetMapping(value= "memberUpdate")
+	public void memberUpdate()throws Exception{
 			
-			memberVO.setId(id);
-			
-			memberVO = memberServiceImpl.memberSelect(memberVO);
-			
-			mv.addObject("member", memberVO);
-			mv.setViewName("memberUpdate");
-			
-			return mv;
 	}
 	
-	@PostMapping(value = "memberUpdate")
+	@PostMapping(value= "memberUpdate")
 	public ModelAndView memberUpdate(MemberVO memberVO, HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = memberServiceImpl.memberUpdate(memberVO);	

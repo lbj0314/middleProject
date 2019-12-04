@@ -29,11 +29,6 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public MemberVO memberSelect(MemberVO memberVO)throws Exception{
-		return memberDAOImpl.memberSelect(memberVO);
-	}
-
-	@Override
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception{
 		return memberDAOImpl.memberLogin(memberVO);	
 	}

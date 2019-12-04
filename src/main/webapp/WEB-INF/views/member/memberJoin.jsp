@@ -129,8 +129,8 @@
                                 <input type="email" name="email" id="email"  placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required class="single-input-primary">
                             	<div id = "email_check"></div>
                             	 <div id = "email_chk_btn">
-                                  <a href="#" class="genric-btn success-border medium" >인증하기</a>
                             	</div>
+                                  <a href="#" class="genric-btn success-border medium" >인증하기</a>
                             </div>
                                <div class="mt-10">
                                 <input type="text" name="name" id="name" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" required class="single-input-primary">
@@ -233,18 +233,18 @@
  	 $("#pw2").blur(function() {
 			var pw = $("#pw").val();
 			var pw2 = $("#pw2").val();	
+			var pwRule = /^[A-Za-z0-9]{6,12}$/;
 			
-			if(pw == pw2){
+			if(pw == pw2 && pwRule.test(pw2)){
 					if(pw !="" && pw2 != ""){
 						$("#pw2_check").html("사용가능한 비밀번호입니다.")
 						$("#pw2_check").css("color","green")
-					}else{		
-						}
 					}else{
 						$("#pw2_check").html("비밀번호가 일치하지 않습니다.");		
 						$("#pw2_check").css("color","red");
 						$("#btn").attr("disabled",true);
 					}			
+			}
 			});
  
  	 	 $("#pw").change(function() {
