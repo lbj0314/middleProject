@@ -86,7 +86,7 @@ public class MemberController {
 		
 		memberVO = memberServiceImpl.memberLogin(memberVO);		
 		if(memberVO !=null) {
-			session.setAttribute("member", memberVO);
+			session.setAttribute("member", memberVO);			
 			mv.setViewName("redirect:../");
 		}else {
 			mv.addObject("msg", "로그인에 실패하였습니다");

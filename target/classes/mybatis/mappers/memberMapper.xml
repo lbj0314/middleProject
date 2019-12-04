@@ -22,6 +22,12 @@
   	select email from member where email=#{email}
   </select>
   
+  <!-- Email 인증키 -->
+  <insert id="createAuthKey">
+  	insert into userAuth values(#{userEmail}, #{authKey})
+  </insert>
+  
+  
   <!-- Login -->
   <select id="memberLogin" resultType="MemberVO" parameterType="MemberVO">
   	<!-- select member_num, id, email, name, tel, joindate, reg_number, grade from member where id=#{id} and pw = #{pw} -->

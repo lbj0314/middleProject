@@ -1,4 +1,16 @@
 @charset "UTF-8";
+/****************** home *******************/
+.template-btn mt-3{
+	font-weight: bold;
+	
+}
+
+#home_login_btn{
+	padding-left: 10px;
+	
+}
+
+
 
 /********************* memberJoin *********************/
 
