@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mid.pro.model.MemberVO;
 import com.mid.pro.model.MenuFilesVO;
 import com.mid.pro.model.RestaurantFilesVO;
 import com.mid.pro.model.RestaurantVO;
+import com.mid.pro.service.MemberService;
 import com.mid.pro.service.RestaurantService;
 import com.mid.pro.util.Pager;
 
@@ -24,6 +26,8 @@ public class RestaurantController {
 	
 	@Inject
 	private RestaurantService restaurantService;
+	@Inject
+	private MemberService memberService;
 	
 	//list
 	@GetMapping(value = "restList")
@@ -54,10 +58,11 @@ public class RestaurantController {
 	}
 	//write
 	@GetMapping(value = "restWrite")
-	public ModelAndView restWrite(RestaurantVO restaurantVO) throws Exception{
+	public ModelAndView restWrite(MemberVO memberVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		restaurantVO = restaurantService.restSelect(restaurantVO);
-		mv.addObject("vo", restaurantVO);
+//		memberVO = memberService.memberSelect(memberVO);
+//		int num = memberVO.getMember_num();
+//		mv.addObject("num", num);
 		mv.setViewName("restaurant/restWrite");
 	
 		return mv;

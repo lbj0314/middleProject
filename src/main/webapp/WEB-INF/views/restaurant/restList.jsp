@@ -41,7 +41,7 @@
 					<td>${ vo.rest_num }</td>	
 					<td>
 
-					<a href="restSelect?num=${ vo.rest_num }">${ vo.rest_name }</a>
+					<a href="restSelect?rest_num=${ vo.rest_num }">${ vo.rest_name }</a>
 					</td>
 					<td>${ vo.reg_date }</td>
 				</tr>
