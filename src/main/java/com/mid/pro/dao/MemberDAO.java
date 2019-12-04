@@ -6,11 +6,15 @@ public interface MemberDAO {
 	
 	//join
 	public int memberJoin(MemberVO memberVO)throws Exception;
-	
-	public int memberGrade(MemberVO memberVO)throws Exception;
-	
+		
 	//checkId
-	public int memberCheckId(MemberVO memberVO)throws Exception;
+	public MemberVO memberCheckId(String id)throws Exception;
+	
+	//checkEmail
+	public MemberVO memberCheckEmail(String email)throws Exception;
+	
+	//select
+	public MemberVO memberSelect(MemberVO memberVO)throws Exception;
 	
 	//login 
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;

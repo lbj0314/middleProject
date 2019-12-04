@@ -19,13 +19,18 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public int memberGrade(MemberVO memberVO) throws Exception {
-		return memberDAOImpl.memberGrade(memberVO);
+	public MemberVO memberCheckId(String id)throws Exception{
+		return memberDAOImpl.memberCheckId(id);
 	}
 	
 	@Override
-	public int memberCheckId(MemberVO memberVO)throws Exception{
-		return memberDAOImpl.memberCheckId(memberVO);
+	public MemberVO memberCheckEmail(String email)throws Exception{
+		return memberDAOImpl.memberCheckEmail(email);
+	}
+	
+	@Override
+	public MemberVO memberSelect(MemberVO memberVO)throws Exception{
+		return memberDAOImpl.memberSelect(memberVO);
 	}
 
 	@Override
