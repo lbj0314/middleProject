@@ -24,8 +24,11 @@
   
   <!-- Email 인증키 -->
   <insert id="createAuthKey">
-  	insert into userAuth values(#{userEmail}, #{authKey})
+  	insert into member values(#{email}, #{authKey})
   </insert>
+  <update id="userAuth">
+  	<![CDATA[update member set authstatus = 1 where(select count(*) from member where email = #{email}) > 0]]>
+  </update>
   
   
   <!-- Login -->

@@ -12,6 +12,12 @@ public interface MemberDAO {
 	
 	//checkEmail
 	public MemberVO memberCheckEmail(String email)throws Exception;
+	
+	//createAuthKey
+	public void createAuthKey(String email, String authKey)throws Exception;
+	
+	//userAuth
+	public void userAuth(String email)throws Exception;
 		
 	//login 
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;

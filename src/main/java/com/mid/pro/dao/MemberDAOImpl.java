@@ -1,5 +1,8 @@
 package com.mid.pro.dao;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -28,6 +31,23 @@ public class MemberDAOImpl implements MemberDAO{
 	public MemberVO memberCheckEmail(String email)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"memberCheckEmail", email);
 	}
+	
+	@Override
+	public void createAuthKey(String email, String authKey)throws Exception{
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("email", email);
+		map.put("authKey", authKey);
+		
+		sqlSession.selectOne(NAMESPACE+"createAuthKey", map);
+	}
+	
+	@Override
+	public void userAuth(String email)throws Exception{
+		sqlSession.update(NAMESPACE+"userAuth", email);
+	}
+	
+	
 		
 	@Override
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception{
