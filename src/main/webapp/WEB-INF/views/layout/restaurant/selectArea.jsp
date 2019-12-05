@@ -1,335 +1,265 @@
-   <!--================Blog Area =================-->
-    <section class="blog_area section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 posts-list">
-                    <div class="single-post row">
-                        <div class="col-lg-12">
-                            <div class="feature-img">
-                                <img class="img-fluid" src="assets/images/blog-details/feature-img1.jpg" alt="">
-                            </div>									
-                        </div>
-                        <div class="col-lg-3  col-md-3">
-                            <div class="blog_info text-right">
-                                <div class="post_tag">
-                                    <a href="#">Food,</a>
-                                    <a class="active" href="#">Technology,</a>
-                                    <a href="#">Politics,</a>
-                                    <a href="#">Lifestyle</a>
-                                </div>
-                                <ul class="blog_meta list">
-                                        <li><a href="#">Mark wiens<i class="fa fa-user-o"></i></a></li>
-                                        <li><a href="#">12 Dec, 2017<i class="fa fa-calendar-o"></i></a></li>
-                                        <li><a href="#">1.2M Views<i class="fa fa-eye"></i></a></li>
-                                        <li><a href="#">06 Comments<i class="fa fa-comment-o"></i></a></li>
-                                    </ul>
-                                <ul class="social-links">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-github"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-9 col-md-9 blog_details">
-                            <h5>Astronomy Binoculars A Great Alternative</h5>
-                            <p class="excert">
-                                MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.
-                            </p>
-                            <p>
-                                Boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has the willpower to actually sit through a self-imposed
-                            </p>
-                            <p>
-                                Boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has the willpower to actually sit through a self-imposed
-                            </p>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="quotes">
-                                MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training.										
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <img class="img-fluid" src="assets/images/blog-details/post-img1.jpg" alt="">
-                                </div>
-                                <div class="col-6">
-                                    <img class="img-fluid" src="assets/images/blog-details/post-img2.jpg" alt="">
-                                </div>	
-                                <div class="col-lg-12 my-4">
-                                    <p>
-                                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower.
-                                    </p>
-                                    <p>
-                                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower.
-                                    </p>											
-                                </div>									
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comments-area">
-                        <h4>05 Comments</h4>
-                        <div class="comment-list">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="assets/images/blog-details/c1.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5><a href="#">Emilly Blunt</a></h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                                        <p class="comment">
-                                            Never say goodbye till the end comes!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="reply-btn">
-                                        <a href="" class="btn-reply text-uppercase">reply</a> 
-                                </div>
-                            </div>
-                        </div>	
-                        <div class="comment-list left-padding">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="assets/images/blog-details/c2.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5><a href="#">Elsie Cum</a></h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                                        <p class="comment">
-                                            Never say goodbye till the end comes!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="reply-btn">
-                                        <a href="" class="btn-reply text-uppercase">reply</a> 
-                                </div>
-                            </div>
-                        </div>	
-                        <div class="comment-list left-padding">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="assets/images/blog-details/c3.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5><a href="#">Annie Steph</a></h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                                        <p class="comment">
-                                            Never say goodbye till the end comes!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="reply-btn">
-                                        <a href="" class="btn-reply text-uppercase">reply</a> 
-                                </div>
-                            </div>
-                        </div>	
-                        <div class="comment-list">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="assets/images/blog-details/c4.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5><a href="#">Maria Luna</a></h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                                        <p class="comment">
-                                            Never say goodbye till the end comes!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="reply-btn">
-                                        <a href="" class="btn-reply text-uppercase">reply</a> 
-                                </div>
-                            </div>
-                        </div>	
-                        <div class="comment-list">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="assets/images/blog-details/c5.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5><a href="#">Ina Hayes</a></h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                                        <p class="comment">
-                                            Never say goodbye till the end comes!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="reply-btn">
-                                        <a href="" class="btn-reply text-uppercase">reply</a> 
-                                </div>
-                            </div>
-                        </div>	                                             				
-                    </div>
-                    <div class="comment-form">
-                        <h4>Leave a Reply</h4>
-                        <form>
-                            <div class="form-group form-inline">
-                                <div class="form-group col-lg-6 col-md-6 name">
-                                <input type="text" class="form-control" id="name" placeholder="Enter Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'">
-                                </div>
-                                <div class="form-group col-lg-6 col-md-6 email">
-                                <input type="email" class="form-control" id="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
-                                </div>										
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'">
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control mb-10" rows="5" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
-                            </div>
-                            <a href="#" class="template-btn">Post Comment</a>	
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="blog_right_sidebar">
-                        <aside class="single_sidebar_widget search_widget">
-                            <div class="input-group">
-                                <input type="text" class="form-control">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-                                </span>
-                            </div><!-- /input-group -->
-                            <div class="br"></div>
-                        </aside>
-                        <aside class="single_sidebar_widget author_widget">
-                            <img class="author_img rounded-circle" src="assets/images/blog/author.png" alt="">
-                            <h5>Charlie Barber</h5>
-                            <p>Senior blog writer</p>
-                            <div class="social_icon">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-github"></i></a>
-                                <a href="#"><i class="fa fa-behance"></i></a>
-                            </div>
-                            <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you should have to spend money on boot camp when you can get. Boot camps have itssuppor ters andits detractors.</p>
-                            <div class="br"></div>
-                        </aside>
-                        <aside class="single_sidebar_widget popular_post_widget">
-                            <h4 class="widget_title">Popular Posts</h4>
-                            <div class="media post_item">
-                                <img src="assets/images/blog/popular-post/post1.jpg" alt="post">
-                                <div class="media-body">
-                                    <a href="blog-details.html"><h5>Space The Final Frontier</h5></a>
-                                    <p>02 Hours ago</p>
-                                </div>
-                            </div>
-                            <div class="media post_item">
-                                <img src="assets/images/blog/popular-post/post2.jpg" alt="post">
-                                <div class="media-body">
-                                    <a href="blog-details.html"><h5>The Amazing Hubble</h5></a>
-                                    <p>02 Hours ago</p>
-                                </div>
-                            </div>
-                            <div class="media post_item">
-                                <img src="assets/images/blog/popular-post/post3.jpg" alt="post">
-                                <div class="media-body">
-                                    <a href="blog-details.html"><h5>Astronomy Or Astrology</h5></a>
-                                    <p>03 Hours ago</p>
-                                </div>
-                            </div>
-                            <div class="media post_item">
-                                <img src="assets/images/blog/popular-post/post4.jpg" alt="post">
-                                <div class="media-body">
-                                    <a href="blog-details.html"><h5>Asteroids telescope</h5></a>
-                                    <p>01 Hours ago</p>
-                                </div>
-                            </div>
-                            <div class="br"></div>
-                        </aside>
-                        <aside class="single_sidebar_widget ads_widget">
-                            <a href="#"><img class="img-fluid" src="assets/images/blog/add.jpg" alt=""></a>
-                            <div class="br"></div>
-                        </aside>
-                        <aside class="single_sidebar_widget post_category_widget">
-                            <h4 class="widget_title">Post Catgories</h4>
-                            <ul class="list cat-list">
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Technology</p>
-                                        <p>37</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Lifestyle</p>
-                                        <p>24</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Fashion</p>
-                                        <p>59</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Art</p>
-                                        <p>29</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Food</p>
-                                        <p>15</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Architecture</p>
-                                        <p>09</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Adventure</p>
-                                        <p>44</p>
-                                    </a>
-                                </li>															
-                            </ul>
-                            <div class="br"></div>
-                        </aside>
-                        <aside class="single-sidebar-widget newsletter_widget">
-                            <h4 class="widget_title">Newsletter</h4>
-                            <p>
-                            Here, I focus on a range of items and features that we use in life without
-                            giving them a second thought.
-                            </p>
-                            <div class="form-group d-flex flex-row">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-                                    </div>
-                                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
-                                </div>
-                                <a href="#" class="bbtns">Subscribe</a>
-                            </div>	
-                            <p class="text-bottom">You can unsubscribe at any time</p>	
-                            <div class="br"></div>							
-                        </aside>
-                        <aside class="single-sidebar-widget tag_cloud_widget">
-                            <h4 class="widget_title">Tag Clouds</h4>
-                            <ul class="list">
-                                <li><a href="#">Technology</a></li>
-                                <li><a href="#">Fashion</a></li>
-                                <li><a href="#">Architecture</a></li>
-                                <li><a href="#">Fashion</a></li>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#">Technology</a></li>
-                                <li><a href="#">Lifestyle</a></li>
-                                <li><a href="#">Art</a></li>
-                                <li><a href="#">Adventure</a></li>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#">Lifestyle</a></li>
-                                <li><a href="#">Adventure</a></li>
-                            </ul>
-                        </aside>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--================Blog Area =================-->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<style>
+img {
+	display: block;
+	margin: 0 auto;
+}
+
+.menu {
+	text-align: center;
+	margin: 20px auto;
+}
+</style>
+<!--================Blog Area =================-->
+<section class="blog_area section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 posts-list">
+				<div class="single-post row">
+					<div id="img" class="col-lg-12 carousel slide" data-ride="carousel">
+						<ul class="carousel-indicators">
+							<li data-target="#img" data-slide-to="0" class="active"></li>
+							<c:forEach begin="1" end="2" var="i">
+								<li data-target="#img" data-slide-to="${i}"></li>
+							</c:forEach>
+						</ul>
+
+						<div class="carousel-inner" style="overflow: hidden">
+							<div class="carousel-item active">
+								<c:forEach end="0" items="${ vo.files }" var="file">
+
+									<img class="img-fluid" alt="${file.oname}"
+										src="../resources/upload/restaurant/${file.fname}"
+										width="100%" height="200px">
+
+								</c:forEach>
+							</div>
+							<div class="carousel-item">
+								<c:forEach begin="1" end="1" items="${ vo.files }" var="file">
+									<img class="img-fluid" alt="${file.oname}"
+										src="../resources/upload/restaurant/${file.fname}"
+										width="100%" height="200px">
+								</c:forEach>
+							</div>
+						</div>
+						<!-- Left and right controls -->
+						<a class="carousel-control-prev" href="#img" data-slide="prev">
+							<span class="carousel-control-prev-icon"></span>
+						</a> <a class="carousel-control-next" href="#img" data-slide="next">
+							<span class="carousel-control-next-icon"></span>
+						</a>
+					</div>
+					<div class="col-lg-12  col-md-3">
+						<div class="blog_info">
+							<table class="col-lg-4" style="float: right;">
+								<tr>
+									<td>${vo.kind}&nbsp;<i class="fas fa-utensils"></i></td>
+									<td>${vo.reg_date}&nbsp;<i class="fa fa-calendar-o"></i></td>
+									<td>${vo.hit}&nbsp;<i class="fa fa-eye"></i></td>
+									<td>${vo.review_hit }&nbsp;<i class="fas fa-comment"></i></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-12 blog_details">
+						<h5>${vo.rest_name}</h5>
+						<p class="excert">${vo.rest_contents}</p>
+
+					</div>
+					<div class="col-lg-12">
+						<div class="col-lg-12 menu">
+							<a href="../menu/menuList" class="btn genric-btn primary">Menu</a>
+						</div>
+						<c:if test="${not empty vo.rest_url}">
+						<p style="margin-top: -12px; float: right;">
+							홈페이지 : 
+							<em class="link"> <a href="javascript:void(0);"
+								onclick="window.open('${vo.rest_url}', '_blank')">
+									${vo.rest_url } </a>
+							</em>
+						</p>
+						</c:if>
+						<div>
+							<span>오시는 길</span>
+						</div>
+						<div id="map" style="width: 100%; height: 350px;"></div>
+						<br>
+						<span style="float: right;">주소 : ${vo.rest_addr1}${vo.rest_addr2}</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12" style="text-align: center; margin-top: 5em">
+				<c:if test="${member.member_num eq vo.member_num }">
+					<a href="./restUpdate?rest_num=${vo.rest_num }"
+						class="btn genric-btn success">Update</a>
+				<a href="./restDelete?rest_num=${vo.rest_num }"
+					class="btn genric-btn danger">Delete</a>
+				</c:if>
+					
+					<a href="./restList"
+					class="btn genric-btn info">List</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="comments-area">
+		<h4>Review</h4>
+		<div class="comment-list">
+			<div class="single-comment justify-content-between d-flex">
+				<div class="user justify-content-between d-flex">
+					<div class="thumb">
+						<img src="../resources/images/blog-details/c1.jpg" alt="">
+					</div>
+					<div class="desc">
+						<h5>
+							<a href="#">Emilly Blunt</a>
+						</h5>
+						<p class="date">December 4, 2017 at 3:12 pm</p>
+						<p class="comment">Never say goodbye till the end comes!</p>
+					</div>
+				</div>
+				<div class="reply-btn">
+					<a href="" class="btn-reply text-uppercase">reply</a>
+				</div>
+			</div>
+		</div>
+		<div class="comment-list left-padding">
+			<div class="single-comment justify-content-between d-flex">
+				<div class="user justify-content-between d-flex">
+					<div class="thumb">
+						<img src="../resources/images/blog-details/c2.jpg" alt="">
+					</div>
+					<div class="desc">
+						<h5>
+							<a href="#">Elsie Cum</a>
+						</h5>
+						<p class="date">December 4, 2017 at 3:12 pm</p>
+						<p class="comment">Never say goodbye till the end comes!</p>
+					</div>
+				</div>
+				<div class="reply-btn">
+					<a href="" class="btn-reply text-uppercase">reply</a>
+				</div>
+			</div>
+		</div>
+		<div class="comment-list left-padding">
+			<div class="single-comment justify-content-between d-flex">
+				<div class="user justify-content-between d-flex">
+					<div class="thumb">
+						<img src="../resources/images/blog-details/c3.jpg" alt="">
+					</div>
+					<div class="desc">
+						<h5>
+							<a href="#">Annie Steph</a>
+						</h5>
+						<p class="date">December 4, 2017 at 3:12 pm</p>
+						<p class="comment">Never say goodbye till the end comes!</p>
+					</div>
+				</div>
+				<div class="reply-btn">
+					<a href="" class="btn-reply text-uppercase">reply</a>
+				</div>
+			</div>
+		</div>
+		<div class="comment-list">
+			<div class="single-comment justify-content-between d-flex">
+				<div class="user justify-content-between d-flex">
+					<div class="thumb">
+						<img src="../resources/images/blog-details/c4.jpg" alt="">
+					</div>
+					<div class="desc">
+						<h5>
+							<a href="#">Maria Luna</a>
+						</h5>
+						<p class="date">December 4, 2017 at 3:12 pm</p>
+						<p class="comment">Never say goodbye till the end comes!</p>
+					</div>
+				</div>
+				<div class="reply-btn">
+					<a href="" class="btn-reply text-uppercase">reply</a>
+				</div>
+			</div>
+		</div>
+		<div class="comment-list">
+			<div class="single-comment justify-content-between d-flex">
+				<div class="user justify-content-between d-flex">
+					<div class="thumb">
+						<img src="../resources/images/blog-details/c5.jpg" alt="">
+					</div>
+					<div class="desc">
+						<h5>
+							<a href="#">Ina Hayes</a>
+						</h5>
+						<p class="date">December 4, 2017 at 3:12 pm</p>
+						<p class="comment">Never say goodbye till the end comes!</p>
+					</div>
+				</div>
+				<div class="reply-btn">
+					<a href="" class="btn-reply text-uppercase">reply</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+<!--================Blog Area =================-->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b39d75683dde78d308a077c0f0561a6e&libraries=services"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = {
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };  
+
+// 지도를 생성합니다    
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+//일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+var mapTypeControl = new kakao.maps.MapTypeControl();
+
+// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+var zoomControl = new kakao.maps.ZoomControl();
+map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+// 주소-좌표 변환 객체를 생성합니다
+var geocoder = new kakao.maps.services.Geocoder();
+
+// 주소로 좌표를 검색합니다
+//주소 가져오기
+var addr = '${vo.rest_addr1}';
+var addr2 = '${vo.rest_addr2}';
+if (addr2 != '') {
+	addr = addr+addr2;
+}
+geocoder.addressSearch(addr, function(result, status) {
+
+    // 정상적으로 검색이 완료됐으면 
+     if (status === kakao.maps.services.Status.OK) {
+
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+        // 결과값으로 받은 위치를 마커로 표시합니다
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: coords
+        });
+		
+        // 인포윈도우로 장소에 대한 설명을 표시합니다
+        //가게 이름 가져오기
+        var name = '${vo.rest_name}';
+        var infowindow = new kakao.maps.InfoWindow({
+            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+name+'</div>'
+        });
+        infowindow.open(map, marker);
+
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+    } 
+});    
+</script>

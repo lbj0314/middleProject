@@ -53,13 +53,13 @@
 				<button type="button" class="genric-btn primary" id="btn_write">WRITE</button>
 			</c:if>
 		</div>
-			<ul class="pagination">
+			<ul class="pagination justify-content-center" style="margin:20px 0">
 				<c:if test="${ pager.curBlock gt 1 }">
 
 					<li><span id="${pager.startNum-1 }" class="list">이전</span></li>
 				</c:if>
 				<c:forEach begin="${ pager.startNum }" end="${ pager.lastNum }" var="i">
-					<li><span id="${i}" class="list genric-btn link">${i}</span></li>
+					<li class="page-item"><span id="${i}" class="list genric-btn link">${i}</span></li>
 				</c:forEach>
 				<c:if test="${ pager.curBlock lt pager.totalBlock }">
 				<li><span id="${pager.lastNum + 1 }" class="list">다음</span></li>

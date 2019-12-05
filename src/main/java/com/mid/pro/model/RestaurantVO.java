@@ -19,7 +19,7 @@ public class RestaurantVO {
 	private int review_hit;
 	private Date rev_date;
 	private int member_num;
-	private List<MenuFilesVO> files;
+	private List<RestaurantFilesVO> files;
 	public int getRest_num() {
 		return rest_num;
 	}
@@ -104,10 +104,10 @@ public class RestaurantVO {
 	public void setMember_num(int member_num) {
 		this.member_num = member_num;
 	}
-	public List<MenuFilesVO> getFiles() {
+	public List<RestaurantFilesVO> getFiles() {
 		return files;
 	}
-	public void setFiles(List<MenuFilesVO> files) {
+	public void setFiles(List<RestaurantFilesVO> files) {
 		this.files = files;
 	}
 	

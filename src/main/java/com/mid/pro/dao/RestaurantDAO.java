@@ -49,6 +49,10 @@ public class RestaurantDAO {
 	public int restCount(Pager pager) throws Exception{
 		return sqlSession.selectOne(NAMESPACE + "restaurantCount", pager);
 	}
+	//Imgcount
+	public int restImgCount(RestaurantVO restaurantVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE + "restaurantImgCount", restaurantVO);
+	}
 	//fileList
 	public List<RestaurantFilesVO> fileList(int num) throws Exception{
 		return sqlSession.selectList(NAMESPACE + "fileList", num);

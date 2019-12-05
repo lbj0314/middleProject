@@ -3,7 +3,7 @@ package com.mid.pro.util;
 public class Pager {
 	
 	public Pager() {
-		perPage = 10;
+		perPage = 6;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -106,7 +106,7 @@ public class Pager {
 		System.out.println("totalPage "+totalPage);
 
 		//3. 전체 블락의 개수
-		int perBlock = 5;
+		int perBlock = 3;
 		totalBlock = totalPage / perBlock;
 		if (totalPage%perBlock != 0) {
 			totalBlock = totalBlock + 1;

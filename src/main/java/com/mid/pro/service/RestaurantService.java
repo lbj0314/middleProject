@@ -32,11 +32,12 @@ public class RestaurantService {
 	}
 	//selectOne
 	public RestaurantVO restSelect(RestaurantVO restaurantVO) throws Exception{
+		restaurantDAO.restImgCount(restaurantVO);
 		return restaurantDAO.restSelect(restaurantVO);
 	}
 	//write
 	public int restWrite(RestaurantVO restaurantVO, MultipartFile[] file, HttpSession session) throws Exception{
-		String realPath = session.getServletContext().getRealPath("resources/upload/menu");
+		String realPath = session.getServletContext().getRealPath("resources/upload/restaurant");
 		RestaurantFilesVO restaurantFilesVO = new RestaurantFilesVO();
 		int result = restaurantDAO.restWrite(restaurantVO);
 
@@ -56,7 +57,7 @@ public class RestaurantService {
 	}
 	//update
 	public int restUpdate(RestaurantVO restaurantVO, MultipartFile[] file, HttpSession session) throws Exception{
-		String realPath = session.getServletContext().getRealPath("resources/upload/menu");
+		String realPath = session.getServletContext().getRealPath("resources/upload/restaurant");
 		RestaurantFilesVO restaurantFilesVO = new RestaurantFilesVO();
 		int result = restaurantDAO.restUpdate(restaurantVO);
 

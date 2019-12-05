@@ -60,6 +60,10 @@
 		SELECT COUNT(rest_num) FROM restaurant
 		<include refid="rs"></include>
 	</select>
+		<select id="restaurantImgCount" resultType="Integer">
+		SELECT COUNT(fnum) FROM restfiles
+		WHERE rest_num = #{rest_num}
+	</select>
 	<insert id="restaurantWrite" parameterType="RestaurantVO">
 		<selectKey order="BEFORE" resultType="Integer" keyProperty="rest_num">
 			SELECT rest_seq.nextval FROM dual

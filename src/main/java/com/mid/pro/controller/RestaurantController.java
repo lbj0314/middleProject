@@ -72,7 +72,7 @@ public class RestaurantController {
 		ModelAndView mv = new ModelAndView();
 		int result = restaurantService.restWrite(restaurantVO, file,session);
 		String msg = "식당 소개글 작성에 실패하였습니다.";
-		
+		System.out.println(file);
 		if (result > 0) {
 			mv.setViewName("redirect:./restList");
 		} else {
@@ -137,7 +137,7 @@ public class RestaurantController {
 				mv.setViewName("common/common_ajaxResult");
 			} else {
 				mv.addObject("msg", msg);
-				mv.addObject("path", "./menuList");
+				mv.addObject("path", "./restList");
 				mv.setViewName("common/common_result");
 			}
 			return mv;

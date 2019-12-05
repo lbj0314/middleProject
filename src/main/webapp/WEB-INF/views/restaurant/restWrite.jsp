@@ -18,7 +18,7 @@
 	margin-top: 50px;
 	text-align: center;
 }
-#rest_url{
+.rest{
 display:block;
 width:100%;
 line-height:40px;
@@ -48,22 +48,22 @@ padding:0 20px
 					<div class="mt-10">
 						<input type="text" id="rest_name" name="rest_name" placeholder="식당 이름"
 							onfocus="this.placeholder = ''"
-							onblur="this.placeholder = 'Rest Name'" required
+							onblur="this.placeholder = '식당 이름'" required
 							class="single-input">
 					</div>
 					<div class="mt-10">
-						<textarea id="rest_contents" name="rest_contents" placeholder="식당 소개"
+						<textarea id="rest_contents" name="rest_contents" placeholder="식당 소개글"
 							style="width:100%;max-height:300px;min-height:200px;margin:5px 0;"
 							onfocus="this.placeholder = ''"
-							onblur="this.placeholder = 'Rest contents'" required class="single-input" ></textarea>
+							onblur="this.placeholder = '식당 소개글'" required class="single-input" ></textarea>
 					</div>
 					<!-- 주소 API -->
 					<div class="mt-10">
 						<input type="text" id="rest_post1" name="rest_post1" placeholder="우편번호" readonly="readonly" 	onfocus="this.placeholder = ''"
-							required class="single-input" >
+							required class="single-input" required class="single-input">
 						<input type="button" onclick="daum_execDaumPostcode()" value="우편번호 찾기"><br>
 						<input type="text" id="rest_addr1" name="rest_addr1" placeholder="주소" readonly="readonly" required class="single-input"><br>
-						<input type="text" id="rest_addr2" name="rest_addr2" placeholder="상세주소" required class="single-input">
+						<input type="text" class="rest" id="rest_addr2" name="rest_addr2" placeholder="상세주소">
 
 						<div id="wrap" style="display:none;border:1px solid;width:100%;height:300px;margin:5px 0;position:relative">
 							<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
@@ -73,11 +73,11 @@ padding:0 20px
 					<div class="mt-10">
 						<input type="text" id="rest_tel" name="rest_tel" placeholder="식당 전화번호"
 							onfocus="this.placeholder = ''"
-							onblur="this.placeholder = 'rest_tel'" required
+							onblur="this.placeholder = '식당 전화번호'" required
 							class="single-input">
 					</div>
 					<div class="mt-10">
-						<input type="text" id="rest_url" name="rest_url" placeholder="식당 홈페이지 주소">
+						<input type="text" class="rest" id="rest_url" name="rest_url" placeholder="식당 홈페이지 주소">
 					</div>
 					
 					<div class="input-group-icon mt-10">
@@ -86,11 +86,11 @@ padding:0 20px
 						</div> -->
 						<div class="form-select" id="default-select">
 							<select name="kind" id="kind">
-								<option value="kor">한식</option>
-								<option value="cn">중식</option>
-								<option value="jpn">일식</option>
-								<option value="yang">양식</option>
-								<option value="fam">패밀리 레스토랑</option>
+								<option value="한식">한식</option>
+								<option value="중식">중식</option>
+								<option value="일식">일식</option>
+								<option value="양식">양식</option>
+								<option value="패밀리 레스토랑">패밀리 레스토랑</option>
 							</select>
 						</div>
 					</div>
