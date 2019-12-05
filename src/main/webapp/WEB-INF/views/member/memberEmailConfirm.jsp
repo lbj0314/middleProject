@@ -9,8 +9,8 @@
 </head>
 <body>
 	<script type="text/javascript">
-		/* var email = "${email}"; */
-		alert('이메일 인증이 완료되었습니다.');
+		 var userEmail = "${userEmail}"; 
+		alert('이메일 인증이 완료되었습니다. 이제 로그인이 가능합니다.');
 	
 		window.open('','_self','');
 		window.close();

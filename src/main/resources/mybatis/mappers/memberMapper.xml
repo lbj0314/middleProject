@@ -28,7 +28,7 @@
   </insert>
   
  <update id="userAuth">
-  	<![CDATA[update mailConfirm set authstatus = 1 
+  	<![CDATA[update member set authstatus = 1 
   	where (select count(*) 
   	from mailConfirm 
   	where userEmail = #{userEmail})  > 0 ]]> 

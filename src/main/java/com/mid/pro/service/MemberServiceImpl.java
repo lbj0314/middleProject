@@ -28,9 +28,7 @@ public class MemberServiceImpl implements MemberService {
 		
 		String key = new TempKey().getKey(50, false);
 		
-		MailConfirmVO mailConfirmVO = new MailConfirmVO();
-		
-		memberDAOImpl.createAuthKey(mailConfirmVO.getUserEmail(), key);
+		memberDAOImpl.createAuthKey(memberVO.getEmail(), key);
 		
 		MailHandler sendMail = new MailHandler(mailSender);
 		sendMail.setSubject("[이메일 인증]");
@@ -43,11 +41,11 @@ public class MemberServiceImpl implements MemberService {
 		
 		 "<h1>메일인증</h1>"+
 		  "<a href = 'http://localhost/pro/member/memberEmailConfirm?userEmail="
-		  +mailConfirmVO.getUserEmail()+ "&key="+key+ "'target='_blenk'>이메일 인증 확인</a>"
+		  +memberVO.getEmail()+ "&key="+key+ "'target='_blenk'>이메일 인증 확인</a>"
 							
 				);
 		sendMail.setFrom("jin00853@gmail.com", "foodfun");		
-		sendMail.setTo(mailConfirmVO.getUserEmail());
+		sendMail.setTo(memberVO.getEmail());
 		sendMail.send();
 		
 		return memberDAOImpl.memberJoin(memberVO);

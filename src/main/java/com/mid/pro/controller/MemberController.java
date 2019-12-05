@@ -46,12 +46,12 @@ public class MemberController {
 	}
 	
 	
-	  @GetMapping(value ="/memberEmailConfirm") 
+	  @GetMapping(value ="memberEmailConfirm") 
 	  public String	 memberEmailConfirm(String userEmail, Model moodel)throws Exception{
 		   memberServiceImpl.userAuth(userEmail);	   
 		   moodel.addAttribute("userEmail",userEmail);
 		   
-		   	return "/memberEmailConfirm"; 
+		   	return "memberEmailConfirm"; 
 		   	}
 	 
 	

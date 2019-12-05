@@ -66,9 +66,9 @@
 						<div id="email_check"></div>
 						<!-- <div id="email_chk_btn"></div> -->
 					</div>
-					<div>
+					<!-- <div>
 						<a href="./memberEmailConfirm" id="email_chk_btn" class="genric-btn success-border medium">인증하기</a>						
-					</div>
+					</div> -->
 
 
 
@@ -108,7 +108,7 @@
 
 	<script type="text/javascript"> 
 	/***** email인증  ******/
-	$("#email_chk_btn").click(function(){
+/* 	$("#email_chk_btn").click(function(){
 				var email = $('#email').val();
 		$.ajax(
 			{
@@ -126,7 +126,7 @@
 				
 			}
 		)//ajax끝 						
-	});
+	}); */
 	
    
   /**** 기업번호div활성화 *****/   
@@ -226,26 +226,6 @@
  	 	  	
 /********** Email 형식 *********/ 	 	
 
-/*  $("#email").blur(function(email) {
-	var email = $('#email').val();
-	var emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-	
-	if(emailRule.test(email)){
-		$('#email_check').text(" ");
-		$("#btn").attr("disabled",false);
-	}else if(email ==""){
-		$("#email_check").html("필수 정보입니다.");		
-		$("#email_check").css("color","red");	
-		$("#btn").attr("disabled",true);
-	}else{
-			$("#email_check").html("이메일 주소를 다시 확인해주세요.");		
-			$("#email_check").css("color","red");			
-			$("#btn").attr("disabled",true);
-			return false;			
-		}			
-});  */
-
-
  $("#email").blur(function(email) {
 	var email = $('#email').val();
 	var emailRule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -298,10 +278,17 @@ $("#name").blur(function(name) {
 
  	
 /********* Tel 형식 *************/
+
+/* $("#tel").keyup(function(tel) {
+	var telRule = 
+	
+});
+ */
+ 
  $("#tel").blur(function(tel) {
 		var tel = $('#tel').val();
  		var telRule = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
-			
+ 		tel = tel.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/,"$1-$2-$3");		
 		if(telRule.test(tel)){
 			$('#tel_check').text(" ");
 			$("#btn").attr("disabled",false);
@@ -314,7 +301,9 @@ $("#name").blur(function(name) {
 				$("#tel_check").css("color","red");			
 				$("#btn").attr("disabled",true);
 				return false;			
-			}			
+			}		
+ 		
+ 		
 	});
 
 
