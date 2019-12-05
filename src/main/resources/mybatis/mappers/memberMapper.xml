@@ -24,12 +24,15 @@
   
   <!-- Email 인증키 -->
   <insert id="createAuthKey">
-  	insert into member values(#{email}, #{authKey})
+  	insert into mailConfirm values(#{userEmail}, #{authKey})
   </insert>
-  <update id="userAuth">
-  	<![CDATA[update member set authstatus = 1 where(select count(*) from member where email = #{email}) > 0]]>
-  </update>
   
+ <update id="userAuth">
+  	<![CDATA[update mailConfirm set authstatus = 1 
+  	where (select count(*) 
+  	from mailConfirm 
+  	where userEmail = #{userEmail})  > 0 ]]> 
+  </update>
   
   <!-- Login -->
   <select id="memberLogin" resultType="MemberVO" parameterType="MemberVO">

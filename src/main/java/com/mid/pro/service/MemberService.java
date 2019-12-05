@@ -9,6 +9,8 @@ public interface MemberService {
 	public MemberVO memberCheckId(String id)throws Exception;
 	
 	public MemberVO memberCheckEmail(String email)throws Exception;
+		
+	public void userAuth(String userEmail)throws Exception;
 	
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;
 		

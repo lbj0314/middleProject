@@ -33,19 +33,19 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 	
 	@Override
-	public void createAuthKey(String email, String authKey)throws Exception{
+	public void createAuthKey(String userEmail, String authKey)throws Exception{
 		Map<String, Object> map = new HashMap<String, Object>();
 		
-		map.put("email", email);
+		map.put("userEmail", userEmail);
 		map.put("authKey", authKey);
 		
 		sqlSession.selectOne(NAMESPACE+"createAuthKey", map);
 	}
 	
-	@Override
-	public void userAuth(String email)throws Exception{
-		sqlSession.update(NAMESPACE+"userAuth", email);
-	}
+	
+	  @Override public void userAuth(String userEmail)throws Exception{
+	  sqlSession.update(NAMESPACE+"userAuth", userEmail);
+	  }
 	
 	
 		

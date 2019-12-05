@@ -2,21 +2,63 @@ package com.mid.pro.service;
 
 import javax.inject.Inject;
 
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mid.pro.dao.MemberDAOImpl;
+import com.mid.pro.model.MailConfirmVO;
 import com.mid.pro.model.MemberVO;
+import com.mid.pro.util.MailHandler;
+import com.mid.pro.util.TempKey;
 
 @Service
 public class MemberServiceImpl implements MemberService {
 	
 	@Inject
 	private MemberDAOImpl memberDAOImpl;
+	
+	@Inject
+	private JavaMailSender mailSender;
 
+	@Transactional
 	@Override
 	public int memberJoin(MemberVO memberVO) throws Exception {		
+		memberDAOImpl.memberJoin(memberVO);
+		
+		String key = new TempKey().getKey(50, false);
+		
+		MailConfirmVO mailConfirmVO = new MailConfirmVO();
+		
+		memberDAOImpl.createAuthKey(mailConfirmVO.getUserEmail(), key);
+		
+		MailHandler sendMail = new MailHandler(mailSender);
+		sendMail.setSubject("[이메일 인증]");
+		sendMail.setText(
+		/*
+		 * new StringBuffer().append("<h1>메일인증</h1>")
+		 * .append("<a href = 'http://localhost/pro/member/memberEmailConfirm?email=")
+		 * .append(memberVO.getEmail())
+		 */			
+		
+		 "<h1>메일인증</h1>"+
+		  "<a href = 'http://localhost/pro/member/memberEmailConfirm?userEmail="
+		  +mailConfirmVO.getUserEmail()+ "&key="+key+ "'target='_blenk'>이메일 인증 확인</a>"
+							
+				);
+		sendMail.setFrom("jin00853@gmail.com", "foodfun");		
+		sendMail.setTo(mailConfirmVO.getUserEmail());
+		sendMail.send();
+		
 		return memberDAOImpl.memberJoin(memberVO);
 	}
+	
+	
+	  @Override public void userAuth(String userEmail)throws Exception{	  
+		  	memberDAOImpl.userAuth(userEmail); 
+	  }
+	
+	
 	
 	@Override
 	public MemberVO memberCheckId(String id)throws Exception{

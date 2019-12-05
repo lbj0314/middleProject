@@ -14,10 +14,10 @@ public interface MemberDAO {
 	public MemberVO memberCheckEmail(String email)throws Exception;
 	
 	//createAuthKey
-	public void createAuthKey(String email, String authKey)throws Exception;
+	public void createAuthKey(String userEmail, String authKey)throws Exception;
 	
 	//userAuth
-	public void userAuth(String email)throws Exception;
+	public void userAuth(String userEmail)throws Exception;
 		
 	//login 
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;

@@ -56,6 +56,7 @@
 						<div id="pw2_check"></div>
 					</div>
 
+
 					<div></div>
 					<div class="mt-10 form-group">
 						<input type="email" name="email" id="email"
@@ -63,11 +64,13 @@
 							onblur="this.placeholder = 'Email address'" required
 							class="single-input-primary">
 						<div id="email_check"></div>
-						<div id="email_chk_btn"></div>
+						<!-- <div id="email_chk_btn"></div> -->
 					</div>
 					<div>
-						<a href="./memberMail" class="genric-btn success-border medium">인증하기</a>
+						<a href="./memberEmailConfirm" id="email_chk_btn" class="genric-btn success-border medium">인증하기</a>						
 					</div>
+
+
 
 					<div class="mt-10">
 						<input type="text" name="name" id="name" placeholder="Name"
@@ -104,6 +107,27 @@
 
 
 	<script type="text/javascript"> 
+	/***** email인증  ******/
+	$("#email_chk_btn").click(function(){
+				var email = $('#email').val();
+		$.ajax(
+			{
+				type: "GET",
+				url: "./memberEmailConfirm",
+				data: email,
+				success: function(data) {
+					data = data.trim();					
+				} 
+				,error:function(data){
+				console.log(data);
+				alert("다시 시도해주세요.");
+				return false;
+			}	
+				
+			}
+		)//ajax끝 						
+	});
+	
    
   /**** 기업번호div활성화 *****/   
     $("#reg_number").hide();
