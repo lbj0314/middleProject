@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -72,11 +73,20 @@ public class MemberController {
 		return result;
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = "memberCheckEmail", method = RequestMethod.GET)
-	public int memberCheckEmail(@RequestParam("email") String email)throws Exception{
 	
-		return memberServiceImpl.memberCheckEmail(email);
+	@ResponseBody
+	@PostMapping(value = "memberCheckEmail")
+	public String memberCheckEmail(@RequestBody String email)throws Exception{
+		email = email.trim();
+		System.out.println(email);
+		MemberVO memberVO =  memberServiceImpl.memberCheckEmail(email);
+		
+		if(memberVO !=null) {
+			return "0";
+		}else {
+			System.out.println("null");
+			return "-1";
+		}
 	}
 	
 	

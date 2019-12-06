@@ -23,8 +23,8 @@
   
   
   <!-- checkEmail -->
-  <select id="memberCheckEmail" resultType="Integer">
-  	select count(*) from member where email=#{email}
+  <select id="memberCheckEmail" resultType="MemberVO">
+  	select email from member where email=#{email}
   </select>
   
   

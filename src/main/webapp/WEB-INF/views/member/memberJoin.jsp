@@ -160,7 +160,8 @@
 					if(idRule.test(id)){
 						$('#text').text(" ");
 						$("#btn").attr("disabled",false);			
-					}else if(id ==""){					
+					}else if(id ==""){	
+						console.log(data);
 							$('#text').text('필수 정보입니다.');
 							$('#text').css('color','red');
 							$("#btn").attr("disabled",true);					
@@ -227,13 +228,15 @@
 /********** Email 형식 *********/ 	 	
 
  $("#email").blur(function() {
-	var email =  $('#email').val(); 
+	var email = $('#email').val(); 
 	var emailRule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 	var query = {email :  $('#email').val()};	
 	
 	$.ajax({
-		url:'${pageContext.request.contextPath}/member/memberCheckEmail?email'+email,
-		type: "get",		 
+		url: 'memberCheckEmail',
+		type: 'POST',
+		data: email,
+		
 		success:function(data){
 		/* 	 if(data == 1){
 				$("#email_check").text("이미 사용중인 이메일입니다.");
@@ -253,13 +256,14 @@
 					$('#btn').attr("disabled",true);
 					return false;					
 				}	  */	
-				console.log(data);
+				
 			 if(email ==""){
 				$('#email_check').text('필수 정보입니다.');
 				$('#email_check').css('color','red');
 				$("#btn").attr("disabled",true);										
+				console.log(data);
 			}else{
-				if(data == 1){
+				if(data == 0){
 					$("#email_check").text("이미 사용중인 이메일입니다.");
 					$("#email_check").css("color","red");
 					$("#btn").attr("disabled",true);
@@ -271,10 +275,10 @@
 						$('#email_check').text("이메일 주소를 다시 확인해주세요.");
 						$('#email_check').css('color','red');
 						$('#btn').attr("disabled",true);
-						return false;							
+						return false;																		
+						}
 					}					
-				}
-			}	
+				}	
 		},error:function(){		
 			
 		}
