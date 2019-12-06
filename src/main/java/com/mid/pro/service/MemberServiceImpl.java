@@ -2,15 +2,12 @@ package com.mid.pro.service;
 
 import javax.inject.Inject;
 
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mid.pro.dao.MemberDAOImpl;
-import com.mid.pro.model.MailConfirmVO;
 import com.mid.pro.model.MemberVO;
-import com.mid.pro.util.MailHandler;
-import com.mid.pro.util.TempKey;
+
 
 @Service
 public class MemberServiceImpl implements MemberService {
