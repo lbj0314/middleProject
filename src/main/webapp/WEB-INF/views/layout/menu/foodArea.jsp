@@ -96,9 +96,6 @@
                     </div>
                 </div>
             </div>
-            <c:if test="${ not empty member  }">
-				<a href="../menu/menuWrite">Write</a>
-			</c:if>
         </div>
     </section>
     <!-- Food Area End -->

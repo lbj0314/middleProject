@@ -29,7 +29,7 @@ public class MenuDAO {
 	}
 	
 	//write
-	public int menuWrite(MenuVO menuVO) throws Exception{
+	public int menuWrite(List<MenuVO> menuVO) throws Exception{
 		return sqlSession.insert(NAMESPACE + "menuWrite", menuVO);
 	}
 	//update

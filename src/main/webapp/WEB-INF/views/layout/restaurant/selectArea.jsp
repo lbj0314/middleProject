@@ -72,6 +72,9 @@ img {
 					<div class="col-lg-12">
 						<div class="col-lg-12 menu">
 							<a href="../menu/menuList" class="btn genric-btn primary">Menu</a>
+							<c:if test="${member.member_num eq vo.member_num }">
+								<a href="../menu/menuWrite" class="btn genric-btn info">Menu Write</a>
+							</c:if>
 						</div>
 						<c:if test="${not empty vo.rest_url}">
 						<p style="margin-top: -12px; float: right;">
@@ -105,7 +108,7 @@ img {
 		</div>
 	</div>
 
-	<div class="comments-area">
+<!-- 	<div class="comments-area">
 		<h4>Review</h4>
 		<div class="comment-list">
 			<div class="single-comment justify-content-between d-flex">
@@ -202,7 +205,7 @@ img {
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 </section>
 <!--================Blog Area =================-->

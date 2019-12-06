@@ -49,20 +49,23 @@
   		<include refid="ms"/>
   	</select> -->
   	<!-- write -->
-  	<insert id="menuWrite" >
+  	<insert id="menuWrite">
   		<selectKey order="BEFORE" resultType="Integer" keyProperty="menu_num">
 			SELECT menu_seq.nextval FROM dual
 		</selectKey>
-		INSERT INTO menu
-		VALUES 
-		(
-			menu_seq.nextval, #{name}, #{contents}, #{price}, #{origin}, #{rest_num}
-		)
+		<foreach collection="list" item="item" index="index" separator=" " open="INSERT ALL">
+			INSERT INTO menu
+			( menu_num, menu_name, menu_contents, price, origin, rest_num )
+			VALUES 
+			(
+				#{item.menu_num}, #{item.menu_name}, #{item.menu_contents}, #{item.price}, #{item.origin}, #{item.rest_num}
+			)
+		</foreach>
   	</insert>
   	<!-- update -->
   	<update id="menuUpdate" parameterType="menuVO">
   		UPDATE menu
-  		SET name = #{name}, contents = #{contents}, price = #{price}, origin = #{origin}
+  		SET menu_name = #{menu_name}, menu_contents = #{menu_contents}, price = #{price}, origin = #{origin}
   		WHERE menu_num = #{menu_num}
   	</update>
   	<!-- delete -->

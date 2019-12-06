@@ -42,7 +42,7 @@ public class MenuController {
 		menuVO = menuService.menuSelect(menuVO);
 		if (menuVO != null) {
 			mv.addObject("vo", menuVO);
-			menuVO.setContents(menuVO.getContents().replace("\r\n", "<br>"));
+			menuVO.setMenu_contents(menuVO.getMenu_contents().replace("\r\n", "<br>"));
 			mv.setViewName("menu/menuSelect");
 		} else {
 			mv.addObject("msg", "내용이 없습니다.");
@@ -54,14 +54,16 @@ public class MenuController {
 	}
 	//write
 	@GetMapping(value = "menuWrite")
-	public ModelAndView menuWrite(HttpSession session) throws Exception{
+	public ModelAndView menuWrite(MenuVO menuVO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		menuVO = menuService.menuSelect(menuVO);
+		mv.addObject("vo", menuVO);
 		mv.setViewName("menu/menuWrite");
 		
 		return mv;
 	}
 	@PostMapping(value = "menuWrite")
-	public ModelAndView menuWrite(MenuVO menuVO, MultipartFile[] file, HttpSession session) throws Exception{
+	public ModelAndView menuWrite(List<MenuVO> menuVO, MultipartFile file, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = menuService.menuWrite(menuVO, file, session);
 		String msg = "메뉴 작성에 실패하였습니다.";
@@ -91,17 +93,17 @@ public class MenuController {
 		return mv;
 	}
 	@PostMapping(value = "menuUpdate")
-	public ModelAndView menuUpdate(MenuVO menuVO, MultipartFile[] file, HttpSession session) throws Exception{
+	public ModelAndView menuUpdate(MenuVO menuVO, MultipartFile file, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = menuService.menuUpdate(menuVO, file, session);
-		String msg = "메뉴 수정에 실패하였습니다.";
-		if (result > 0) {
-			mv.setViewName("redirect:./menuList");
-		} else {
-			mv.addObject("msg", msg);
-			mv.addObject("path", "./menuList");
-			mv.setViewName("common/common_result");
-		}
+//		int result = menuService.menuUpdate(menuVO, file, session);
+//		String msg = "메뉴 수정에 실패하였습니다.";
+//		if (result > 0) {
+//			mv.setViewName("redirect:./menuList");
+//		} else {
+//			mv.addObject("msg", msg);
+//			mv.addObject("path", "./menuList");
+//			mv.setViewName("common/common_result");
+//		}
 		return mv;
 	}
 	//delete
