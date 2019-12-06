@@ -18,43 +18,36 @@ public class MemberServiceImpl implements MemberService {
 	@Inject
 	private MemberDAOImpl memberDAOImpl;
 	
-	@Inject
-	private JavaMailSender mailSender;
+	//@Inject
+	//private JavaMailSender mailSender;
 
 	@Transactional
 	@Override
 	public int memberJoin(MemberVO memberVO) throws Exception {		
-		memberDAOImpl.memberJoin(memberVO);
-		
-		String key = new TempKey().getKey(50, false);
-		
-		memberDAOImpl.createAuthKey(memberVO.getEmail(), key);
-		
-		MailHandler sendMail = new MailHandler(mailSender);
-		sendMail.setSubject("[이메일 인증]");
-		sendMail.setText(
 		/*
-		 * new StringBuffer().append("<h1>메일인증</h1>")
-		 * .append("<a href = 'http://localhost/pro/member/memberEmailConfirm?email=")
-		 * .append(memberVO.getEmail())
-		 */			
-		
-		 "<h1>메일인증</h1>"+
-		  "<a href = 'http://localhost/pro/member/memberEmailConfirm?userEmail="
-		  +memberVO.getEmail()+ "&key="+key+ "'target='_blenk'>이메일 인증 확인</a>"
-							
-				);
-		sendMail.setFrom("jin00853@gmail.com", "foodfun");		
-		sendMail.setTo(memberVO.getEmail());
-		sendMail.send();
+		 * memberDAOImpl.memberJoin(memberVO);
+		 * 
+		 * String key = new TempKey().getKey(50, false);
+		 * 
+		 * memberDAOImpl.createAuthKey(memberVO.getEmail(), key);
+		 * 
+		 * MailHandler sendMail = new MailHandler(mailSender);
+		 * sendMail.setSubject("[이메일 인증]"); sendMail.setText( "<h1>메일인증</h1>"+
+		 * "<a href = 'http://localhost/pro/member/memberEmailConfirm?userEmail="
+		 * +memberVO.getEmail()+ "&key="+key+ "'target='_blenk'>이메일 인증 확인</a>"
+		 * 
+		 * ); sendMail.setFrom("jin00853@gmail.com", "foodfun");
+		 * sendMail.setTo(memberVO.getEmail()); sendMail.send();
+		 */
 		
 		return memberDAOImpl.memberJoin(memberVO);
 	}
 	
 	
-	  @Override public void userAuth(String userEmail)throws Exception{	  
-		  	memberDAOImpl.userAuth(userEmail); 
-	  }
+	/*
+	 * @Override public void userAuth(String userEmail)throws Exception{
+	 * memberDAOImpl.userAuth(userEmail); }
+	 */
 	
 	
 	

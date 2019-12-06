@@ -14,15 +14,9 @@ public class MemberVO {
 	private int writecount;
 	private int reg_number;
 	private int grade;
-	private String authKey;
 	private int authstatus;
 	
-	public String getAuthKey() {
-		return authKey;
-	}
-	public void setAuthKey(String authKey) {
-		this.authKey = authKey;
-	}
+
 	public int getAuthstatus() {
 		return authstatus;
 	}

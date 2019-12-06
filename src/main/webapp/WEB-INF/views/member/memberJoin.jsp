@@ -57,14 +57,14 @@
 					</div>
 
 
-					<div></div>
+				
 					<div class="mt-10 form-group">
 						<input type="email" name="email" id="email"
 							placeholder="Email address" onfocus="this.placeholder = ''"
 							onblur="this.placeholder = 'Email address'" required
 							class="single-input-primary">
-						<div id="email_check"></div>
-						<!-- <div id="email_chk_btn"></div> -->
+						 <div id="email_check"></div>
+						 <div id="email_chk_btn"></div> 
 					</div>
 					<!-- <div>
 						<a href="./memberEmailConfirm" id="email_chk_btn" class="genric-btn success-border medium">인증하기</a>						
@@ -227,17 +227,17 @@
 /********** Email 형식 *********/ 	 	
 
  $("#email").blur(function(email) {
-	var email = $('#email').val();
+	var email =  $('#email').val(); 
 	var emailRule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-	
-	var query= {email: $('#email').val()};	
+	var query = {email :  $('#email').val()};	
 	
 	$.ajax({
 		url:"memberCheckEmail",
 		type: "post",
-		data: query,
+		data: query, 
+		 
 		success:function(data){
-			if(data == 1){
+		/* 	 if(data == 1){
 				$("#email_check").text("이미 사용중인 이메일입니다.");
 				$("#email_check").css("color","red");
 				$("#btn").attr("disabled",true);										
@@ -254,13 +254,34 @@
 					$('#email_check').css('color','red');
 					$('#btn').attr("disabled",true);
 					return false;					
-				}		
+				}	  */	
+				
+			 if(email ==""){
+				$('#email_check').text('필수 정보입니다.');
+				$('#email_check').css('color','red');
+				$("#btn").attr("disabled",true);										
+			}else{
+				if(data == 1 ){
+					$("#email_check").text("이미 사용중인 이메일입니다.");
+					$("#email_check").css("color","red");
+					$("#btn").attr("disabled",true);
+				}else{
+					if(emailRule.test(email)){
+						$('#email_check').text(" ");
+						$("#btn").attr("disabled",false);	
+					}else{
+						$('#email_check').text("이메일 주소를 다시 확인해주세요.");
+						$('#email_check').css('color','red');
+						$('#btn').attr("disabled",true);
+						return false;							
+					}					
+				}
 			}	
 		},error:function(){		
 			
 		}
 				
-	});						
+	});		//ajax끝				
 }); 
 
 

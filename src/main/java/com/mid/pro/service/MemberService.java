@@ -10,7 +10,7 @@ public interface MemberService {
 	
 	public MemberVO memberCheckEmail(String email)throws Exception;
 		
-	public void userAuth(String userEmail)throws Exception;
+	//public void userAuth(String userEmail)throws Exception;
 	
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;
 		
