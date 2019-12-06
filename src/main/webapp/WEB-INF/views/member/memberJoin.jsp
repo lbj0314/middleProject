@@ -226,16 +226,14 @@
  	 	  	
 /********** Email 형식 *********/ 	 	
 
- $("#email").blur(function(email) {
+ $("#email").blur(function() {
 	var email =  $('#email').val(); 
 	var emailRule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 	var query = {email :  $('#email').val()};	
 	
 	$.ajax({
-		url:"memberCheckEmail",
-		type: "post",
-		data: query, 
-		 
+		url:'${pageContext.request.contextPath}/member/memberCheckEmail?email'+email,
+		type: "get",		 
 		success:function(data){
 		/* 	 if(data == 1){
 				$("#email_check").text("이미 사용중인 이메일입니다.");
@@ -255,13 +253,13 @@
 					$('#btn').attr("disabled",true);
 					return false;					
 				}	  */	
-				
+				console.log(data);
 			 if(email ==""){
 				$('#email_check').text('필수 정보입니다.');
 				$('#email_check').css('color','red');
 				$("#btn").attr("disabled",true);										
 			}else{
-				if(data == 1 ){
+				if(data == 1){
 					$("#email_check").text("이미 사용중인 이메일입니다.");
 					$("#email_check").css("color","red");
 					$("#btn").attr("disabled",true);

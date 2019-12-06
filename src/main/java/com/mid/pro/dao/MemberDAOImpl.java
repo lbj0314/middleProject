@@ -27,7 +27,7 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 	
 	@Override
-	public MemberVO memberCheckEmail(String email)throws Exception{
+	public int memberCheckEmail(String email)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"memberCheckEmail", email);
 	}
 	

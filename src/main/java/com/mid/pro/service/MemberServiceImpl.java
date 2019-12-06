@@ -57,7 +57,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public MemberVO memberCheckEmail(String email)throws Exception{
+	public int memberCheckEmail(String email)throws Exception{
 		return memberDAOImpl.memberCheckEmail(email);
 	}
 	
