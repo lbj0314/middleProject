@@ -8,7 +8,7 @@ public interface MemberDAO {
 	public int memberJoin(MemberVO memberVO)throws Exception;
 		
 	//checkId
-	public MemberVO memberCheckId(String id)throws Exception;
+	public int memberCheckId(MemberVO memberVO)throws Exception;
 	
 	//checkEmail
 	public MemberVO memberCheckEmail(String email)throws Exception;

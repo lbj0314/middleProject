@@ -16,7 +16,7 @@
   
   
   <!-- checkId -->
-  <select id="memberCheckId" resultType="MemberVO">
+  <select id="memberCheckId" parameterType="MemberVO" resultType="int">
   	select id from member where id=#{id}
   </select>
   

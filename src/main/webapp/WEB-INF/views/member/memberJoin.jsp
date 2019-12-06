@@ -143,14 +143,14 @@
     	
 	
 /**** id 형식 & 중복확인*****/			
-	$("#id").blur(function(id) {
-		var id = $('#id').val();
+ 	$("#id").blur(function(id) {
 		var idRule = /^[a-z0-9]{4,12}$/;
-		var query = {id :  $('#id').val()};	
+		var id = $('#id').val();
+	
 		$.ajax({
-			url:"memberCheckId",
-			type: "post",
-			data: query,
+			url: "memberCheckId?id="+id,
+			type: "get",
+		
 			success:function(data){
 				if(data == 1){
 					$("#text").text("사용중인 아이디입니다.");
@@ -171,15 +171,13 @@
 						$('#btn').attr("disabled",true);
 						return false;					
 					}					
-				 /* 	$("#text").text("사용가능한 아이디입니다.");
-					$("#text").css("color","green");
-					$("#btn").attr("disabled",false);  */
 				}
 			},error:function(){
 				
 			}			
 		});						
-	});
+	}); 
+	
 	
    
 /******* 비밀번호 형식 ******/	

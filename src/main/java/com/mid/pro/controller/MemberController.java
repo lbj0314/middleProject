@@ -61,16 +61,10 @@ public class MemberController {
 	
 	///checkId && checkEmail
 	@ResponseBody
-	@PostMapping(value = "memberCheckId")
-	public int memberCheckId(HttpServletRequest req)throws Exception{
-		String id = req.getParameter("id");
-		MemberVO memberVO = memberServiceImpl.memberCheckId(id);	
-		int result = 0;
-		
-		if(memberVO != null) {
-			result = 1;
-		}
-		return result;
+	@RequestMapping(value = "memberCheckId", method = RequestMethod.GET)
+	public int memberCheckId(@RequestParam("id") MemberVO memberVO)throws Exception{
+			System.out.println();
+			return memberServiceImpl.memberCheckId(memberVO);
 	}
 	
 	
