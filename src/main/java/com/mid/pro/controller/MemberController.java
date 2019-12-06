@@ -24,7 +24,7 @@ public class MemberController {
 
 	@Inject
 	private MemberServiceImpl memberServiceImpl;
-
+	
 
 	////////////Join	
 	@GetMapping(value = "memberJoin")	

@@ -30,7 +30,7 @@
 						</div>
 
 						<button type="submit" class="template-btn">Login</button>
-						
+						<a href="#"><img alt="" src="../resources/upload/kakao_account_login_btn_medium_narrow.png"></a>
 					</form>
 				</div>
 			</div>
