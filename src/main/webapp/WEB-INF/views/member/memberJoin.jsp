@@ -146,10 +146,11 @@
 	$("#id").blur(function(id) {
 		var id = $('#id').val();
 		var idRule = /^[a-z0-9]{4,12}$/;
+		var query = {id :  $('#id').val()};
 		$.ajax({
 			url:"memberCheckId",
 			type: "post",
-			data: id,
+			data: query,
 			success:function(data){
 				if(data == 1){
 					$("#text").text("사용중인 아이디입니다.");
