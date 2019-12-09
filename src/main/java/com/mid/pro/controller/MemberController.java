@@ -25,7 +25,13 @@ public class MemberController {
 	@Inject
 	private MemberServiceImpl memberServiceImpl;
 	
-
+	
+	@GetMapping(value = "memberJoin_before")
+	public void memberJoin_before()throws Exception{
+		
+	}
+	
+	
 	////////////Join	
 	@GetMapping(value = "memberJoin")	
 	public void memberJoin()throws Exception{

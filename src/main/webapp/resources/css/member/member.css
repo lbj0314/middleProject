@@ -47,7 +47,15 @@
 	
 }
 
+#login_wrapper{
+	background-color: aqua;
+	margin: 0 auto;
+}
 
+
+#login_btn{
+	float: none;
+}
 /******************** memberMypage **********************/
 
 #categorie_area{

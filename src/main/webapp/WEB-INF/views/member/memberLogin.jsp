@@ -14,7 +14,7 @@
 	<section class="contact-form section-padding3">
 		<div class="container" id="test">
 			<div class="row">
-				<div class="col-lg-9">
+				<div class="col-lg-9" id="login_wrapper">
 					<h3 class="mb-30 title_color">Login</h3>
 					
 					<form action="./memberLogin" method="post">
@@ -27,10 +27,12 @@
 								placeholder="Enter your password"
 								onfocus="this.placeholder = ''"
 								onblur="this.placeholder = 'Enter your password'" required>
+							
 						</div>
+						<button type="submit" class="template-btn" id= "login_btn">Login</button>
+						
 
-						<button type="submit" class="template-btn">Login</button>
-						<a href="#"><img alt="" src="../resources/upload/kakao_account_login_btn_medium_narrow.png"></a>
+					<!-- 	<a href="#"><img alt="" src="../resources/upload/kakao_account_login_btn_medium_narrow.png"></a> -->
 					</form>
 				</div>
 			</div>

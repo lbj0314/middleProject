@@ -32,6 +32,7 @@
 		<mapping path="/member/*"/>
 		<exclude-mapping path="/member/memberLogin"/>
 		<exclude-mapping path="/member/memberJoin"/>
+		<exclude-mapping path="/member/memberJoin_before"/>
 		<exclude-mapping path="/member/memberEmailConfirm"/>
 		<beans:bean class = "com.mid.pro.interceptors.LoginInterceptor"></beans:bean>
 		</interceptor>
