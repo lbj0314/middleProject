@@ -226,7 +226,7 @@
  	 	  	
 /********** Email 형식 *********/ 	 	
 
- $("#email").blur(function(email) {
+  $("#email").blur(function(email) {
 	var email = $('#email').val();
 	var emailRule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 	
@@ -261,7 +261,10 @@
 		}
 				
 	});						
-}); 
+});  
+
+
+
 
 
 /******* Name 형식 *********/
