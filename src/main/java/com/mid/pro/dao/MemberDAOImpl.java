@@ -43,7 +43,8 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 	
 	
-	  @Override public void userAuth(String userEmail)throws Exception{
+	  @Override 
+	  public void userAuth(String userEmail)throws Exception{
 	  sqlSession.update(NAMESPACE+"userAuth", userEmail);
 	  }
 	

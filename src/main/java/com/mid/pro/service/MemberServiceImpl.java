@@ -52,12 +52,12 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	
-	  @Override public void userAuth(String userEmail)throws Exception{	  
+	  @Override 
+	  public void userAuth(String userEmail)throws Exception{	  
 		  	memberDAOImpl.userAuth(userEmail); 
 	  }
-	
-	
-	
+
+	  
 	@Override
 	public MemberVO memberCheckId(String id)throws Exception{
 		return memberDAOImpl.memberCheckId(id);
