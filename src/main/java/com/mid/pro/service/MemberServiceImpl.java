@@ -32,13 +32,8 @@ public class MemberServiceImpl implements MemberService {
 		
 		MailHandler sendMail = new MailHandler(mailSender);
 		sendMail.setSubject("[이메일 인증]");
-		sendMail.setText(
-		/*
-		 * new StringBuffer().append("<h1>메일인증</h1>")
-		 * .append("<a href = 'http://localhost/pro/member/memberEmailConfirm?email=")
-		 * .append(memberVO.getEmail())
-		 */			
-		
+		sendMail.setText(	
+				
 		 "<h1>메일인증</h1>"+
 		  "<a href = 'http://localhost/pro/member/memberEmailConfirm?userEmail="
 		  +memberVO.getEmail()+ "&key="+key+ "'target='_blenk'>이메일 인증 확인</a>"

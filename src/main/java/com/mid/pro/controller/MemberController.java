@@ -51,12 +51,10 @@ public class MemberController {
 	  public String	 memberEmailConfirm(String userEmail,MemberVO memberVO, Model moodel)throws Exception{
 		  memberVO.setAuthstatus(1);
 		  memberServiceImpl.userAuth(userEmail);	 
-		   
-		  
-		 
+
 		   moodel.addAttribute("auth_check",1);
 		   
-		   	return "memberEmailConfirm"; 
+		  	return "memberEmailConfirm"; 
 		   	}
 	 
 	
