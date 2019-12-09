@@ -56,6 +56,13 @@
 						<div id="pw2_check"></div>
 					</div>
 
+					<div class="mt-10">
+						<input type="text" name="name" id="name" placeholder="Name"
+							onfocus="this.placeholder = ''"
+							onblur="this.placeholder = 'Name'" required
+							class="single-input-primary">
+						<div id="name_check"></div>
+					</div>
 
 				
 					<div class="mt-10 form-group">
@@ -72,13 +79,6 @@
 
 
 
-					<div class="mt-10">
-						<input type="text" name="name" id="name" placeholder="Name"
-							onfocus="this.placeholder = ''"
-							onblur="this.placeholder = 'Name'" required
-							class="single-input-primary">
-						<div id="name_check"></div>
-					</div>
 					<div class="mt-10">
 						<input type="text" name="tel" id="tel" placeholder="010-***-****"
 							onfocus="this.placeholder = ''"

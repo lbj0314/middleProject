@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
 <c:import url="../layout/header.jsp"></c:import>
+<c:import url="../layout/header_mypage.jsp"></c:import>
 </head>
 <body>
 	<c:import url="../layout/header_area.jsp"></c:import>
@@ -135,6 +136,60 @@
 			</div>
 		</form>
 	</div>
+	
+	<!-- new -->
+	   <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo" id="page-wrapper">
+        <div class="wrapper wrapper--w960">
+            <div class="card card-2">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Member Info</h2>
+                    <form action="./memberUpdate" method="POST">
+                    
+                        <div class="input-group">  
+                       		<div class="input--style-2 column">아이디</div>     
+                       		<div>                                 
+                            <input class="input--style-2 list member_update" type="text" placeholder="${member.id}" name="id" 
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = '${member.id}'">
+                       		</div>      
+                        </div>
+                        
+                         <div class="input-group">  
+                       		<div class="input--style-2 column">이름</div>                                            
+                            <input class="input--style-2 list" type="text" placeholder="${member.name}" name="name" >
+                        </div>
+                        
+                         <div class="input-group">  
+                       		<div class="input--style-2 column">이메일</div>                                            
+                            <input class="input--style-2 list" type="text" placeholder="${member.email}" name="email" >
+                        </div>
+                        
+                         <div class="input-group">  
+                       		<div class="input--style-2 column">핸드폰번호</div>                                            
+                            <input class="input--style-2 list" type="text" placeholder="${member.tel}" name="tel" >
+                        </div>
+                        
+                        <c:if test="${member.grade == 2}">
+                         <div class="input-group">  
+                       		<div class="input--style-2 column">사업자번호</div>                                            
+                            <input class="input--style-2 list" type="text" placeholder="${member.reg_number}" name="reg_number">
+                        </div>
+                        </c:if>
+                                             
+                        <div class="p-t-30">
+                            <a href="./memberUpdate?id=${member.id}#upd_area" class="btn btn--radius btn--green" >수정</a>          
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	
+	
+	
+	
+	
 	<!---------------- script ----------------->
 	<script type="text/javascript">
    

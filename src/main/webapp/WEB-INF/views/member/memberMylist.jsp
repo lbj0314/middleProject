@@ -5,12 +5,13 @@
 <html lang="en">
 <head>
 <c:import url="../layout/header.jsp"></c:import>
+<c:import url="../layout/header_mypage.jsp"></c:import>
 </head>
 <body>
 	<c:import url="../layout/header_area.jsp"></c:import>
 
 	<!--================Blog Area =================-->
-	<div class="comments-area" id="mylist_area">
+	<%-- <div class="comments-area" id="mylist_area">
 		<h4>My page</h4>
 		<div class="comment-list">
 			<div class="single-comment justify-content-between d-flex">
@@ -34,22 +35,6 @@
 				<p class="date">가입날짜 : December 4, 2017 at 3:12 pm</p>
 			</div>
 		</div>
-		<%-- <div class="comment-list left-padding">
-                             <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">                                  
-                                    <div class="desc">
-                                        <h5><p>Password</p></h5>                                                                          
-                                     <p class="comment">
-                                            ${member.pw}
-                                       </p>
-                                    </div>
-                                     -
-                                </div>
-                                <div class="reply-btn">
-                                        <a href="" class="btn-reply text-uppercase">reply</a> 
-                                </div>
-                            </div> 
-                        </div>	 --%>
 		<div class="comment-list left-padding">
 			<div class="single-comment justify-content-between d-flex">
 				<div class="user justify-content-between d-flex">
@@ -110,8 +95,54 @@
 				class="genric-btn info">회원정보수정</a> <a href="../"
 				class="genric-btn danger" id="danger_btn">Cancel</a>
 		</div>
-	</div>
+	</div> --%>
+	
+	<!-- new -->
+	   <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo" id="page-wrapper">
+        <div class="wrapper wrapper--w960">
+            <div class="card card-2">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Member Info</h2>
+                    <form method="POST">
+                    
+                        <div class="input-group">  
+                       		<div class="input--style-2 column">아이디</div>                                            
+                            <input class="input--style-2 list" type="text" placeholder="${member.id}" name="id" readonly="readonly">
+                        </div>
+                        
+                         <div class="input-group">  
+                       		<div class="input--style-2 column">이름</div>                                            
+                            <input class="input--style-2 list" type="text" placeholder="${member.name}" name="name" readonly="readonly">
+                        </div>
+                        
+                         <div class="input-group">  
+                       		<div class="input--style-2 column">이메일</div>                                            
+                            <input class="input--style-2 list" type="text" placeholder="${member.email}" name="email" readonly="readonly">
+                        </div>
+                        
+                         <div class="input-group">  
+                       		<div class="input--style-2 column">핸드폰번호</div>                                            
+                            <input class="input--style-2 list" type="text" placeholder="${member.tel}" name="tel" readonly="readonly">
+                        </div>
+                        
+                        <c:if test="${member.grade == 2}">
+                         <div class="input-group">  
+                       		<div class="input--style-2 column">사업자번호</div>                                            
+                            <input class="input--style-2 list" type="text" placeholder="${member.reg_number}" name="reg_number" readonly="readonly">
+                        </div>
+                        </c:if>
+                                             
+                        <div class="p-t-30">
+                            <a href="./memberUpdate?id=${member.id}#upd_area" class="btn btn--radius btn--green" >수정</a>          
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
+  
 	<!--=============== footer =================-->
 	<c:import url="../layout/footer.jsp" />
 
