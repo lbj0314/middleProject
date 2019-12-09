@@ -148,11 +148,26 @@
                     
                         <div class="input-group">  
                        		<div class="input--style-2 column">아이디</div>     
-                       		<div>                                 
+                       		<div class="update_div">                                 
                             <input class="input--style-2 list member_update" type="text" placeholder="${member.id}" name="id" 
                             onfocus="this.placeholder = ''" onblur="this.placeholder = '${member.id}'">
                        		</div>      
                         </div>
+                        
+                         <div class="input-group">  
+                       		<div class="input--style-2 column">비밀번호</div>     
+                       		<div class="update_div">                                 
+                            <input class="input--style-2 list member_update" type="password" placeholder="새비밀번호" name="pw" 
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = '새비밀번호'">
+                       		</div>  
+                       
+                       		<div class="input--style-2 column" id=pw_update></div>  
+                       		<div class="update_div" >                                 
+                            <input class="input--style-2 list member_update" type="password" placeholder="새비밀번호 확인" name="pw2" 
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = '새비밀번호 확인'">
+                       		</div>    
+                        </div>
+                        
                         
                          <div class="input-group">  
                        		<div class="input--style-2 column">이름</div>                                            
