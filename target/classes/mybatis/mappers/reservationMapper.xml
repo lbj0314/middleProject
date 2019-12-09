@@ -9,7 +9,7 @@
   
   <insert id="reservationInput">
    insert into reservation
-  	values(rev_seq.nextval,#{rest_num},#{member_num},#{rev_peple},#{rev_date},1,#{menu_num})
+  	values(rev_seq.nextval,#{rest_num},#{member_num},#{rev_peple},#{rev_date},1,#{menu_num},#{rev_time})
   </insert>
   
   </mapper>
