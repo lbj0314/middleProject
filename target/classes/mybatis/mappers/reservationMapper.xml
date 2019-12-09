@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="reservationMapper">
+  
+  
+  <insert id="reservationInput">
+   insert into reservation
+  	values(rev_seq.nextval,#{rest_num},#{member_num},#{rev_peple},#{rev_date},1,#{menu_num})
+  </insert>
+  
+  </mapper>
