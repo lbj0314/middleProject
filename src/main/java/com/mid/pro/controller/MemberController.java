@@ -48,17 +48,6 @@ public class MemberController {
 		return mv;
 	}
 	
-	
-	/*
-	 * @GetMapping(value ="memberEmailConfirm") public String
-	 * memberEmailConfirm(String userEmail, Model moodel)throws Exception{
-	 * memberServiceImpl.userAuth(userEmail);
-	 * moodel.addAttribute("userEmail",userEmail);
-	 * 
-	 * return "memberEmailConfirm"; }
-	 */
-	
-	
 	///checkId && checkEmail
 	@ResponseBody
 	@PostMapping(value = "memberCheckId")
@@ -76,18 +65,18 @@ public class MemberController {
 	
 	@ResponseBody
 	@PostMapping(value = "memberCheckEmail")
-	public String memberCheckEmail(@RequestBody String email)throws Exception{
-		email = email.trim();
+	public int memberCheckEmail(HttpServletRequest req)throws Exception{
+		String email = req.getParameter("email");
 		System.out.println(email);
 		MemberVO memberVO =  memberServiceImpl.memberCheckEmail(email);
+		int result = 0;
 		
 		if(memberVO !=null) {
-			return "0";
-		}else {
-			System.out.println("null");
-			return "-1";
+			return 1;
 		}
+			return result;
 	}
+	
 	
 	
 	

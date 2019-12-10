@@ -11,91 +11,6 @@
 	<c:import url="../layout/header_area.jsp"></c:import>
 
 	<!--================Blog Area =================-->
-	<%-- <div class="comments-area" id="mylist_area">
-		<h4>My page</h4>
-		<div class="comment-list">
-			<div class="single-comment justify-content-between d-flex">
-				<div class="user justify-content-between d-flex">
-					<div class="thumb">
-						<img src="../resources/images/blog-details/c1.jpg" alt="">
-					</div>
-					<div class="desc">
-						<h5>
-							<p>Id</p>
-						</h5>
-						<p class="comment">${member.id}</p>
-					</div>
-				</div>
-				<div class="reply-btn">
-					<a href="./memberDelete?id=${member.id}"
-						class="btn-reply text-uppercase">탈퇴하기</a>
-				</div>
-			</div>
-			<div class="desc" id="etc">
-				<p class="date">가입날짜 : December 4, 2017 at 3:12 pm</p>
-			</div>
-		</div>
-		<div class="comment-list left-padding">
-			<div class="single-comment justify-content-between d-flex">
-				<div class="user justify-content-between d-flex">
-					<div class="desc">
-						<h5>
-							<p>Name</p>
-						</h5>
-						<p class="comment">${member.name}</p>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-		<div class="comment-list left-padding">
-			<div class="single-comment justify-content-between d-flex">
-				<div class="user justify-content-between d-flex">
-					<div class="desc">
-						<h5>
-							<p>Phone Number</p>
-						</h5>
-						<p class="comment">${member.tel}</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="comment-list left-padding">
-			<div class="single-comment justify-content-between d-flex">
-				<div class="user justify-content-between d-flex">
-					<div class="desc">
-						<h5>
-							<p>Email</p>
-						</h5>
-						<p class="comment">${member.email}</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<c:if test="${member.grade == 2}">
-			<div class="comment-list left-padding">
-				<div class="single-comment justify-content-between d-flex">
-					<div class="user justify-content-between d-flex">
-						<div class="desc">
-							<h5>
-								<p>corporate registration number</p>
-							</h5>
-							<p class="comment">${member.reg_number}</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</c:if>
-
-
-		<div id="post_btn">
-			<a href="./memberUpdate?id=${member.id}#upd_area"
-				class="genric-btn info">회원정보수정</a> <a href="../"
-				class="genric-btn danger" id="danger_btn">Cancel</a>
-		</div>
-	</div> --%>
 	
 	<!-- new -->
 	   <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo" id="page-wrapper">
@@ -134,7 +49,7 @@
                         </c:if>
                                              
                         <div class="p-t-30">
-                            <a href="./memberUpdate?id=${member.id}#upd_area" class="btn btn--radius btn--green" >수정</a>          
+                            <a href="./memberUpdate?id=${member.id}#page-wrapper" class="btn btn--radius btn--green" >수정</a>          
                         </div>
                     </form>
                 </div>
