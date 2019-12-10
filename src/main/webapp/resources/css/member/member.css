@@ -1,24 +1,27 @@
 @charset "UTF-8";
 /****************** home *******************/
 .template-btn mt-3{
-	font-weight: bold;
-	
+	font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+	 font-size: 14px;
+ 	 font-weight: 700;
 }
 
 #home_login_btn{
-	padding-left: 10px;
+	margin-left: 15px;
 	
 }
 
-
-
 /********************* memberJoin *********************/
 
+#member_choice{
 
+	width: 25%;
+	
+}
 
 #join-form{
  margin: 0 auto;
-	max-width: 40.666667%;
+	max-width: 35.666667%;
 }
 
 
@@ -47,6 +50,14 @@
 	
 }
 
+#login_box{
+	margin: 0 auto;	
+	
+}
+
+#login_btn{
+	float: none;
+}
 
 /******************** memberMypage **********************/
 
@@ -144,10 +155,7 @@
 	
 }
 
-#pw_update{
 
-	height: 20px;
-}
 
 .update_div{
 	background-color:  #e5e5e5;
@@ -158,7 +166,22 @@
 .member_update{
 	background-color:  #e5e5e5;
 	margin-left:20px;
-	width: 40%;
+	width: 100%;
 	height: 60%;
 	
 }
+
+
+#btn--red {
+  background: #FA4949;
+ width: 78px;
+ height: 40px;
+}
+
+#btn--red:hover {
+  background: #FA3838;
+  color: #fff;
+}
+
+
+

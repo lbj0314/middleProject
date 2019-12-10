@@ -46,7 +46,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="logo-area">
-                        <a href="index.html"><img src="./resources/images/logo/logo.png" alt="logo"></a>
+                        <a href="./"><img src="./resources/images/logo/logo.png" alt="logo"></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
@@ -117,9 +117,9 @@
                         <h3><span class="style-change">welcome</span> <br>to food fun</h3>
                         <p class="pt-3">빅데이터로 내 취향에 맞는 맛집을 골라주는 맛집 '망고플레이트'는 광고와 홍보 글 없이 뜨는 맛집과 핫플레이스를 모두 볼 수 있어서 믿을만한 맛집 어플로 주목받고 있습니다.</p>
                         <p>언제 어디서나 맛집을 쉽고 빠르게 검색할 수 있는 망고플레이트, 앱에서도 확인해보세요!</p>
-                        <c:if test= "${empty member}">
-                        <a href="${pageContext.request.contextPath}/member/memberJoin" class="template-btn mt-3">Create account</a>                      	
-                        <a href="${pageContext.request.contextPath}/member/memberLogin" class="template-btn mt-3" id = "home_login_btn">Login</a>
+                        <c:if test= "${empty member}">                                      	
+                        <a href="${pageContext.request.contextPath}/member/memberJoin" class="template-btn mt-3">회원가입</a>                     
+                        <a href="${pageContext.request.contextPath}/member/memberLogin" class="template-btn mt-3" >로그인</a>                  	 
                   		</c:if>
                     </div>
                 </div>
