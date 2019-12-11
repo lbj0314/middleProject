@@ -17,6 +17,7 @@ import com.mid.pro.model.MenuFilesVO;
 import com.mid.pro.model.RestaurantFilesVO;
 import com.mid.pro.model.RestaurantVO;
 import com.mid.pro.service.MemberService;
+import com.mid.pro.service.MemberServiceImpl;
 import com.mid.pro.service.RestaurantService;
 import com.mid.pro.util.Pager;
 
@@ -26,9 +27,7 @@ public class RestaurantController {
 	
 	@Inject
 	private RestaurantService restaurantService;
-	@Inject
-	private MemberService memberService;
-	
+
 	//list
 	@GetMapping(value = "restList")
 	public ModelAndView restList(Pager pager) throws Exception {

@@ -14,7 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mid.pro.model.MenuFilesVO;
 import com.mid.pro.model.MenuVO;
+import com.mid.pro.model.RestaurantVO;
 import com.mid.pro.service.MenuService;
+import com.mid.pro.service.RestaurantService;
 
 
 @Controller
@@ -23,6 +25,8 @@ public class MenuController {
 	
 	@Inject
 	private MenuService menuService;
+	@Inject
+	private RestaurantService restaurantService;
 	
 	//list
 	@GetMapping(value = "menuList")
@@ -54,10 +58,10 @@ public class MenuController {
 	}
 	//write
 	@GetMapping(value = "menuWrite")
-	public ModelAndView menuWrite(MenuVO menuVO, HttpSession session) throws Exception{
+	public ModelAndView menuWrite(RestaurantVO restaurantVO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		menuVO = menuService.menuSelect(menuVO);
-		mv.addObject("vo", menuVO);
+		restaurantVO = restaurantService.restSelect(restaurantVO);
+		mv.addObject("vo", restaurantVO);
 		mv.setViewName("menu/menuWrite");
 		
 		return mv;

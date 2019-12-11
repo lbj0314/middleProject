@@ -12,8 +12,13 @@ img {
 	text-align: center;
 	margin: 20px auto;
 }
+
+.img2 {
+	width: 100%;
+	height: 800px;
+}
 </style>
-<!--================Blog Area =================-->
+
 <section class="blog_area section-padding">
 	<div class="container">
 		<div class="row">
@@ -31,17 +36,17 @@ img {
 							<div class="carousel-item active">
 								<c:forEach end="0" items="${ vo.files }" var="file">
 
-									<img class="img-fluid" alt="${file.oname}"
+									<img class="img-fluid img2" alt="${file.oname}"
 										src="../resources/upload/restaurant/${file.fname}"
-										width="100%" height="200px">
+										>
 
 								</c:forEach>
 							</div>
 							<div class="carousel-item">
 								<c:forEach begin="1" end="1" items="${ vo.files }" var="file">
-									<img class="img-fluid" alt="${file.oname}"
+									<img class="img-fluid img2" img2 alt="${file.oname}"
 										src="../resources/upload/restaurant/${file.fname}"
-										width="100%" height="200px">
+										>
 								</c:forEach>
 							</div>
 						</div>
@@ -107,105 +112,6 @@ img {
 			</div>
 		</div>
 	</div>
-
-<!-- 	<div class="comments-area">
-		<h4>Review</h4>
-		<div class="comment-list">
-			<div class="single-comment justify-content-between d-flex">
-				<div class="user justify-content-between d-flex">
-					<div class="thumb">
-						<img src="../resources/images/blog-details/c1.jpg" alt="">
-					</div>
-					<div class="desc">
-						<h5>
-							<a href="#">Emilly Blunt</a>
-						</h5>
-						<p class="date">December 4, 2017 at 3:12 pm</p>
-						<p class="comment">Never say goodbye till the end comes!</p>
-					</div>
-				</div>
-				<div class="reply-btn">
-					<a href="" class="btn-reply text-uppercase">reply</a>
-				</div>
-			</div>
-		</div>
-		<div class="comment-list left-padding">
-			<div class="single-comment justify-content-between d-flex">
-				<div class="user justify-content-between d-flex">
-					<div class="thumb">
-						<img src="../resources/images/blog-details/c2.jpg" alt="">
-					</div>
-					<div class="desc">
-						<h5>
-							<a href="#">Elsie Cum</a>
-						</h5>
-						<p class="date">December 4, 2017 at 3:12 pm</p>
-						<p class="comment">Never say goodbye till the end comes!</p>
-					</div>
-				</div>
-				<div class="reply-btn">
-					<a href="" class="btn-reply text-uppercase">reply</a>
-				</div>
-			</div>
-		</div>
-		<div class="comment-list left-padding">
-			<div class="single-comment justify-content-between d-flex">
-				<div class="user justify-content-between d-flex">
-					<div class="thumb">
-						<img src="../resources/images/blog-details/c3.jpg" alt="">
-					</div>
-					<div class="desc">
-						<h5>
-							<a href="#">Annie Steph</a>
-						</h5>
-						<p class="date">December 4, 2017 at 3:12 pm</p>
-						<p class="comment">Never say goodbye till the end comes!</p>
-					</div>
-				</div>
-				<div class="reply-btn">
-					<a href="" class="btn-reply text-uppercase">reply</a>
-				</div>
-			</div>
-		</div>
-		<div class="comment-list">
-			<div class="single-comment justify-content-between d-flex">
-				<div class="user justify-content-between d-flex">
-					<div class="thumb">
-						<img src="../resources/images/blog-details/c4.jpg" alt="">
-					</div>
-					<div class="desc">
-						<h5>
-							<a href="#">Maria Luna</a>
-						</h5>
-						<p class="date">December 4, 2017 at 3:12 pm</p>
-						<p class="comment">Never say goodbye till the end comes!</p>
-					</div>
-				</div>
-				<div class="reply-btn">
-					<a href="" class="btn-reply text-uppercase">reply</a>
-				</div>
-			</div>
-		</div>
-		<div class="comment-list">
-			<div class="single-comment justify-content-between d-flex">
-				<div class="user justify-content-between d-flex">
-					<div class="thumb">
-						<img src="../resources/images/blog-details/c5.jpg" alt="">
-					</div>
-					<div class="desc">
-						<h5>
-							<a href="#">Ina Hayes</a>
-						</h5>
-						<p class="date">December 4, 2017 at 3:12 pm</p>
-						<p class="comment">Never say goodbye till the end comes!</p>
-					</div>
-				</div>
-				<div class="reply-btn">
-					<a href="" class="btn-reply text-uppercase">reply</a>
-				</div>
-			</div>
-		</div>
-	</div> -->
 
 </section>
 <!--================Blog Area =================-->
