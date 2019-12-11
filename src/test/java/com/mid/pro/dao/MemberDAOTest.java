@@ -14,15 +14,15 @@ public class MemberDAOTest extends TestAbstractCase{
 	@Inject
 	private MemberDAO memberDAO;
 	
-	//@Test
+	@Test
 	public void memberJoinTest()throws Exception{
 		MemberVO memberVO = new MemberVO();
-		memberVO.setId("test");
-		memberVO.setPw("test");
-		memberVO.setName("test1");
-		memberVO.setEmail("t@gmail.com");
+		memberVO.setId("test1234");
+		memberVO.setPw("test1234");
+		memberVO.setName("test1234");
+		memberVO.setEmail("t23@gmail.com");
 		memberVO.setTel("0102111111");
-		memberVO.setReg_number(211);
+		memberVO.setReg_number("123");
 		
 		int result = memberDAO.memberJoin(memberVO);
 		assertEquals(1, result);
@@ -41,7 +41,7 @@ public class MemberDAOTest extends TestAbstractCase{
 		
 	}
 	
-	@Test
+//	@Test
 	public void memberUpdateTest()throws Exception{
 		MemberVO memberVO = new MemberVO();
 		

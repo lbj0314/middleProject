@@ -63,7 +63,7 @@ public class MenuController {
 		return mv;
 	}
 	@PostMapping(value = "menuWrite")
-	public ModelAndView menuWrite(List<MenuVO> menuVO, MultipartFile file, HttpSession session) throws Exception{
+	public ModelAndView menuWrite(MenuVO menuVO, MultipartFile file, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = menuService.menuWrite(menuVO, file, session);
 		String msg = "메뉴 작성에 실패하였습니다.";

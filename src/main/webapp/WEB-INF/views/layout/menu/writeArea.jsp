@@ -51,19 +51,21 @@
 									onblur="this.placeholder = '메뉴 설명'" required
 									class="single-input">
 							</div>
-							<div class="mt-10">
+							
 							<div class="mt-10">
 								<input type="text" id="price" name="price" placeholder="메뉴 가격"
 									onfocus="this.placeholder = ''"
 									onblur="this.placeholder = '메뉴 가격'" required
 									class="single-input">
 							</div>
-							<textarea id="origin" name="origin" placeholder="원산지"
-								style="width: 100%; max-height: 300px; min-height: 200px; margin: 5px 0;"
-								onfocus="this.placeholder = ''"
-								onblur="this.placeholder = '원산지'" required class="single-input"></textarea>
+							<div class="mt-10">
+								<input type="text" id="origin" name="origin" placeholder="원산지"
+									onfocus="this.placeholder = ''"
+									onblur="this.placeholder = '원산지'" required
+									class="single-input">
+							</div>
 
-						</div>
+						
 							
 
 							<div class="form-group" title="parent">

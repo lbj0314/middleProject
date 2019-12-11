@@ -32,27 +32,27 @@ public class MenuService {
 		return menuDAO.menuSelect(menuVO);
 	}
 	//write
-	public int menuWrite(List<MenuVO> menuVO, MultipartFile file, HttpSession session) throws Exception{
+	public int menuWrite(MenuVO menuVO, MultipartFile file, HttpSession session) throws Exception{
 		String realPath = session.getServletContext().getRealPath("resources/upload/menu");
 		MenuFilesVO menufilesVO = new MenuFilesVO();
-		MenuVO menuVO2 = new MenuVO();
-		for (int i = 0; i < menuVO.size(); i++) {
-			menuVO2.setMenu_name(menuVO.get(i).getMenu_name());
-			menuVO2.setMenu_contents(menuVO.get(i).getMenu_contents());
-			menuVO2.setPrice(menuVO.get(i).getPrice());
-			menuVO2.setOrigin(menuVO.get(i).getOrigin());
-			menuVO2.setRest_num(menuVO.get(i).getRest_num());
+//		MenuVO menuVO2 = new MenuVO();
+//		for (int i = 0; i < menuVO.size(); i++) {
+			menuVO.setMenu_name(menuVO.getMenu_name());
+			menuVO.setMenu_contents(menuVO.getMenu_contents());
+			menuVO.setPrice(menuVO.getPrice());
+			menuVO.setOrigin(menuVO.getOrigin());
+			menuVO.setRest_num(menuVO.getRest_num());
 			if (file.getSize() != 0) {
 				String fileName = fileSaver.save(realPath, file);
 				menufilesVO.setFname(fileName);
-				menufilesVO.setMenu_num(menuVO.get(i).getMenu_num());
+				menufilesVO.setMenu_num(menuVO.getMenu_num());
 				menufilesVO.setOname(file.getOriginalFilename());
 				int result = menuDAO.fileWrite(menufilesVO);
 				if (result < 1) {
 					throw new SQLException();
 				}
-			}
-			menuVO.add(menuVO2);
+//			}
+//			menuVO.add(menuVO2);
 		}
 		int result = menuDAO.menuWrite(menuVO);
 

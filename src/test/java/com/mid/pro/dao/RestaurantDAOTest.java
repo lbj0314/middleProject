@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import org.junit.Test;
 
 import com.mid.pro.TestAbstractCase;
-import com.mid.pro.model.MenuFilesVO;
 import com.mid.pro.model.RestaurantFilesVO;
 import com.mid.pro.model.RestaurantVO;
 

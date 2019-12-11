@@ -34,8 +34,10 @@ public class MemberController {
 		int result = memberServiceImpl.memberJoin(memberVO);
 
 		if(result>0) {
+			System.out.println("123");
 			mv.addObject("msg", "Join");
 		}else {
+			System.out.println("123");
 			mv.addObject("msg", "Fail");
 		}
 		mv.addObject("path", "../");

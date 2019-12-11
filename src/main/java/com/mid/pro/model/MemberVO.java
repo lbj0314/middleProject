@@ -12,7 +12,7 @@ public class MemberVO {
 	private String tel;
 	private Date joindate;
 	private int writecount;
-	private int reg_number;
+	private String reg_number;
 	private int grade;
 	
 	
@@ -64,10 +64,10 @@ public class MemberVO {
 	public void setWritecount(int writecount) {
 		this.writecount = writecount;
 	}
-	public int getReg_number() {
+	public String getReg_number() {
 		return reg_number;
 	}
-	public void setReg_number(int reg_number) {
+	public void setReg_number(String reg_number) {
 		this.reg_number = reg_number;
 	}
 	public int getGrade() {

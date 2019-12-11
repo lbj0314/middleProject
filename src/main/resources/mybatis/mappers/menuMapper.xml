@@ -53,14 +53,14 @@
   		<selectKey order="BEFORE" resultType="Integer" keyProperty="menu_num">
 			SELECT menu_seq.nextval FROM dual
 		</selectKey>
-		<foreach collection="list" item="item" index="index" separator=" " open="INSERT ALL">
+	<!-- 	<foreach collection="list" item="item" index="index" separator=" " open="INSERT ALL"> -->
 			INSERT INTO menu
 			( menu_num, menu_name, menu_contents, price, origin, rest_num )
 			VALUES 
 			(
-				#{item.menu_num}, #{item.menu_name}, #{item.menu_contents}, #{item.price}, #{item.origin}, #{item.rest_num}
+				#{menu_num}, #{menu_name}, #{menu_contents}, #{price}, #{origin}, #{rest_num}
 			)
-		</foreach>
+	<!-- 	</foreach> -->
   	</insert>
   	<!-- update -->
   	<update id="menuUpdate" parameterType="menuVO">

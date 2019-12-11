@@ -9,7 +9,7 @@
   <!-- Join -->
   <insert id="memberJoin" parameterType="MemberVO">
   	insert into member 
-  	values(member_seq.nextval,#{id},#{pw},#{email},#{name},#{tel},sysdate,0,#{reg_number},#{grade})
+  	values(member_seq.nextval,#{id},#{pw},#{email},#{name},#{tel},sysdate,0,#{reg_number}, 1)
   </insert>
   
   <!-- checkId -->
