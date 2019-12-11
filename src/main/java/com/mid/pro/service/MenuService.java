@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.mid.pro.dao.MenuDAO;
 import com.mid.pro.model.MenuFilesVO;
+import com.mid.pro.model.MenuListVO;
 import com.mid.pro.model.MenuVO;
 import com.mid.pro.util.FileSaver;
 
@@ -32,29 +33,34 @@ public class MenuService {
 		return menuDAO.menuSelect(menuVO);
 	}
 	//write
-	public int menuWrite(List<MenuVO> menuVO, MultipartFile file, HttpSession session) throws Exception{
+	public int menuWrite(int rest_num, MenuListVO menuListVO,MenuVO menuVO, HttpSession session) throws Exception{
 		String realPath = session.getServletContext().getRealPath("resources/upload/menu");
 		MenuFilesVO menufilesVO = new MenuFilesVO();
 		MenuVO menuVO2 = new MenuVO();
-		for (int i = 0; i < menuVO.size(); i++) {
-			menuVO2.setMenu_name(menuVO.get(i).getMenu_name());
-			menuVO2.setMenu_contents(menuVO.get(i).getMenu_contents());
-			menuVO2.setPrice(menuVO.get(i).getPrice());
-			menuVO2.setOrigin(menuVO.get(i).getOrigin());
-			menuVO2.setRest_num(menuVO.get(i).getRest_num());
-			if (file.getSize() != 0) {
-				String fileName = fileSaver.save(realPath, file);
+
+		for (int i = 0; i <menuListVO.getMenu_name().length; i++) {			
+			menuVO2.setRest_num(rest_num);
+			menuVO2.setMenu_name(menuListVO.getMenu_name()[i]);		
+			menuVO2.setMenu_contents(menuListVO.getMenu_contents()[i]);
+			menuVO2.setPrice(menuListVO.getPrice()[i]);
+			menuVO2.setOrigin(menuListVO.getOrigin()[i]);
+			
+		
+			if (menuListVO.getFile()[i] != null) {
+				String fileName = fileSaver.save(realPath, menuListVO.getFile()[i]);
 				menufilesVO.setFname(fileName);
-				menufilesVO.setMenu_num(menuVO.get(i).getMenu_num());
-				menufilesVO.setOname(file.getOriginalFilename());
+				menufilesVO.setMenu_num(menuVO.getMenu_num());
+				System.out.println(menuVO.getMenu_num());
+				menufilesVO.setOname(menuListVO.getFile()[i].getOriginalFilename());
 				int result = menuDAO.fileWrite(menufilesVO);
 				if (result < 1) {
 					throw new SQLException();
-				}
+				}		
 			}
-			menuVO.add(menuVO2);
+			
 		}
-		int result = menuDAO.menuWrite(menuVO);
+		
+		int result = menuDAO.menuWrite(menuListVO);
 
 		return result;
 	}

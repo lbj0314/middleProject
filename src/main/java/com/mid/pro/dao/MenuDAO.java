@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.mid.pro.model.MenuFilesVO;
+import com.mid.pro.model.MenuListVO;
 import com.mid.pro.model.MenuVO;
 import com.mid.pro.util.Pager;
 
@@ -29,9 +30,10 @@ public class MenuDAO {
 	}
 	
 	//write
-	public int menuWrite(List<MenuVO> menuVO) throws Exception{
-		return sqlSession.insert(NAMESPACE + "menuWrite", menuVO);
+	public int menuWrite(MenuListVO menuListVO) throws Exception{
+		return sqlSession.insert(NAMESPACE + "menuWrite", menuListVO);
 	}
+	
 	//update
 	public int menuUpdate(MenuVO menuVO) throws Exception{
 		return sqlSession.update(NAMESPACE + "menuUpdate", menuVO);

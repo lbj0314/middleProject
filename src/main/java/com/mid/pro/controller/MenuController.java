@@ -8,13 +8,19 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mid.pro.model.MenuFilesVO;
+import com.mid.pro.model.MenuListVO;
 import com.mid.pro.model.MenuVO;
+import com.mid.pro.model.RestaurantVO;
 import com.mid.pro.service.MenuService;
+import com.mid.pro.service.RestaurantService;
 
 
 @Controller
@@ -23,6 +29,9 @@ public class MenuController {
 	
 	@Inject
 	private MenuService menuService;
+
+	@Inject
+	private RestaurantService RestaurantService;
 	
 	//list
 	@GetMapping(value = "menuList")
@@ -52,27 +61,32 @@ public class MenuController {
 		
 		return mv;
 	}
+	
+	
 	//write
 	@GetMapping(value = "menuWrite")
-	public ModelAndView menuWrite(MenuVO menuVO, HttpSession session) throws Exception{
+	public ModelAndView menuWrite(RestaurantVO restaurantVO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		menuVO = menuService.menuSelect(menuVO);
-		mv.addObject("vo", menuVO);
+		restaurantVO = RestaurantService.restSelect(restaurantVO);
+		mv.addObject("vo", restaurantVO);
 		mv.setViewName("menu/menuWrite");
 		
 		return mv;
 	}
+	
+	
 	@PostMapping(value = "menuWrite")
-	public ModelAndView menuWrite(List<MenuVO> menuVO, MultipartFile file, HttpSession session) throws Exception{
+	public ModelAndView menuWrite(int rest_num, MenuListVO menuListVO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = menuService.menuWrite(menuVO, file, session);
+
+		int result = menuService.menuWrite(rest_num, menuListVO ,session);
 		String msg = "메뉴 작성에 실패하였습니다.";
 		
 		if (result > 0) {
 			mv.setViewName("redirect:./menuList");
 		} else {
-			mv.addObject("msg", msg);
-			mv.addObject("path", "./menuList");
+		mv.addObject("msg", msg);
+		mv.addObject("path", "./menuList");
 			mv.setViewName("common/common_result");
 		}
 		return mv;

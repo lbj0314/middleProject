@@ -15,8 +15,10 @@
 			</otherwise>
 		</choose>
 	</sql> -->
+	
+<!-- 	parameterType="Pager -->
   	<!-- list -->
-  	<select id="menuList" parameterType="Pager" resultType="MenuVO">
+  	<select id="menuList" resultType="MenuVO">
   		SELECT * FROM
 		(SELECT M.*, ROWNUM R FROM
 		(SELECT * FROM menu
@@ -30,12 +32,15 @@
 		<result property="name" column="name"/>
 		<result property="contents" column="contents"/>
 		<result property="price" column="price"/>
+		
 		<collection property="files" javaType="List" ofType="MenuFilesVO">
 			<id property="fnum" column="fnum"/>
 			<result property="fname" column="fname"/>
 			<result property="oname" column="oname"/>
 		</collection>
 	</resultMap>
+	
+	
   	<select id="menuSelect" parameterType="menuVO" resultMap="menuFiles">
   		SELECT m.*, f.fnum, f.fname, f.oname 
  		FROM menu m FULL OUTER JOIN menufiles f
@@ -49,18 +54,19 @@
   		<include refid="ms"/>
   	</select> -->
   	<!-- write -->
-  	<insert id="menuWrite">
-  		<selectKey order="BEFORE" resultType="Integer" keyProperty="menu_num">
+  	<insert id="menuWrite" parameterType="List">
+  		<!-- <selectKey order="BEFORE" resultType="Integer" keyProperty="menu_num">
 			SELECT menu_seq.nextval FROM dual
-		</selectKey>
-		<foreach collection="list" item="item" index="index" separator=" " open="INSERT ALL">
+		</selectKey>  -->
+<!-- 	<foreach collection="list" item="item" index="index" separator=" " open="INSERT ALL">  -->
 			INSERT INTO menu
 			( menu_num, menu_name, menu_contents, price, origin, rest_num )
 			VALUES 
 			(
-				#{item.menu_num}, #{item.menu_name}, #{item.menu_contents}, #{item.price}, #{item.origin}, #{item.rest_num}
+				menu_seq.nextval, #{menu_name}, #{menu_contents}, #{price}, #{origin}, #{rest_num}
 			)
-		</foreach>
+		<!-- </foreach> -->
+		
   	</insert>
   	<!-- update -->
   	<update id="menuUpdate" parameterType="menuVO">

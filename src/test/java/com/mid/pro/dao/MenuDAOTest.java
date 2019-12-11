@@ -18,7 +18,7 @@ public class MenuDAOTest extends TestAbstractCase{
 	@Inject
 	private MenuDAO menuDAO;
 
-//	@Test
+	//@Test
 	public void menuWriteTest() throws Exception {
 		MenuVO menuVO = new MenuVO();
 		menuVO.setMenu_name("짬뽕");
