@@ -30,8 +30,8 @@ public class MenuDAO {
 	}
 	
 	//write
-	public int menuWrite(MenuListVO menuListVO) throws Exception{
-		return sqlSession.insert(NAMESPACE + "menuWrite", menuListVO);
+	public int menuWrite(MenuVO menuVO) throws Exception{
+		return sqlSession.insert(NAMESPACE + "menuWrite", menuVO);
 	}
 	
 	//update

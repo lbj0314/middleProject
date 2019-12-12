@@ -76,19 +76,19 @@ public class MenuController {
 	
 	
 	@PostMapping(value = "menuWrite")
-	public ModelAndView menuWrite(int rest_num, MenuListVO menuListVO, HttpSession session) throws Exception{
+	public ModelAndView menuWrite(MenuListVO menuListVO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-
-		int result = menuService.menuWrite(rest_num, menuListVO ,session);
-		String msg = "메뉴 작성에 실패하였습니다.";
-		
-		if (result > 0) {
-			mv.setViewName("redirect:./menuList");
-		} else {
-		mv.addObject("msg", msg);
-		mv.addObject("path", "./menuList");
-			mv.setViewName("common/common_result");
-		}
+	
+		  int result = menuService.menuWrite(menuListVO,session); 
+		  String msg
+		  = "메뉴 작성에 실패하였습니다.";
+		 
+		  if (result > 0) { mv.setViewName("redirect:./menuList"); 
+		  } else {
+		  mv.addObject("msg", msg); mv.addObject("path", "./menuList");
+		  mv.setViewName("common/common_result"); 
+		  }
+		 
 		return mv;
 	}
 	//update
@@ -106,6 +106,9 @@ public class MenuController {
 		}
 		return mv;
 	}
+	
+	
+	
 	@PostMapping(value = "menuUpdate")
 	public ModelAndView menuUpdate(MenuVO menuVO, MultipartFile file, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();

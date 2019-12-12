@@ -33,37 +33,55 @@ public class MenuService {
 		return menuDAO.menuSelect(menuVO);
 	}
 	//write
-	public int menuWrite(int rest_num, MenuListVO menuListVO,MenuVO menuVO, HttpSession session) throws Exception{
+	public int menuWrite(MenuListVO menuListVO, HttpSession session) throws Exception{
 		String realPath = session.getServletContext().getRealPath("resources/upload/menu");
-		MenuFilesVO menufilesVO = new MenuFilesVO();
-		MenuVO menuVO2 = new MenuVO();
-
-		for (int i = 0; i <menuListVO.getMenu_name().length; i++) {			
-			menuVO2.setRest_num(rest_num);
-			menuVO2.setMenu_name(menuListVO.getMenu_name()[i]);		
-			menuVO2.setMenu_contents(menuListVO.getMenu_contents()[i]);
-			menuVO2.setPrice(menuListVO.getPrice()[i]);
-			menuVO2.setOrigin(menuListVO.getOrigin()[i]);
-			
 		
+		MenuFilesVO menufilesVO = new MenuFilesVO();
+		MenuVO menuVO = new MenuVO();
+
+		int result = 0;
+		
+		for (int i = 0; i <menuListVO.getMenu_name().length; i++) {	
+
+			
+			menuVO.setRest_num(menuListVO.getRest_num());
+			menuVO.setMenu_name(menuListVO.getMenu_name()[i]);	
+			menuVO.setMenu_contents(menuListVO.getMenu_contents()[i]);
+			menuVO.setPrice(menuListVO.getPrice()[i]);
+			menuVO.setOrigin(menuListVO.getOrigin()[i]);
+
+			
+			result = menuDAO.menuWrite(menuVO);
+			
 			if (menuListVO.getFile()[i] != null) {
 				String fileName = fileSaver.save(realPath, menuListVO.getFile()[i]);
 				menufilesVO.setFname(fileName);
-				menufilesVO.setMenu_num(menuVO.getMenu_num());
-				System.out.println(menuVO.getMenu_num());
+				
+				menufilesVO.setMenu_num(menuVO.getMenu_num()); 
+				
 				menufilesVO.setOname(menuListVO.getFile()[i].getOriginalFilename());
-				int result = menuDAO.fileWrite(menufilesVO);
-				if (result < 1) {
+				System.out.println(1);
+				System.out.println(menuVO.getRest_num());
+				result = menuDAO.fileWrite(menufilesVO);
+	
+				
+			if (result < 1) {
 					throw new SQLException();
 				}		
 			}
 			
 		}
-		
-		int result = menuDAO.menuWrite(menuListVO);
-
+	
+		//System.out.println(1);
+		//System.out.println(menuListVO.getRest_num());
+		//System.out.println(menuVO.getRest_num());
+	
 		return result;
 	}
+	
+	
+	
+	
 	//update
 	public int menuUpdate(MenuVO menuVO, MultipartFile[] file, HttpSession session) throws Exception{
 		String realPath = session.getServletContext().getRealPath("resources/upload/menu");

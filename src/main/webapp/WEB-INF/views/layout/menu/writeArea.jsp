@@ -35,9 +35,10 @@
 				<h3 class="mb-30 title_color">Menu Write</h3>
 				<form action="./menuWrite" method="post" id="frm" enctype="multipart/form-data">
 					
-					<input type="hidden" id="rest_num" name="rest_num" value="${vo.rest_num}"> 
+					<input type="hidden" id="rest_num" name="rest_num" value="${vo.rest_num}">
+					 
 				
-					<div class="mt-10" id="menu">
+					<div class="mt-10" id="menu">		
 						<div id="menu2">
 							<div class="mt-10">
 								<input type="text" id="menu_name" name="menu_name"
