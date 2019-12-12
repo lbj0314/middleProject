@@ -24,9 +24,9 @@ public class MenuService {
 	private FileSaver fileSaver;
 
 	//list
-	public List<MenuVO> menuList() throws Exception{
+	public List<MenuVO> menuList(MenuVO menuVO) throws Exception{
 
-		return menuDAO.menuList();
+		return menuDAO.menuList(menuVO);
 	}
 	//select One
 	public MenuVO menuSelect(MenuVO menuVO) throws Exception{

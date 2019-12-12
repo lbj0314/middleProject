@@ -20,7 +20,7 @@ public class MenuDAO {
 	static final String NAMESPACE = "menuMapper.";
 	
 	//list
-	public List<MenuVO> menuList() throws Exception{
+	public List<MenuVO> menuList(MenuVO menuVO) throws Exception{
 		return sqlSession.selectList(NAMESPACE + "menuList");
 	}
 	

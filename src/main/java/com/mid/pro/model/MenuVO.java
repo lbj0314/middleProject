@@ -9,7 +9,6 @@ public class MenuVO {
 	private String origin;
 	private int rest_num;
 	private MenuFilesVO files;
-	
 	public int getMenu_num() {
 		return menu_num;
 	}
@@ -52,6 +51,8 @@ public class MenuVO {
 	public void setFiles(MenuFilesVO files) {
 		this.files = files;
 	}
+	
+	
 }
 
 	
