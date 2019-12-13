@@ -10,18 +10,21 @@
 					<div class="desc">
 					<c:forEach items="${list}" var="vo">
 						<h5>
-							{vo.writer}
+							${vo.writer}
 						</h5>
-						<p class="date">{vo.reg_date}</p>
-						<p class="comment">{vo.contents}</p>
+						<p class="date">${vo.reg_date}</p>
+						<p class="comment">${vo.contents}</p>
 					</c:forEach>
 					</div>
 				</div>
+				
+				
 				<div class="reply-btn">
 					<a href="" class="btn-reply text-uppercase">reply</a>
 				</div>
-			</div>
+			</div>		
 		</div>
+		
 		<div class="comment-list left-padding">
 			<div class="single-comment justify-content-between d-flex">
 				<div class="user justify-content-between d-flex">

@@ -7,8 +7,10 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.mid.pro.model.RestaurantVO;
 import com.mid.pro.model.ReviewVO;
 import com.mid.pro.util.Pager;
+import com.mid.pro.util.ReviewPager;
 
 @Repository
 public class ReviewDAO {
@@ -18,8 +20,8 @@ public class ReviewDAO {
 	private static final String NAMESPACE = "reviewMapper.";
 	
 	//List
-	public List<ReviewVO> reviewList(Pager pager) throws Exception {
-		return sqlSession.selectList(NAMESPACE + "reviewList", pager);
+	public List<ReviewVO> reviewList(ReviewPager reviewPager) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "reviewList", reviewPager);
 	}
 	//select
 	public ReviewVO reviewSelect(ReviewVO reviewVO) throws Exception{

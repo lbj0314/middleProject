@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mid.pro.dao.ReviewDAO;
+import com.mid.pro.model.RestaurantVO;
 import com.mid.pro.model.ReviewVO;
 import com.mid.pro.util.FileSaver;
 import com.mid.pro.util.Pager;
+import com.mid.pro.util.ReviewPager;
 
 @Service
 public class ReviewService {
@@ -21,10 +23,10 @@ public class ReviewService {
 	private ReviewDAO reviewDAO;
 
 	//list
-	public List<ReviewVO> reviewList(Pager pager) throws Exception{
+	public List<ReviewVO> reviewList(ReviewPager reviewPager, Pager pager) throws Exception{
 		pager.makeRow();
 		pager.makePager(reviewDAO.reviewCount(pager));
-		return reviewDAO.reviewList(pager);
+		return reviewDAO.reviewList(reviewPager);
 	}
 	//select
 	public ReviewVO reviewSelect(ReviewVO reviewVO) throws Exception{

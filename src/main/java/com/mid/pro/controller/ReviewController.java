@@ -16,6 +16,7 @@ import com.mid.pro.model.ReviewVO;
 import com.mid.pro.service.RestaurantService;
 import com.mid.pro.service.ReviewService;
 import com.mid.pro.util.Pager;
+import com.mid.pro.util.ReviewPager;
 
 @Controller
 @RequestMapping("/review/**")
@@ -28,14 +29,14 @@ public class ReviewController {
 
 	//list
 	@GetMapping(value = "reviewList")
-	public ModelAndView reviewList(Pager pager, RestaurantVO restaurantVO) throws Exception{
+	public ModelAndView reviewList(ReviewPager reviewPager, Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		restaurantVO = restaurantService.restSelect(restaurantVO);
-		List<ReviewVO> list = reviewService.reviewList(pager);
+	//	restaurantVO = restaurantService.restSelect(restaurantVO);
+		List<ReviewVO> list = reviewService.reviewList(reviewPager,pager);
 //		System.out.println(restaurantVO);
 //		System.out.println(list);
 //		mv.addObject("vo", restaurantVO);
-		mv.addObject("pager", pager);
+		mv.addObject("pager", reviewPager);
 		mv.addObject("list", list);
 		mv.setViewName("review/reviewList");
 		
