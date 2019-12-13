@@ -23,10 +23,12 @@ public class ReviewService {
 	private ReviewDAO reviewDAO;
 
 	//list
-	public List<ReviewVO> reviewList(ReviewPager reviewPager, Pager pager) throws Exception{
+	public List<ReviewVO> reviewList(Pager pager) throws Exception{
 		pager.makeRow();
 		pager.makePager(reviewDAO.reviewCount(pager));
-		return reviewDAO.reviewList(reviewPager);
+		System.out.println(pager.getStartRow());
+		System.out.println(pager.getLastRow());
+		return reviewDAO.reviewList(pager);
 	}
 	//select
 	public ReviewVO reviewSelect(ReviewVO reviewVO) throws Exception{

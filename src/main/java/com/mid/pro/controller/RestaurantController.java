@@ -45,10 +45,13 @@ public class RestaurantController {
 	}
 	//select One
 	@GetMapping(value = "restSelect")
-	public ModelAndView restSelect(RestaurantVO restaurantVO) throws Exception {
+	public ModelAndView restSelect(RestaurantVO restaurantVO,Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		restaurantVO = restaurantService.restSelect(restaurantVO);
-
+		
+		List<ReviewVO> ar =  reviewService.reviewList(pager);
+		mv.addObject("list", ar);
+			
 		if (restaurantVO != null) {
 			mv.addObject("vo", restaurantVO);
 			

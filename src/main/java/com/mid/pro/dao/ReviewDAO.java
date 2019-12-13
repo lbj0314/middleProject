@@ -20,8 +20,8 @@ public class ReviewDAO {
 	private static final String NAMESPACE = "reviewMapper.";
 	
 	//List
-	public List<ReviewVO> reviewList(ReviewPager reviewPager) throws Exception {
-		return sqlSession.selectList(NAMESPACE + "reviewList", reviewPager);
+	public List<ReviewVO> reviewList(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "reviewList", pager);
 	}
 	//select
 	public ReviewVO reviewSelect(ReviewVO reviewVO) throws Exception{

@@ -29,19 +29,19 @@ public class ReviewController {
 
 	//list
 	@GetMapping(value = "reviewList")
-	public ModelAndView reviewList(ReviewPager reviewPager, Pager pager) throws Exception{
-		ModelAndView mv = new ModelAndView();
-	//	restaurantVO = restaurantService.restSelect(restaurantVO);
-		List<ReviewVO> list = reviewService.reviewList(reviewPager,pager);
-//		System.out.println(restaurantVO);
+	public ModelAndView reviewList(Pager pager) throws Exception{
+		List<ReviewVO> list = reviewService.reviewList(pager);
+		ModelAndView mv = new ModelAndView();	
 //		System.out.println(list);
 //		mv.addObject("vo", restaurantVO);
-		mv.addObject("pager", reviewPager);
 		mv.addObject("list", list);
+		mv.addObject("pager", pager);
 		mv.setViewName("review/reviewList");
 		
 		return mv;
 	}
+	
+	
 	//select
 	@GetMapping(value = "reviewSelect")
 	public ModelAndView reviewSelect(ReviewVO reviewVO) throws Exception{
