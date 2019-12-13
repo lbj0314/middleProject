@@ -35,9 +35,11 @@ public class MenuController {
 	
 	//list
 	@GetMapping(value = "menuList")
-	public ModelAndView menuList(MenuVO menuVO) throws Exception{
+	public ModelAndView menuList(int rest_num) throws Exception{
+		
+	
 		ModelAndView mv = new ModelAndView();
-		List<MenuVO> list = menuService.menuList(menuVO);
+		List<MenuVO> list = menuService.menuList(rest_num);
 
 		mv.addObject("list", list);
 		mv.setViewName("menu/menuList");

@@ -18,7 +18,7 @@
 	
 
   	<!-- list -->
-  	<select id="menuList" resultType="MenuVO" parameterType="menuVO">
+  	<select id="menuList" resultType="MenuVO" parameterType="MenuVO">
   		SELECT * FROM
 		(SELECT M.*, ROWNUM R FROM
 		(SELECT * FROM menu
