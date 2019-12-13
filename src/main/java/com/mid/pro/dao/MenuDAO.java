@@ -21,7 +21,7 @@ public class MenuDAO {
 	
 	//list
 	public List<MenuVO> menuList(MenuVO menuVO) throws Exception{
-		return sqlSession.selectList(NAMESPACE + "menuList");
+		return sqlSession.selectList(NAMESPACE + "menuList", menuVO);
 	}
 	
 	//select One
