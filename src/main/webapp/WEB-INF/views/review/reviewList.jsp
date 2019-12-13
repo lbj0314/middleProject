@@ -1,5 +1,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <div class="comments-area col-lg-7 col-md-7" style="margin: 15px auto; background-color: white;" >
 	<h4>Review</h4>
@@ -30,34 +32,34 @@
 		</div>
 	</div>
 	<c:forEach items="${list}" var="r">
-		 <article class="row blog_item"> 
+		 <div class="row blog_item"> 
                            <div class="col-md-3">
                                <div class="blog_info text-right">
                                     <div class="post_tag">
-                                        <a href="#">Food,</a>
+                                   <!--      <a href="#">Food,</a>
                                         <a class="active" href="#">Technology,</a>
                                         <a href="#">Politics,</a>
-                                        <a href="#">Lifestyle</a>
+                                        <a href="#">Lifestyle</a> -->
                                     </div>
                                     <ul class="blog_meta list">
-                                        <li><a href="#">Mark wiens<i class="fa fa-user-o"></i></a></li>
+                                        <li><a >${r.writer}<i class="fa fa-user-o"></i></a></li>
                                         <li><a>${r.reg_date}<i class="fa fa-calendar-o"></i></a></li>
                                         <li><a>${r.score}<i class="fa fa-eye"></i></a></li>
                                         <li><a href="#">06 Comments<i class="fa fa-comment-o"></i></a></li>
                                     </ul>
                                 </div>
                            </div>
-                            <div class="col-md-9">
+                            <div class="col-md-9" style="border-bottom: 1px solid #DBDBDB">
                                 <div class="blog_post">
                                     <img src="assets/images/blog/main-blog/m-blog-5.jpg" alt="">
                                     <div class="blog_details">
                                  	<a href="blog-details.html"><h4></h4></a>
                                         <p>${r.contents}</p>
-                                        <a href="blog-details.html" class="template-btn">View More</a>
                                     </div>
                                 </div>
                             </div>
-                </article> 
+                                        <a href="blog-details.html" class="template-btn">더보기</a>
+                </div> 
 	</c:forEach>
 	
 	<ul class="pagination justify-content-center" style="margin: 20px 0">
