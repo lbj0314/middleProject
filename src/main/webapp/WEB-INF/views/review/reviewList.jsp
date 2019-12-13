@@ -2,15 +2,26 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+ <link rel="stylesheet" href="../resources/css/review/review.css">
 
-<div class="comments-area col-lg-7 col-md-7" style="margin: 15px auto; background-color: white;" >
-	<h4>Review</h4>
+ <div class="comments-area col-lg-7 col-md-7" style="margin: 15px auto; background-color: white;" >
+ <h4>리뷰 최신순 높은별점순 낮은별점순</h4>
 	<div class="comment-list">
 		<div class="single-comment justify-content-between d-flex">
+			<div id = "review_header">
+				<div id = "review_ul_wrap">
+				<ul id="review_header_ul">
+					<li class="review_header_li">최신순</li>
+					<li class="review_header_li">높은별점순</li>
+					<li class="review_header_li">낮은 별점순</li>
+				</ul>
+				</div>
+			</div>
+		
 		
 	
-			<c:forEach items="${list}" var="r">
-		 	<div class="user justify-content-between d-flex">
+		<%-- 	<c:forEach items="${list}" var="r">
+		 	<div class="user justify-content-between d-flex" >
 					<div class="desc">
 						<h5>${r.writer}</h5>
 						<p class="score">${r.score}</p>
@@ -26,13 +37,13 @@
 							class="btn-reply text-uppercase">delete</a> 
 					 </c:if> 
 				 </div> 
-			</c:forEach>
+			</c:forEach> --%>
 			
 			
-		</div>
-	</div>
+		</div> 
+	</div> 
 	<c:forEach items="${list}" var="r">
-		 <div class="row blog_item"> 
+		 <div class="row blog_item go_rivewSlect" id = "test" > 
                            <div class="col-md-3">
                                <div class="blog_info text-right">
                                     <div class="post_tag">
@@ -49,7 +60,7 @@
                                     </ul>
                                 </div>
                            </div>
-                            <div class="col-md-9" style="border-bottom: 1px solid #DBDBDB">
+                            <div class="col-md-9" >
                                 <div class="blog_post">
                                     <img src="assets/images/blog/main-blog/m-blog-5.jpg" alt="">
                                     <div class="blog_details">
@@ -58,9 +69,14 @@
                                     </div>
                                 </div>
                             </div>
-                                        <a href="blog-details.html" class="template-btn">더보기</a>
+                             <!--            <a href="blog-details.html" class="template-btn" style="padding-right: 0px">더보기</a> -->
                 </div> 
 	</c:forEach>
+	
+	
+	
+	
+	
 	
 	<ul class="pagination justify-content-center" style="margin: 20px 0">
 		<c:if test="${ pager.curBlock gt 1 }">
@@ -78,3 +94,9 @@
 	</ul>
 </div>
 
+
+<div>
+
+
+
+</div>
