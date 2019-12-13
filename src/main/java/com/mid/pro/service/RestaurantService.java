@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mid.pro.dao.RestaurantDAO;
+import com.mid.pro.dao.ReviewDAO;
 import com.mid.pro.model.MenuFilesVO;
 import com.mid.pro.model.RestaurantFilesVO;
 import com.mid.pro.model.RestaurantVO;
+import com.mid.pro.model.ReviewVO;
 import com.mid.pro.util.FileSaver;
 import com.mid.pro.util.Pager;
 
@@ -21,6 +23,8 @@ public class RestaurantService {
 
 	@Inject
 	private RestaurantDAO restaurantDAO;
+	@Inject
+	private ReviewDAO reviewDAO;
 	@Inject
 	private FileSaver fileSaver;
 

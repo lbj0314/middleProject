@@ -65,7 +65,7 @@ img {
 									<td>${vo.reg_date}&nbsp;<i class="fa fa-calendar-o"></i></td>
 									<td>${vo.hit}&nbsp;<i class="fa fa-eye"></i></td>
 									<td>${vo.review_hit }&nbsp;<i class="fas fa-comment"></i></td>
-									<td>${review.score }&nbsp;<i class="fas fa-comment"></i></td>
+									<td>${review.score }&nbsp;<i class="fas fa-star"></i></td>
 								</tr>
 							</table>
 						</div>
@@ -95,6 +95,10 @@ img {
 							<span>오시는 길</span>
 						</div>
 						<div id="map" style="width: 100%; height: 350px;"></div>
+						<br>
+						<span style="float: right;">영업 시간 : ${vo.rest_time}</span>
+						<br>
+						<span style="float: right;">수용 인원 : ${vo.rest_accept}명</span>
 						<br>
 						<span style="float: right;">주소 : ${vo.rest_addr1}${vo.rest_addr2}</span>
 					</div>

@@ -17,9 +17,11 @@ public class RestaurantVO {
 	private Date reg_date;
 	private int hit;
 	private int review_hit;
-	private Date rev_date;
+	private String rest_time;
+	private int rest_accept;
 	private int member_num;
 	private List<RestaurantFilesVO> files;
+	
 	public int getRest_num() {
 		return rest_num;
 	}
@@ -92,11 +94,17 @@ public class RestaurantVO {
 	public void setReview_hit(int review_hit) {
 		this.review_hit = review_hit;
 	}
-	public Date getRev_date() {
-		return rev_date;
+	public String getRest_time() {
+		return rest_time;
 	}
-	public void setRev_date(Date rev_date) {
-		this.rev_date = rev_date;
+	public void setRest_time(String rest_time) {
+		this.rest_time = rest_time;
+	}
+	public int getRest_accept() {
+		return rest_accept;
+	}
+	public void setRest_accept(int rest_accept) {
+		this.rest_accept = rest_accept;
 	}
 	public int getMember_num() {
 		return member_num;
@@ -110,7 +118,5 @@ public class RestaurantVO {
 	public void setFiles(List<RestaurantFilesVO> files) {
 		this.files = files;
 	}
-	
-	
 
 }

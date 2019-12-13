@@ -28,6 +28,7 @@ public class ReviewService {
 	}
 	//select
 	public ReviewVO reviewSelect(ReviewVO reviewVO) throws Exception{
+		reviewDAO.reviewScroe(reviewVO);
 		return reviewDAO.reviewSelect(reviewVO);
 	}
 	//write

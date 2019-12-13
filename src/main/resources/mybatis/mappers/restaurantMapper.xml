@@ -29,7 +29,8 @@
 		<result property="reg_date" column="reg_date"/>
 		<result property="hit" column="hit"/>
 		<result property="review_hit" column="review_hit"/>
-		<result property="rev_date" column="rev_date"/>
+		<result property="rest_time" column="rest_time"/>
+		<result property="rest_accept" column="rest_accept"/>
 		<result property="member_num" column="member_num"/>
 		<collection property="files" javaType="List" ofType="RestaurantFilesVO">
 			<id property="fnum" column="fnum"/>
@@ -79,7 +80,7 @@
 		VALUES(
 		#{rest_num}, #{rest_name}, #{rest_contents}, #{rest_post1},
 		#{rest_addr1}, #{rest_addr2}, #{rest_tel}, #{rest_url},
-		#{kind}, SYSDATE, 0, 0, SYSDATE, #{member_num}
+		#{kind}, SYSDATE, 0, 0, #{rest_time}, #{rest_accept}, #{member_num}
 		)
 	</insert>
 	<delete id="restaurantDelete" parameterType="Integer">
@@ -89,7 +90,8 @@
  		<update id="restaurantUpdate" parameterType="RestaurantVO">
  		UPDATE restaurant SET rest_name = #{rest_name}, rest_contents = #{rest_contents},
  		rest_post1 = #{rest_post1}, rest_addr1 = #{rest_addr1}, rest_addr2 = #{rest_addr2},
- 		rest_tel = #{rest_tel}, rest_url = #{rest_url}, kind = #{kind}
+ 		rest_tel = #{rest_tel}, rest_url = #{rest_url}, kind = #{kind}, rest_time = #{rest_time},
+ 		rest_accept = #{rest_accept}
  		WHERE rest_num = #{rest_num}
  	</update>
  		<!-- file -->

@@ -45,13 +45,13 @@ public class RestaurantController {
 	}
 	//select One
 	@GetMapping(value = "restSelect")
-	public ModelAndView restSelect(RestaurantVO restaurantVO) throws Exception {
+	public ModelAndView restSelect(RestaurantVO restaurantVO, ReviewVO reviewVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		restaurantVO = restaurantService.restSelect(restaurantVO);
 
 		if (restaurantVO != null) {
 			mv.addObject("vo", restaurantVO);
-			
+			mv.addObject("review", reviewVO);
 			restaurantVO.getRest_contents().replace("\r\n", "<br>");
 			mv.setViewName("restaurant/restSelect");
 		} else {
@@ -63,11 +63,9 @@ public class RestaurantController {
 	}
 	//write
 	@GetMapping(value = "restWrite")
-	public ModelAndView restWrite(MemberVO memberVO) throws Exception{
+	public ModelAndView restWrite() throws Exception{
 		ModelAndView mv = new ModelAndView();
-		//		memberVO = memberService.memberSelect(memberVO);
-		//		int num = memberVO.getMember_num();
-		//		mv.addObject("num", num);
+
 		mv.setViewName("restaurant/restWrite");
 
 		return mv;

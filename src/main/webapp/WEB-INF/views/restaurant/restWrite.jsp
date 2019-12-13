@@ -94,6 +94,18 @@ padding:0 20px
 							</select>
 						</div>
 					</div>
+					<div class="mt-10">
+						<input type="text" id="rest_time" name="rest_time" placeholder="영업 시간"
+							onfocus="this.placeholder = ''"
+							onblur="this.placeholder = '영업 시간'" required
+							class="single-input">
+					</div>
+					<div class="mt-10">
+						<input type="text" id="rest_time" name="rest_accept" placeholder="수용 인원"
+							onfocus="this.placeholder = ''"
+							onblur="this.placeholder = '수용 인원'" required
+							class="single-input">
+					</div>
 				<div class="mt-10" id="files">
 					<div class="form-group" title="parent">
 						<input type="file" name="file" class="mt-10" id="file">

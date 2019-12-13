@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="tableMapper">
+
+<!-- list -->
+<select id="tableList" parameterType="RestTableVO" resultType="RestTableVO">
+	SELECT * FROM resttable
+	ORDER BY table_num DESC
+</select>
+<!-- write -->
+<insert id="tableWrite" parameterType="RestTableVO">
+	INSERT INTO resttable
+	VALUES(
+		resttable_seq.nextval, #{table_ea}, #{open_time1}, #{close_time1},
+		#{open_time2}, #{close_time2}, #{rest_num}, #{member_num}
+	) 
+</insert>
+<!-- update -->
+<update id="tableUpdate" parameterType="RestTableVO">
+	UPDATE resttable
+	SET table_ea = #{table_ea}, open_time1 = {open_time1}, close_time1 = {close_time1},
+	open_time2 = #{open_time2}, close_time2 = #{close_time2}
+	WHERE table_num = #{table_num}
+</update>
+<!-- delete -->
+<delete id="tableDelete" parameterType="Integer">
+	DELETE resttable
+	WHERE table_num = #{table_num}
+</delete>
+  </mapper>

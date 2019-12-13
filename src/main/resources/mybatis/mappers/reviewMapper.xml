@@ -32,9 +32,9 @@
 	</select>
 	<!-- score -->
   	<select id="reviewScore" resultType="ReviewVO" parameterType="ReviewVO">
-		SELECT * FROM review
-		WHERE rest_num = #{rest_num}
-		ORDER BY review_num DESC
+		SELECT avg(score) score
+		FROM review
+		WHERE rest_num = #{rest_num};
 	</select>
 	<!-- write -->
 	<insert id="reviewWrite" parameterType="ReviewVO">
