@@ -35,6 +35,7 @@
 				<th>NUM</th>
 				<th width="60%">NAME</th>
 				<th>DATE</th>
+				<th>HIT</th>
 			</tr>
 			<c:forEach items="${list}" var="vo">
 				<tr>
@@ -44,6 +45,7 @@
 					<a href="restSelect?rest_num=${ vo.rest_num }">${ vo.rest_name }</a>
 					</td>
 					<td>${ vo.reg_date }</td>
+					<td>${ vo.hit }</td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -1,90 +1,43 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>restaurant List</title>
-<c:import url="../layout/restaurant/bootStrap.jsp"/>
-</head>
-<body>
-<!-- Preloader Starts -->
-    <div class="preloader">
-        <div class="spinner"></div>
-    </div>
-    <!-- Preloader End -->
-<c:import url="../layout/restaurant/header.jsp"/>
-<c:import url="../layout/restaurant/foodArea.jsp"/>
-<div class="container">
-<!-- search -->
-		<div>
-			<form id="frm" action="./restList" method="get">
-			<input type="hidden" id="curPage" value="1" name="curPage">
-			<select name="kind">
-				<option id="kn" value="kn">name</option>
-				<option id="kc" value="kc">contents</option>
-			</select>
-			<input type="text" id="search" name="search" value="${pager.search }">
-			<button class="genric-btn success circle">SEARCH</button>
-			</form>
-		</div>
-		<table class="table ">
 
-			<tr>
-				<th>NUM</th>
-				<th width="60%">NAME</th>
-				<th>DATE</th>
-			</tr>
-			<c:forEach items="${list}" var="vo">
-				<tr>
-					<td>${ vo.rest_num }</td>	
-					<td>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-					<a href="restSelect?rest_num=${ vo.rest_num }">${ vo.rest_name }</a>
-					</td>
-					<td>${ vo.reg_date }</td>
-				</tr>
+<div class="comments-area col-lg-7 col-md-7" style="margin: 15px auto">
+	<h4>Review</h4>
+	<div class="comment-list">
+		<div class="single-comment justify-content-between d-flex">
+			<c:forEach items="${list}" var="r">
+				<div class="user justify-content-between d-flex">
+					<div class="desc">
+						<h5>${r.writer}</h5>
+						<p class="score">${r.score}</p>
+						<p class="date">${r.reg_date}</p>
+						<p class="comment">${r.contents}</p>
+
+					</div>
+				</div>
+				<div class="reply-btn">
+				<%-- 	<c:if test="${member.member_num eq r.member_num }"> --%>
+						<a href="./reviewUpdate?review_num=${r.review_num }"
+							class="btn-reply text-uppercase">update</a>
+						<a href="./reviewDelete?review_num=${r.review_num }"
+							class="btn-reply text-uppercase">delete</a>
+					<%-- </c:if> --%>
+				</div>
 			</c:forEach>
-		</table>
-		<div>
-			<!-- session member, memberDTO -->
-			<c:if test="${ not empty member  }">
-				<button type="button" class="genric-btn primary" id="btn_write">WRITE</button>
-			</c:if>
 		</div>
-			<ul class="pagination justify-content-center" style="margin:20px 0">
-				<c:if test="${ pager.curBlock gt 1 }">
+	</div>
+	<ul class="pagination justify-content-center" style="margin: 20px 0">
+		<c:if test="${ pager.curBlock gt 1 }">
 
-					<li><span id="${pager.startNum-1 }" class="list">이전</span></li>
-				</c:if>
-				<c:forEach begin="${ pager.startNum }" end="${ pager.lastNum }" var="i">
-					<li class="page-item"><span id="${i}" class="list genric-btn link">${i}</span></li>
-				</c:forEach>
-				<c:if test="${ pager.curBlock lt pager.totalBlock }">
-				<li><span id="${pager.lastNum + 1 }" class="list">다음</span></li>
-				</c:if>
-			</ul>
-		</div>
-		
-	
-	<script type="text/javascript">
-		$("#btn_write").click(function() {
-			location.href = "restWrite";
-		});	
-		var kind = '${pager.kind}';
-		if(kind == ''){
-			kind = "kn";
-		}
-		$("#"+kind).prop("selected", true);
-		$(".list").click(function() {
-			$("#curPage").val($(this).attr("id"));
-			$("#frm").submit();
-		
-		});
-	</script>
-<c:import url="../layout/restaurant/footer.jsp"/>
-
-
-</body>
-</html>
+			<li><span id="${pager.startNum-1 }" class="list">이전</span></li>
+		</c:if>
+		<c:forEach begin="${ pager.startNum }" end="${ pager.lastNum }"
+			var="i">
+			<li class="page-item"><span id="${i}"
+				class="list genric-btn link">${i}</span></li>
+		</c:forEach>
+		<c:if test="${ pager.curBlock lt pager.totalBlock }">
+			<li><span id="${pager.lastNum + 1 }" class="list">다음</span></li>
+		</c:if>
+	</ul>
+</div>

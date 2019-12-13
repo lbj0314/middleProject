@@ -16,17 +16,21 @@ import com.mid.pro.model.MemberVO;
 import com.mid.pro.model.MenuFilesVO;
 import com.mid.pro.model.RestaurantFilesVO;
 import com.mid.pro.model.RestaurantVO;
+import com.mid.pro.model.ReviewVO;
 import com.mid.pro.service.MemberService;
 import com.mid.pro.service.MemberServiceImpl;
 import com.mid.pro.service.RestaurantService;
+import com.mid.pro.service.ReviewService;
 import com.mid.pro.util.Pager;
 
 @Controller
 @RequestMapping("/restaurant/**")
 public class RestaurantController {
-	
+
 	@Inject
 	private RestaurantService restaurantService;
+	@Inject
+	private ReviewService reviewService;
 
 	//list
 	@GetMapping(value = "restList")
@@ -36,7 +40,7 @@ public class RestaurantController {
 		mv.addObject("pager", pager);
 		mv.addObject("list", list);
 		mv.setViewName("restaurant/restList");
-		
+
 		return mv;
 	}
 	//select One
@@ -44,8 +48,10 @@ public class RestaurantController {
 	public ModelAndView restSelect(RestaurantVO restaurantVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		restaurantVO = restaurantService.restSelect(restaurantVO);
+
 		if (restaurantVO != null) {
 			mv.addObject("vo", restaurantVO);
+			
 			restaurantVO.getRest_contents().replace("\r\n", "<br>");
 			mv.setViewName("restaurant/restSelect");
 		} else {
@@ -59,11 +65,11 @@ public class RestaurantController {
 	@GetMapping(value = "restWrite")
 	public ModelAndView restWrite(MemberVO memberVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-//		memberVO = memberService.memberSelect(memberVO);
-//		int num = memberVO.getMember_num();
-//		mv.addObject("num", num);
+		//		memberVO = memberService.memberSelect(memberVO);
+		//		int num = memberVO.getMember_num();
+		//		mv.addObject("num", num);
 		mv.setViewName("restaurant/restWrite");
-	
+
 		return mv;
 	}
 	@PostMapping(value = "restWrite")
@@ -71,7 +77,7 @@ public class RestaurantController {
 		ModelAndView mv = new ModelAndView();
 		int result = restaurantService.restWrite(restaurantVO, file,session);
 		String msg = "식당 소개글 작성에 실패하였습니다.";
-		System.out.println(file);
+		//		System.out.println(file);
 		if (result > 0) {
 			mv.setViewName("redirect:./restList");
 		} else {
@@ -126,56 +132,57 @@ public class RestaurantController {
 		return mv;
 	}
 	//fileDelete
-		@PostMapping(value = "fileDelete")
-		public ModelAndView fileDelete(RestaurantFilesVO restaurantFilesVO) throws Exception{
-			ModelAndView mv = new ModelAndView();
-			int result = restaurantService.fileDelete(restaurantFilesVO);
-			String msg = "Delete Fail";
-			if (result > 0) {
-				mv.addObject("result", result);
-				mv.setViewName("common/common_ajaxResult");
-			} else {
-				mv.addObject("msg", msg);
-				mv.addObject("path", "./restList");
-				mv.setViewName("common/common_result");
-			}
-			return mv;
-		}
-		//fileDown
-		@GetMapping(value ="fileDown")
-		public ModelAndView fileDown(RestaurantFilesVO restaurantFilesVO) throws Exception{
-			ModelAndView mv = new ModelAndView();
-			restaurantFilesVO = restaurantService.fileSelect(restaurantFilesVO);
-
-			mv.addObject("file", restaurantFilesVO);
-			
-			mv.setViewName("fileDown");
-
-			return mv;
-		}
-	//summerFile
-	@PostMapping(value = "summerFile")
-	public ModelAndView summerFile(MultipartFile file, HttpSession session) throws Exception{
+	@PostMapping(value = "fileDelete")
+	public ModelAndView fileDelete(RestaurantFilesVO restaurantFilesVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		String fileName = restaurantService.summerFile(file, session);
-		
-		mv.addObject("result", fileName);
-		mv.setViewName("common/common_ajaxResult");
-		
-		return mv;	
-	}
-	//summerFileDelete
-	@PostMapping(value = "summerFileDelete")
-	public ModelAndView summerDelete(String file, HttpSession session) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		Boolean check = restaurantService.summerFileDelete(file, session);
-		String msg = "이미지 삭제 실패하였습니다.";
-		if (check) {
-			msg = "이미지 삭제 성공하였습니다.";
+		int result = restaurantService.fileDelete(restaurantFilesVO);
+		String msg = "Delete Fail";
+		if (result > 0) {
+			mv.addObject("result", result);
+			mv.setViewName("common/common_ajaxResult");
+		} else {
+			mv.addObject("msg", msg);
+			mv.addObject("path", "./restList");
+			mv.setViewName("common/common_result");
 		}
-		mv.addObject("result", msg);
-		mv.setViewName("common/common_ajaxResult");
-		
 		return mv;
 	}
+	//fileDown
+	@GetMapping(value ="fileDown")
+	public ModelAndView fileDown(RestaurantFilesVO restaurantFilesVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		restaurantFilesVO = restaurantService.fileSelect(restaurantFilesVO);
+
+		mv.addObject("file", restaurantFilesVO);
+
+		mv.setViewName("fileDown");
+
+		return mv;
+	}
+	
+	//	//summerFile
+	//	@PostMapping(value = "summerFile")
+	//	public ModelAndView summerFile(MultipartFile file, HttpSession session) throws Exception{
+	//		ModelAndView mv = new ModelAndView();
+	//		String fileName = restaurantService.summerFile(file, session);
+	//		
+	//		mv.addObject("result", fileName);
+	//		mv.setViewName("common/common_ajaxResult");
+	//		
+	//		return mv;	
+	//	}
+	//	//summerFileDelete
+	//	@PostMapping(value = "summerFileDelete")
+	//	public ModelAndView summerDelete(String file, HttpSession session) throws Exception {
+	//		ModelAndView mv = new ModelAndView();
+	//		Boolean check = restaurantService.summerFileDelete(file, session);
+	//		String msg = "이미지 삭제 실패하였습니다.";
+	//		if (check) {
+	//			msg = "이미지 삭제 성공하였습니다.";
+	//		}
+	//		mv.addObject("result", msg);
+	//		mv.setViewName("common/common_ajaxResult");
+	//		
+	//		return mv;
+	//	}
 }

@@ -49,6 +49,12 @@ public class RestaurantDAO {
 	public int restCount(Pager pager) throws Exception{
 		return sqlSession.selectOne(NAMESPACE + "restaurantCount", pager);
 	}
+	
+	//update read count
+	public int restUpdateHit(RestaurantVO restaurantVO) throws Exception{
+		return sqlSession.update(NAMESPACE + "restaurantUpdateHit", restaurantVO);
+	}
+	
 	//Imgcount
 	public int restImgCount(RestaurantVO restaurantVO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE + "restaurantImgCount", restaurantVO);

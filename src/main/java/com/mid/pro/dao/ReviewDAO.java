@@ -2,6 +2,8 @@ package com.mid.pro.dao;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +13,7 @@ import com.mid.pro.util.Pager;
 @Repository
 public class ReviewDAO {
 	
+	@Inject
 	private SqlSession sqlSession;
 	private static final String NAMESPACE = "reviewMapper.";
 	
@@ -37,5 +40,9 @@ public class ReviewDAO {
 	//count
 	public int reviewCount(Pager pager) throws Exception{
 		return sqlSession.selectOne(NAMESPACE + "reviewCount", pager);
+	}
+	//totalScore
+	public int reviewScroe(ReviewVO reviewVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE + "reviewScore", reviewVO);
 	}
 }

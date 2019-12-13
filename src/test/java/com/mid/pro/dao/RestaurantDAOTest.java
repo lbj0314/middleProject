@@ -15,10 +15,10 @@ public class RestaurantDAOTest extends TestAbstractCase{
 	@Inject
 	private RestaurantDAO restaurantDAO;
 
-	//@Test
+	@Test
 	public void restaurantWriteTest() throws Exception {
 		RestaurantVO restaurantVO = new RestaurantVO();
-		restaurantVO.setRest_name("test");
+		restaurantVO.setRest_name("test2");
 		restaurantVO.setRest_contents("test");
 		restaurantVO.setRest_post1(10000);
 		restaurantVO.setRest_addr1("test");
@@ -27,6 +27,8 @@ public class RestaurantDAOTest extends TestAbstractCase{
 		restaurantVO.setRest_url("");
 		restaurantVO.setKind("test");
 		restaurantVO.setMember_num(1);
+		System.out.println(restaurantVO.getRest_num());
+		System.out.println(restaurantVO.getReg_date());
 		int result = restaurantDAO.restWrite(restaurantVO);
 
 		assertEquals(1, result);

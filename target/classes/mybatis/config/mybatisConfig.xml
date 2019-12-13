@@ -12,6 +12,7 @@
   		<typeAlias type="com.mid.pro.model.RestaurantFilesVO" alias="RestaurantFilesVO"/>
   		<typeAlias type="com.mid.pro.model.MenuFilesVO" alias="MenuFilesVO"/>
   		<typeAlias type="com.mid.pro.model.ReviewVO" alias="ReviewVO"/>
+  		<typeAlias type="com.mid.pro.util.ReviewPager" alias="ReviewPager"/>
   		
   		<typeAlias type="java.lang.String" alias="String"/>
   		<typeAlias type="java.lang.Integer" alias="Integer"/>

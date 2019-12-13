@@ -32,7 +32,7 @@ public class RestaurantService {
 	}
 	//selectOne
 	public RestaurantVO restSelect(RestaurantVO restaurantVO) throws Exception{
-		restaurantDAO.restImgCount(restaurantVO);
+		restaurantDAO.restUpdateHit(restaurantVO);
 		return restaurantDAO.restSelect(restaurantVO);
 	}
 	//write

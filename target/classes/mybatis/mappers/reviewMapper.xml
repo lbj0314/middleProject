@@ -12,10 +12,11 @@
  		<result property="member_num" column="member_num"/>
  	</resultMap> -->
  	<!-- List -->
- 	<select id="reviewList" resultType="ReviewVO" parameterType="Pager">
+ 	<select id="reviewList" resultType="ReviewVO" parameterType="ReviewPager">
  		SELECT * FROM
  			(SELECT RV.*, ROWNUM R FROM
  			(SELECT * FROM review
+ 			WHERE rest_num = #{rest_num}
  			ORDER BY review_num DESC) RV)
  		WHERE R BETWEEN #{startRow} AND #{lastRow}
  	</select>
@@ -27,6 +28,13 @@
  	<!-- count -->
   	<select id="reviewCount" resultType="Integer">
 		SELECT COUNT(review_num) FROM review
+		WHERE rest_num = #{rest_num}
+	</select>
+	<!-- score -->
+  	<select id="reviewScore" resultType="ReviewVO" parameterType="ReviewVO">
+		SELECT * FROM review
+		WHERE rest_num = #{rest_num}
+		ORDER BY review_num DESC
 	</select>
 	<!-- write -->
 	<insert id="reviewWrite" parameterType="ReviewVO">
@@ -35,7 +43,8 @@
 		</selectKey>
 		INSERT INTO review
 		VALUES(
-			#{review_num}, #{score}, #{contents}, SYSDATE, #{member_num}
+			#{review_num}, #{writer}, #{score}, #{contents}, SYSDATE, #{member_num},
+			#{rest_num}
 		)
 	</insert>
 	<!-- update -->

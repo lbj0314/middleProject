@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mid.pro.model.RestaurantVO;
 import com.mid.pro.model.ReviewVO;
+import com.mid.pro.service.RestaurantService;
 import com.mid.pro.service.ReviewService;
 import com.mid.pro.util.Pager;
 
@@ -21,12 +23,18 @@ public class ReviewController {
 	
 	@Inject
 	private ReviewService reviewService;
+	@Inject
+	private RestaurantService restaurantService;
 
 	//list
 	@GetMapping(value = "reviewList")
-	public ModelAndView reviewList(Pager pager) throws Exception{
+	public ModelAndView reviewList(Pager pager, RestaurantVO restaurantVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		restaurantVO = restaurantService.restSelect(restaurantVO);
 		List<ReviewVO> list = reviewService.reviewList(pager);
+//		System.out.println(restaurantVO);
+//		System.out.println(list);
+//		mv.addObject("vo", restaurantVO);
 		mv.addObject("pager", pager);
 		mv.addObject("list", list);
 		mv.setViewName("review/reviewList");
@@ -50,20 +58,21 @@ public class ReviewController {
 	}
 	//write
 	@GetMapping(value = "reviewWrite")
-	public ModelAndView reviewWrite(ReviewVO reviewVO) throws Exception{
+	public ModelAndView reviewWrite(RestaurantVO restaurantVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		
+		restaurantVO = restaurantService.restSelect(restaurantVO);
+		mv.addObject("vo", restaurantVO);
 		mv.setViewName("review/reviewWrite");
 		
 		return mv;
 	}
 	@PostMapping(value = "reviewWrite")
-	public ModelAndView reviewWrite(ReviewVO reviewVO, HttpSession session) throws Exception{
+	public ModelAndView reviewWrite(ReviewVO reviewVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = reviewService.reviewWrite(reviewVO, session);
+		int result = reviewService.reviewWrite(reviewVO);
 		String msg = "리뷰 작성에 실패하였습니다.";
 		if (result > 0) {
-			mv.setViewName("redirect:../restaurant/restaurantList");
+			mv.setViewName("redirect:../restaurant/restList");
 		} else {
 			mv.addObject("msg", msg);
 			mv.addObject("path", "../restaurant/restaurantList");
@@ -88,9 +97,9 @@ public class ReviewController {
 			
 	}
 	@PostMapping(value = "reviewUpdate")
-	public ModelAndView reviewUpdate(ReviewVO reviewVO, HttpSession session) throws Exception{
+	public ModelAndView reviewUpdate2(ReviewVO reviewVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = reviewService.reviewUpdate(reviewVO, session);
+		int result = reviewService.reviewUpdate(reviewVO);
 		String msg = "리뷰 수정에 실패하였습니다.";
 		if (result > 0) {
 			mv.setViewName("redirct:../restaurant/restaurantList");

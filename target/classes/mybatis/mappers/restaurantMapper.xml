@@ -64,6 +64,13 @@
 		SELECT COUNT(fnum) FROM restfiles
 		WHERE rest_num = #{rest_num}
 	</select>
+	<!-- hit count -->
+	<update id="restaurantUpdateHit">
+		UPDATE restaurant SET
+		hit = hit +1
+		WHERE rest_num = #{rest_num}
+	</update>
+	
 	<insert id="restaurantWrite" parameterType="RestaurantVO">
 		<selectKey order="BEFORE" resultType="Integer" keyProperty="rest_num">
 			SELECT rest_seq.nextval FROM dual

@@ -20,7 +20,7 @@
   		SELECT * FROM
 		(SELECT M.*, ROWNUM R FROM
 		(SELECT * FROM menu
-		<!-- <include refid="ms"/> -->
+		WHERE rest_num = #{rest_num}
 		ORDER BY menu_num DESC) M)
 	<!-- 	WHERE R BETWEEN #{startRow} AND #{lastRow} -->
   	</select>

@@ -19,8 +19,6 @@ public class ReviewService {
 
 	@Inject
 	private ReviewDAO reviewDAO;
-	@Inject
-	private FileSaver fileSaver;
 
 	//list
 	public List<ReviewVO> reviewList(Pager pager) throws Exception{
@@ -33,25 +31,16 @@ public class ReviewService {
 		return reviewDAO.reviewSelect(reviewVO);
 	}
 	//write
-	public int reviewWrite(ReviewVO reviewVO, HttpSession session) throws Exception{
+	public int reviewWrite(ReviewVO reviewVO) throws Exception{
 		return reviewDAO.reviewWrite(reviewVO);
 	}
 	//update
-	public int reviewUpdate(ReviewVO reviewVO, HttpSession session) throws Exception{
+	public int reviewUpdate(ReviewVO reviewVO) throws Exception{
 		return reviewDAO.reviewUpdate(reviewVO);
 	}
 	//delete
 	public int reviewDelete(ReviewVO reviewVO) throws Exception{
 		return reviewDAO.reviewDelete(reviewVO);
 	}
-	//summerFile
-	public String summerFile(MultipartFile file, HttpSession session) throws Exception{
-		String realPath = session.getServletContext().getRealPath("resources/upload/summerfile");
-		return fileSaver.save(realPath, file);
-	}
-	//summerFileDelete
-	public Boolean summerFileDelete(String file, HttpSession session) throws Exception{
-		String realPath = session.getServletContext().getRealPath("resources/upload/summerfile");
-		return fileSaver.fileDelete(realPath, file);
-	}
+
 }

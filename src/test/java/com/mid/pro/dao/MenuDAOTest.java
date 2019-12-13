@@ -12,6 +12,7 @@ import org.junit.Test;
 import com.mid.pro.TestAbstractCase;
 import com.mid.pro.model.MenuFilesVO;
 import com.mid.pro.model.MenuVO;
+import com.mid.pro.service.MenuService;
 
 public class MenuDAOTest extends TestAbstractCase{
 
@@ -44,7 +45,7 @@ public class MenuDAOTest extends TestAbstractCase{
 //		assertEquals(1, result);
 //	}
 	
-	@Test
+	//@Test
 	public void fileWriteTest() throws Exception{
 		MenuFilesVO filesVO = new MenuFilesVO();
 		filesVO.setMenu_num(3);

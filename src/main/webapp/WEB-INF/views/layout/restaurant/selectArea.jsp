@@ -65,6 +65,7 @@ img {
 									<td>${vo.reg_date}&nbsp;<i class="fa fa-calendar-o"></i></td>
 									<td>${vo.hit}&nbsp;<i class="fa fa-eye"></i></td>
 									<td>${vo.review_hit }&nbsp;<i class="fas fa-comment"></i></td>
+									<td>${review.score }&nbsp;<i class="fas fa-comment"></i></td>
 								</tr>
 							</table>
 						</div>

@@ -5,15 +5,24 @@ import java.sql.Date;
 public class ReviewVO {
 	
 	private int review_num;
+	private String writer;
 	private int score;
 	private String contents;
 	private Date reg_date;
 	private int member_num;
+	private int rest_num;
+	
 	public int getReview_num() {
 		return review_num;
 	}
 	public void setReview_num(int review_num) {
 		this.review_num = review_num;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 	public int getScore() {
 		return score;
@@ -39,7 +48,11 @@ public class ReviewVO {
 	public void setMember_num(int member_num) {
 		this.member_num = member_num;
 	}
-	
-	
+	public int getRest_num() {
+		return rest_num;
+	}
+	public void setRest_num(int rest_num) {
+		this.rest_num = rest_num;
+	}
 	
 }

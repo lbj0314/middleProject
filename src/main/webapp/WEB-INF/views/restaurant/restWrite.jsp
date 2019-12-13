@@ -102,7 +102,7 @@ padding:0 20px
 				</div>
 				
 				<input type="button" class="genric-btn info" value="Add File" id="add">
-				<!-- session member, memberDTO -->
+				<!-- session member, memberVO -->
 				<div class="mt-10">
 					<c:if test="${ not empty member  }">
 						<button type="submit" class="genric-btn primary">WRITE</button>
