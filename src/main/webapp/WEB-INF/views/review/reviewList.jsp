@@ -4,7 +4,7 @@
 	pageEncoding="UTF-8"%>
  <link rel="stylesheet" href="../resources/css/review/review.css">
 
- <div class="comments-area col-lg-7 col-md-7" style="margin: 15px auto; background-color: white;" >
+ <div class="comments-area col-lg-7 col-md-7" style="margin: 15px auto; background-color: white; border: " >
 	<div class="comment-list">
 		<div class="single-comment justify-content-between d-flex">
 			<div id = "review_header">
@@ -19,13 +19,26 @@
 		</div> 
 	</div> 
 	
-	<div id="review_wrapper">
-			aa
-		<div id="review">
+	<div id="review_wrapper">				
+		<c:forEach items="${list}" var="r">	
+		<article id="review">
 			<div id = "review_info">
-			
+				<div id = "review_writer">
+					<span id = "review_writer_span">hello</span>
+				</div>
+				<div id = "review_score">
+				
+				</div>
+				<div id = "review_date">
+					${r.reg_date}
+				</div>
 			</div>	
-		</div>
+			<div id = "review_contents">
+					${r.contents}	
+			</div>
+		</article>
+		</c:forEach>
+		
 		
 	</div>
 	
