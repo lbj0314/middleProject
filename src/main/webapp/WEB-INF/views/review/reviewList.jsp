@@ -5,7 +5,6 @@
  <link rel="stylesheet" href="../resources/css/review/review.css">
 
  <div class="comments-area col-lg-7 col-md-7" style="margin: 15px auto; background-color: white;" >
- <h4>리뷰 최신순 높은별점순 낮은별점순</h4>
 	<div class="comment-list">
 		<div class="single-comment justify-content-between d-flex">
 			<div id = "review_header">
@@ -16,52 +15,39 @@
 					<li class="review_header_li">낮은 별점순</li>
 				</ul>
 				</div>
-			</div>
-		
-		
-	
-		<%-- 	<c:forEach items="${list}" var="r">
-		 	<div class="user justify-content-between d-flex" >
-					<div class="desc">
-						<h5>${r.writer}</h5>
-						<p class="score">${r.score}</p>
-						<p class="date">${r.reg_date}</p>
-						<p class="comment">${r.contents}</p>
-					</div>
-				</div>
-				<div class="reply-btn"> 
-				 	<c:if test="${member.member_num eq r.member_num }">
-						 <a href="./reviewUpdate?review_num=${r.review_num }"
-							class="btn-reply text-uppercase">update</a>
-						<a href="./reviewDelete?review_num=${r.review_num }"
-							class="btn-reply text-uppercase">delete</a> 
-					 </c:if> 
-				 </div> 
-			</c:forEach> --%>
-			
-			
+			</div>			
 		</div> 
 	</div> 
+	
+	<div id="review_wrapper">
+			aa
+		<div id="review">
+			<div id = "review_info">
+			
+			</div>	
+		</div>
+		
+	</div>
+	
+	
+	
+	
+	
+	
 	<c:forEach items="${list}" var="r">
 		 <div class="row blog_item go_rivewSlect" id = "test" > 
                            <div class="col-md-3">
-                               <div class="blog_info text-right">
-                                    <div class="post_tag">
-                                   <!--      <a href="#">Food,</a>
-                                        <a class="active" href="#">Technology,</a>
-                                        <a href="#">Politics,</a>
-                                        <a href="#">Lifestyle</a> -->
-                                    </div>
-                                    <ul class="blog_meta list">
+                               <div class="blog_info ">
+                                    <ul class="blog_meta list text-right">
                                         <li><a >${r.writer}<i class="fa fa-user-o"></i></a></li>
                                         <li><a>${r.reg_date}<i class="fa fa-calendar-o"></i></a></li>
-                                        <li><a>${r.score}<i class="fa fa-eye"></i></a></li>
-                                        <li><a href="#">06 Comments<i class="fa fa-comment-o"></i></a></li>
+                                      <%--   <li><a>${r.score}<i class="fa fa-eye"></i></a></li>
+                                        <li><a href="#">06 Comments<i class="fa fa-comment-o"></i></a></li>  --%>
                                     </ul>
                                 </div>
                            </div>
                             <div class="col-md-9" >
-                                <div class="blog_post">
+                                <div class="blog_post">     
                                     <img src="assets/images/blog/main-blog/m-blog-5.jpg" alt="">
                                     <div class="blog_details">
                                  	<a href="blog-details.html"><h4></h4></a>
