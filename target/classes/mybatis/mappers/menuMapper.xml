@@ -16,16 +16,19 @@
 		</choose>
 	</sql> -->
 	
-<!-- 	parameterType="Pager -->
+
   	<!-- list -->
-  	<select id="menuList" resultType="MenuVO">
+  	<select id="menuList" resultType="MenuVO" parameterType="MenuVO">
   		SELECT * FROM
 		(SELECT M.*, ROWNUM R FROM
 		(SELECT * FROM menu
-		<!-- <include refid="ms"/> -->
+		 WHERE rest_num = #{rest_num}
 		ORDER BY menu_num DESC) M)
+		<!-- <include refid="ms"/> -->
 	<!-- 	WHERE R BETWEEN #{startRow} AND #{lastRow} -->
   	</select>
+  	
+  	
   	<!-- select -->
   	<resultMap type="MenuVO" id="menuFiles">
 		<id property="menu_num" column="menu_num"/>
@@ -53,49 +56,77 @@
   		FROM menu
   		<include refid="ms"/>
   	</select> -->
+  	
+  	
+  	
   	<!-- write -->
-  	<insert id="menuWrite" parameterType="List">
-  		<!-- <selectKey order="BEFORE" resultType="Integer" keyProperty="menu_num">
+  	<insert id="menuWrite" parameterType="menuVO" >
+  		
+  		 <selectKey order="BEFORE" resultType="Integer" keyProperty="menu_num">
 			SELECT menu_seq.nextval FROM dual
-		</selectKey>  -->
-<!-- 	<foreach collection="list" item="item" index="index" separator=" " open="INSERT ALL">  -->
+		</selectKey> 
+<!--  	<foreach collection="list" item="item" index="index" separator=" " open="INSERT ALL">  -->
+					
 			INSERT INTO menu
 			( menu_num, menu_name, menu_contents, price, origin, rest_num )
 			VALUES 
 			(
-				menu_seq.nextval, #{menu_name}, #{menu_contents}, #{price}, #{origin}, #{rest_num}
-			)
-		<!-- </foreach> -->
-		
+				#{menu_num}, #{menu_name}, #{menu_contents}, #{price}, #{origin}, #{rest_num}
+			)			
+			
+		<!-- </foreach> -->		
   	</insert>
+  
+
   	<!-- update -->
   	<update id="menuUpdate" parameterType="menuVO">
   		UPDATE menu
   		SET menu_name = #{menu_name}, menu_contents = #{menu_contents}, price = #{price}, origin = #{origin}
   		WHERE menu_num = #{menu_num}
   	</update>
+  	
+  	
   	<!-- delete -->
   	<delete id="menuDelete" parameterType="Integer">
   		DELETE menu
   		WHERE menu_num = #{menu_num}
   	</delete>
-  	<!-- file -->
+  	
+  	
+  	
+  	
+  	
+  <!--=================== FILE==========================  -->	
+  
+  
+  	<!-- wirte -->
   	<insert id="fileWrite" parameterType="MenuFilesVO" >
+  	
 		INSERT INTO menufiles VALUES(
 		file_seq.nextval, #{menu_num}, #{fname}, #{oname}
 		)
 	</insert>
+	
+	
+	<!-- List -->
 	<select id="fileList" parameterType="Integer" resultType="MenuFilesVO">
 		SELECT * FROM menufiles
 		WHERE menu_num = #{menu_num}
 	</select>
-	<delete id="fileDelete" parameterType="MenuFilesVO">
-		DELETE menufiles
-		WHERE fnum = #{fnum}
-		
-	</delete>
+	
+	
+	<!-- SelectOne  -->
 	<select id="fileSelect" parameterType="MenuFilesVO" resultType="MenuFilesVO">
 		SELECT * FROM menufiles
 		WHERE fnum = #{fnum}
 	</select>
+	
+	
+	<!-- Delete -->
+	<delete id="fileDelete" parameterType="MenuFilesVO">
+		DELETE menufiles
+		WHERE fnum = #{fnum}	
+	</delete>
+	
+	
   </mapper>

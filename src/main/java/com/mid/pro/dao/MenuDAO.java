@@ -20,8 +20,8 @@ public class MenuDAO {
 	static final String NAMESPACE = "menuMapper.";
 	
 	//list
-	public List<MenuVO> menuList() throws Exception{
-		return sqlSession.selectList(NAMESPACE + "menuList");
+	public List<MenuVO> menuList(MenuVO menuVO) throws Exception{
+		return sqlSession.selectList(NAMESPACE + "menuList", menuVO);
 	}
 	
 	//select One
@@ -30,8 +30,8 @@ public class MenuDAO {
 	}
 	
 	//write
-	public int menuWrite(MenuListVO menuListVO) throws Exception{
-		return sqlSession.insert(NAMESPACE + "menuWrite", menuListVO);
+	public int menuWrite(MenuVO menuVO) throws Exception{
+		return sqlSession.insert(NAMESPACE + "menuWrite", menuVO);
 	}
 	
 	//update

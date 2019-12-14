@@ -8,9 +8,11 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.junit.Test;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.mid.pro.TestAbstractCase;
 import com.mid.pro.model.MenuFilesVO;
+import com.mid.pro.model.MenuListVO;
 import com.mid.pro.model.MenuVO;
 
 public class MenuDAOTest extends TestAbstractCase{
@@ -31,6 +33,26 @@ public class MenuDAOTest extends TestAbstractCase{
 		assertEquals(1, result);
 	}
 
+	
+	//@Test
+	public void menuWirteListTest(MenuListVO menuListVO)throws Exception{
+		int[] menu_num = new int[2];
+		String [] menu_name = new String[2];
+		String [] menu_contents = new String[2];
+		int[] price = new int[2];
+		String[] origin = new String[2];
+			
+		for(int i=0; i<menu_num.length; i++) {
+			menu_num[i] = 20;
+			menu_name[i] = "i";
+			menu_contents[i] = "i";
+			price[i] = i;
+			origin[i] = "i";
+
+				}
+
+	}
+	
 //	@Test
 //	public void menuUpdateTest() throws Exception {
 //		MenuVO menuVO = new MenuVO();
@@ -44,7 +66,7 @@ public class MenuDAOTest extends TestAbstractCase{
 //		assertEquals(1, result);
 //	}
 	
-	@Test
+	//@Test
 	public void fileWriteTest() throws Exception{
 		MenuFilesVO filesVO = new MenuFilesVO();
 		filesVO.setMenu_num(3);
