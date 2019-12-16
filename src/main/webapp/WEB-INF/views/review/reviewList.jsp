@@ -22,20 +22,30 @@
 	<div id="review_wrapper">				
 		<c:forEach items="${list}" var="r">	
 		<article id="review">
-			<div id = "review_info">
+		<div id = "review_info">
+			<div id= "review_info_left">
 				<div id = "review_writer">
 					<span id = "review_writer_span">${r.writer}</span>
 				</div>
-				<div id = "review_score">
-						
+				<div id = "review_score">				
 				</div>
 				<div id = "review_date">
 					${r.reg_date}
 				</div>
 			</div>	
-			<div id = "review_contents">
-					${r.contents}	
+				
+			<div id = "review_info_right">
+				 <div id = "review_score_good"></div>
+				<span></span> 
 			</div>
+					
+		</div>
+			
+			
+
+		 <div id = "review_contents">
+					${r.contents}	
+			</div> 
 		</article>
 		</c:forEach>
 		
@@ -47,15 +57,15 @@
 	
 	
 	
-	<c:forEach items="${list}" var="r">
+<%-- 	<c:forEach items="${list}" var="r">
 		 <div class="row blog_item go_rivewSlect" id = "test" > 
                            <div class="col-md-3">
                                <div class="blog_info ">
                                     <ul class="blog_meta list text-right">
                                         <li><a >${r.writer}<i class="fa fa-user-o"></i></a></li>
                                         <li><a>${r.reg_date}<i class="fa fa-calendar-o"></i></a></li>
-                                      <%--   <li><a>${r.score}<i class="fa fa-eye"></i></a></li>
-                                        <li><a href="#">06 Comments<i class="fa fa-comment-o"></i></a></li>  --%>
+                                        <li><a>${r.score}<i class="fa fa-eye"></i></a></li>
+                                        <li><a href="#">06 Comments<i class="fa fa-comment-o"></i></a></li> 
                                     </ul>
                                 </div>
                            </div>
@@ -70,7 +80,7 @@
                             </div>
                              <!--            <a href="blog-details.html" class="template-btn" style="padding-right: 0px">더보기</a> -->
                 </div> 
-	</c:forEach>
+	</c:forEach> --%>
 	
 	
 	
