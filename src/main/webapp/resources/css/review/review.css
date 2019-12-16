@@ -87,6 +87,66 @@
     font-family: "apple sd gothic neo", nanumgothic, 나눔고딕, dotum, 돋움, sans-serif !important;
 }
 	
-}	
 	
+/***** reivewWrite *****/
+
+#review_write_form{
+ border: 1px solid #555;
+    border-radius: 3px;
+	background-color: white;
+	width: 1110px;
+	margin: 0 auto;
+	 padding: 16px;
+}
+
+#review_write_score{
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    background-color: aqua;
+	margin: 0;
+    padding: 0;
+}
+
+.reviewpicker_item{
+	float: left;
+}
+
+.review_score_button{
+	cursor: pointer;
+    border: 0px;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+#good{
+	background-image: url("https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg");
+	display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+    background-size: cover;
+   
+}
+
+.star{
+  display:inline-block;
+  width: 30px;height: 60px;
+  cursor: pointer;
+}
+.star_left{
+  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat 0 0; 
+  background-size: 60px; 
+  margin-right: -3px;
+}
+.star_right{
+  background: url(http://gahyun.wooga.kr/main/img/testImg/star.png) no-repeat -30px 0; 
+  background-size: 60px; 
+  margin-left: -3px;
+}
+.star.on{
+  background-image: url(http://gahyun.wooga.kr/main/img/testImg/star_on.png);
 }

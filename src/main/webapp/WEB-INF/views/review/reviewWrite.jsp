@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../resources/css/review/review.css">
+
+
+</head>
+<body>
+
 
 <div class="comments-area col-lg-7 col-md-7" style="margin: 0 auto">
 
@@ -39,3 +48,49 @@
 	</div>
 
 </div>
+
+<div id="review_write_form">
+<div class="star-box">
+  <span class="star star_left"></span>
+  <span class="star star_right"></span>
+
+  <span class="star star_left"></span>
+  <span class="star star_right"></span>
+
+  <span class="star star_left"></span>
+  <span class="star star_right"></span>
+
+ <span class="star star_left"></span>
+ <span class="star star_right"></span>
+
+ <span class="star star_left"></span>
+ <span class="star star_right"></span>
+</div>
+
+<!-- 	<ul id = "review_write_score">
+		<li class="reviewpicker_item">
+			<button class="review_score_button">
+				<i id = "good"></i>
+			</button>
+		</li>
+		<li class="reviewpicker_item"><button></button></li>
+		<li class="reviewpicker_item"><button></button></li>
+	</ul> -->
+
+</div>
+
+<script type="text/javascript">
+$(".star").on('click',function(){
+	   var idx = $(this).index();
+	   $(".star").removeClass("on");
+	     for(var i=0; i<=idx; i++){
+	        $(".star").eq(i).addClass("on");
+	   }
+	 });
+</script>
+
+
+</body>
+</html>
+
+

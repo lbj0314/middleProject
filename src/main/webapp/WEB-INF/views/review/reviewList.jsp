@@ -24,10 +24,10 @@
 		<article id="review">
 			<div id = "review_info">
 				<div id = "review_writer">
-					<span id = "review_writer_span">hello</span>
+					<span id = "review_writer_span">${r.writer}</span>
 				</div>
 				<div id = "review_score">
-				
+						
 				</div>
 				<div id = "review_date">
 					${r.reg_date}
@@ -99,3 +99,4 @@
 
 
 </div>
+
