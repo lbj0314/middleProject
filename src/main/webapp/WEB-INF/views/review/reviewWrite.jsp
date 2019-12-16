@@ -72,7 +72,7 @@
 	placeholder="주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"
 	maxlength="10000" 
 	required class="single-input"></textarea>
-
+<button class ="genric-btn primary" id= "review_btn">리뷰쓰기</button>
 
 
 </div>
