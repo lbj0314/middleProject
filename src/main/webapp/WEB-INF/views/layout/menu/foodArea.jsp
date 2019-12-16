@@ -13,21 +13,37 @@
             <div class="row">
             
             <c:forEach items = "${list}" var = "vo">
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 menu-list">
                     <div class="single-food mt-5 mt-sm-">
                         <div class="food-img">
                             <img src="../resources/images/food1.jpg" class="img-fluid" alt="">
                         </div>
                         <div class="food-content">
                             <div class="d-flex justify-content-between">
-                                <h5>${vo.menu_name}</h5>
+                                <h5>${vo.menu_name}</h5>               
                                 <span class="style-change">${vo.price}</span>
                             </div>
                             <p class="pt-3">${vo.menu_contents}</p>
                         </div>
                     </div>
+                <input class = "menu_num" type="hidden" value="${vo.menu_num}">
                 </div>
                 </c:forEach>
+             
+                
+               <script type="text/javascript">
+                	$('.menu-list').click(function() {
+                		
+            		var num = $(this).find(".menu_num").val();
+                		$(this).find(".menu_num").val();
+                		
+                		
+						location.href="./menuSelect?menu_num="+num; 
+
+					});
+                
+                
+                </script> 
                 
                 
          <!--     <div class="col-md-4 col-sm-6">
