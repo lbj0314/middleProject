@@ -17,8 +17,12 @@ public class RestTableDAO {
 	private static final String NAMESPACE = "tableMapper.";
 	
 	//list
-	public List<RestTableVO> tableList() throws Exception{
-		return sqlSession.selectList(NAMESPACE + "tableList");
+	public List<RestTableVO> tableList(int rest_num) throws Exception{
+		return sqlSession.selectList(NAMESPACE + "tableList", rest_num);
+	}
+	//select
+	public RestTableVO tableSelect(RestTableVO restTableVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE + "tableSelect", restTableVO);
 	}
 	//write
 	public int tableWrite(RestTableVO restTableVO) throws Exception{

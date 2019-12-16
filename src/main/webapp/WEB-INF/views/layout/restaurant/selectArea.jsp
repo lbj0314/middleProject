@@ -80,6 +80,7 @@ img {
 							<a href="../menu/menuList" class="btn genric-btn primary">Menu</a>
 							<c:if test="${member.member_num eq vo.member_num }">
 								<a href="../menu/menuWrite" class="btn genric-btn info">Menu Write</a>
+								<a href="../resttable/tableWrite?rest_num=${vo.rest_num}" class="btn genric-btn default">Table Write</a>
 							</c:if>
 						</div>
 						<c:if test="${not empty vo.rest_url}">

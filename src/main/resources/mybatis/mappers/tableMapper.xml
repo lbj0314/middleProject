@@ -10,11 +10,19 @@
 	SELECT * FROM resttable
 	ORDER BY table_num DESC
 </select>
+<!-- select -->
+<select id="tableSelect" parameterType="RestTableVO" resultType="RestTableVO">
+	SELECT * FROM resttable
+	WHERE table_num = #{table_num}
+</select> 
 <!-- write -->
 <insert id="tableWrite" parameterType="RestTableVO">
+	<selectKey order="BEFORE" resultType="Integer" keyProperty="table_num">
+			SELECT resttable_seq.nextval FROM dual
+		</selectKey>
 	INSERT INTO resttable
 	VALUES(
-		resttable_seq.nextval, #{table_ea}, #{open_time1}, #{close_time1},
+		#{table_num}, #{table_user}, #{open_time1}, #{close_time1},
 		#{open_time2}, #{close_time2}, #{rest_num}, #{member_num}
 	) 
 </insert>

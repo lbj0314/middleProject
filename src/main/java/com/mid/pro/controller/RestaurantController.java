@@ -119,7 +119,7 @@ public class RestaurantController {
 	public ModelAndView restDelete(RestaurantVO restaurantVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = restaurantService.restDelete(restaurantVO);
-		String msg = "식상 소개글 삭제에 실패하였습니다.";
+		String msg = "식당 소개글 삭제에 실패하였습니다.";
 		if (result > 0) {
 			mv.setViewName("redirect:./restList");
 		} else {

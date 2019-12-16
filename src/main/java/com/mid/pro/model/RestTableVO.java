@@ -3,7 +3,7 @@ package com.mid.pro.model;
 public class RestTableVO {
 	
 	private int table_num;
-	private int table_ea;
+	private int table_user;
 	private String open_time1;
 	private String close_time1;
 	private String open_time2;
@@ -22,11 +22,11 @@ public class RestTableVO {
 	public void setTable_num(int table_num) {
 		this.table_num = table_num;
 	}
-	public int getTable_ea() {
-		return table_ea;
+	public int getTable_user() {
+		return table_user;
 	}
-	public void setTable_ea(int table_ea) {
-		this.table_ea = table_ea;
+	public void setTable_user(int table_user) {
+		this.table_user = table_user;
 	}
 	public String getOpen_time1() {
 		return open_time1;
