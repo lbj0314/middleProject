@@ -50,25 +50,40 @@
 </div>
 
 <div id="review_write_form">
-<div class="starRev">
+<!-- <div class="starRev">
   <span class="starR on">별1</span>
   <span class="starR">별2</span>
   <span class="starR">별3</span>
   <span class="starR">별4</span>
   <span class="starR">별5</span>
-  </div>
+  </div> -->
 
-<!-- 	<ul id = "review_write_score">
+ 	<ul id = "review_write_score">
+ 	
 		<li class="reviewpicker_item">
-			<button class="review_score_button">
-				<i id = "good"></i>
+			<button class="review_score_button" id ="good_btn">
+				<i class = "reviewpicker_image" id = "good"></i>
+				<span class = "reviewpicker_label">맛있다</span>
 			</button>
 		</li>
-		<li class="reviewpicker_item"><button></button></li>
-		<li class="reviewpicker_item"><button></button></li>
-	</ul> -->
+		
+		<li class="reviewpicker_item">
+			<button class="review_score_button" id = "soso_btn">
+				<i class = "reviewpicker_image" id= "soso"></i>
+				<span class = "reviewpicker_label">괜찮다</span>
+			</button>
+		</li>
+		
+		<li class="reviewpicker_item">
+			<button class="review_score_button" id = "bad_btn">
+				<i class = "reviewpicker_image" id= "bad"></i>
+				<span class = "reviewpicker_label">별로</span>
+			</button>
+		</li>
+		
+	</ul> 
 
-<textarea id = "review_editor"
+<textarea id="review_editor" 
 	placeholder="주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"
 	maxlength="10000" 
 	required class="single-input"></textarea>
@@ -82,11 +97,13 @@
 
 
 <script type="text/javascript">
-$('.starRev span').click(function(){
-	  $(this).parent().children('span').removeClass('on');
-	  $(this).addClass('on').prevAll('span').addClass('on');
-	  return false;
-	});
+
+$('#good_btn').click(function() {
+	
+	
+});	
+
+
 </script>
 
 

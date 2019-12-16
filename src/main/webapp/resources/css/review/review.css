@@ -91,7 +91,7 @@
 /***** reivewWrite *****/
 
 #review_write_form{
- border: 1px solid #555;
+ border: 1px solid #DBDBDB;
     border-radius: 3px;
 	background-color: white;
 	width: 1110px;
@@ -112,6 +112,7 @@
 
 .reviewpicker_item{
 	float: left;
+	margin-right: 20px;
 }
 
 .review_score_button{
@@ -120,33 +121,45 @@
     background-color: transparent;
     margin: 0;
     padding: 0;
+    display: -webkit-flex;
 }
 
-#good{
-	background-image: url("https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg");
+
+.reviewpicker_label{
+	display: block;
+    font-size: 14px;
+    margin-top: 8px;
+    color: #CBCBCB;
+    font-family: "SpoqaHanSans", "Noto Sans SC", "APPLE SD Gothic NEO", "sans-serif";
+}
+
+.reviewpicker_image{
 	display: inline-block;
     width: 36px;
     height: 36px;
     margin-right: 8px;
-    background-size: cover;
-   
+ 	background-size: cover; 
 }
 
-.starR{
-  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
-  background-size: auto 100%;
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  text-indent: -9999px;
-  cursor: pointer;
+#good{
+	background-image: url("https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg");
 }
-.starR.on{background-position:0 0;}
+
+#soso{
+	background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg);
+	 
+}
+
+#bad{
+	   background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_face.svg);
+	 
+}
 
 
 #review_editor{
-		margin-top: 10px;
-	  	 height: 150px;
+		padding: 0px;
+		padding-top:10px;
+	  	height: 150px;
 		display: block;
    		width: 100%;
 	    border: 0;
@@ -156,11 +169,8 @@
    		background-color: white;
 }
 
-#review_editor:placeholder-shown{
-	color: #CBCBCB;
-	
-}
 
 #review_btn{
 	margin-right: 10px;
 }
+
