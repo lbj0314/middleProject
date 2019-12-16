@@ -50,22 +50,13 @@
 </div>
 
 <div id="review_write_form">
-<div class="star-box">
-  <span class="star star_left"></span>
-  <span class="star star_right"></span>
-
-  <span class="star star_left"></span>
-  <span class="star star_right"></span>
-
-  <span class="star star_left"></span>
-  <span class="star star_right"></span>
-
- <span class="star star_left"></span>
- <span class="star star_right"></span>
-
- <span class="star star_left"></span>
- <span class="star star_right"></span>
-</div>
+<div class="starRev">
+  <span class="starR on">별1</span>
+  <span class="starR">별2</span>
+  <span class="starR">별3</span>
+  <span class="starR">별4</span>
+  <span class="starR">별5</span>
+  </div>
 
 <!-- 	<ul id = "review_write_score">
 		<li class="reviewpicker_item">
@@ -77,16 +68,25 @@
 		<li class="reviewpicker_item"><button></button></li>
 	</ul> -->
 
+<textarea id = "review_editor"
+	placeholder="주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"
+	maxlength="10000" 
+	required class="single-input"></textarea>
+
+
+
 </div>
 
+
+
+
+
 <script type="text/javascript">
-$(".star").on('click',function(){
-	   var idx = $(this).index();
-	   $(".star").removeClass("on");
-	     for(var i=0; i<=idx; i++){
-	        $(".star").eq(i).addClass("on");
-	   }
-	 });
+$('.starRev span').click(function(){
+	  $(this).parent().children('span').removeClass('on');
+	  $(this).addClass('on').prevAll('span').addClass('on');
+	  return false;
+	});
 </script>
 
 
