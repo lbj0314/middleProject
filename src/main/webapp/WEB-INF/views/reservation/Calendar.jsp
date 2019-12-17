@@ -53,14 +53,14 @@
 
 
 					<!-- 테이블 정보 보여주는 for -->
-					<c:forEach items="${table}" var="taable" varStatus="i">
+					<c:forEach items="${table}" var="t" varStatus="i">
 						<div class="col-md-12">
-							<h4>${table.table_user }인용테이블&nbsp ${i.count }</h4>
+							<h4>${t.table_user }인용테이블&nbsp ${i.count }</h4>
 							<br>
 							<!-- 시간을 보여주는 for -->
 							<c:forEach var="t" items="${tarr}" varStatus="k">
 								<!-- 등록된 테이블과 각 시간을 표현하는 테이블의 넘버가 같을 떄-->
-								<c:if test="${table.table_num eq t.table_num }">
+								<c:if test="${t.table_num eq t.table_num }">
 									<!-- 분이 없을때 -->
 									<c:if test="${t.rev_min == 0 }">
 										<!-- 날짜, 테이블번호, 예약 시간 -->
@@ -75,7 +75,7 @@
 											onclick="reservation('${t.rev_time }:${t.rev_min }','${t.restablenum }')">${t.rev_time }:${t.rev_min }
 										</a>
 									</c:if>
-									<c:forEach var="ta2" items="${table2 }">
+									<c:forEach var="ta2" items="${table2}">
 										<!-- 예약된 시간 -->
 										<c:if
 											test="${ta2.rev_date eq frev_date and ta2.table_num eq ta.table_num and ta2.rev_time eq t.rev_time}">
