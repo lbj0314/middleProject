@@ -51,7 +51,8 @@ public class MenuController {
 	@GetMapping(value = "menuSelect")
 	public ModelAndView menuSelect(MenuVO menuVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		menuVO = menuService.menuSelect(menuVO);
+			menuVO = menuService.menuSelect(menuVO);
+
 		if (menuVO != null) {
 			mv.addObject("vo", menuVO);
 			menuVO.setMenu_contents(menuVO.getMenu_contents().replace("\r\n", "<br>"));
@@ -60,7 +61,7 @@ public class MenuController {
 			mv.addObject("msg", "내용이 없습니다.");
 			mv.addObject("path", "./menuList");
 			mv.setViewName("common/common_result");
-		}
+		} 
 		
 		return mv;
 	}

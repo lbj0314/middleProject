@@ -1,5 +1,7 @@
 package com.mid.pro.model;
 
+import java.util.List;
+
 public class MenuVO {
 	
 	private int menu_num;
@@ -8,7 +10,7 @@ public class MenuVO {
 	private int price;
 	private String origin;
 	private int rest_num;
-	private MenuFilesVO files;
+	private List<MenuFilesVO> files;
 	
 
 	public int getMenu_num() {
@@ -47,13 +49,14 @@ public class MenuVO {
 	public void setRest_num(int rest_num) {
 		this.rest_num = rest_num;
 	}
-	public MenuFilesVO getFiles() {
+	
+	public List<MenuFilesVO> getFiles() {
 		return files;
 	}
-	public void setFiles(MenuFilesVO files) {
+	public void setFiles(List<MenuFilesVO> files) {
 		this.files = files;
 	}
-	
+
 	
 }
 

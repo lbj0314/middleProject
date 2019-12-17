@@ -48,7 +48,8 @@
   		SELECT m.*, f.fnum, f.fname, f.oname 
  		FROM menu m FULL OUTER JOIN menufiles f
 		ON (m.menu_num = f.menu_num)
-		WHERE m.menu_num = #{menu_num}
+		WHERE m.menu_num = #{menu_num} 
+	
   	</select>
   	<!-- count -->
   	<!-- <select id="menuCount" resultType="Integer" parameterType="Pager">

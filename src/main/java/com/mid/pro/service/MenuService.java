@@ -31,6 +31,7 @@ public class MenuService {
 	}
 	//select One
 	public MenuVO menuSelect(MenuVO menuVO) throws Exception{
+			
 		return menuDAO.menuSelect(menuVO);
 	}
 	//write
