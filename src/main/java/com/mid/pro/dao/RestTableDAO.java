@@ -16,23 +16,23 @@ public class RestTableDAO {
 	private SqlSession sqlSession;
 	private static final String NAMESPACE = "tableMapper.";
 	
-	//list
+	//테이블 개수
 	public List<RestTableVO> tableList(int rest_num) throws Exception{
 		return sqlSession.selectList(NAMESPACE + "tableList", rest_num);
 	}
-	//select
+	//테이블 1개 선택
 	public RestTableVO tableSelect(RestTableVO restTableVO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE + "tableSelect", restTableVO);
 	}
-	//write
+	//테이블 개수 입력
 	public int tableWrite(RestTableVO restTableVO) throws Exception{
 		return sqlSession.insert(NAMESPACE + "tableWrite", restTableVO);
 	}
-	//update
+	//테이블 개수 수정
 	public int tableUpdate(RestTableVO restTableVO) throws Exception{
 		return sqlSession.update(NAMESPACE + "tableUpdate", restTableVO);
 	}
-	//delete
+	//테이블 삭제
 	public int tableDelete(RestTableVO restTableVO) throws Exception{
 		return sqlSession.delete(NAMESPACE + "tableDelete", restTableVO);
 	}

@@ -5,17 +5,15 @@
 
   <mapper namespace="tableMapper">
 
-<!-- list -->
-<select id="tableList" parameterType="RestTableVO" resultType="RestTableVO">
-	SELECT * FROM resttable
-	ORDER BY table_num DESC
-</select>
-<!-- select -->
-<select id="tableSelect" parameterType="RestTableVO" resultType="RestTableVO">
-	SELECT * FROM resttable
-	WHERE table_num = #{table_num}
+<!-- 테이블  개수 보여주기 -->
+<select id="tableSelect" parameterType="Integer" resultType="TableVO">
+	SELECT table_user, count(table_user)  
+	FROM resttable
+	WHERE rest_num = #{rest_num}
+	GROUP BY table_user
 </select> 
-<!-- write -->
+
+<!-- 테이블 입력 -->
 <insert id="tableWrite" parameterType="RestTableVO">
 	<selectKey order="BEFORE" resultType="Integer" keyProperty="table_num">
 			SELECT resttable_seq.nextval FROM dual
@@ -26,14 +24,14 @@
 		#{open_time2}, #{close_time2}, #{rest_num}, #{member_num}
 	) 
 </insert>
-<!-- update -->
+<!-- 테이블 수정 -->
 <update id="tableUpdate" parameterType="RestTableVO">
 	UPDATE resttable
-	SET table_ea = #{table_ea}, open_time1 = {open_time1}, close_time1 = {close_time1},
+	SET table_user = #{table_user}, open_time1 = {open_time1}, close_time1 = {close_time1},
 	open_time2 = #{open_time2}, close_time2 = #{close_time2}
 	WHERE table_num = #{table_num}
 </update>
-<!-- delete -->
+<!-- 테이블 삭제 -->
 <delete id="tableDelete" parameterType="Integer">
 	DELETE resttable
 	WHERE table_num = #{table_num}

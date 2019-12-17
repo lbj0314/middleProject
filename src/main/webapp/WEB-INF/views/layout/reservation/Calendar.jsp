@@ -77,7 +77,7 @@
 									<!-- 예약된 시간 -->
 
 									<c:if
-										test="${ta2.rev_date eq frev_date and ta2.tablenum eq ta.tablenum and ta2.rev_time eq t.rev_time}">
+										test="${ta2.rev_date eq frev_date and ta2.table_num eq ta.table_num and ta2.rev_time eq t.rev_time}">
 										<script>
 												$('#a${k.index}').addClass('btn btn-danger').attr('onclick','').unbind('click');
 												
@@ -108,9 +108,9 @@
 			<!-- ----- -->
 
 			<!-- 다음 예약 내역 보여줄 폼 ->가게번호, 가게 위치 -->
-			<input type="hidden" id="phon" name="phon" value="${vo.rest_tel }">
+			<input type="hidden" id="rest_tel" name="rest_tel" value="${vo.rest_tel }">
 			<input type="hidden"
-				id="resname" name="resname" value="${vo.rest_name }">
+				id="rest_name" name="rest_name" value="${vo.rest_name }">
 			<!-- ------------ -->
 			<br> <br>
 			<%-- <div class="row">

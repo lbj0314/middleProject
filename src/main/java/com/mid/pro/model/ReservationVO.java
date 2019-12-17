@@ -2,15 +2,16 @@ package com.mid.pro.model;
 
 public class ReservationVO {
 	
-	private int rev_num;
-	private int member_num;
-	private String member_name;
-	private String rev_time;
-	private String rest_name;
-	private int rest_num;
-	private int table_num;
-	private String rev_date;
-	private int rev_status;
+	private int rev_num; //예약 번호
+	private int member_num; //예약자 번호
+	private String member_name; //예약자 이름
+	private String rev_time; // 예약 시간
+	private String rest_name; // 가게 이름
+	private int rest_num; // 가게 번호
+	private int table_num; // 테이블 번호
+	private String rev_date; // 예약 날짜
+	private int rev_status; //예약 상태
+	
 	public int getRev_num() {
 		return rev_num;
 	}

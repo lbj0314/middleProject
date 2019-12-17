@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.mid.pro.model.ReservationVO;
+import com.mid.pro.model.RestTableVO;
+import com.mid.pro.model.RestTableVO2;
 
 @Repository
 public class ReservationDAO {
@@ -16,6 +18,14 @@ public class ReservationDAO {
 	private SqlSession sqlSession;
 	private static final String NAMESPACE = "reservationMapper.";
 	
+	//테이블 폼
+	public List<RestTableVO> reservationTable(int rest_num) throws Exception{
+		return sqlSession.selectList(NAMESPACE + "reservationTable", rest_num);
+	}
+	//테이블 폼, 예약 JOIN
+	public List<RestTableVO2> reservationTable2(int rest_num) throws Exception{
+		return sqlSession.selectList(NAMESPACE + "reservationTable2", rest_num);
+	}
 	//예약하기
 	public int reservationWrite(ReservationVO reservationVO) throws Exception{
 		return sqlSession.insert(NAMESPACE + "reservationWrite", reservationVO);

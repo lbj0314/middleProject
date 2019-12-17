@@ -3,28 +3,44 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-  <mapper namespace="reservationMapper">
-  <!-- 예약 하기 -->
-  <insert id="reservationWrite" parameterType="Integer">
-  	INSERT INTO reservation
-  	VALUES(
-  		rev_seq.nextval, #{member_num}, #{member_name}, #{rev_time},
-  		#{rest_name}, #{rest_num}, #{table_num}, #{rev_date}, 0
-  	)
-  </insert>
-  <!-- 예약 확인 -->
-  <select id="reservationCheck" parameterType="ReservationVO" resultType="Integer">
-  	SELECT * FROM reservationtime
-  	WHERE member_num = #{member_num}
-  </select>
-  <!-- 회원이 예약 내역 선택 확인 -->
-  <select id="reservationSelect" parameterType="ReservationVO" resultType="ReservationVO">
-  	SELECT * FROM reservationtime
-  	WHERE rev_num = #{rev_num}
-  </select>
-  <!-- 예약 삭제 -->
-  <delete id="reservationDelete" parameterType="ReservationVO">
-  	DELETE reservation
-  	WHERE rev_num = #{rev_num}
-  </delete>
-  </mapper>
+<mapper namespace="reservationMapper">
+	<!-- 예약 하기 -->
+	<insert id="reservationWrite" parameterType="Integer">
+		INSERT INTO reservation
+		VALUES(
+		rev_seq.nextval, #{member_num}, #{member_name}, #{rev_time},
+		#{rest_name}, #{rest_num}, #{table_num}, #{rev_date}, 0
+		)
+	</insert>
+	<!-- 예약 확인 -->
+	<select id="reservationCheck" parameterType="ReservationVO"
+		resultType="Integer">
+		SELECT * FROM reservation_time
+		WHERE member_num = #{member_num}
+	</select>
+	<!-- 예약폼 테이블 보여주기 -->
+	<select id="reservationTable" parameterType="RestTableVO"
+		resultType="RestTableVO">
+		SELECT * FROM resttable
+		WHERE rest_num = #{rest_num}
+	</select>
+	<!-- 예약폼 테이블, 예약 JOIN 보여주기 -->
+	<select id="reservationTable2" parameterType="Integer"
+		resultType="RestTableVO2">
+		SELECT T.*, SUBSTR(R.rev_time, 1, 2) REST_TIME, rev_date
+		FROM reservation R JOIN resttable T
+		ON R.table_num = T.table_num
+		WHERE R.rest_num = #{rest_num}
+	</select>
+	<!-- 회원이 예약 내역 선택 확인 -->
+	<select id="reservationSelect" parameterType="ReservationVO"
+		resultType="ReservationVO">
+		SELECT * FROM reservation_time
+		WHERE member_num = #{member_num}
+	</select>
+	<!-- 예약 삭제 -->
+	<delete id="reservationDelete" parameterType="ReservationVO">
+		DELETE reservation
+		WHERE member_num = #{member_num}
+	</delete>
+</mapper>

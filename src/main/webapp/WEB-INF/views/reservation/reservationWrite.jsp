@@ -13,7 +13,7 @@
 					
 						 <div class="col-md-5 text-left">
 							
-							<input type="date" class="form-control" id="frev_date" name="frev_date">
+							<input type="date" class="form-control" id="rev_date" name="rev_date">
 							     
 							<br>
 						 	<a class="btn btn-default" onclick="freservation()">테이블 보기</a>
@@ -33,13 +33,13 @@
 	
 var freservation=function(){
 	
-	if(!fgoreservation.frev_date.value)
+	if(!fgoreservation.rev_date.value)
 	{
 		alert("날짜를 입력하세요.");
-		fgoreservation.frev_date.focus();
+		fgoreservation.rev_date.focus();
 		return;
 	}
-		fgoreservation.action="../layout/reservation/Calendar?rest_num=${rest_num}";
+		fgoreservation.action="./Calendar?rest_num=${vo.rest_num}";
 		fgoreservation.submit();
 }
 	
