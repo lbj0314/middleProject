@@ -8,10 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -52,10 +49,11 @@ public class MenuController {
 	public ModelAndView menuSelect(MenuVO menuVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 			menuVO = menuService.menuSelect(menuVO);
+			//menuVO.setMenu_contents(menuVO.getMenu_contents().replace("\r\n", "<br>"));
 
 		if (menuVO != null) {
-			mv.addObject("vo", menuVO);
-			menuVO.setMenu_contents(menuVO.getMenu_contents().replace("\r\n", "<br>"));
+			mv.addObject("vo", menuVO);		
+			//menuVO.getMenu_contents().replace("\r\n", "<br>");
 			mv.setViewName("menu/menuSelect");
 		} else {
 			mv.addObject("msg", "내용이 없습니다.");

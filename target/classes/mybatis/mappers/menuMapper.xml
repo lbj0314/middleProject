@@ -32,8 +32,8 @@
   	<!-- select -->
   	<resultMap type="MenuVO" id="menuFiles">
 		<id property="menu_num" column="menu_num"/>
-		<result property="name" column="name"/>
-		<result property="contents" column="contents"/>
+		<result property="menu_name" column="menu_name"/>
+		<result property="menu_contents" column="menu_contents"/>
 		<result property="price" column="price"/>
 		
 		<collection property="files" javaType="List" ofType="MenuFilesVO">
@@ -44,7 +44,7 @@
 	</resultMap>
 	
 	
-  	<select id="menuSelect" parameterType="menuVO" resultMap="menuFiles">
+  	<select id="menuSelect" parameterType="MenuVO" resultMap="menuFiles">
   		SELECT m.*, f.fnum, f.fname, f.oname 
  		FROM menu m FULL OUTER JOIN menufiles f
 		ON (m.menu_num = f.menu_num)
@@ -61,7 +61,7 @@
   	
   	
   	<!-- write -->
-  	<insert id="menuWrite" parameterType="menuVO" >
+  	<insert id="menuWrite" parameterType="MenuVO" >
   		
   		 <selectKey order="BEFORE" resultType="Integer" keyProperty="menu_num">
 			SELECT menu_seq.nextval FROM dual
@@ -80,7 +80,7 @@
   
 
   	<!-- update -->
-  	<update id="menuUpdate" parameterType="menuVO">
+  	<update id="menuUpdate" parameterType="MenuVO">
   		UPDATE menu
   		SET menu_name = #{menu_name}, menu_contents = #{menu_contents}, price = #{price}, origin = #{origin}
   		WHERE menu_num = #{menu_num}

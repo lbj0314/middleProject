@@ -158,7 +158,8 @@ h6 {
    #BACKGROUND
    ========================================================================== */
 .bg-blue {
-  background: #2c6ed5;
+  /* background: #2c6ed5; */
+    background: #f9f9ff;
 }
 
 /* ==========================================================================
@@ -286,6 +287,7 @@ input {
 
 .input-group {
   position: relative;
+  margin-top: 30px;
   margin-bottom: 30px;
   border-bottom: 2px solid #ccc;
 }
