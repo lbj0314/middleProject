@@ -10,7 +10,6 @@ public class ReservationVO {
 	private int rest_num; // 가게 번호
 	private int table_num; // 테이블 번호
 	private String rev_date; // 예약 날짜
-	private int rev_status; //예약 상태
 	
 	public int getRev_num() {
 		return rev_num;
@@ -60,13 +59,5 @@ public class ReservationVO {
 	public void setRev_date(String rev_date) {
 		this.rev_date = rev_date;
 	}
-	public int getRev_status() {
-		return rev_status;
-	}
-	public void setRev_status(int rev_status) {
-		this.rev_status = rev_status;
-	}
-	
-	
-	
+
 }

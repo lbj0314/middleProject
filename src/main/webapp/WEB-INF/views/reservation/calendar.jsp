@@ -23,25 +23,25 @@
 				name="goreservation" method="POST">
 
 				<div class="row">
-					<h2>예 약</h2>
+					<h5>예 약</h5>
 					<h5>(버튼은 예약가능 시작 시간입니다. 1시간 단위로 테이블을 선택해 예약하실 수 있습니다. ex)
 						10:00 => 10:00~11:00)</h5>
-					<br> <br>
-					<h4>예약 날짜</h4>
+					<br>
+					<h5>예약 날짜</h5>
 					<div class="form-group">
-						<div class="col-md-3 text-left">
+						<div class="col-md-8 text-left">
 							<input type="date" class="form-control" id="rev_date"
-								name="rev_date" value="${rev_date}" readonly>
+								name="rev_date" value="${param.rev_date}" readonly>
 						</div>
 						<div class="col-md-4 text-left">
 							<a class="btn btn-default"
-								href="./reservationWrite?rest_num=${backupnum}">되돌아가기</a>
+								href="./reservationWrite?rest_num=${param.backupnum}">되돌아가기</a>
 						</div>
 
-						<div class="col-md-1">
+						<div class="col-md-3">
 							<a class="btn btn-default ">예약 O</a>
 						</div>
-						<div class="col-md-1">
+						<div class="col-md-3">
 							<a class="btn btn-danger ">예약 X</a>
 						</div>
 
@@ -55,30 +55,31 @@
 					<!-- 테이블 정보 보여주는 for -->
 					<c:forEach items="${table}" var="t" varStatus="i">
 						<div class="col-md-12">
-							<h4>${t.table_user }인용테이블&nbsp ${i.count }</h4>
+							<h5>${t.table_user }인용테이블&nbsp ${i.count }</h5>
 							<br>
 							<!-- 시간을 보여주는 for -->
-							<c:forEach var="t" items="${tarr}" varStatus="k">
+							<c:forEach items="${tarr}" var="ta" varStatus="k">
 								<!-- 등록된 테이블과 각 시간을 표현하는 테이블의 넘버가 같을 떄-->
-								<c:if test="${t.table_num eq t.table_num }">
+								<c:if test="${ta.table_num eq t.table_num }">
 									<!-- 분이 없을때 -->
-									<c:if test="${t.rev_min == 0 }">
+									<c:if test="${ta.rev_min == 0 }">
 										<!-- 날짜, 테이블번호, 예약 시간 -->
 										<a id="i${k.index}" class="btn btn-default"
-											onclick="reservation('${t.rev_time }:${t.rev_min }0','${t.table_num }')">${t.rev_time }:${t.rev_min }0
+											onclick="reservation('${ta.rev_time }:${ta.rev_min }0','${ta.table_num }')">
+											${ta.rev_time }:${ta.rev_min }0
 										</a>
 									</c:if>
 									<!-- 분이 있을때 -->
-									<c:if test="${t.rev_min!=0 }">
+									<c:if test="${ta.rev_min!=0 }">
 										<!-- 날짜, 테이블번호, 예약 시간 -->
 										<a id="i${k.index}" class="btn btn-default"
-											onclick="reservation('${t.rev_time }:${t.rev_min }','${t.restablenum }')">${t.rev_time }:${t.rev_min }
+											onclick="reservation('${ta.rev_time }:${ta.rev_min }','${ta.table_num }')">${ta.rev_time }:${ta.rev_min }
 										</a>
 									</c:if>
 									<c:forEach var="ta2" items="${table2}">
 										<!-- 예약된 시간 -->
 										<c:if
-											test="${ta2.rev_date eq frev_date and ta2.table_num eq ta.table_num and ta2.rev_time eq t.rev_time}">
+											test="${ta2.rev_date eq rev_date and ta2.table_num eq ta.table_num and ta2.rev_time eq ta.rev_time}">
 											<script>
 												$('#i${k.index}').addClass(
 														'btn btn-danger').attr(
@@ -99,21 +100,17 @@
 				<!-- ------- -->
 
 				<!-- 예약 등록시 적용해야하는 변수들 -->
-				<input type="hidden" name="id" id="id" value="${member.id}">
-				<input type="hidden" id="member_name" name="member_name"
-					value="${member.name}"> <input type="hidden" id="rest_name"
-					name="rest_name" value="${vo.rest_name}"> <input
-					type="hidden" name="rest_num" id="rest_num" value="${backupnum}">
-				<input type="hidden" name="backupnum2" id="backupnum2"
-					value="${backupnum}"> <input type="hidden" name="table_num"
-					id="table_num"> <input type="hidden" name="rev_time"
-					id="rev_time">
+				<input type="hidden" name="member_num" id="member_num" value="${member.member_num}">
+				<input type="hidden" name="member_name" id="member_name" value="${member.name}">  
+				<input type="hidden" name="rest_num" id="rest_num" value="${param.rest_num}">
+				<%-- <input type="hidden" name="rest_name" id="rest_name" value="${param.rest_name}"> --%>
+				<input type="hidden" name="table_num" id="table_num" value="${ta.table_num}"> 
+					<input type="hidden" name="rev_time" id="rev_time" value="${ta.rev_time }">
 				<!-- ----- -->
 
 				<!-- 다음 예약 내역 보여줄 폼 ->가게번호, 가게 위치 -->
-				<input type="hidden" id="rest_tel" name="rest_tel"
-					value="${vo.rest_tel}"> <input type="hidden" id="rest_name"
-					name="rest_name" value="${vo.rest_name}">
+				<%-- <input type="hidden" name="rest_tel" id="rest_tel" value="${vo.rest_tel}"> --%>
+				<input type="hidden" name="rest_name" id="rest_name" value="${vo.rest_name}">
 
 			</form>
 

@@ -1,6 +1,6 @@
 package com.mid.pro.model;
 
-public class RestTableVO2 {
+public class RestTable2VO {
 	
 	private int table_num; // 테이블 번호
 	private int table_user; // 테이블 인원수

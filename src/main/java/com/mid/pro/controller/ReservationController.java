@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mid.pro.model.ReservationVO;
 import com.mid.pro.model.RestTableVO;
-import com.mid.pro.model.RestTableVO2;
+import com.mid.pro.model.RestTable2VO;
 import com.mid.pro.model.RestaurantVO;
 import com.mid.pro.model.TableViewVO;
 import com.mid.pro.service.ReservationService;
@@ -34,25 +34,25 @@ public class ReservationController {
 	@Inject
 	private ReservationService reservationService;
 
-	//list
-	@GetMapping("reservationWrite")
+	//first calendar
+	@GetMapping("reservationForm")
 	public ModelAndView fcal(RestaurantVO restaurantVO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		restaurantVO = restaurantService.restSelect(restaurantVO);
 		mv.addObject("session", session);
 		mv.addObject("vo", restaurantVO);
-		mv.setViewName("reservation/reservationWrite");
+		mv.setViewName("reservation/reservationForm");
 		return mv;
 	}
 
 	//calendar
-	@PostMapping("Calendar")
+	@PostMapping("calendar")
 	public ModelAndView cal(RestaurantVO restaurantVO, int rest_num, HttpSession session, @RequestParam("rev_date") String rev_date) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		//테이블
 		List<RestTableVO> table = reservationService.reservationTable(rest_num);
 		//테이블 Join
-		List<RestTableVO2> table2 = reservationService.reservationTable2(rest_num);
+		List<RestTable2VO> table2 = reservationService.reservationTable2(rest_num);
 		//가게 정보
 		restaurantVO = restaurantService.restSelect(restaurantVO);
 		//예약된 정보
@@ -63,42 +63,34 @@ public class ReservationController {
 
 		//시간 쪼개기
 		String hh="";//시작시간
-		String mm="";//시작분
+//		String mm="";//시작분
 		String hh2="";//마감시간
-		String mm2="";//마감분
-
-		String hh3="";//시작시간
-		String mm3="";//시작분
-		String hh4="";//마감시간
-		String mm4="";//마감분
+//		String mm2="";//마감분
 
 		for(RestTableVO ta:table){
 
 			//테이블에 있는 시간을 1시간 간격으로 쪼갠다.
 
 			String str = ta.getOpen_time1();
-			System.out.println(str);
+//			System.out.println(str);
 			StringTokenizer st = new StringTokenizer(str,":");
-			System.out.println(st);
+//			System.out.println(st);
 			
 			while(st.hasMoreTokens()){
-				String nextToken = st.nextToken();
-				hh = nextToken;
-				mm = nextToken;
-				System.out.println("hh="+hh+" mm="+mm);
+				hh = st.nextToken();
+//				System.out.println("hh="+hh);
 
 			}//오픈시간 쪼개기 while
 			
 			//마감시간 쪼개기
 			String str2 = ta.getClose_time1();
-			System.out.println("str2="+str2);
+//			System.out.println("str2="+str2);
 			StringTokenizer st2 = new StringTokenizer(str2,":");
 			while(st2.hasMoreTokens()){
 			String nextToken2 = st2.nextToken();
 				hh2 = nextToken2;
-				mm2 = nextToken2;
 
-			System.out.println("hh="+hh+" mm="+mm+"hh2="+hh2+" mm2="+mm2);
+//			System.out.println("hh="+hh+"hh2="+hh2);
 
 			}//마감시간 쪼개기 while
 
@@ -109,8 +101,10 @@ public class ReservationController {
 				tableViewVO.setRev_time(i);
 				tableViewVO.setTable_num(ta.getTable_num());
 				tableViewVO.setTable_user(ta.getTable_user());
-				tableViewVO.setRev_min(Integer.parseInt(mm));
-				
+//				tableViewVO.setRev_min(Integer.parseInt(mm));
+//				System.out.println(tableViewVO.getRev_time());
+//				System.out.println(tableViewVO.getTable_num());
+//				System.out.println(tableViewVO.getTable_user());
 				tarr.add(tableViewVO);
 			}
 			
@@ -123,6 +117,20 @@ public class ReservationController {
 		mv.addObject("vo", restaurantVO);
 		mv.addObject("tarr", tarr);
 		mv.addObject("backnum", rest_num);
+		return mv;
+	}
+	//예약하기
+	@PostMapping(value = "reservationWrite")
+	public ModelAndView reservationWrite(ReservationVO reservationVO, RestaurantVO restaurantVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		restaurantVO = restaurantService.restSelect(restaurantVO);
+		int result = reservationService.reservationWrite(reservationVO);
+		if (result > 0) {
+			mv.setViewName("redirect:../restaurant/restList");
+		} else {
+			mv.addObject("msg", "예약에 실패하였습니다.");			
+			mv.setViewName("../restaurant/restList");
+		}
 		return mv;
 	}
 }

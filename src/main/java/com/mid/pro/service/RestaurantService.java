@@ -44,7 +44,7 @@ public class RestaurantService {
 		String realPath = session.getServletContext().getRealPath("resources/upload/restaurant");
 		RestaurantFilesVO restaurantFilesVO = new RestaurantFilesVO();
 		int result = restaurantDAO.restWrite(restaurantVO);
-
+		System.out.println(file);
 		for (MultipartFile multipartFile:file) {
 			if (multipartFile.getSize() != 0) {
 				String fileName = fileSaver.save(realPath, multipartFile);

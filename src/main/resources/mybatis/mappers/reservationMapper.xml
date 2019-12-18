@@ -5,7 +5,7 @@
 
 <mapper namespace="reservationMapper">
 	<!-- 예약 하기 -->
-	<insert id="reservationWrite" parameterType="Integer">
+	<insert id="reservationWrite" parameterType="ReservationVO">
 		INSERT INTO reservation
 		VALUES(
 		rev_seq.nextval, #{member_num}, #{member_name}, #{rev_time},
@@ -26,20 +26,20 @@
 	</select>
 	<!-- 예약폼 테이블, 예약 JOIN 보여주기 -->
 	<select id="reservationTable2" parameterType="Integer"
-		resultType="RestTableVO2">
+		resultType="RestTable2VO">
 		SELECT T.*, SUBSTR(R.rev_time, 1, 2) REST_TIME, rev_date
 		FROM reservation R JOIN resttable T
 		ON R.table_num = T.table_num
 		WHERE R.rest_num = #{rest_num}
 	</select>
 	<!-- 회원이 예약 내역 선택 확인 -->
-	<select id="reservationSelect" parameterType="ReservationVO"
-		resultType="ReservationVO">
+	<select id="reservationSelect" parameterType="Reservation2VO"
+		resultType="Reservation2VO">
 		SELECT * FROM reservation_time
 		WHERE member_num = #{member_num}
 	</select>
 	<!-- 예약 삭제 -->
-	<delete id="reservationDelete" parameterType="ReservationVO">
+	<delete id="reservationDelete" parameterType="Integer">
 		DELETE reservation
 		WHERE member_num = #{member_num}
 	</delete>

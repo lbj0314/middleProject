@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mid.pro.model.ReservationVO;
 import com.mid.pro.model.RestTableVO;
-import com.mid.pro.model.RestTableVO2;
+import com.mid.pro.model.RestTable2VO;
 
 @Repository
 public class ReservationDAO {
@@ -23,7 +23,7 @@ public class ReservationDAO {
 		return sqlSession.selectList(NAMESPACE + "reservationTable", rest_num);
 	}
 	//테이블 폼, 예약 JOIN
-	public List<RestTableVO2> reservationTable2(int rest_num) throws Exception{
+	public List<RestTable2VO> reservationTable2(int rest_num) throws Exception{
 		return sqlSession.selectList(NAMESPACE + "reservationTable2", rest_num);
 	}
 	//예약하기

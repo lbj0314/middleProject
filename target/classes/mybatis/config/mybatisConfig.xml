@@ -14,9 +14,10 @@
   		<typeAlias type="com.mid.pro.model.ReviewVO" alias="ReviewVO"/>
   		<typeAlias type="com.mid.pro.util.ReviewPager" alias="ReviewPager"/>
   		<typeAlias type="com.mid.pro.model.RestTableVO" alias="RestTableVO"/>
+  		<typeAlias type="com.mid.pro.model.RestTable2VO" alias="RestTable2VO"/>
   		<typeAlias type="com.mid.pro.model.TableVO" alias="TableVO"/>
   		<typeAlias type="com.mid.pro.model.ReservationVO" alias="ReservationVO"/>
-  		<typeAlias type="com.mid.pro.model.RestTableVO2" alias="RestTableVO2"/>
+		<typeAlias type="com.mid.pro.model.Reservation2VO" alias="Reservation2VO"/>
   		
   		<typeAlias type="java.lang.String" alias="String"/>
   		<typeAlias type="java.lang.Integer" alias="Integer"/>

@@ -78,7 +78,7 @@ img {
 					<div class="col-lg-12">
 						<div class="col-lg-12 menu">
 							<a href="../menu/menuList" class="btn genric-btn primary">Menu</a>
-							<a href="../reservation/reservationWrite?rest_num=${vo.rest_num }" class="genric-btn success">Reservation</a>
+							<a href="../reservation/reservationForm?rest_num=${vo.rest_num }" class="genric-btn success">Reservation</a>
 							<c:if test="${member.member_num eq vo.member_num }">
 								<a href="../menu/menuWrite" class="btn genric-btn info">Menu Write</a>
 								<a href="../resttable/tableWrite?rest_num=${vo.rest_num}" class="btn genric-btn default">Table Write</a>

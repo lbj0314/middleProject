@@ -4,7 +4,7 @@ public class Reservation2VO {
 	
 	private int rev_num; //예약 번호
 	private String member_name; //예약자 이름
-	private String member_num; //예약자 번호
+	private int member_num; //예약자 번호
 	private int rest_num; //가게 번호
 	private String rest_name; //가게 이름
 	private String rest_tel; //가게 전화번호
@@ -27,10 +27,11 @@ public class Reservation2VO {
 	public void setMember_name(String member_name) {
 		this.member_name = member_name;
 	}
-	public String getMember_num() {
+	
+	public int getMember_num() {
 		return member_num;
 	}
-	public void setMember_num(String member_num) {
+	public void setMember_num(int member_num) {
 		this.member_num = member_num;
 	}
 	public int getRest_num() {
