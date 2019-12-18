@@ -20,9 +20,12 @@
 		
 		<div id = "menu_view">
 			<div class = "menu_view_img" id = menuUpdate_img_form>
+			
+			
 		<c:forEach end="1" items="${vo.files}" var = "file">
 			 <img id = "menuUpdate_img" alt="${file.oname}" src="../resources/upload/menu/${file.fname}"
-				width="100%" height="100%">		
+				width="100%" height="100%">	
+					
 			<input type="button" class = "genric-btn primary del_file" value = "기존이미지 삭제하고 수정하기" id= "${file.fnum}" style="margin-top: 10px">	
 		</c:forEach>
 			
