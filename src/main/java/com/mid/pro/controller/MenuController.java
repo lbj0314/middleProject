@@ -97,6 +97,7 @@ public class MenuController {
 	@GetMapping(value = "menuUpdate")
 	public ModelAndView menuUpdate(MenuVO menuVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
 		menuVO = menuService.menuSelect(menuVO);
 		if (menuVO != null) {
 			mv.addObject("vo", menuVO);
@@ -112,8 +113,9 @@ public class MenuController {
 	
 	
 	@PostMapping(value = "menuUpdate")
-	public ModelAndView menuUpdate(MenuVO menuVO, MultipartFile[] file, HttpSession session) throws Exception{
-		ModelAndView mv = new ModelAndView();
+	public ModelAndView menuUpdate(MenuVO menuVO, MultipartFile[] file, HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();	
+
 		int result = menuService.menuUpdate(menuVO, file, session);
 		String msg = "메뉴 수정에 실패하였습니다.";
 		if (result > 0) {
@@ -123,6 +125,7 @@ public class MenuController {
 			mv.addObject("path", "./menuList");
 			mv.setViewName("common/common_result");
 		}
+		
 		return mv;
 	}
 	//delete

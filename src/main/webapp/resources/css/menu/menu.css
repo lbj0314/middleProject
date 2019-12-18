@@ -24,10 +24,10 @@
 	
 }
 
-#menu_view_img{
+.menu_view_img{
 	width: 450px;
 	height: 470px;
-	border: 1px solid #ddd;
+	
 	float: left;
 	
 }
@@ -103,4 +103,9 @@
 
 #origin{
 	background: #f4f4f2;
+}
+
+#menuUpdate_img_form{
+	border: 1px solid #ddd;
+	
 }

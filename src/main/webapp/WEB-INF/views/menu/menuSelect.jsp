@@ -18,7 +18,7 @@
 		</div>
 		
 		<div id = "menu_view">
-			<div id = "menu_view_img">
+			<div class = "menu_view_img">
 			<c:forEach items="${vo.files}" var="file">
 			 <img alt="${file.oname}" src="../resources/upload/menu/${file.fname}"
 				width="100%" height="100%"> 

@@ -84,6 +84,7 @@ public class MenuService {
 
 	//update
 	public int menuUpdate(MenuVO menuVO, MultipartFile[] file, HttpSession session) throws Exception{
+
 		String realPath = session.getServletContext().getRealPath("resources/upload/menu");
 		MenuFilesVO menufilesVO = new MenuFilesVO();
 		int result = menuDAO.menuUpdate(menuVO);
