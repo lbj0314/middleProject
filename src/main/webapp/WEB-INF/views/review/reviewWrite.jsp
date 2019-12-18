@@ -61,32 +61,29 @@
  	<ul id = "review_write_score">
  	
 		<li class="reviewpicker_item">
-			<div class="review_score_button" id = "bad_btn">
+			<div class="review_score_button">
 				<img alt="pink brand lipstick" 
-				src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg"				
-				onclick="this.src='https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_active_face.svg'"
-				id="dudwo123wjs"/>
-				<span class = "reviewpicker_label" id="dudwo321wjs">: 최고</span>
+				src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg"								
+				id="dudwo123wjs" class="3"/>
+				<span class = "reviewpicker_label dudwo123wjs">최고입니다!</span>
 			</div>
 		</li>
 		
 		<li class="reviewpicker_item">
-			<div class="review_score_button" id = "bad_btn">
+			<div class="review_score_button">
 				<img alt="pink brand lipstick" 
-				src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg"				
-				onclick="this.src='https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_active_face.svg'"
-				id="dudwo321wjs"/>
-				<span class = "reviewpicker_label" id="dudwo321wjs">: 보통</span>
+				src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg"								
+				id="dudwo321wjs" class="2"/>
+				<span class = "reviewpicker_label dudwo321wjs">보통입니다.</span>
 			</div>
 		</li>	
 		
 		<li class="reviewpicker_item">
-			<div class="review_score_button" id = "bad_btn">
+			<div class="review_score_button">
 				<img alt="pink brand lipstick" 
 				src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_face.svg"				
-				onclick="this.src='https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_active_face.svg'"
-				id="dudwo231wjs"/>
-				<span class = "reviewpicker_label" id="dudwo321wjs">: 최악</span>
+				id="dudwo231wjs" class="1"/>
+				<span class = "reviewpicker_label dudwo231wjs">최악입니다;</span>
 			</div>
 		</li>
 	
@@ -110,59 +107,83 @@
 
 <script type="text/javascript">
 
-// $(document).ready(function () {
-// });
     var to1 = true;
     $("#dudwo123wjs").on('click',function () {
+    	
+    	var score = $(this).attr('class');
+    	//alert(score);
         if (!to1) {
             $(this).attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg");
             $("#dudwo321wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg");
             $("#dudwo231wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_face.svg");
+            $(".dudwo123wjs").css("color", "#CBCBCB");
+            $(".dudwo231wjs").css("color", "#CBCBCB");
+            $(".dudwo321wjs").css("color", "#CBCBCB");
             to1 = true;
         } else {
             $(this).attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_active_face.svg");
             $("#dudwo321wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg");
             $("#dudwo231wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_face.svg");            
-            
+            $(".dudwo123wjs").css("color", "#ff7100");
+            $(".dudwo231wjs").css("color", "#CBCBCB");
+            $(".dudwo321wjs").css("color", "#CBCBCB");
             to1 = false;
         }
 
-        $("#panel").slideToggle("slow");
+        //$("#panel").slideToggle("slow");
     });
+    
     var to2 = true;
     $("#dudwo321wjs").on('click',function () {
+    	var score = $(this).attr('class');
+    	//alert(score);
         if (!to2) {
             $(this).attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg");
             $("#dudwo123wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg");
             $("#dudwo231wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_face.svg");
+            $(".dudwo321wjs").css("color", "#CBCBCB");
+            $(".dudwo231wjs").css("color", "#CBCBCB");
+            $(".dudwo123wjs").css("color", "#CBCBCB");
             to2 = true;
         } else {
             $(this).attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_active_face.svg");
             $("#dudwo123wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg");
             $("#dudwo231wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_face.svg");
-            
+            $(".dudwo321wjs").css("color", "#ff7100");
+            $(".dudwo231wjs").css("color", "#CBCBCB");
+            $(".dudwo123wjs").css("color", "#CBCBCB");
             to2 = false;
         }
 
-        $("#panel").slideToggle("slow");
+        //$("#panel").slideToggle("slow");
     });
+    
     var to3 = true;
     $("#dudwo231wjs").on('click',function () {
+    	var score = $(this).attr('class');
+    	//alert(score);
         if (!to3) {
             $(this).attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_face.svg");
             $("#dudwo123wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg");
             $("#dudwo321wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg");
+            $(".dudwo231wjs").css("color", "#CBCBCB");
+            $(".dudwo321wjs").css("color", "#CBCBCB");
+            $(".dudwo123wjs").css("color", "#CBCBCB");
             to3 = true;
         } else {
             $(this).attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_active_face.svg");
             $("#dudwo123wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg");
             $("#dudwo321wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg");
-            
+            $(".dudwo231wjs").css("color", "#ff7100");
+            $(".dudwo321wjs").css("color", "#CBCBCB");
+            $(".dudwo123wjs").css("color", "#CBCBCB");
             to3 = false;
         }
 
-        $("#panel").slideToggle("slow");
+        //$("#panel").slideToggle("slow");
     });
+    
+    
 </script>
 
 
