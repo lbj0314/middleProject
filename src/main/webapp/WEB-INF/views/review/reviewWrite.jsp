@@ -61,26 +61,35 @@
  	<ul id = "review_write_score">
  	
 		<li class="reviewpicker_item">
-			<button class="review_score_button" id ="good_btn">
-				<i class = "reviewpicker_image" id = "good"></i>
-				<span class = "reviewpicker_label">맛있다</span>
-			</button>
+			<div class="review_score_button" id = "bad_btn">
+				<img alt="pink brand lipstick" 
+				src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg"				
+				onclick="this.src='https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_active_face.svg'"
+				id="dudwo123wjs"/>
+				<span class = "reviewpicker_label" id="dudwo321wjs">: 최고</span>
+			</div>
 		</li>
 		
 		<li class="reviewpicker_item">
-			<button class="review_score_button" id = "soso_btn">
-				<i class = "reviewpicker_image" id= "soso"></i>
-				<span class = "reviewpicker_label">괜찮다</span>
-			</button>
-		</li>
+			<div class="review_score_button" id = "bad_btn">
+				<img alt="pink brand lipstick" 
+				src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg"				
+				onclick="this.src='https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_active_face.svg'"
+				id="dudwo321wjs"/>
+				<span class = "reviewpicker_label" id="dudwo321wjs">: 보통</span>
+			</div>
+		</li>	
 		
 		<li class="reviewpicker_item">
-			<button class="review_score_button" id = "bad_btn">
-				<i class = "reviewpicker_image" id= "bad"></i>
-				<span class = "reviewpicker_label">별로</span>
-			</button>
+			<div class="review_score_button" id = "bad_btn">
+				<img alt="pink brand lipstick" 
+				src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_face.svg"				
+				onclick="this.src='https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_active_face.svg'"
+				id="dudwo231wjs"/>
+				<span class = "reviewpicker_label" id="dudwo321wjs">: 최악</span>
+			</div>
 		</li>
-		
+	
 	</ul> 
 
 <textarea id="review_editor" 
@@ -96,14 +105,64 @@
 
 
 
+
+
+
 <script type="text/javascript">
 
-$('#good_btn').click(function() {
-	
-	
-});	
+// $(document).ready(function () {
+// });
+    var to1 = true;
+    $("#dudwo123wjs").on('click',function () {
+        if (!to1) {
+            $(this).attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg");
+            $("#dudwo321wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg");
+            $("#dudwo231wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_face.svg");
+            to1 = true;
+        } else {
+            $(this).attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_active_face.svg");
+            $("#dudwo321wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg");
+            $("#dudwo231wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_face.svg");            
+            
+            to1 = false;
+        }
 
+        $("#panel").slideToggle("slow");
+    });
+    var to2 = true;
+    $("#dudwo321wjs").on('click',function () {
+        if (!to2) {
+            $(this).attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg");
+            $("#dudwo123wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg");
+            $("#dudwo231wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_face.svg");
+            to2 = true;
+        } else {
+            $(this).attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_active_face.svg");
+            $("#dudwo123wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg");
+            $("#dudwo231wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_face.svg");
+            
+            to2 = false;
+        }
 
+        $("#panel").slideToggle("slow");
+    });
+    var to3 = true;
+    $("#dudwo231wjs").on('click',function () {
+        if (!to3) {
+            $(this).attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_face.svg");
+            $("#dudwo123wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg");
+            $("#dudwo321wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg");
+            to3 = true;
+        } else {
+            $(this).attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_active_face.svg");
+            $("#dudwo123wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg");
+            $("#dudwo321wjs").attr("src", "https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg");
+            
+            to3 = false;
+        }
+
+        $("#panel").slideToggle("slow");
+    });
 </script>
 
 

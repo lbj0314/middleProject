@@ -33,7 +33,7 @@
 					${r.reg_date}
 				</div>
 			</div>	
-				
+			<!-- 상자 -->	
 			<div id = "review_info_right">
 				 <div id = "review_score_good"></div>
 				<span></span> 

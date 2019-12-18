@@ -248,7 +248,7 @@ padding:0 20px
 	var num = 0;
 	//var index = 1;
 	
-	$("#files").empty();
+	$("#files").empty();	
 	
 		$("#files").on("click", ".del", function() {
 			

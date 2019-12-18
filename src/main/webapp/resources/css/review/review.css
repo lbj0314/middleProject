@@ -170,6 +170,17 @@
     font-family: "SpoqaHanSans", "Noto Sans SC", "APPLE SD Gothic NEO", "sans-serif";
 }
 
+.reviewpicker_label2{
+	display: block;
+    font-size: 14px;
+    margin-top: 8px;
+    color: #ff7100;
+    font-family: "SpoqaHanSans", "Noto Sans SC", "APPLE SD Gothic NEO", "sans-serif";
+}
+
+
+
+
 .reviewpicker_image{
 	display: inline-block;
     width: 36px;
@@ -178,20 +189,46 @@
  	background-size: cover; 
 }
 
+
+/* 표정 주소 */
 #good{
 	background-image: url("https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg");
+	//맛있다! : https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_active_face.svg
 }
-
 #soso{
-	background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg);
-	 
+	background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_face.svg);	
+	//괜찮다! : https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_ok_active_face.svg 
 }
-
 #bad{
 	   background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_face.svg);
-	 
+	 //별로다! : https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_not_recommend_active_face.svg   
 }
 
+
+
+.dudwo123wjs{
+	display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+ 	background-size: cover; 	
+}
+
+.dudwo321wjs{
+	display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+ 	background-size: cover; 	
+}
+
+.dudwo231wjs{
+	display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+ 	background-size: cover; 	
+}
 
 #review_editor{
 		padding: 0px;
