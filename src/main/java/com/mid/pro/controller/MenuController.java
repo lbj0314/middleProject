@@ -80,7 +80,7 @@ public class MenuController {
 	@PostMapping(value = "menuWrite")
 	public ModelAndView menuWrite(MenuListVO menuListVO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-	
+			
 		  int result = menuService.menuWrite(menuListVO,session); 
 		  String msg
 		  = "메뉴 작성에 실패하였습니다.";

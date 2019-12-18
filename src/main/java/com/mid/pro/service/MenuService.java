@@ -87,7 +87,7 @@ public class MenuService {
 		String realPath = session.getServletContext().getRealPath("resources/upload/menu");
 		MenuFilesVO menufilesVO = new MenuFilesVO();
 		int result = menuDAO.menuUpdate(menuVO);
-
+		
 		for (MultipartFile multipartFile:file) {
 			if (multipartFile.getSize() != 0) {
 				String fileName = fileSaver.save(realPath, multipartFile);

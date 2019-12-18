@@ -27,7 +27,7 @@
 #menu_view_img{
 	width: 450px;
 	height: 470px;
-	background-color: blue;
+	border: 1px solid #ddd;
 	float: left;
 	
 }
