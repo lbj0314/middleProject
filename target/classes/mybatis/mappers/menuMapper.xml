@@ -35,6 +35,7 @@
 		<result property="menu_name" column="menu_name"/>
 		<result property="menu_contents" column="menu_contents"/>
 		<result property="price" column="price"/>
+		<result property="origin" column="origin"/>
 		
 		<collection property="files" javaType="List" ofType="MenuFilesVO">
 			<id property="fnum" column="fnum"/>

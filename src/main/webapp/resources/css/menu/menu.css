@@ -8,7 +8,7 @@
 #inner{
 	width: 1100px;
 	height: 91px;	
-	background-color: orange;
+	
 	margin: 0 auto;
 }
 
@@ -35,7 +35,7 @@
 #menu_view_detail{
 	width: 610px;
 	height: 444px;
-	background-color: fuchsia;
+	
 	float: right;
 	
 	
@@ -44,7 +44,7 @@
 #myAssignZone{
 	width: 100%;
 	height: 128px;
-	background-color: lime;
+
 	
 }
 
@@ -68,18 +68,20 @@
 }
 
 .product_view_info{
-	  border-top: 1px solid #ddd;
+	 border-top: 1px solid #ddd;
 	margin-top: 20px;
 	width: 610px;
 	height: 296px;
-	background-color: maroon;
 	
+	color: #444;
+	font-size: 15px;
 }
 
 .product_info_content{
 	margin: 20px 0;
-	background-color: silver;
+
 	height: 155px;
+	font-size: 14px;
 }
 
 .product_factor{
@@ -92,4 +94,13 @@
     margin-bottom: 23px;
     line-height: 1.6;
 
+}
+
+/************* menu_update ****************/
+.menuUpdate_input{
+	border: none;	
+}
+
+#origin{
+	background: #f4f4f2;
 }

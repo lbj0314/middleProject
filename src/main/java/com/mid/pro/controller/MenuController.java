@@ -112,17 +112,17 @@ public class MenuController {
 	
 	
 	@PostMapping(value = "menuUpdate")
-	public ModelAndView menuUpdate(MenuVO menuVO, MultipartFile file, HttpSession session) throws Exception{
+	public ModelAndView menuUpdate(MenuVO menuVO, MultipartFile[] file, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-//		int result = menuService.menuUpdate(menuVO, file, session);
-//		String msg = "메뉴 수정에 실패하였습니다.";
-//		if (result > 0) {
-//			mv.setViewName("redirect:./menuList");
-//		} else {
-//			mv.addObject("msg", msg);
-//			mv.addObject("path", "./menuList");
-//			mv.setViewName("common/common_result");
-//		}
+		int result = menuService.menuUpdate(menuVO, file, session);
+		String msg = "메뉴 수정에 실패하였습니다.";
+		if (result > 0) {
+			mv.setViewName("redirect:./menuList");
+		} else {
+			mv.addObject("msg", msg);
+			mv.addObject("path", "./menuList");
+			mv.setViewName("common/common_result");
+		}
 		return mv;
 	}
 	//delete
@@ -132,12 +132,15 @@ public class MenuController {
 	int result = menuService.menuDelete(menuVO);
 	String msg = "메뉴 삭제에 실패하였습니다.";
 	if (result > 0) {
-		mv.setViewName("redirect:./menuList");
+		mv.addObject("msg", "삭제되었습니다.");
 	} else {
+		
 		mv.addObject("msg", msg);
-		mv.addObject("path", "./menuList");
-		mv.setViewName("common/common_result");
 	}
+	
+	mv.addObject("path", "./menuList");
+	mv.setViewName("common/common_result");
+	
 	return mv;
 	}
 	//fileDelete

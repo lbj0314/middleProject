@@ -18,9 +18,11 @@
 		</div>
 		
 		<div id = "menu_view">
-			<img alt="" src="../resources/images/food1.jsp">
-		
 			<div id = "menu_view_img">
+			<c:forEach items="${vo.files}" var="file">
+			 <img alt="${file.oname}" src="../resources/upload/menu/${file.fname}"
+				width="100%" height="100%"> 
+			</c:forEach>
 			
 			</div>
 			
@@ -38,6 +40,7 @@
 				</div>
 				<div class="product_view_info">
 					<div class = "product_info_content">
+						${vo.menu_contents}
 					</div>
 					<div class = "product_factor">
 						<p>${vo.origin}</p>
@@ -45,6 +48,9 @@
 					</div>				
 				
 				</div>
+				
+				 <a href="./menuUpdate?menu_num=${vo.menu_num}" class="genric-btn success">수정하기</a>
+				  <a href="./menuDelete?menu_num=${vo.menu_num}" class="genric-btn danger">삭제하기</a>
 			</div>
 			
 		</div>
