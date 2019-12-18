@@ -23,10 +23,11 @@
 		<c:forEach end="1" items="${vo.files}" var = "file">
 			 <img id = "menuUpdate_img" alt="${file.oname}" src="../resources/upload/menu/${file.fname}"
 				width="100%" height="100%">		
+			<input type="button" class = "genric-btn primary del_file" value = "기존이미지 삭제하고 수정하기" id= "${file.fnum}" style="margin-top: 10px">	
 		</c:forEach>
-						
-				<input type="file" id = "file" name="file" style="padding-top: 10px" >
-				
+			
+				<input type="file" id = "file" name="file" style="padding-top: 10px; display: none;">
+		
 			</div>
 			
 			
@@ -75,11 +76,6 @@
   
 $("#menu_name").focus();
 
-/* $('#file').change(function() {
-	
-	
-}); */
-
 function readURL(input) {
 	if(input.files && input.files[0]){
 		var reader = new FileReader();
@@ -93,6 +89,21 @@ function readURL(input) {
 
 $('#file').change(function() {
 	readURL(this);
+	
+});
+
+
+$(".del_file").click(function() {
+	var fnum = $(this).attr("id");	
+		
+	$.post("./fileDelete", {fnum:fnum},function(data){
+		data = data.trim();
+
+		
+	}); 
+	
+	$('#file').show();
+	$('.del_file').hide();
 	
 });
  
