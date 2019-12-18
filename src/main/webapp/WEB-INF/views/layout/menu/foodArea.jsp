@@ -16,9 +16,14 @@
       
                 <div class="col-md-4 col-sm-6 menu-list" >
                     <div class="single-food mt-5 mt-sm-">
+       
                         <div class="food-img">
-                           <img src="../resources/upload/menu/${file.fname}" class="img-fluid" alt=""> 
-                        </div>
+                        
+                        	<c:forEach items="${vo.files}" var = "file">
+                           	<img src="../resources/upload/menu/${file.fname}" class="img-fluid" alt="${file.oname}" width="100%" height="100%"> 
+                      		</c:forEach>
+                      		
+                        </div>                     
                         <div class="food-content">
                             <div class="d-flex justify-content-between">
                                 <h5>${vo.menu_name}</h5>               

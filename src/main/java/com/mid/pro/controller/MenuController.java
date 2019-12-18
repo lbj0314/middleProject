@@ -113,10 +113,11 @@ public class MenuController {
 	
 	
 	@PostMapping(value = "menuUpdate")
-	public ModelAndView menuUpdate(MenuVO menuVO, MultipartFile[] file, HttpSession session)throws Exception{
+	public ModelAndView menuUpdate(MenuVO menuVO, MultipartFile file ,HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();	
 
 		int result = menuService.menuUpdate(menuVO, file, session);
+	
 		String msg = "메뉴 수정에 실패하였습니다.";
 		if (result > 0) {
 			mv.setViewName("redirect:./menuList");

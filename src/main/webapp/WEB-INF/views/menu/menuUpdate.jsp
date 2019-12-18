@@ -20,13 +20,13 @@
 		
 		<div id = "menu_view">
 			<div class = "menu_view_img" id = menuUpdate_img_form>
-		<c:forEach items="${vo.files}" var = "file">
+		<c:forEach end="1" items="${vo.files}" var = "file">
 			 <img id = "menuUpdate_img" alt="${file.oname}" src="../resources/upload/menu/${file.fname}"
 				width="100%" height="100%">		
 		</c:forEach>
 						
 				<input type="file" id = "file" name="file" style="padding-top: 10px" >
-			
+				
 			</div>
 			
 			
@@ -58,7 +58,7 @@
 					</div>				
 				
 				</div>
-				
+					<input type="hidden" name="menu_num" value="${vo.menu_num}">
 				<!-- <input type="submit" class="genric-btn info" value="확인"> -->
 				<button type="submit" class="genric-btn info">확인</button>
 				<input type="button" class="genric-btn danger" id="danger_btn"

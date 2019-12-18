@@ -83,26 +83,28 @@ public class MenuService {
 	
 
 	//update
-	public int menuUpdate(MenuVO menuVO, MultipartFile[] file, HttpSession session) throws Exception{
-
+	public int menuUpdate(MenuVO menuVO, MultipartFile file,HttpSession session) throws Exception{
+		
 		String realPath = session.getServletContext().getRealPath("resources/upload/menu");
 		MenuFilesVO menufilesVO = new MenuFilesVO();
 		int result = menuDAO.menuUpdate(menuVO);
-		
-		for (MultipartFile multipartFile:file) {
-			if (multipartFile.getSize() != 0) {
-				String fileName = fileSaver.save(realPath, multipartFile);
+
+		/* for (MultipartFile multipartFile:file) { */
+			if (file.getSize() != 0) {
+				String fileName = fileSaver.save(realPath, file);
 				menufilesVO.setFname(fileName);
 				menufilesVO.setMenu_num(menuVO.getMenu_num());
-				menufilesVO.setOname(multipartFile.getOriginalFilename());
+				menufilesVO.setOname(file.getOriginalFilename());
 				result = menuDAO.fileWrite(menufilesVO);
 				if (result < 1) {
 					throw new SQLException();
 				}
 			}
-		}
+		//}
 		return result;
 	}
+	
+	
 	//delete
 	public int menuDelete(MenuVO menuVO) throws Exception{
 		return menuDAO.menuDelete(menuVO);

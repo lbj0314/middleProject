@@ -53,18 +53,18 @@ public class MenuDAOTest extends TestAbstractCase{
 
 	}
 	
-//	@Test
-//	public void menuUpdateTest() throws Exception {
-//		MenuVO menuVO = new MenuVO();
-//		menuVO.setName("짬뽕");
-//		menuVO.setContents("얼큰하고 칼칼한 맛");
-//		menuVO.setPrice(7000);
-//		menuVO.setOrigin("양파 중국산");
-//		menuVO.setMenu_num(3);
-//		int result = menuDAO.menuUpdate(menuVO);
-//
-//		assertEquals(1, result);
-//	}
+	@Test
+	public void menuUpdateTest() throws Exception {
+		MenuVO menuVO = new MenuVO();
+		menuVO.setMenu_name("라면");
+		menuVO.setMenu_contents("얼큰하고 칼칼한 맛");
+		menuVO.setPrice(3000);
+		menuVO.setOrigin("국내산");
+		menuVO.setMenu_num(8);
+		int result = menuDAO.menuUpdate(menuVO);
+
+		assertEquals(1, result);
+	}
 	
 	
 	
