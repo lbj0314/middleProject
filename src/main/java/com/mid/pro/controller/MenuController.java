@@ -52,8 +52,6 @@ public class MenuController {
 			menuVO = menuService.menuSelect(menuVO);
 			//menuVO.setMenu_contents(menuVO.getMenu_contents().replace("\r\n", "<br>"));
 			
-			System.out.println("id : "+restaurantVO.getRest_id());
-			
 		if (menuVO != null) {
 			mv.addObject("vo", menuVO);	
 			mv.addObject("rest", restaurantVO);
