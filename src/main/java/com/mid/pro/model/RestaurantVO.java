@@ -20,6 +20,16 @@ public class RestaurantVO {
 	private Date rev_date;
 	private int member_num;
 	private List<RestaurantFilesVO> files;
+	private String rest_id;
+	
+	
+
+	public String getRest_id() {
+		return rest_id;
+	}
+	public void setRest_id(String rest_id) {
+		this.rest_id = rest_id;
+	}
 	public int getRest_num() {
 		return rest_num;
 	}

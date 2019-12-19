@@ -18,14 +18,16 @@
       
                 <div class="col-md-4 col-sm-6 menu-list" >
                     <div class="single-food mt-5 mt-sm-">
-       
                         <div class="food-img">
-                        
+                                
                         	<c:forEach items="${vo.files}" var = "file">
-                           	<img src="../resources/upload/menu/${file.fname}" class="img-fluid" alt="${file.oname}" width="100%" height="100%"> 
+                           		  <img src="../resources/upload/menu/${file.fname}" class="img-fluid" alt="${file.oname}" > 
+                             				                           		
                       		</c:forEach>
                       		
+                      			<!-- <img src = "../resources/images/food1.jpg"class="img-fluid"  > -->
                         </div>                     
+       
                         <div class="food-content">
                             <div class="d-flex justify-content-between">
                                 <h5>${vo.menu_name}</h5>               
@@ -35,7 +37,7 @@
                         </div>
                     </div>
            <%--      <input class = "menu_num" type="hidden" value="${vo.menu_num}"> --%>
-                <a href = "./menuSelect?menu_num=${vo.menu_num}">더보기</a>
+                <a href = "./menuSelect?menu_num=${vo.menu_num}&rest_id=${rest.rest_id}">더보기</a>
                 </div>   
                 
                 </c:forEach>
@@ -47,9 +49,9 @@
             			var num = $(this).find(".menu_num").val();
                 		 $(this).find(".menu_num").val();
 						location.href="./menuSelect?menu_num="+num; 
-						/* location.href="./menuSelect?menu_num=10";  */
+						/* location.href="./menuSelect?menu_num=10";  
 						
-					});  */
+					}); */
                 
               
                 </script> 

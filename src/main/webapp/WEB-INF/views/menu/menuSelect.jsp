@@ -48,9 +48,10 @@
 					</div>				
 				
 				</div>
-				
+				<c:if test="${rest.rest_id eq member.id}">
 				 <a href="./menuUpdate?menu_num=${vo.menu_num}" class="genric-btn success">수정하기</a>
 				  <a href="./menuDelete?menu_num=${vo.menu_num}" class="genric-btn danger">삭제하기</a>
+				</c:if>
 			</div>
 			
 		</div>

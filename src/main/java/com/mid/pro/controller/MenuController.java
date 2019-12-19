@@ -28,16 +28,17 @@ public class MenuController {
 	private MenuService menuService;
 
 	@Inject
-	private RestaurantService RestaurantService;
+	private RestaurantService restaurantService;
 	
 	//list
 	@GetMapping(value = "menuList")
-	public ModelAndView menuList(MenuVO menuVO) throws Exception{
-		
+	public ModelAndView menuList(MenuVO menuVO, RestaurantVO restaurantVO) throws Exception{
 	
 		ModelAndView mv = new ModelAndView();
 		List<MenuVO> list = menuService.menuList(menuVO);
-
+		restaurantVO = restaurantService.restSelect(restaurantVO);
+		
+		mv.addObject("rest", restaurantVO);
 		mv.addObject("list", list);
 		mv.setViewName("menu/menuList");
 
@@ -46,13 +47,16 @@ public class MenuController {
 	
 	//select One
 	@GetMapping(value = "menuSelect")
-	public ModelAndView menuSelect(MenuVO menuVO) throws Exception{
+	public ModelAndView menuSelect(MenuVO menuVO, RestaurantVO restaurantVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 			menuVO = menuService.menuSelect(menuVO);
 			//menuVO.setMenu_contents(menuVO.getMenu_contents().replace("\r\n", "<br>"));
-
+			
+			System.out.println("id : "+restaurantVO.getRest_id());
+			
 		if (menuVO != null) {
-			mv.addObject("vo", menuVO);		
+			mv.addObject("vo", menuVO);	
+			mv.addObject("rest", restaurantVO);
 			//menuVO.getMenu_contents().replace("\r\n", "<br>");
 			mv.setViewName("menu/menuSelect");
 		} else {
@@ -69,7 +73,7 @@ public class MenuController {
 	@GetMapping(value = "menuWrite")
 	public ModelAndView menuWrite(RestaurantVO restaurantVO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		restaurantVO = RestaurantService.restSelect(restaurantVO);
+		restaurantVO = restaurantService.restSelect(restaurantVO);
 		mv.addObject("vo", restaurantVO);
 		mv.setViewName("menu/menuWrite");
 		

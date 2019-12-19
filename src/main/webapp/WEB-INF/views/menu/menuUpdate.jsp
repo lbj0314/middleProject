@@ -37,26 +37,26 @@
 			<div id = "menu_view_detail">
 				<div id = "myAssignZone">
 					<h4>
-					<input type="text" placeholder="${vo.menu_name}" class = "menuUpdate_input" name="menu_name" id="menu_name" onfocus="this.value = this.value"
+					<input type="text"  class = "menuUpdate_input" name="menu_name" id="menu_name" onfocus="this.value = this.value"
 					value = "${vo.menu_name}">
 					<%-- ${vo.menu_name} --%>
 					<br>
 					</h4>
 					<p class = "t1">
-					<input type="text" placeholder="${vo.price}" value = "${vo.price}" class = "menuUpdate_input" name="price" id="price"
-					>
+					<input type="text"  value = "${vo.price}" class = "menuUpdate_input" name="price" id="price"
+					onKeyup="this.value=this.value.replace(/[^0-9]/g,'')" placeholder="숫자만 입력하세요">
 						<%-- ${vo.price} 원 --%>
 						<br>
 					</p>
 				</div>
 				<div class="product_view_info">
 					<div class = "product_info_content">
-					<input type="text" placeholder="${vo.menu_contents}" value = "${vo.menu_contents}" class = "menuUpdate_input" name="menu_contents" id="menu_contents"
+					<input type="text"  value = "${vo.menu_contents}" class = "menuUpdate_input" name="menu_contents" id="menu_contents"
 					>
 						<%-- ${vo.menu_contents} --%>
 					</div>
 					<div class = "product_factor">
-						<p><input type="text" placeholder="${vo.origin}" value = "${vo.origin}" class = "menuUpdate_input" name="origin" id="origin"
+						<p><input type="text" value = "${vo.origin}" class = "menuUpdate_input" name="origin" id="origin"
 					></p>
 					
 					</div>				
@@ -64,7 +64,7 @@
 				</div>
 					<input type="hidden" name="menu_num" value="${vo.menu_num}">
 				<!-- <input type="submit" class="genric-btn info" value="확인"> -->
-				<button type="submit" class="genric-btn info">확인</button>
+				<button id = "menuUpdate_btn" type="submit" class="genric-btn info">확인</button>
 				<input type="button" class="genric-btn danger" id="danger_btn"
 					onclick="history.go(-1)" value="취소">
 			</div>				
@@ -107,6 +107,25 @@ $(".del_file").click(function() {
 	
 	$('#file').show();
 	$('.del_file').hide();
+	
+});
+
+
+$('#menuUpdate_btn').click(function() {
+
+	var menu_name  = $('#menu_name').val();
+	var menu_contents = $('#menu_contents').val();
+	var price = $('#price').val();
+	var origin = $('#origin').val();
+	
+	if(menu_name == "" || menu_contents == "" || price == "" || origin ==""){
+		alert("정보를 입력해주세요.");
+		return false;
+	}else if(menu_name != "" && menu_contents != "" && price != "" && origin !=""){
+		
+	}
+			
+	
 	
 });
  
