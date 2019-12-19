@@ -44,6 +44,10 @@ public class MemberDAOImpl implements MemberDAO{
 	 * sqlSession.update(NAMESPACE+"userAuth", userEmail); }
 	 */
 	
+	@Override
+	public MemberVO memberSelect(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"memberSelect", memberVO);
+	}
 	
 		
 	@Override

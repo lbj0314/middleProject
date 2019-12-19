@@ -18,6 +18,9 @@ public interface MemberDAO {
 	
 	//userAuth
 	//public void userAuth(String userEmail)throws Exception;
+	
+	//select
+	public MemberVO memberSelect(MemberVO memberVO)throws Exception;
 		
 	//login 
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;

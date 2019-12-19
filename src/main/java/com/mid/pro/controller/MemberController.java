@@ -72,7 +72,7 @@ public class MemberController {
 		int result = 0;
 		
 		if(memberVO !=null) {
-			return 1;
+			result = 1;
 		}
 			return result;
 	}

@@ -21,7 +21,6 @@ public class MemberServiceImpl implements MemberService {
 	//@Inject
 	//private JavaMailSender mailSender;
 
-	@Transactional
 	@Override
 	public int memberJoin(MemberVO memberVO) throws Exception {		
 		/*
@@ -59,6 +58,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVO memberCheckEmail(String email)throws Exception{
 		return memberDAOImpl.memberCheckEmail(email);
+	}
+	
+	@Override
+	public MemberVO memberSelect(MemberVO memberVO)throws Exception{
+		return memberDAOImpl.memberSelect(memberVO);
 	}
 	
 	@Override

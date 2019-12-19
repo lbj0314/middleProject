@@ -117,189 +117,192 @@
 
 <script type="text/javascript">  
 
-  /**** 기업번호div활성화 *****/   
-    $("#reg_number").hide();
-    
-	$('input:radio[name=grade]').click(function() {
-		if($('input:radio[id=confirm-radio]').is(":checked")){
-			$("#reg_number").show();
-		}else{
-			  $('#reg_number').val('0');
-			  $("#reg_number").hide();	
-		}		
-	});
-    	
-	
-/**** id 형식 & 중복확인*****/			
-	$("#id").blur(function(id) {
-		var id = $('#id').val();
-		var idRule = /^[a-z0-9]{4,12}$/;
-		var query = {id : $('#id').val()};
-		$.ajax({
-			url:"memberCheckId",
-			type: "post",
-			data: query,
-			success:function(data){
-				if(data == 1){
-					$("#text").text("사용중인 아이디입니다.");
-					$("#text").css("color","red");
-					$("#btn").attr("disabled",true);										
-				}else{
-					if(idRule.test(id)){
-						$('#text').text(" ");
-						$("#btn").attr("disabled",false);			
-					}else if(id ==""){	
-						console.log(data);
-							$('#text').text('필수 정보입니다.');
-							$('#text').css('color','red');
-							$("#btn").attr("disabled",true);					
-					}else{
-						$('#text').text("아이디는 소문자와 숫자, 4~12자리만 가능합니다.");
-						$('#text').css('color','red');
-						$('#btn').attr("disabled",true);
-						return false;					
-					}									
-				}
-			},error:function(){
-				
-			}			
-		});						
-	});
-	
-   
-/*========== 비밀번호  ============*/	
- $("#pw").blur(function(pw) {
-		
-		var pw = $('#pw').val();
-		var pwRule = /^[A-Za-z0-9]{6,12}$/;
-		
-		if(pwRule.test(pw)){
-			$('#pw_check').text(" ");
-			$("#btn").attr("disabled",false);
-			
-		}else if(pw ==""){
-			$("#pw_check").html("필수 정보입니다.");		
-			$("#pw_check").css("color","red");	
-			$("#btn").attr("disabled",true);
-		}else{
-				$("#pw_check").html("비밀번호는 문자와 숫자 포함, 6~12자리만 가능합니다.");		
-				$("#pw_check").css("color","red");			
-				$("#btn").attr("disabled",true);
-				return false;			
-			}			
-	}); 
+/**** 기업번호div활성화 *****/   
+$("#reg_number").hide();
+
+$('input:radio[name=grade]').click(function() {
+	if($('input:radio[id=confirm-radio]').is(":checked")){
+		$("#reg_number").show();
+	}else{
+		  $("#reg_number").hide();	
+		  $('#reg_number').val('0');
+	}		
+});
 	
 
-	$("#pw2").blur(function() {	
-		var pw = $('#pw').val();
-		var pw2 = $("#pw2").val();
-		var pwRule = /^[A-Za-z0-9]{6,12}$/;
-				
-		if(pwRule.test(pw)){
-			$('#pw2_check').text(" ");
-		
-			if(pw2 !="" && pw == pw2){
-				$('#pw2_check').text("사용가능한 비밀번호입니다.")
-				$('#pw2_check').css("color","green")
-				$("#btn").attr("disabled",false);
-			}else if(pw2 !="" && pw != pw2){
-				$('#pw2_check').html("비밀번호가 일치하지 않습니다.");		
-				$('#pw2_check').css("color","red");
-				$("#btn").attr("disabled",true);				
-			}			
-			
-		}else if(pw ==""){
-				$('#pw2_check').text(" ");	
-				
-		}else if(!pwRule.test(pw)){
-			$('#pw2_check').text("비밀번호는 문자와 숫자 포함, 6~12자리만 가능합니다.");	
-			$('#pw2_check').css("color","red");
-			$("#btn").attr("disabled",true);
-		}
-		});	
-		
- 	 $("#pw").change(function() {
-		$("#pw2").val("");
-		$('#pw2_check').html("");
-	});
-	
- 	  	
-/********** Email 형식 *********/ 	 	
-$("#email").blur(function(email) {
-	var email = $('#email').val();
-	var emailRule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;		
-	var query= {email: $('#email').val()};
-	
+/**** id 형식 & 중복확인*****/			
+$("#id").blur(function(id) {
+	var id = $('#id').val();
+	var idRule = /^[a-z0-9]{4,12}$/;
+	var query = {id :  $('#id').val()};	
 	$.ajax({
-		url:"memberCheckEmail",
+		url:"memberCheckId",
 		type: "post",
 		data: query,
 		success:function(data){
 			if(data == 1){
-				$("#email_check").text("이미 사용중인 이메일입니다.");
-				$("#email_check").css("color","red");
-				$("#btn").attr("disabled",true);	
-				
+				$("#text").text("사용중인 아이디입니다.");
+				$("#text").css("color","red");
+				$("#btn").attr("disabled",true);										
 			}else{
-				
-				if(emailRule.test(email)){
-					$('#email_check').text(" ");	
-					$("#btn").attr("disabled",false);
-				}else if(email ==""){
-					$('#email_check').text(" ");
-					$("#btn").attr("disabled",false);
-				}else if(!emailRule.test(email)){
-					$('#email_check').text("이메일 주소를 다시 확인해주세요.");
-					$('#email_check').css('color','red');
+				if(idRule.test(id)){
+					$('#text').text(" ");
+					$("#btn").attr("disabled",false);			
+				}else if(id ==""){					
+						$('#text').text('필수 정보입니다.');
+						$('#text').css('color','red');
+						$("#btn").attr("disabled",true);					
+				}else{
+					$('#text').text("아이디는 소문자와 숫자, 4~12자리만 가능합니다.");
+					$('#text').css('color','red');
 					$('#btn').attr("disabled",true);
 					return false;					
-					
-				}		
+				}					
+			 /* 	$("#text").text("사용가능한 아이디입니다.");
+				$("#text").css("color","green");
+				$("#btn").attr("disabled",false);  */
 			}
+		},error:function(){
 			
-		},error:function(){		
-			
-		}
-				
-	});					
-}); 
-
-
-
-/******* Name 형식 *********/
-$("#name").blur(function(name) {
-	var name = $('#name').val();
-	if(name == ""){
-		$("#name_check").html("필수 정보입니다.");		
-		$("#name_check").css("color","red");	
-		$("#btn").attr("disabled",true);
-	}else
-		$('#name_check').text(" ");
-		$("#btn").attr("disabled",false);
+		}			
+	});						
 });
 
- 	
-/********* Tel 형식 *************/
- 
- $("#tel").blur(function(tel) {
-		var tel = $('#tel').val();
- 		var telRule = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
- 		tel = tel.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/,"$1-$2-$3");		
-		if(telRule.test(tel)){
-			$('#tel_check').text(" ");
-			$("#btn").attr("disabled",false);
-		}else if(tel ==""){
-			$("#tel_check").html("필수 정보입니다.");		
-			$("#tel_check").css("color","red");	
-			$("#btn").attr("disabled",true);
-		}else{
-				$("#tel_check").html("형식에 맞지 않는 번호입니다.");		
-				$("#tel_check").css("color","red");			
-				$("#btn").attr("disabled",true);
-				return false;			
-			}			
-	});
+
+/******* 비밀번호 형식 ******/	
+$("#pw").blur(function(pw) {
+	var pw = $('#pw').val();
+	var pwRule = /^[A-Za-z0-9]{6,12}$/;
 	
+	if(pwRule.test(pw)){
+		$('#pw_check').text(" ");
+		$("#btn").attr("disabled",false);
+	}else if(pw ==""){
+		$("#pw_check").html("필수 정보입니다.");		
+		$("#pw_check").css("color","red");	
+		$("#btn").attr("disabled",true);
+	}else{
+			$("#pw_check").html("비밀번호는 문자와 숫자 포함, 6~12자리만 가능합니다.");		
+			$("#pw_check").css("color","red");			
+			$("#btn").attr("disabled",true);
+			return false;			
+		}			
+});
+
+/****** 비밀번호 일치 ******/  
+	 $("#pw2").blur(function() {
+		var pw = $("#pw").val();
+		var pw2 = $("#pw2").val();	
+		
+		if(pw == pw2){
+				if(pw !="" && pw2 != ""){
+					$("#pw2_check").html("사용가능한 비밀번호입니다.")
+					$("#pw2_check").css("color","green")
+				}else{		
+					}
+				}else{
+					$("#pw2_check").html("비밀번호가 일치하지 않습니다.");		
+					$("#pw2_check").css("color","red");
+					$("#btn").attr("disabled",true);
+				}			
+		});
+
+	 	 $("#pw").change(function() {
+		$("#pw2").val("");
+		$("#pw2_check").html("");
+	});
+	 	  	
+/********** Email 형식 *********/ 	 	
+/*  $("#email").blur(function(email) {
+var email = $('#email').val();
+var emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+if(emailRule.test(email)){
+	$('#email_check').text(" ");
+	$("#btn").attr("disabled",false);
+}else if(email ==""){
+	$("#email_check").html("필수 정보입니다.");		
+	$("#email_check").css("color","red");	
+	$("#btn").attr("disabled",true);
+}else{
+		$("#email_check").html("이메일 주소를 다시 확인해주세요.");		
+		$("#email_check").css("color","red");			
+		$("#btn").attr("disabled",true);
+		return false;			
+	}			
+});  */
+$("#email").blur(function(email) {
+var email = $('#email').val();
+var emailRule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+var query= {email: $('#email').val()};	
+$.ajax({
+	url:"memberCheckEmail",
+	type: "post",
+	data: query,
+	success:function(data){
+		if(data == 1){
+			$("#email_check").text("이미 사용중인 이메일입니다.");
+			$("#email_check").css("color","red");
+			$("#btn").attr("disabled",true);										
+		}else{
+			if(emailRule.test(email)){
+				$('#email_check').text(" ");
+				$("#btn").attr("disabled",false);			
+			}else if(email ==""){					
+					$('#email_check').text('필수 정보입니다.');
+					$('#email_check').css('color','red');
+					$("#btn").attr("disabled",true);					
+			}else{
+				$('#email_check').text("이메일 주소를 다시 확인해주세요.");
+				$('#email_check').css('color','red');
+				$('#btn').attr("disabled",true);
+				return false;					
+			}		
+		}	
+	},error:function(){		
+		
+	}
+			
+});						
+}); 
+/******* Name 형식 *********/
+$("#name").blur(function(name) {
+var name = $('#name').val();
+if(name == ""){
+	$("#name_check").html("필수 정보입니다.");		
+	$("#name_check").css("color","red");	
+	$("#btn").attr("disabled",true);
+}else
+	$('#name_check').text(" ");
+	$("#btn").attr("disabled",false);
+});
+	
+/********* Tel 형식 *************/
+$("#tel").blur(function(tel) {
+	var tel = $('#tel').val();
+		var telRule = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
+		
+	if(telRule.test(tel)){
+		$('#tel_check').text(" ");
+		$("#btn").attr("disabled",false);
+	}else if(tel ==""){
+		$("#tel_check").html("필수 정보입니다.");		
+		$("#tel_check").css("color","red");	
+		$("#btn").attr("disabled",true);
+	}else{
+			$("#tel_check").html("형식에 맞지 않는 번호입니다.");		
+			$("#tel_check").css("color","red");			
+			$("#btn").attr("disabled",true);
+			return false;			
+		}			
+});
+
+
+
+/***************************  *********************************/
+
+
  $('#tel').keydown(function(event) {
 	    var key = event.charCode || event.keyCode || 0;
 	    $text = $(this);

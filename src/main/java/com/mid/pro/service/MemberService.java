@@ -12,6 +12,8 @@ public interface MemberService {
 		
 	//public void userAuth(String userEmail)throws Exception;
 	
+	public MemberVO memberSelect(MemberVO memberVO)throws Exception;
+	
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;
 		
 	public int memberUpdate(MemberVO memberVO)throws Exception;
