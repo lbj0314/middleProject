@@ -55,7 +55,7 @@
 	width: 10%;
 	height: 100%;
 	float: right;
-	background-color: blue;
+	background-color: #E9E9E9;
 }
 
 #review_writer{
@@ -117,7 +117,6 @@
 }
 	
 #review_score_good{
-	background-image: url(https://mp-seoul-image-develop-s3.mangoplate.com/web/resources/201802286455…esktop.png?fit=around|*:*&crop=*:*;*,*&output-format=png&output-quality=80); */
    background-position: -714px -866px; 
    margin: 0 8px 10px;
     width: 44px;
@@ -150,7 +149,7 @@
 .reviewpicker_item{
 	float: left;
 	margin-right: 20px;
-}
+} 
 
 .review_score_button{
 	cursor: pointer;

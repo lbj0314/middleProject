@@ -16,7 +16,8 @@
 	<c:import url="../layout/restaurant/header.jsp" />
 	<c:import url="../layout/restaurant/selectArea.jsp" />
 	<c:import url="../review/reviewWrite.jsp"></c:import>
-	<c:import url="../review/reviewList.jsp" />
+	<%-- reviewWrite 페이지에 옮겨서 주석처리	
+	<c:import url="../review/reviewList.jsp" /> --%>
 	<c:import url="../layout/restaurant/footer.jsp" />
 </body>
 </html>

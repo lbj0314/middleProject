@@ -1,7 +1,6 @@
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <link rel="stylesheet" href="../resources/css/review/review.css">
 
  <div class="comments-area col-lg-7 col-md-7" style="margin: 15px auto; background-color: white; border: " >
@@ -33,10 +32,15 @@
 					${r.reg_date}
 				</div>
 			</div>	
+			
+			
 			<!-- 상자 -->	
 			<div id = "review_info_right">
-				 <div id = "review_score_good"></div>
-				<span></span> 
+				 <div id = "review_score_good" class="">
+				 <img alt="pink brand lipstick" 
+				src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/restaurant_recommend_face.svg">
+				 </div>
+				<span class = "reviewpicker_label dudwo123wjs">최고입니다!</span>
 			</div>
 					
 		</div>
@@ -104,9 +108,9 @@
 </div>
 
 
-<div>
 
 
 
-</div>
+
+
 
