@@ -135,7 +135,7 @@ public class ReviewController {
 		ModelAndView mv = new ModelAndView();	
 
 		mv.addObject("list", list);
-		mv.setViewName("./reviewMain");	
+		mv.setViewName("review/reviewMain");	
 		return mv;
 	}
 	
