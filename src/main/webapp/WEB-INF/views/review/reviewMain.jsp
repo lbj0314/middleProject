@@ -1,64 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
 
-    <!-- Testimonial Area Starts -->
-    <section class="testimonial-area section-padding4">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-top2 text-center">
-                        <h3>Customer <span>says</span></h3>
-                        <p><i>Beast kind form divide night above let moveth bearing darkness.</i></p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="testimonial-slider owl-carousel">
-                    
-                    	<c:forEach items="${list}" var="vo">
-                        <div class="single-slide d-sm-flex">
-                            <div class="customer-img mr-4 mb-4 mb-sm-0">
-                                <img src="resources/images/customer1.png" alt="">
-                            </div>
-                            <div class="customer-text">
-                                <h5>${vo.writer}</h5>
-                                 <span><i>${vo.score}</i></span>
-                                <span><i>${vo.writer}</i></span>
-                                <p class="pt-3">${vo.contents}</p>
-                            </div>
-                        </div>
-                        </c:forEach>
-                        
-                        
-                        <!-- <div class="single-slide d-sm-flex">
-                            <div class="customer-img mr-4 mb-4 mb-sm-0">
-                                <img src="resources/images/customer2.png" alt="">
-                            </div>
-                            <div class="customer-text">
-                                <h5>adam nahan</h5>
-                                <span><i>Chief Customer</i></span>
-                                <p class="pt-3">You're had. Subdue grass Meat us winged years you'll doesn't. fruit two also won one yielding creepeth third give may never lie alternet food.</p>
-                            </div>
-                        </div>
-                        <div class="single-slide d-sm-flex">
-                            <div class="customer-img mr-4 mb-4 mb-sm-0">
-                                <img src="resources/images/customer1.png" alt="">
-                            </div>
-                            <div class="customer-text">
-                                <h5>adame nesane</h5>
-                                <span><i>Chief Customer</i></span>
-                                <p class="pt-3">You're had. Subdue grass Meat us winged years you'll doesn't. fruit two also won one yielding creepeth third give may never lie alternet food.</p>
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    
-    <!-- Testimonial Area End -->
+<section class="testimonial-area section-padding4">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="section-top2 text-center">
+					<h3>
+						Customer <span>says</span>
+					</h3>
+					<p>
+						<i>Beast kind form divide night above let moveth bearing
+							darkness.</i>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="testimonial-slider owl-carousel reviewMain_box">
+				
+					<c:forEach items="${list}" var="vo">
+						<div class="single-slide d-sm-flex">
+						<!-- 	<div class="customer-img mr-4 mb-4 mb-sm-0">
+							 <img src="resources/images/customer1.png" alt="">
+							</div> -->
+							<div class="customer-text">
+								<h5>${vo.writer}</h5>
+								<span><i>${vo.score}</i></span> <span><i>${vo.writer}</i></span>
+								<p class="pt-3">${vo.contents}</p>
+							</div>
+						</div>
+					</c:forEach>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

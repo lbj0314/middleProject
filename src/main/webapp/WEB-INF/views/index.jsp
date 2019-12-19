@@ -20,9 +20,7 @@
 <c:import url="./layout/deshArea.jsp"/>
 
 
-
 <c:import url="./review/reviewMain.jsp"/>
-
 
 <c:import url="./layout/updateArea.jsp"/>
 <c:import url="./layout/tableArea.jsp"/>
@@ -39,14 +37,13 @@
 			alert("실패")
 		},
 		success : function(data) {
-			
-		}
+			/* $(".reviewMain_box").html(data); */
+/*		}
 		
 	});
 	 
-	 
- }); 
-  */
+	   });  */
+  
  
  
  </script>
