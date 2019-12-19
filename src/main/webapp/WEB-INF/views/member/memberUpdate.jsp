@@ -53,7 +53,7 @@
                        		</div>      
                         </div>
                         
-                          <div class="input-group">  
+                        <%--   <div class="input-group">  
                        		<div class="input--style-2 column">이메일</div>     
                        		<div class="update_div">                                 
                             <input class="input--style-2 list member_update" type="text" placeholder="${member.email}" name="email" id="email" value="${member.email}"
@@ -62,6 +62,11 @@
                        		
                        		<div   class="input--style-2 column" ></div> 
                        		<div   class="input--style-2 column" id="email_update" ></div>    
+                        </div> --%>
+                        
+                        <div class="input-group">  
+                       		<div class="input--style-2 column">이메일</div>                                            
+                            <input class="input--style-2 list" type="text" placeholder="${member.email}" name="email" value="${member.email}" >
                         </div>
                         
                          <div class="input-group">  
@@ -161,7 +166,7 @@
 	 	 
  /* email */ 
  
- $("#email").blur(function(email) {
+/*  $("#email").blur(function(email) {
 	var email = $('#email').val();
 	var emailRule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;		
 	var query= {email: $('#email').val()};
@@ -199,7 +204,7 @@
 				
 	});						
 }); 
-
+ */
  	
 /********* Tel 형식 *************/
  $("#tel").blur(function(tel) {
