@@ -20,6 +20,7 @@ public class RestaurantVO {
 	private String rest_time;
 	private int rest_accept;
 	private int member_num;
+	private String rest_id;
 	private List<RestaurantFilesVO> files;
 	
 	public int getRest_num() {
@@ -111,6 +112,12 @@ public class RestaurantVO {
 	}
 	public void setMember_num(int member_num) {
 		this.member_num = member_num;
+	}
+	public String getRest_id() {
+		return rest_id;
+	}
+	public void setRest_id(String rest_id) {
+		this.rest_id = rest_id;
 	}
 	public List<RestaurantFilesVO> getFiles() {
 		return files;

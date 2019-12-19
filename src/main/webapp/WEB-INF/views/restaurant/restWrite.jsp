@@ -45,6 +45,7 @@ padding:0 20px
 				<h3 class="mb-30 title_color">Restaurant Write</h3>
 				<form action="./restWrite" method="post" id="frm" enctype="multipart/form-data">
 					<input type="hidden" id="member_num" name="member_num" value="${member.member_num}">
+					<input type="hidden" id="rest_id" name="rest_id" value="${member.id}">
 					<div class="mt-10">
 						<input type="text" id="rest_name" name="rest_name" placeholder="식당 이름"
 							onfocus="this.placeholder = ''"

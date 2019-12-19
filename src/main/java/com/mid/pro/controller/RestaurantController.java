@@ -14,11 +14,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mid.pro.model.MemberVO;
 import com.mid.pro.model.MenuFilesVO;
+import com.mid.pro.model.ReservationVO;
 import com.mid.pro.model.RestaurantFilesVO;
 import com.mid.pro.model.RestaurantVO;
 import com.mid.pro.model.ReviewVO;
 import com.mid.pro.service.MemberService;
 import com.mid.pro.service.MemberServiceImpl;
+import com.mid.pro.service.ReservationService;
 import com.mid.pro.service.RestaurantService;
 import com.mid.pro.service.ReviewService;
 import com.mid.pro.util.Pager;
@@ -31,7 +33,9 @@ public class RestaurantController {
 	private RestaurantService restaurantService;
 	@Inject
 	private ReviewService reviewService;
-
+	@Inject
+	private ReservationService reservationService;
+	
 	//list
 	@GetMapping(value = "restList")
 	public ModelAndView restList(Pager pager) throws Exception {
@@ -45,13 +49,14 @@ public class RestaurantController {
 	}
 	//select One
 	@GetMapping(value = "restSelect")
-	public ModelAndView restSelect(RestaurantVO restaurantVO, ReviewVO reviewVO) throws Exception {
+	public ModelAndView restSelect(RestaurantVO restaurantVO, ReviewVO reviewVO, ReservationVO reservationVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		restaurantVO = restaurantService.restSelect(restaurantVO);
-
+		reservationVO = reservationService.reservationSelect(reservationVO);
 		if (restaurantVO != null) {
 			mv.addObject("vo", restaurantVO);
 			mv.addObject("review", reviewVO);
+			mv.addObject("rev", reservationVO);
 			restaurantVO.getRest_contents().replace("\r\n", "<br>");
 			mv.setViewName("restaurant/restSelect");
 		} else {

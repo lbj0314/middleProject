@@ -6,41 +6,75 @@
 <mapper namespace="reservationMapper">
 	<!-- 예약 하기 -->
 	<insert id="reservationWrite" parameterType="ReservationVO">
-		INSERT INTO reservation
+		INSERT INTO
+		reservation
 		VALUES(
-		rev_seq.nextval, #{member_num}, #{member_name}, #{rev_time},
+		rev_seq.nextval, #{member_num}, #{member_name},
+		#{rev_time},
 		#{rest_name}, #{rest_num}, #{table_num}, #{rev_date}, 0
 		)
 	</insert>
-	<!-- 예약 확인 -->
-	<select id="reservationCheck" parameterType="ReservationVO"
-		resultType="Integer">
-		SELECT * FROM reservation_time
-		WHERE member_num = #{member_num}
-	</select>
 	<!-- 예약폼 테이블 보여주기 -->
 	<select id="reservationTable" parameterType="RestTableVO"
 		resultType="RestTableVO">
 		SELECT * FROM resttable
 		WHERE rest_num = #{rest_num}
 	</select>
-	<!-- 예약폼 테이블, 예약 JOIN 보여주기 -->
+	<!-- 예약중인 테이블 가리기 -->
+	<select id="reservationTableCheck" parameterType="Integer"
+		resultType="ReservationVO">
+		SELECT * FROM reservation
+		WHERE rest_num = #{rest_num}
+	</select>
+	<!-- 예약폼 테이블, 예약된 곳 보여주기 -->
 	<select id="reservationTable2" parameterType="Integer"
 		resultType="RestTable2VO">
 		SELECT T.*, SUBSTR(R.rev_time, 1, 2) REST_TIME, rev_date
 		FROM reservation R JOIN resttable T
 		ON R.table_num = T.table_num
-		WHERE R.rest_num = #{rest_num}
+		WHERE
+		R.rest_num = #{rest_num}
 	</select>
-	<!-- 회원이 예약 내역 선택 확인 -->
-	<select id="reservationSelect" parameterType="Reservation2VO"
-		resultType="Reservation2VO">
-		SELECT * FROM reservation_time
-		WHERE member_num = #{member_num}
+	<!-- 예약 하나 가져오기 -->
+	<select id="reservationSelect" parameterType="ReservationVO"
+		resultType="ReservationVO">
+		SELECT * FROM reservation
+		WHERE rev_num = #{rev_num}
 	</select>
-	<!-- 예약 삭제 -->
+
+	<!-- 가게가 예약 내역 확인 -->
+	<select id="reservationCheck" parameterType="Integer"
+		resultType="ReservationCheckVO">
+		SELECT r.rest_num, re.rev_num, r.rest_name, re.member_name,
+		re.table_num, re.rev_date, re.rev_time, m.tel, m.email
+		FROM restaurant
+		R JOIN reservation RE ON r.rest_num = re.rest_num
+		JOIN member M ON
+		re.member_name = m.id
+		WHERE r.rest_num = #{rest_num} ORDER BY rev_date
+	</select>
+	<!-- 가게가 예약 취소 -->
 	<delete id="reservationDelete" parameterType="Integer">
 		DELETE reservation
-		WHERE member_num = #{member_num}
+		WHERE rev_num = #{rev_num}
+		<!-- AND member_name = #{member_name} -->
 	</delete>
+	<!-- 회원이 예약 내역 확인 -->
+	<select id="reservationCheck2" parameterType="Integer"
+		resultType="Reservation2VO">
+		SELECT re.rest_num, re.rest_name, re.member_name,
+		re.rev_time,
+		re.rev_date, re.rev_num, re.table_num, m.email, m.tel
+		FROM restaurant R JOIN
+		reservation RE ON r.rest_num = re.rest_num
+		JOIN member M ON
+		re.member_name = m.id
+		WHERE re.member_num = #{member_num} ORDER BY rev_date
+	</select>
+	<!-- 회원이 예약 취소 -->
+	<delete id="reservationDelete2" parameterType="Integer">
+		DELETE reservation
+		WHERE rev_num = #{rev_num}
+	</delete>
+
 </mapper>
