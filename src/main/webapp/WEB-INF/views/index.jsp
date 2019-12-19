@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,11 +18,40 @@
 <c:import url="./layout/foodArea.jsp"/>
 <c:import url="./layout/reservationArea.jsp"/>
 <c:import url="./layout/deshArea.jsp"/>
-<c:import url="./layout/testimonialArea.jsp"/>
+
+
+
+<c:import url="./review/reviewMain.jsp"/>
+
+
 <c:import url="./layout/updateArea.jsp"/>
 <c:import url="./layout/tableArea.jsp"/>
 <c:import url="./layout/footer.jsp"/>
 
+ <script type="text/javascript">
+ 
+/*  $(document).ready(function(){
+	 
+	$.ajax({
+		type:"Get",
+		url:"./review/reviewMain",
+		error: function() {
+			alert("실패")
+		},
+		success : function(data) {
+			
+		}
+		
+	});
+	 
+	 
+ }); 
+  */
+ 
+ 
+ </script>
+ 
+ 
  
 </body>
 </html>

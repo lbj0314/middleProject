@@ -61,4 +61,12 @@
 		DELETE review
 		WHERE review_num = #{review_num}
 	</delete>
+	
+	
+	<!-- main review -->
+	<select id="reviewMain" parameterType="ReviewVO" resultType="ReviewVO">	
+		<![CDATA[select*from review where rownum <=3 order by reg_date desc]]>
+	</select>
+	
+	
   </mapper>

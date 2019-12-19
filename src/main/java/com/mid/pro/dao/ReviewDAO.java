@@ -47,4 +47,9 @@ public class ReviewDAO {
 	public int reviewScroe(ReviewVO reviewVO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE + "reviewScore", reviewVO);
 	}
+	
+	//reviewMain
+	public List<ReviewVO> reviewMain(ReviewVO reviewVO)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"reviewMain", reviewVO);
+	}
 }

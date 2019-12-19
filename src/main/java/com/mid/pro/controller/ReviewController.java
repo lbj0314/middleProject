@@ -126,4 +126,18 @@ public class ReviewController {
 		}
 		return mv;
 	}
+	
+	
+	//reviewMain
+	@GetMapping(value = "reviewMain")
+	public ModelAndView reviewMain(ReviewVO reviewVO) throws Exception{
+		List<ReviewVO> list = reviewService.reviewMain(reviewVO);
+		ModelAndView mv = new ModelAndView();	
+
+		mv.addObject("list", list);
+		mv.setViewName("./reviewMain");	
+		return mv;
+	}
+	
+	
 }

@@ -46,5 +46,10 @@ public class ReviewService {
 	public int reviewDelete(ReviewVO reviewVO) throws Exception{
 		return reviewDAO.reviewDelete(reviewVO);
 	}
+	
+	//reviewMain
+	public List<ReviewVO> reviewMain(ReviewVO reviewVO)throws Exception{
+			return reviewDAO.reviewMain(reviewVO);
+	}
 
 }
