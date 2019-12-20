@@ -4,18 +4,15 @@ public class RestTable2VO {
 	
 	private int table_num; // 테이블 번호
 	private int table_user; // 테이블 인원수
-	private String open_time1; // 오픈 시간1
-	private String close_time1; // 클로즈시간1
-	private String open_time2; //오픈 시간2
-	private String close_time2; // 클로즈 시간2
+	private String open_time; // 오픈 시간
+	private String close_time; // 클로즈시간
 	private int rest_num; //가게 번호
 	private int member_num; // 회원 번호
 	
 	//JOIN
-	private Integer rev_time;//예약한 시간
+	private String rev_time;//예약한 시간
 	private String rev_date;//예약한 날짜
 	private String rev_table;//예약한 테이블번호
-	
 	public int getTable_num() {
 		return table_num;
 	}
@@ -28,29 +25,17 @@ public class RestTable2VO {
 	public void setTable_user(int table_user) {
 		this.table_user = table_user;
 	}
-	public String getOpen_time1() {
-		return open_time1;
+	public String getOpen_time() {
+		return open_time;
 	}
-	public void setOpen_time1(String open_time1) {
-		this.open_time1 = open_time1;
+	public void setOpen_time(String open_time) {
+		this.open_time = open_time;
 	}
-	public String getClose_time1() {
-		return close_time1;
+	public String getClose_time() {
+		return close_time;
 	}
-	public void setClose_time1(String close_time1) {
-		this.close_time1 = close_time1;
-	}
-	public String getOpen_time2() {
-		return open_time2;
-	}
-	public void setOpen_time2(String open_time2) {
-		this.open_time2 = open_time2;
-	}
-	public String getClose_time2() {
-		return close_time2;
-	}
-	public void setClose_time2(String close_time2) {
-		this.close_time2 = close_time2;
+	public void setClose_time(String close_time) {
+		this.close_time = close_time;
 	}
 	public int getRest_num() {
 		return rest_num;
@@ -64,10 +49,10 @@ public class RestTable2VO {
 	public void setMember_num(int member_num) {
 		this.member_num = member_num;
 	}
-	public Integer getRev_time() {
+	public String getRev_time() {
 		return rev_time;
 	}
-	public void setRev_time(Integer rev_time) {
+	public void setRev_time(String rev_time) {
 		this.rev_time = rev_time;
 	}
 	public String getRev_date() {
@@ -83,6 +68,5 @@ public class RestTable2VO {
 		this.rev_table = rev_table;
 	}
 	
-	
-	
+
 }

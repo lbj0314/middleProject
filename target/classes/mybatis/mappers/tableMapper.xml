@@ -20,8 +20,8 @@
 		</selectKey>
 	INSERT INTO resttable
 	VALUES(
-		#{table_num}, #{table_user}, #{open_time1}, #{close_time1},
-		#{open_time2}, #{close_time2}, #{rest_num}, #{member_num}
+		#{table_num}, #{table_user}, #{open_time}, #{close_time},
+		#{rest_num}, #{member_num}
 	) 
 </insert>
 <!-- 테이블 수정 -->

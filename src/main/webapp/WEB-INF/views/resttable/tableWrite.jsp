@@ -58,35 +58,21 @@ padding:0 20px
 							onblur="this.placeholder = '테이블의 개수'" required
 							class="single-input">
 					</div>
-					<h3 class="mb-30 title_color">Break Time이 있을 경우 나눠서 기재</h3>
 					<div class="mt-10">
-						<input type="text" id="open_time1" name="open_time1" placeholder="오픈 시간1"
-							onfocus="this.placeholder = ''"
-							onblur="this.placeholder = 'open time1'" required
+						<input type="text" id="open_time1" name="open_time" placeholder="오픈 시간"
+							onfocus="this.placeholder = 'ex : 11:00 으로 입력해주세요.'"
+							onblur="this.placeholder = 'open time'" required
 							class="single-input">
 					</div>
 					<div class="mt-10">
-						<input type="text" id="close_time1" name="close_time1" placeholder="마감 시간1"
-							onfocus="this.placeholder = ''"
-							onblur="this.placeholder = '테이블의 개수'" required
+						<input type="text" id="close_time1" name="close_time" placeholder="마감 시간"
+							onfocus="this.placeholder = 'ex : 11:00 으로 입력해주세요.'"
+							onblur="this.placeholder = 'close time'" required
 							class="single-input">
 					</div>
-					<div class="mt-10">
-						<input type="text" id="open_time2" name="open_time2" placeholder="오픈 시간2"
-							onfocus="this.placeholder = ''"
-							onblur="this.placeholder = 'open time1'" required
-							class="single-input">
-					</div>
-					<div class="mt-10">
-						<input type="text" id="close_time2" name="close_time2" placeholder="마감 시간2"
-							onfocus="this.placeholder = ''"
-							onblur="this.placeholder = '테이블의 개수'" required
-							class="single-input">
-					</div>
-				
 				<!-- session member, memberVO -->
 				<div class="mt-10">
-					<c:if test="${ not empty member  }">
+					<c:if test="${ member.member_num eq vo.member_num  }">
 						<button type="submit" class="genric-btn primary">WRITE</button>
 					</c:if>
 				</div>

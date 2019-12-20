@@ -19,6 +19,7 @@
   		<typeAlias type="com.mid.pro.model.ReservationVO" alias="ReservationVO"/>
 		<typeAlias type="com.mid.pro.model.Reservation2VO" alias="Reservation2VO"/>
   		<typeAlias type="com.mid.pro.model.ReservationCheckVO" alias="ReservationCheckVO"/>
+  		<typeAlias type="com.mid.pro.model.PayVO" alias="PayVO"/>
   		
   		<typeAlias type="java.lang.String" alias="String"/>
   		<typeAlias type="java.lang.Integer" alias="Integer"/>

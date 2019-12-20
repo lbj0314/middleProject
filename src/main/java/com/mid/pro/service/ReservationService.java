@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.mid.pro.dao.ReservationDAO;
+import com.mid.pro.model.PayVO;
 import com.mid.pro.model.Reservation2VO;
 import com.mid.pro.model.ReservationCheckVO;
 import com.mid.pro.model.ReservationVO;
@@ -54,5 +55,9 @@ public class ReservationService {
 	//회원이 예약 취소
 	public int reservationDelete2(ReservationVO reservationVO) throws Exception{
 		return reservationDAO.reservationDelete2(reservationVO);
+	}
+	//pay
+	public PayVO pay(PayVO payVO) throws Exception{
+		return reservationDAO.pay(payVO);
 	}
 }

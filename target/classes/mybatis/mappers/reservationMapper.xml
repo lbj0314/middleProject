@@ -29,11 +29,10 @@
 	<!-- 예약폼 테이블, 예약된 곳 보여주기 -->
 	<select id="reservationTable2" parameterType="Integer"
 		resultType="RestTable2VO">
-		SELECT T.*, SUBSTR(R.rev_time, 1, 2) REST_TIME, rev_date
+		SELECT T.*, R.rev_time, rev_date
 		FROM reservation R JOIN resttable T
 		ON R.table_num = T.table_num
-		WHERE
-		R.rest_num = #{rest_num}
+		WHERE R.rest_num = #{rest_num}
 	</select>
 	<!-- 예약 하나 가져오기 -->
 	<select id="reservationSelect" parameterType="ReservationVO"
@@ -76,5 +75,9 @@
 		DELETE reservation
 		WHERE rev_num = #{rev_num}
 	</delete>
-
+	<!-- pay -->
+	<select id="pay" resultType="PayVO" parameterType="PayVO">
+		SELECT * FROM member
+		WHERE member_num = #{member_num}
+	</select>
 </mapper>

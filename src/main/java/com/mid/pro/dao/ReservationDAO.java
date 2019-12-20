@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.mid.pro.model.PayVO;
 import com.mid.pro.model.Reservation2VO;
 import com.mid.pro.model.ReservationCheckVO;
 import com.mid.pro.model.ReservationVO;
@@ -55,5 +56,9 @@ public class ReservationDAO {
 	//회원이 예약 취소
 	public int reservationDelete2(ReservationVO reservationVO) throws Exception{
 		return sqlSession.delete(NAMESPACE + "reservationDelete2", reservationVO);
+	}
+	//pay
+	public PayVO pay(PayVO payVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE + "pay", payVO);
 	}
 }

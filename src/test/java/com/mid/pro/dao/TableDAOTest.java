@@ -19,10 +19,8 @@ public class TableDAOTest extends TestAbstractCase{
 	public void reviewWriteTest() throws Exception {
 		RestTableVO restTableVO = new RestTableVO();
 		restTableVO.setTable_user(4);
-		restTableVO.setOpen_time1("1");
-		restTableVO.setClose_time1("2");
-		restTableVO.setOpen_time2("3");
-		restTableVO.setClose_time2("4");
+		restTableVO.setOpen_time("1");
+		restTableVO.setClose_time("2");
 		restTableVO.setRest_num(30);
 		restTableVO.setMember_num(1);
 		int result = restTableDAO.tableWrite(restTableVO);

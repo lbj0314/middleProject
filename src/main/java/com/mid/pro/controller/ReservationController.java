@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mid.pro.model.MemberVO;
+import com.mid.pro.model.PayVO;
 import com.mid.pro.model.Reservation2VO;
 import com.mid.pro.model.ReservationCheckVO;
 import com.mid.pro.model.ReservationVO;
@@ -69,48 +70,40 @@ public class ReservationController {
 
 		//시간 쪼개기
 		String hh="";//시작시간
-		//		String mm="";//시작분
+		String mm="";
 		String hh2="";//마감시간
-		//		String mm2="";//마감분
-
+		String mm2="";
 		for(RestTableVO ta:table){
 
 			//테이블에 있는 시간을 1시간 간격으로 쪼갠다.
 
-			String str = ta.getOpen_time1();
-			//			System.out.println(str);
+			String str = ta.getOpen_time();
+			System.out.println(str);
 			StringTokenizer st = new StringTokenizer(str,":");
-			//			System.out.println(st);
+			System.out.println(st);
 
 			while(st.hasMoreTokens()){
 				hh = st.nextToken();
-				//				System.out.println("hh="+hh);
-
+				mm = st.nextToken();
+				System.out.println("hh="+hh+"mm="+mm);
 			}//오픈시간 쪼개기 while
 
 			//마감시간 쪼개기
-			String str2 = ta.getClose_time1();
-			//			System.out.println("str2="+str2);
+			String str2 = ta.getClose_time();
+			System.out.println("str2="+str2);
 			StringTokenizer st2 = new StringTokenizer(str2,":");
 			while(st2.hasMoreTokens()){
-				String nextToken2 = st2.nextToken();
-				hh2 = nextToken2;
-
-				//			System.out.println("hh="+hh+"hh2="+hh2);
-
+				hh2 = st2.nextToken();
+				mm2 = st2.nextToken();
+				System.out.println("hh2:"+hh2+"mm2="+mm2);
 			}//마감시간 쪼개기 while
-
 
 			//TableViewVO에 담기
 			for(int i = Integer.parseInt(hh); i < Integer.parseInt(hh2); i++){
 				tableViewVO = new TableViewVO();
-				tableViewVO.setRev_time(i);
+				tableViewVO.setRev_time(i+":00");
 				tableViewVO.setTable_num(ta.getTable_num());
 				tableViewVO.setTable_user(ta.getTable_user());
-				//				tableViewVO.setRev_min(Integer.parseInt(mm));
-				//				System.out.println(tableViewVO.getRev_time());
-				//				System.out.println(tableViewVO.getTable_num());
-				//				System.out.println(tableViewVO.getTable_user());
 				tarr.add(tableViewVO);
 			}
 
@@ -127,10 +120,10 @@ public class ReservationController {
 		return mv;
 	}
 	//예약하기
-	@PostMapping(value = "reservationWrite")
-	public ModelAndView reservationWrite(ReservationVO reservationVO, RestaurantVO restaurantVO) throws Exception{
+	@RequestMapping(value = "reservationWrite")
+	public ModelAndView reservationWrite(ReservationVO reservationVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		restaurantVO = restaurantService.restSelect(restaurantVO);
+
 		int result = reservationService.reservationWrite(reservationVO);
 		if (result > 0) {
 			mv.setViewName("redirect:../restaurant/restList");
@@ -147,7 +140,7 @@ public class ReservationController {
 		List<ReservationCheckVO> list = reservationService.reservationCheck(rest_num);
 		restaurantVO = restaurantService.restSelect(restaurantVO);
 		reservationVO = reservationService.reservationSelect(reservationVO);
-		
+
 		mv.addObject("list", list);
 		mv.addObject("rev", reservationVO);
 		mv.addObject("rest", restaurantVO);
@@ -155,33 +148,33 @@ public class ReservationController {
 		return mv;
 	}
 	//가게가 예약 취소
-//	@PostMapping(value = "reservationDelete")
-//	public ModelAndView reservaiontDelete(HttpSession session,
-//			@RequestParam(value = "check[]") List<String> chArr, ReservationVO reservationVO, MemberVO memberVO) throws Exception{
-//		ModelAndView mv = new ModelAndView();
-//		int rev_num = 0;
-//		int result = 0;
-//		memberVO = (MemberVO) session.getAttribute("member");
-//		String member_name = memberVO.getId();
-//		String msg = "예약 취소에 실패하였습니다.";
-//		if(memberVO != null) {
-//			reservationVO.setMember_name(member_name);
-//
-//			for(String i : chArr) {   
-//				rev_num = Integer.parseInt(i);
-//				reservationVO.setRev_num(rev_num);
-//				result = reservationService.reservationDelete(reservationVO);
-//			}   
-//		}  
-//		if (result > 0) {
-//			mv.setViewName("redirect:./reservationCheck");
-//		} else {
-//			mv.addObject("msg", msg);
-//			mv.addObject("path", "./reservationCheck");
-//			mv.setViewName("common/common_result");
-//		}
-//		return mv;
-//	}
+	//	@PostMapping(value = "reservationDelete")
+	//	public ModelAndView reservaiontDelete(HttpSession session,
+	//			@RequestParam(value = "check[]") List<String> chArr, ReservationVO reservationVO, MemberVO memberVO) throws Exception{
+	//		ModelAndView mv = new ModelAndView();
+	//		int rev_num = 0;
+	//		int result = 0;
+	//		memberVO = (MemberVO) session.getAttribute("member");
+	//		String member_name = memberVO.getId();
+	//		String msg = "예약 취소에 실패하였습니다.";
+	//		if(memberVO != null) {
+	//			reservationVO.setMember_name(member_name);
+	//
+	//			for(String i : chArr) {   
+	//				rev_num = Integer.parseInt(i);
+	//				reservationVO.setRev_num(rev_num);
+	//				result = reservationService.reservationDelete(reservationVO);
+	//			}   
+	//		}  
+	//		if (result > 0) {
+	//			mv.setViewName("redirect:./reservationCheck");
+	//		} else {
+	//			mv.addObject("msg", msg);
+	//			mv.addObject("path", "./reservationCheck");
+	//			mv.setViewName("common/common_result");
+	//		}
+	//		return mv;
+	//	}
 	@GetMapping(value = "reservationDelete")
 	public ModelAndView reservationDelete(ReservationVO reservationVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -221,5 +214,24 @@ public class ReservationController {
 		}
 		return mv;
 	}
-
+	//pay
+	@PostMapping(value = "pay")
+	public ModelAndView pay(PayVO payVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		payVO = reservationService.pay(payVO);
+		
+		mv.addObject("pay", payVO);
+		mv.setViewName("reservation/pay");
+		return mv;
+	}
+	//reservation
+	@GetMapping(value = "reservation")
+	public ModelAndView reservation(ReservationVO reservationVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		reservationVO = reservationService.reservationSelect(reservationVO);
+		
+		mv.addObject("vo", reservationVO);
+		mv.setViewName("reservaton/reservation");
+		return mv;
+	}
 }
