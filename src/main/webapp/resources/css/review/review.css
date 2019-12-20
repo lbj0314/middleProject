@@ -217,7 +217,7 @@
 
 }
 
-#review_editor{
+.review_editor{
 		padding: 0px;
 		padding-top:10px;
 	  	height: 150px;
@@ -233,6 +233,13 @@
 
 #review_btn{
 	margin-right: 10px;
+}
+
+#writer{
+	font-size: 16px;
+   		color: black;
+   		font-family: "SpoqaHanSans", "Noto Sans SC", "APPLE SD Gothic NEO", "sans-serif";
+	
 }
 
 
