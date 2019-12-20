@@ -58,7 +58,7 @@
   <span class="starR">별5</span>
   </div> -->
 
- 	<ul id = "review_write_score">
+<!--  	<ul id = "review_write_score">
  	
 		<li class="reviewpicker_item">
 			<button class="review_score_button" id ="good_btn">
@@ -81,7 +81,15 @@
 			</button>
 		</li>
 		
-	</ul> 
+	</ul>  -->
+<div id = "good_button">
+	<div id="good_button_img"></div>
+	<label id="good_button_label">
+	<input type="radio" name="score" id = "good" value="5" checked="checked">
+	<span>좋아요</span>
+	</label>
+</div>	
+
 
 <textarea id="review_editor" 
 	placeholder="주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"

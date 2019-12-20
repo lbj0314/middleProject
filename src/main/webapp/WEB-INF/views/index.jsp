@@ -61,7 +61,6 @@
 		},
 		success : function(data) {
 			$(".a").html(data);
-		alert("성공"+data) 
 		}
 		
 	});
