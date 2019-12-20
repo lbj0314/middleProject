@@ -21,13 +21,14 @@
 	
 	<div id="review_wrapper">				
 		<c:forEach items="${list}" var="r">	
-		<article id="review">
+		<article id="review" style="margin-top: 30px;">
 		<div id = "review_info">
 			<div id= "review_info_left">
 				<div id = "review_writer">
 					<span id = "review_writer_span">${r.writer}</span>
 				</div>
-				<div id = "review_score">				
+				<div id = "review_score">	
+				
 				</div>
 				<div id = "review_date">
 					${r.reg_date}
@@ -35,8 +36,9 @@
 			</div>	
 				
 			<div id = "review_info_right">
-				 <div id = "review_score_good"></div>
+				 <div id = "review_score_good">평점 : ${r.score}</div>
 				<span></span> 
+				
 			</div>
 					
 		</div>
@@ -46,6 +48,14 @@
 		 <div id = "review_contents">
 					${r.contents}	
 			</div> 
+		
+		<c:if test="${member.id eq r.writer }">
+		<div id= "review_List_btn">
+			<a href="reviewUpdate?review_num=${r.review_num}" class = "genric-btn primary-border small">수정하기</a>
+			<a href="reviewDelete?review_num=${r.review_num}" class = "genric-btn danger-border small" >삭제하기</a>
+		</div>	
+		</c:if>
+			
 		</article>
 		</c:forEach>
 		

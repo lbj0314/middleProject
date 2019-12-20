@@ -47,7 +47,7 @@
 
 #review_info_left{
 	width: 80%;
-	background-color: orange;
+
 	float: left;
 }
 
@@ -55,7 +55,7 @@
 	width: 10%;
 	height: 100%;
 	float: right;
-	background-color: blue;
+
 }
 
 #review_writer{
@@ -124,6 +124,14 @@
     height: 44px;
 
 }
+
+#review_List_btn{
+	text-align: right;
+	width: 100%;
+	height: 40px;
+	
+}
+
 	
 /***** reivewWrite *****/
 
