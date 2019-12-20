@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="restaurantMapper">
+<!-- sql -->
+	<sql id="rs">
+		<choose>
+			<when test="kind == 'kn'">
+				WHERE rest_name LIKE '%'||#{search}||'%'
+			</when>
+			<otherwise>
+				WHERE rest_contents LIKE '%'||#{search}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<resultMap type="RestaurantVO" id="restFiles">
+		<id property="rest_num" column="rest_num"/>
+		<result property="rest_name" column="rest_name"/>
+		<result property="rest_contents" column="rest_contents"/>
+		<result property="rest_post1" column="rest_post1"/>
+		<result property="rest_addr1" column="rest_addr1"/>
+		<result property="rest_addr2" column="rest_addr2"/>
+		<result property="rest_tel" column="rest_tel"/>
+		<result property="rest_url" column="rest_url"/>
+		<result property="kind" column="kind"/>
+		<result property="reg_date" column="reg_date"/>
+		<result property="hit" column="hit"/>
+		<result property="review_hit" column="review_hit"/>
+		<result property="rest_time" column="rest_time"/>
+		<result property="rest_accept" column="rest_accept"/>
+		<result property="member_num" column="member_num"/>
+		<result property="rest_id" column="rest_id"/>
+		<collection property="files" javaType="List" ofType="RestaurantFilesVO">
+			<id property="fnum" column="fnum"/>
+			<result property="fname" column="fname"/>
+			<result property="oname" column="oname"/>
+		</collection>
+	</resultMap>
+	<!-- list -->
+	<select id="restaurantList" resultType="RestaurantVO" parameterType="Pager">
+	SELECT * FROM
+		(SELECT RE.*, ROWNUM R FROM
+		(SELECT * FROM restaurant
+		<include refid="rs"></include>
+		ORDER BY rest_num DESC) RE)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
+	</select>
+	<!-- 1개 -->
+ 	<select id="restaurantSelect" resultMap="restFiles" parameterType="RestaurantVO">
+ 		SELECT r.*, m.menu_num, f.fnum, f.oname, f.fname
+		FROM restaurant r FULL OUTER JOIN menu m
+		ON (r.rest_num = m.rest_num)
+		FULL OUTER JOIN restfiles f
+		ON (r.rest_num = f.rest_num)
+		WHERE r.rest_num = #{rest_num}
+ 	</select>
+	<select id="restaurantCount" resultType="Integer"
+		parameterType="Pager">
+		SELECT COUNT(rest_num) FROM restaurant
+		<include refid="rs"></include>
+	</select>
+		<select id="restaurantImgCount" resultType="Integer">
+		SELECT COUNT(fnum) FROM restfiles
+		WHERE rest_num = #{rest_num}
+	</select>
+	<!-- hit count -->
+	<update id="restaurantUpdateHit">
+		UPDATE restaurant SET
+		hit = hit +1
+		WHERE rest_num = #{rest_num}
+	</update>
+	
+	<insert id="restaurantWrite" parameterType="RestaurantVO">
+		<selectKey order="BEFORE" resultType="Integer" keyProperty="rest_num">
+			SELECT rest_seq.nextval FROM dual
+		</selectKey>
+		INSERT INTO restaurant
+		VALUES(
+		#{rest_num}, #{rest_name}, #{rest_contents}, #{rest_post1},
+		#{rest_addr1}, #{rest_addr2}, #{rest_tel}, #{rest_url},
+		#{kind}, SYSDATE, 0, 0, #{rest_time}, #{rest_accept}, #{member_num}, #{rest_id}
+		)
+	</insert>
+	<delete id="restaurantDelete" parameterType="Integer">
+ 		DELETE restaurant
+ 		WHERE rest_num = #{rest_num}
+ 	</delete>
+ 		<update id="restaurantUpdate" parameterType="RestaurantVO">
+ 		UPDATE restaurant SET rest_name = #{rest_name}, rest_contents = #{rest_contents},
+ 		rest_post1 = #{rest_post1}, rest_addr1 = #{rest_addr1}, rest_addr2 = #{rest_addr2},
+ 		rest_tel = #{rest_tel}, rest_url = #{rest_url}, kind = #{kind}, rest_time = #{rest_time},
+ 		rest_accept = #{rest_accept}
+ 		WHERE rest_num = #{rest_num}
+ 	</update>
+ 		<!-- file -->
+  	<insert id="fileWrite" parameterType="RestaurantFilesVO" >
+		INSERT INTO restfiles VALUES(
+		file_seq.nextval, #{rest_num}, #{fname}, #{oname}
+		)
+	</insert>
+	<select id="fileList" parameterType="Integer" resultType="RestaurantFilesVO">
+		SELECT * FROM restfiles
+		WHERE rest_num = #{rest_num}
+	</select>
+	<delete id="fileDelete" parameterType="RestaurantFilesVO">
+		DELETE restfiles
+		WHERE fnum = #{fnum}
+		
+	</delete>
+	<select id="fileSelect" parameterType="RestaurantFilesVO" resultType="RestaurantFilesVO">
+		SELECT * FROM restfiles
+		WHERE fnum = #{fnum}
+	</select>
+</mapper>

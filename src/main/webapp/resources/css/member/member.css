@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+/********************* memberJoin *********************/
+
+
+
+#join-form{
+ margin: 0 auto;
+	max-width: 40.666667%;
+}
+
+
+#btn-form{
+
+	margin-top: 50px;
+	text-align:center;
+}
+
+#id_chk_btn{
+	padding-top: 5px;
+}
+
+
+/********************** memberLogin *********************************/
+#test{
+	
+	
+	margin-top: 300px;
+	margin-bottom: 300px;
+}
+
+#left{
+	display: block;
+	
+	
+}
+
+
+/******************** memberMypage **********************/
+
+#categorie_area{
+		padding-top: 250px;
+  	    padding-bottom: 250px;
+  	    
+}
+
+#container{
+	height:281.25px;
+	width: 960px;
+	background-color: blue;
+}
+
+.categories_post{
+	width: 450px;
+
+}
+
+.post_img{
+	width: 450px;
+	height: 281.25px;
+	
+}
+
+/*  #post1{
+	float: right;
+	
+}  */
+
+#post2{
+	margin-right: 0px;
+}
+
+/********************** Mylist **************************/
+.comments-area{
+	width: 700px;
+	margin: 0 auto;
+	margin-top: 50px;
+	
+}
+
+#etc{
+	float: right;
+}
+
+#post_btn{
+	text-align: center;
+	margin-top: 10px;
+}
+
+#danger_btn{
+	margin-left: 15px;
+}
+
+
+/******************* Update *************************/
+#upd_area{
+	margin-bottom: 50px;
+	
+}
+
+
+.upd_input{
+	padding: 8px 20px;
+    background: #fff;
+    border: none;
+    border-radius: 0px;
+    width: 100%;
+    font-size: 14px;
+    color: #777777;
+    border: 1px solid transparent;
+	
+}
