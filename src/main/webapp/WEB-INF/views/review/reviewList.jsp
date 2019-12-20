@@ -2,8 +2,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
  <link rel="stylesheet" href="../resources/css/review/review.css">
-
+ 
+ <style type="text/css">
+ div.replyModal { position:relative; z-index:1; display: none;}
+ div.modalBackground { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.8); z-index:-1; }
+ div.modalContent { position:fixed; top:20%; left:calc(50% - 250px); width:500px; height:250px; padding:20px 10px; background:#fff; border:2px solid #666; }
+ div.modalContent textarea { font-size:16px; font-family:'맑은 고딕', verdana; padding:10px; width:500px; height:200px; }
+ div.modalContent button { font-size:20px; padding:5px 10px; margin:10px 0; background:#fff; border:1px solid #ccc; }
+ div.modalContent button.modal_cancel { margin-left:20px; }
+ </style>
+ 
+</head>
+<body>
  <div class="comments-area col-lg-7 col-md-7" style="margin: 15px auto; background-color: white; border: none;" >
 	<div class="comment-list">
 		<div class="single-comment justify-content-between d-flex">
@@ -140,33 +154,25 @@
 
 </div>
 
-<div id="review_write_form replyModal" style="margin: 0 auto; background-color: white;">
+<div class="replyModal">
 
-		<div class="comment-list">
-			<form action="../review/reviewWrite" method="post" id="frm">
-				<input type="hidden" id="member_num" name="member_num"value="${member.member_num}">
-				 <input type="hidden" id="rest_num" name="rest_num" value="${vo.rest_num}">
+ <div class="modalContent">
+  
+  <div>
+   <textarea class="modal_repCon" name="modal_repCon"></textarea>
+  </div>
+  
+  <div>
+   <button type="button" class="modal_modify_btn">수정</button>
+   <button type="button" class="modal_cancel">취소</button>
+  </div>
+  
+ </div>
 
-				<c:if test="${ not empty member }">
-					<input type="text" id="writer" name="writer" value="${member.name}"
-						readonly="readonly" style="margin-left: 20px; border: none;">
-					<select name="score" id="score">
-						<option value="1">★☆☆☆☆</option>
-						<option value="2">★★☆☆☆</option>
-						<option value="3">★★★☆☆</option>
-						<option value="4">★★★★☆</option>
-						<option value="5">★★★★★</option>
-					</select>
-				</c:if>
-
-
-				<textarea class="review_editor" name = "contents"
-					placeholder="주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!" maxlength="10000"
-					required class="single-input"></textarea>
-				<button class="genric-btn primary" id="review_btn">리뷰쓰기</button>
-
-		</form>
-		</div>
-	</div>
+ <div class="modalBackground"></div>
+ 
+</div>
 
 
+</body>
+</html>	
