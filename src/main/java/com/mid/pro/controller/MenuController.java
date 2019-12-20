@@ -42,6 +42,8 @@ public class MenuController {
 		mv.addObject("list", list);
 		mv.setViewName("menu/menuList");
 
+		System.out.println(list.get(0).getFiles());
+		
 		return mv;
 	}
 	

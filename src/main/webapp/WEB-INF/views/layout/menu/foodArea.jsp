@@ -21,6 +21,7 @@
                         <div class="food-img">
                                 
                         	<c:forEach items="${vo.files}" var = "file">
+                        	<%-- <p>../resources/upload/menu/${file.fname}</p> --%>
                            		  <img src="../resources/upload/menu/${file.fname}" class="img-fluid" alt="${file.oname}" > 
                              				                           		
                       		</c:forEach>

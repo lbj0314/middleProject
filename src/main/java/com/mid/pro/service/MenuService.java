@@ -29,6 +29,9 @@ public class MenuService {
 		
 		return menuDAO.menuList(menuVO);
 	}
+	
+	
+	
 	//select One
 	public MenuVO menuSelect(MenuVO menuVO) throws Exception{
 			

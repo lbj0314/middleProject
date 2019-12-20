@@ -18,7 +18,7 @@
 	
 
   	<!-- list -->
-  	<select id="menuList" resultType="MenuVO" parameterType="MenuVO">
+  	<select id="menuList" resultType="MenuVO" parameterType="MenuVO" resultMap="menuFiles">
   		SELECT * FROM
 		(SELECT M.*, ROWNUM R FROM
 		(SELECT * FROM menu
@@ -26,6 +26,13 @@
 		ORDER BY menu_num DESC) M)
 		<!-- <include refid="ms"/> -->
 	<!-- 	WHERE R BETWEEN #{startRow} AND #{lastRow} -->
+	<!-- 	SELECT r.*, m.menu_num, f.fnum, f.oname, f.fname
+		FROM menu r FULL OUTER JOIN menu m
+		ON (r.rest_num = m.rest_num)
+		FULL OUTER JOIN menuFiles f
+		ON (r.rest_num = f.rest_num)
+		WHERE r.rest_num = #{rest_num}
+ -->
   	</select>
   	
   	
