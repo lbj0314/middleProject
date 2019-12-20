@@ -156,7 +156,7 @@ public class MemberController {
 	
 	
 	/////mypage
-	@GetMapping(value = "memberMypage")
+	@GetMapping(value = "memberMyres")
 	public void memberMypage() throws Exception{
 		
 		

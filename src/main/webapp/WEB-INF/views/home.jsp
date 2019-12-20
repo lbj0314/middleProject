@@ -76,7 +76,7 @@
                                		
                                		<c:if test= "${not empty member}">
                                		  <li><a href="${pageContext.request.contextPath}/member/memberMylist">마이페이지</a></li>                                   
-                                    <li><a href="${pageContext.request.contextPath}/member/memberMypage">예약확인하기</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/member/memberMyres">예약확인하기</a></li>
                                     <li><a href="${pageContext.request.contextPath}/member/memberLogout">Logout</a></li>
                                     </c:if>
                                 </ul>
