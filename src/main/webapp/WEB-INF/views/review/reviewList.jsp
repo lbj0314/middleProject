@@ -4,7 +4,7 @@
 	pageEncoding="UTF-8"%>
  <link rel="stylesheet" href="../resources/css/review/review.css">
 
- <div class="comments-area col-lg-7 col-md-7" style="margin: 15px auto; background-color: white; border: " >
+ <div class="comments-area col-lg-7 col-md-7" style="margin: 15px auto; background-color: white; border: none;" >
 	<div class="comment-list">
 		<div class="single-comment justify-content-between d-flex">
 			<div id = "review_header">
@@ -36,9 +36,8 @@
 			</div>	
 				
 			<div id = "review_info_right">
-				 <div id = "review_score_good">평점 : ${r.score}</div>
-				<span></span> 
-				
+				 <div id = "review_score_good">평점 : ${r.score} </div>
+		
 			</div>
 					
 		</div>
@@ -51,18 +50,39 @@
 		
 		<c:if test="${member.id eq r.writer }">
 		<div id= "review_List_btn">
-			<a href="reviewUpdate?review_num=${r.review_num}" class = "genric-btn primary-border small">수정하기</a>
-			<a href="reviewDelete?review_num=${r.review_num}" class = "genric-btn danger-border small" >삭제하기</a>
+			<button class = "genric-btn primary-border small" id = "createBtn" type="button" data-toggle="modal">수정</button>
+			<a href="../review/reviewUpdate?review_num=${r.review_num}" class = "genric-btn primary-border small">수정하기</a>
+			<a href="../review/reviewDelete?review_num=${r.review_num}" class = "genric-btn danger-border small" >삭제하기</a>
 		</div>	
 		</c:if>
 			
 		</article>
 		</c:forEach>
-		
-		
+	
 	</div>
 	
 	
+	
+	<script type="text/javascript">
+		var action = '';
+		var url = '';
+		var type = '';
+		var bno = 0;
+	
+		$(document).ready(function() {
+			$("#createBtn").click(function() {
+				action='modify';
+				type = 'PUT'
+				bno = this.value;
+				
+			});
+			
+			
+		});
+	
+	
+	
+	</script>
 	
 	
 	
@@ -119,4 +139,34 @@
 
 
 </div>
+
+<div id="review_write_form replyModal" style="margin: 0 auto; background-color: white;">
+
+		<div class="comment-list">
+			<form action="../review/reviewWrite" method="post" id="frm">
+				<input type="hidden" id="member_num" name="member_num"value="${member.member_num}">
+				 <input type="hidden" id="rest_num" name="rest_num" value="${vo.rest_num}">
+
+				<c:if test="${ not empty member }">
+					<input type="text" id="writer" name="writer" value="${member.name}"
+						readonly="readonly" style="margin-left: 20px; border: none;">
+					<select name="score" id="score">
+						<option value="1">★☆☆☆☆</option>
+						<option value="2">★★☆☆☆</option>
+						<option value="3">★★★☆☆</option>
+						<option value="4">★★★★☆</option>
+						<option value="5">★★★★★</option>
+					</select>
+				</c:if>
+
+
+				<textarea class="review_editor" name = "contents"
+					placeholder="주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!" maxlength="10000"
+					required class="single-input"></textarea>
+				<button class="genric-btn primary" id="review_btn">리뷰쓰기</button>
+
+		</form>
+		</div>
+	</div>
+
 
