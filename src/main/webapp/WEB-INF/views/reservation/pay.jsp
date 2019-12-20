@@ -11,19 +11,7 @@
 	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
-	<form class="form-horizontal" action="./reservation" method="POST">
-		<!-- 예약 등록시 적용해야하는 변수들 -->
-		<input type="hidden" name="member_num" id="member_num"
-			value="${member.member_num}"> <input type="hidden"
-			name="member_name" id="member_name" value="${member.name}"> <input
-			type="hidden" name="rev_time" id="rev_time" value="${param.rev_time}">
-		<input type="hidden" name="rest_name" id="rest_name"
-			value="${param.rest_name}"> <input type="hidden"
-			name="rest_num" id="rest_num" value="${param.rest_num}"> <input
-			type="hidden" name="table_num" id="table_num"
-			value="${param.table_num}"> <input type="hidden"
-			name="rev_date" id="rev_date" value="${param.rev_date}">
-	</form>
+
 	<script>
     $(function(){
         var IMP = window.IMP; // 생략가능
@@ -31,7 +19,7 @@
         var msg;
         
         IMP.request_pay({
-            pg : 'kakaopay',
+            pg : 'inisys',
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
             name : '예약금 결제',
@@ -69,7 +57,7 @@
                     }
                 });
                 //성공시 이동할 페이지
-                //location.href='./reservationWrite';
+                location.href='./reservationWrite?member_num=${param.member_num}&member_name=${param.member_name}&rev_time=${param.rev_time}&rest_name=${param.rest_name}&rest_num=${param.rest_num}&$table_num=${param.table_num}&rev_date=${param.rev_date}&table_num=${param.table_num}';
             } else {
                 msg = '결제에 실패하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;

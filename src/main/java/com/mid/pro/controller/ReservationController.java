@@ -224,14 +224,14 @@ public class ReservationController {
 		mv.setViewName("reservation/pay");
 		return mv;
 	}
-	//reservation
-	@GetMapping(value = "reservation")
-	public ModelAndView reservation(ReservationVO reservationVO) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		reservationVO = reservationService.reservationSelect(reservationVO);
-		
-		mv.addObject("vo", reservationVO);
-		mv.setViewName("reservaton/reservation");
-		return mv;
-	}
+//	//reservation
+//	@GetMapping(value = "reservation")
+//	public ModelAndView reservation(ReservationVO reservationVO) throws Exception{
+//		ModelAndView mv = new ModelAndView();
+//		reservationVO = reservationService.reservationSelect(reservationVO);
+//		
+//		mv.addObject("vo", reservationVO);
+//		mv.setViewName("reservaton/reservation");
+//		return mv;
+//	}
 }
