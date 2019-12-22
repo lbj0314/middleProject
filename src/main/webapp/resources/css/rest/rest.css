@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+#target{
+	display: block;
+
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	
+	white-space: normal;
+	line-height: 1.5;
+	height: 4.6em; 
+	text-align: left;
+	word-wrap: break-word;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+
+#restSelect_btn{
+	margin-top: 24px;
+}
