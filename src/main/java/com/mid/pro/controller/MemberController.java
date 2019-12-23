@@ -5,9 +5,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -60,18 +64,21 @@ public class MemberController {
 		return result;
 	}
 	
+	
 	@ResponseBody
 	@PostMapping(value = "memberCheckEmail")
 	public int memberCheckEmail(HttpServletRequest req)throws Exception{
 		String email = req.getParameter("email");
-		MemberVO memberVO = memberServiceImpl.memberCheckEmail(email);
+		System.out.println(email);
+		MemberVO memberVO =  memberServiceImpl.memberCheckEmail(email);
 		int result = 0;
 		
 		if(memberVO !=null) {
 			result = 1;
 		}
-		return result;
+			return result;
 	}
+	
 	
 	
 	
@@ -88,7 +95,7 @@ public class MemberController {
 		
 		memberVO = memberServiceImpl.memberLogin(memberVO);		
 		if(memberVO !=null) {
-			session.setAttribute("member", memberVO);
+			session.setAttribute("member", memberVO);			
 			mv.setViewName("redirect:../");
 		}else {
 			mv.addObject("msg", "로그인에 실패하였습니다");
@@ -107,22 +114,12 @@ public class MemberController {
 	}
 	
 	/////////////////Update
-	@GetMapping(value = "memberUpdate")
-	public ModelAndView memberUpdate(String id)throws Exception{
-			ModelAndView mv = new ModelAndView();
-			MemberVO memberVO = new MemberVO();
+	@GetMapping(value= "memberUpdate")
+	public void memberUpdate()throws Exception{
 			
-			memberVO.setId(id);
-			
-			memberVO = memberServiceImpl.memberSelect(memberVO);
-			
-			mv.addObject("member", memberVO);
-			mv.setViewName("memberUpdate");
-			
-			return mv;
 	}
 	
-	@PostMapping(value = "memberUpdate")
+	@PostMapping(value= "memberUpdate")
 	public ModelAndView memberUpdate(MemberVO memberVO, HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = memberServiceImpl.memberUpdate(memberVO);	
@@ -161,7 +158,7 @@ public class MemberController {
 	
 	
 	/////mypage
-	@GetMapping(value = "memberMypage")
+	@GetMapping(value = "memberMyres")
 	public void memberMypage() throws Exception{
 		
 		

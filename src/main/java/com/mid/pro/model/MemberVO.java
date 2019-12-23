@@ -14,8 +14,15 @@ public class MemberVO {
 	private int writecount;
 	private String reg_number;
 	private int grade;
+	private int authstatus;
 	
-	
+
+	public int getAuthstatus() {
+		return authstatus;
+	}
+	public void setAuthstatus(int authstatus) {
+		this.authstatus = authstatus;
+	}
 	public int getMember_num() {
 		return member_num;
 	}

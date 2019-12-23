@@ -1,11 +1,14 @@
-   <!-- Footer Area Starts -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+ <!-- Footer Area Starts -->
     <footer class="footer-area">
         <div class="footer-widget section-padding">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="single-widget single-widget1">
-                            <a href="index.html"><img src="resources/images/logo/logo2.png" alt=""></a>
+                            <a href="index.html"><img src="../resources/images/logo/logo2.png" alt=""></a>
                             <p class="mt-3">Which morning fourth great won't is to fly bearing man. Called unto shall seed, deep, herb set seed land divide after over first creeping. First creature set upon stars deep male gathered said she'd an image spirit our</p>
                         </div>
                     </div>
@@ -75,3 +78,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div>
     </footer>
     <!-- Footer Area End -->
+

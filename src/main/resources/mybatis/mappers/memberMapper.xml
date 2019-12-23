@@ -6,36 +6,61 @@
   
   <mapper namespace="memberMapper">
   
+  
   <!-- Join -->
   <insert id="memberJoin" parameterType="MemberVO">
   	insert into member 
   	values(member_seq.nextval,#{id},#{pw},#{email},#{name},#{tel},sysdate,0,#{reg_number}, 1)
   </insert>
   
+  
+  
   <!-- checkId -->
   <select id="memberCheckId" resultType="MemberVO">
   	select id from member where id=#{id}
   </select>
+  
+  
   
   <!-- checkEmail -->
   <select id="memberCheckEmail" resultType="MemberVO">
   	select email from member where email=#{email}
   </select>
   
+  
+  
+  <!-- Email 인증키 -->
+<!--   <insert id="createAuthKey">
+  	insert into mailConfirm values(#{userEmail}, #{authKey})
+  </insert> -->
+  
+<!--  <update id="userAuth">
+  	<![CDATA[update member set authstatus = 1 
+  	where (select count(*) 
+  	from mailConfirm 
+  	where userEmail = #{userEmail})  > 0 ]]> 
+  </update> -->
+  
+  
+  
   <!-- Login -->
   <select id="memberLogin" resultType="MemberVO" parameterType="MemberVO">
-  	select member_num, id, email, name, tel, joindate, reg_number, grade from member where id=#{id} and pw = #{pw}
+  	<!-- select member_num, id, email, name, tel, joindate, reg_number, grade from member where id=#{id} and pw = #{pw} -->
+  select * from member where id=#{id} and pw = #{pw}
   </select>
   
   <!-- Select -->
-  <select id="memberSelect" resultType="MemberVO" parameterType="MemberVO">
+    <select id="memberSelect" resultType="MemberVO" parameterType="MemberVO">
  	select member_num, id, email, name, tel, reg_number from member where id=#{id}
   </select>
+  
   
   <!-- update -->
   <update id="memberUpdate" parameterType="MemberVO">
   	 update member set pw=#{pw}, email=#{email}, name=#{name}, tel=#{tel}, reg_number=#{reg_number} where id = #{id} 
   </update>
+  
+  
   
   <!-- delete -->
   <delete id="memberDelete" parameterType="MemberVO">

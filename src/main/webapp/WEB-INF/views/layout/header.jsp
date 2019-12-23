@@ -1,3 +1,4 @@
+
   <!-- Favicon -->
     <link rel="shortcut icon" href="resources/images/logo/favicon.png" type="image/x-icon">
    
