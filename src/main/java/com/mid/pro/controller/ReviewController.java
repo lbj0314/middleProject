@@ -99,14 +99,14 @@ public class ReviewController {
 			
 	}
 	@PostMapping(value = "reviewUpdate")
-	public ModelAndView reviewUpdate2(ReviewVO reviewVO, Model model) throws Exception{
+	public ModelAndView reviewUpdate2(ReviewVO reviewVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		
 		int result = reviewService.reviewUpdate(reviewVO);
 		String msg = "리뷰 수정에 실패하였습니다.";
 		if (result > 0) {
-		/*	mv.setViewName("redirect:../restaurant/restList");*/
+			/* mv.setViewName("redirect:../restaurant/restList"); */
 		} else {
 			mv.addObject("msg", msg);
 			mv.addObject("path", "../restaurant/restList");
@@ -114,10 +114,7 @@ public class ReviewController {
 		}
 		return mv;
 		
-		/*int result = reviewService.reviewUpdate(reviewVO);
-		
-		model.addAttribute("result", result);
-	*/
+
 		
 	}
 	//delete

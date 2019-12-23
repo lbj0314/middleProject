@@ -90,9 +90,10 @@
  			$.ajax({
  				url: "reviewUpdate",
  				type: "post",
- 				data:  {"member_num":member_num, "rest_num":rest_num, "review_num":review_num, "writer":writer, "score":score, "contents":contents},
+ 				data: allData,
  				success:function(data){
  					alert('댓글이 수정되었습니다.');
+ 					
  					window.close();
  					opener.document.location.reload();
  					
@@ -105,6 +106,7 @@
  			}); 
 
 	}); 
+	  	
 </script>
 
 
