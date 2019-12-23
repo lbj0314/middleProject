@@ -15,7 +15,9 @@
 	</div>
 	<c:import url="../layout/restaurant/header.jsp" />
 	<c:import url="../layout/restaurant/selectArea.jsp" />
+	<c:if test="${not empty member}">
 	<c:import url="../review/reviewWrite.jsp"/>
+	</c:if>
 	<c:import url="../review/reviewList.jsp" />
 	<c:import url="../layout/restaurant/footer.jsp" />
 </body>
