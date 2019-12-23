@@ -5,10 +5,8 @@
 
   <configuration>
   	<typeAliases>
-  		<typeAlias type="com.mid.pro.model.MemberVO" alias="MemberVO"/>
   		<typeAlias type="com.mid.pro.model.RestaurantVO" alias="RestaurantVO"/>
   		<typeAlias type="com.mid.pro.model.MenuVO" alias="MenuVO"/>
-  		<typeAlias type="com.mid.pro.util.Pager" alias="Pager"/>
   		<typeAlias type="com.mid.pro.model.RestaurantFilesVO" alias="RestaurantFilesVO"/>
   		<typeAlias type="com.mid.pro.model.MenuFilesVO" alias="MenuFilesVO"/>
   		<typeAlias type="com.mid.pro.model.ReviewVO" alias="ReviewVO"/>
@@ -22,5 +20,12 @@
   		<typeAlias type="java.lang.String" alias="String"/>
   		<typeAlias type="java.lang.Integer" alias="Integer"/>
   		<typeAlias type="java.util.List" alias="List"/>
-  	</typeAliases>
+  	
+  		<typeAlias type="com.mid.pro.model.NoticeVO" alias="NoticeVO"/>
+ 		<typeAlias type="com.mid.pro.model.QnaVO" alias="QnaVO"/>
+		<typeAlias type="com.mid.pro.util.Pager" alias="Pager"/>
+ 		<typeAlias type="com.mid.pro.model.MemberVO" alias="MemberVO"/>
+ 		<typeAlias type="java.lang.Integer" alias="Integer"/>
+ 		<typeAlias type="java.lang.String" alias="String"/>
+ 	</typeAliases>
   </configuration>
