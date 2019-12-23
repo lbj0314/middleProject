@@ -41,12 +41,16 @@
         // Nice Select
         $('select').niceSelect();
 
-        // Date Picker
+        
+        
+  /*      // Date Picker
         jQuery('#datepicker').datetimepicker({
             timepicker:false,
             format:'d.m.Y',
-        });
+        });*/
 
+        
+        
         // Time Picker
         jQuery('#datepicker2').datetimepicker({
             datepicker:false,
