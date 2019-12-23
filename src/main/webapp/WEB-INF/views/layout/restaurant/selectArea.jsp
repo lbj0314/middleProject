@@ -31,10 +31,10 @@ img {
 								<li data-target="#img" data-slide-to="${i}"></li>
 							</c:forEach>
 						</ul>
-
+						
 						<div class="carousel-inner" style="overflow: hidden">
 							<div class="carousel-item active">
-								<c:forEach end="0" items="${ vo.files }" var="file">
+								<c:forEach end="0" items="${vo.files}" var="file">
 
 									<img class="img-fluid img2" alt="${file.oname}"
 										src="../resources/upload/restaurant/${file.fname}"
@@ -77,12 +77,12 @@ img {
 					</div>
 					<div class="col-lg-12">
 						<div class="col-lg-12 menu">
-							<a href="../menu/menuList" class="btn genric-btn primary">Menu</a>
 							<a href="../reservation/reservationForm?rest_num=${vo.rest_num }" class="genric-btn success">Reservation</a>
-							<a href="../reservation/reservationCheck?rest_num=${vo.rest_num}" class="genric-btn primary">Reservation Check</a>
+							<a href="../menu/menuList?rest_num=${vo.rest_num}" class="btn genric-btn primary">Menu</a>
 							<c:if test="${member.member_num eq vo.member_num }">
-								<a href="../menu/menuWrite" class="btn genric-btn info">Menu Write</a>
 								<a href="../resttable/tableWrite?rest_num=${vo.rest_num}" class="btn genric-btn default">Table Write</a>
+								<a href="../reservation/reservationCheck?rest_num=${vo.rest_num}" class="genric-btn primary">Reservation Check</a>
+								<a href="../menu/menuWrite?rest_num=${vo.rest_num}" class="btn genric-btn info">Menu Write</a>
 							</c:if>
 						</div>
 						<c:if test="${not empty vo.rest_url}">

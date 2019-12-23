@@ -22,7 +22,7 @@ public class RestaurantVO {
 	private int member_num;
 	private String rest_id;
 	private List<RestaurantFilesVO> files;
-	
+
 	public int getRest_num() {
 		return rest_num;
 	}

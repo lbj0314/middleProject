@@ -1,3 +1,5 @@
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <!-- Food Area starts -->
     <section class="food-area section-padding">
@@ -11,21 +13,52 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-food">
+            
+            <c:forEach items = "${list}" var = "vo">
+      
+                <div class="col-md-4 col-sm-6 menu-list" >
+                    <div class="single-food mt-5 mt-sm-">
                         <div class="food-img">
-                            <img src="../resources/images/food1.jpg" class="img-fluid" alt="">
-                        </div>
+                                
+                        	<c:forEach items="${vo.files}" var = "file">
+                        	<%-- <p>../resources/upload/menu/${file.fname}</p> --%>
+                           		  <img src="../resources/upload/menu/${file.fname}" class="img-fluid" alt="${file.oname}" > 
+                             				                           		
+                      		</c:forEach>
+                      		
+                      			<!-- <img src = "../resources/images/food1.jpg"class="img-fluid"  > -->
+                        </div>                     
+       
                         <div class="food-content">
                             <div class="d-flex justify-content-between">
-                                <h5>Mexican Eggrolls</h5>
-                                <span class="style-change">$14.50</span>
+                                <h5>${vo.menu_name}</h5>               
+                                <span class="style-change">${vo.price}</span>
                             </div>
-                            <p class="pt-3">Face together given moveth divided form Of Seasons that fruitful.</p>
+                            <p class="pt-3">${vo.menu_contents}</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
+           <%--      <input class = "menu_num" type="hidden" value="${vo.menu_num}"> --%>
+                <a href = "./menuSelect?menu_num=${vo.menu_num}&rest_id=${rest.rest_id}">더보기</a>
+                </div>   
+                
+                </c:forEach>
+
+                
+               <script type="text/javascript">
+             /*   	$('.menu-list').click(function submitForm() {
+		
+            			var num = $(this).find(".menu_num").val();
+                		 $(this).find(".menu_num").val();
+						location.href="./menuSelect?menu_num="+num; 
+						/* location.href="./menuSelect?menu_num=10";  
+						
+					}); */
+                
+              
+                </script> 
+                
+                
+         <!--     <div class="col-md-4 col-sm-6">
                     <div class="single-food mt-5 mt-sm-0">
                         <div class="food-img">
                             <img src="../resources/images/food2.jpg" class="img-fluid" alt="">
@@ -94,7 +127,7 @@
                             <p class="pt-3">Face together given moveth divided form Of Seasons that fruitful.</p>
                         </div>
                     </div>
-                </div>
+                </div>  -->
             </div>
         </div>
     </section>

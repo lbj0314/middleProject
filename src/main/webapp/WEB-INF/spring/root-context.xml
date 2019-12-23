@@ -23,6 +23,16 @@
 			</props>
 		</property>
 	</bean>
+	
+	<bean class = "org.springframework.web.multipart.commons.CommonsMultipartResolver" id = "multipartResolver">
+		<property name="defaultEncoding" value = "UTF-8"></property>
+		<property name="maxUploadSize" value="104857600"></property>
+		<property name="maxUploadSizePerFile" value = "10485760"></property>
+	</bean>
+	
+
+
+
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
