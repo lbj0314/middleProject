@@ -42,4 +42,6 @@ public interface MemberDAO {
 	
 	//update
 	public int memberUpdate2(MemberVO memberVO)throws Exception;
+	
+
 }

@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 <c:import url="../layout/admin/header.jsp"></c:import>
-<c:import url="../layout/bootStrap.jsp" />
+<c:import url="../layout/admin/bootStrap.jsp" />
 </head>
 <body>
 	<c:import url="../layout/admin/header_area.jsp"></c:import>

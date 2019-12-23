@@ -84,4 +84,8 @@ public class MemberDAOImpl implements MemberDAO{
 	public int memberUpdate2(MemberVO memberVO)throws Exception{
 		return sqlSession.update(NAMESPACE+"memberUpdate2", memberVO);
 	}
+	
+
+	
+
 }

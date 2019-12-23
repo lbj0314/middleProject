@@ -67,5 +67,5 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAOImpl.memberUpdate2(memberVO);
 	}
 	
-	
+
 }

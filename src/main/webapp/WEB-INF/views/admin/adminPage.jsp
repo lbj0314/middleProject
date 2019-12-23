@@ -5,17 +5,14 @@
 <html lang="en">
 <head>
 <style type="text/css">
-.reply{
-	background-color: #fff;
-    color: #131230;
-    border: 1px solid #eee;
-    padding: 5px 18px;
-    display: block;
-    font-weight: 600;
-    transition: .5s;
-    height: 350px;
-    width: 638px;
+.genric-btn.primary-border {
+    color: #f8b600;
+    border: 1.5px solid #f8b600;
+    background: #fff;
+    font-weight: 500;  
 }
+
+
 
 </style>
 
@@ -47,36 +44,57 @@
 
 	<div class="container" style="height: 700px;">
 
-		<ul class="nav nav-tabs">
-			<li class="active"><a data-toggle="tab" href="#allmember">회원관리</a></li>
-			<li><a data-toggle="tab" href="#franchising">기업주 관리</a></li>
-			<li><a data-toggle="tab" href="#notice">공지 게시판 관리</a></li>
-			<li><a data-toggle="tab" href="#qna">질문 게시판 관리</a></li>
-		</ul>
+		<div class="nav nav-tabs ">
+			<a class="test" data-toggle="tab" href="#allmember"><button class="genric-btn primary-border">회원관리</button></a>
+			<a data-toggle="tab" href="#franchising"><button class="genric-btn primary-border">기업주 관리</button></a>
+			<a data-toggle="tab" href="#notice"><button class="genric-btn primary-border">공지 게시판 관리</button></a>
+			<a data-toggle="tab" href="#qna"><button class="genric-btn primary-border">문의 게시판 관리</button></a>
+		</div>
 
-		<div class="tab-content container" style="height: 500px; background-color: gray;">
+		<div class="tab-content container " style="height: 500px; background-color: #EEEEEE;">
 			<div id="allmember" class="tab-pane fade in active">
-				<div>
-					<h3 herf="./allmember">allmember</h3>
-				</div>
+					<div>
+					<a href="${pageContext.request.contextPath}/admin/allmember"><button class="genric-btn primary-border">회원 목록</button></a>	
+					</div>	
+					<div style="width:1080px; height:450px; text-align: center; background-color: white;">
+	
+
+		
+
+					
+					</div>
+            			
+				</div>					
 			</div>
+			
+			
 			<div id="franchising" class="tab-pane fade">
 				<div>
-					<h3 herf="#">franchising</h3>
+					<a href="${pageContext.request.contextPath}/"><button class="genric-btn primary-border">가맹주 목록</button></a>	
 				</div>
-			</div>			
+				<div style="width:1080px; height:250px; text-align: center; background-color: white;">222</div>	
+			</div>	
+			
+					
 			<div id="notice" class="tab-pane fade">
 				<div>
-					<h3 herf="../notice/noticeList">notice</h3>
+					<a href="${pageContext.request.contextPath}/notice/noticeList"><button class="genric-btn primary-border">공지 게시판</button></a>	
 				</div>
+				<div style="width:1080px; height:250px; text-align: center; background-color: white;">333</div>	
 			</div>
+			
+			
 			<div id="qna" class="tab-pane fade">
 				<div>
-					<h3 herf="../qna/qnaList">qna</h3>
+					<a href="${pageContext.request.contextPath}/qna/qnaList"><button class="genric-btn primary-border">문의 게시판</button></a>	
 				</div>
+				<div style="width:1080px; height:250px; text-align: center; background-color: white;">444</div>	
 			</div>
+			
+			
 		</div>
 	</div>
+
 
 
 

@@ -24,4 +24,7 @@ public interface MemberService {
 	public MemberVO memberSelect(MemberVO memberVO)throws Exception;
 	
 	public int memberUpdate2(MemberVO memberVO)throws Exception;
+	
+
+
 }

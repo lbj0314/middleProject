@@ -31,22 +31,35 @@
 	</beans:bean>
 	
 	<!-- interceptor -->
-<!-- 	<interceptors>
+<interceptors>
 		<interceptor>
+			<mapping path="/admin/*"/>		
+				
 			<mapping path="/restaurant/*" />
-			<mapping path="/qna/*"/>
+			
+			<mapping path="/member/memberCheckEmail"/>
+			<mapping path="/member/memberCheckId"/>
+			<mapping path="/member/memberDelete"/>
+			<mapping path="/member/memberGrade"/>
+			<mapping path="/member/memberJoin"/>
+			<mapping path="/member/memberMylist"/>
+			<mapping path="/member/memberMypage"/>
+			<mapping path="/member/memberUpdate"/>
+			
+			<mapping path="/qna/qnaWrite"/>
+			<mapping path="/qna/qnaUpdate"/>
+			<mapping path="/qna/qnaDelete"/>
+			<mapping path="/qna/qnaReply"/>
+			
 			<mapping path="/notice/noticeWrite"/>
-			<exclude-mapping path="/qna/qnaList"/>
-			<beans:bean class="com.mid.pro.interceptor.LoginInterceptor" />
-		</interceptor> -->
-		<!--  update 
-		<interceptor>
+			<mapping path="/notice/noticeUpdate"/>
+			<mapping path="/notice/noticeDelete"/>
 
-			<mapping path="/**/*Update"/>
-			<beans:ref bean="updateInterceptor"/>
-		</interceptor> 
-	</interceptors>-->
-	
+			<beans:bean class="com.mid.pro.interceptor.LoginInterceptor" />
+		</interceptor>
+</interceptors>
+
+
 	<beans:import resource="classpath:/spring/*"/>
 
 	<context:component-scan base-package="com.mid.pro" />
@@ -54,3 +67,4 @@
 	
 	
 </beans:beans>
+	

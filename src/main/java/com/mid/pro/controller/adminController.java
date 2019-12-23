@@ -21,8 +21,9 @@ public class adminController {
 
 	@Inject
 	private MemberServiceImpl memberServiceImpl;
-
-
+	
+	
+	
 	@RequestMapping("allmember")
 	public ModelAndView amember(ModelAndView mv, MemberVO memberVO, Pager pager) throws Exception {
 		System.out.println(pager.getSearch());
