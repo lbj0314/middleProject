@@ -16,6 +16,7 @@ import com.mid.pro.model.ReviewVO;
 import com.mid.pro.service.RestaurantService;
 import com.mid.pro.service.ReviewService;
 import com.mid.pro.util.Pager;
+import com.mid.pro.util.ReviewPager;
 
 @Controller
 @RequestMapping("/review/**")
@@ -28,19 +29,19 @@ public class ReviewController {
 
 	//list
 	@GetMapping(value = "reviewList")
-	public ModelAndView reviewList(Pager pager, RestaurantVO restaurantVO) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		restaurantVO = restaurantService.restSelect(restaurantVO);
+	public ModelAndView reviewList(Pager pager) throws Exception{
 		List<ReviewVO> list = reviewService.reviewList(pager);
-//		System.out.println(restaurantVO);
+		ModelAndView mv = new ModelAndView();	
 //		System.out.println(list);
 //		mv.addObject("vo", restaurantVO);
-		mv.addObject("pager", pager);
 		mv.addObject("list", list);
+		mv.addObject("pager", pager);
 		mv.setViewName("review/reviewList");
 		
 		return mv;
 	}
+	
+	
 	//select
 	@GetMapping(value = "reviewSelect")
 	public ModelAndView reviewSelect(ReviewVO reviewVO) throws Exception{
@@ -87,10 +88,10 @@ public class ReviewController {
 		reviewVO = reviewService.reviewSelect(reviewVO);
 		if (reviewVO != null) {
 			mv.addObject("vo", reviewVO);
-			mv.setViewName("../restaurant/restaurantList");
+			mv.setViewName("restaurant/restList");
 		} else {
 			mv.addObject("msg", "수정할 리뷰가 없습니다.");
-			mv.addObject("path", "../restaurant/restaurantList");
+			mv.addObject("path", "restaurant/restList");
 			mv.setViewName("common/common_result");
 		}
 		return mv;
@@ -102,10 +103,10 @@ public class ReviewController {
 		int result = reviewService.reviewUpdate(reviewVO);
 		String msg = "리뷰 수정에 실패하였습니다.";
 		if (result > 0) {
-			mv.setViewName("redirct:../restaurant/restaurantList");
+			mv.setViewName("redirct:../restaurant/restList");
 		} else {
 			mv.addObject("msg", msg);
-			mv.addObject("path", "../restaurant/restaurantList");
+			mv.addObject("path", "../restaurant/restList");
 			mv.setViewName("common/common_result");
 		}
 		return mv;
@@ -115,14 +116,29 @@ public class ReviewController {
 	public ModelAndView reviewDelete(ReviewVO reviewVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = reviewService.reviewDelete(reviewVO);
-		String msg = "리뷰 삭제에 실패하였습니다.";
+		String msg = "리뷰 삭제에 실패하였습니다. 다시 시도해주세요.";
 		if (result > 0) {
-			mv.setViewName("redirect:../restaurant/restaurantList");
+				msg = "리뷰가 삭제되었습니다.";
 		} else {
-			mv.addObject("msg", msg);
-			mv.addObject("path", "../restaurant/restaurantList");
-			mv.setViewName("common/common_result");
+			
 		}
+		mv.addObject("msg", msg);
+		mv.addObject("path", "../restaurant/restList");
+		mv.setViewName("common/common_result");
 		return mv;
 	}
+	
+	
+	//reviewMain
+	@GetMapping(value = "reviewMain")
+	public ModelAndView reviewMain(ReviewVO reviewVO) throws Exception{
+		List<ReviewVO> list = reviewService.reviewMain(reviewVO);
+		ModelAndView mv = new ModelAndView();	
+
+		mv.addObject("list", list);
+		mv.setViewName("review/reviewMain");	
+		return mv;
+	}
+	
+	
 }

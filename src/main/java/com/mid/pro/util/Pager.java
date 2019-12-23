@@ -6,6 +6,7 @@ public class Pager {
 		perPage = 6;
 		// TODO Auto-generated constructor stub
 	}
+	private int rest_num;
 	
 	private Integer curPage; //현재 페이지 번호
 	private Integer perPage; //불러올 때 글의 개수
@@ -22,6 +23,14 @@ public class Pager {
 	private String kind; // 검색 종류
 	private String search; // 검색어
 	
+	
+	
+	public int getRest_num() {
+		return rest_num;
+	}
+	public void setRest_num(int rest_num) {
+		this.rest_num = rest_num;
+	}
 	public Integer getCurPage() {
 		if (this.curPage == null || this.curPage == 0) {
 			this.curPage = 1;

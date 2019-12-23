@@ -12,7 +12,7 @@
  		<result property="member_num" column="member_num"/>
  	</resultMap> -->
  	<!-- List -->
- 	<select id="reviewList" resultType="ReviewVO" parameterType="ReviewPager">
+ 	<select id="reviewList" resultType="ReviewVO" parameterType="Pager">
  		SELECT * FROM
  			(SELECT RV.*, ROWNUM R FROM
  			(SELECT * FROM review
@@ -20,6 +20,9 @@
  			ORDER BY review_num DESC) RV)
  		WHERE R BETWEEN #{startRow} AND #{lastRow}
  	</select>
+ 	
+ 	
+ 	
  	<!-- select -->
  	<select id="reviewSelect" resultType="ReviewVO" parameterType="ReviewVO">
  		SELECT * from review
@@ -58,4 +61,12 @@
 		DELETE review
 		WHERE review_num = #{review_num}
 	</delete>
+	
+	
+	<!-- main review -->
+	<select id="reviewMain" parameterType="ReviewVO" resultType="ReviewVO">	
+		<![CDATA[select*from review where rownum <=3 order by reg_date desc]]>
+	</select>
+	
+	
   </mapper>

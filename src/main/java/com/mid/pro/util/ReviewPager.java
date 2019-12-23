@@ -13,7 +13,7 @@ public class ReviewPager {
 	private Integer curPage; //현재 페이지 번호
 	private Integer perPage; //불러올 때 글의 개수
 	//DB
-	private Integer rest_num; // 식당 번호
+	private int rest_num; // 식당 번호
 	private Integer startRow; // 시작 rowNum
 	private Integer lastRow; // 끝 rowNum
 	//view (jsp)
@@ -62,8 +62,12 @@ public class ReviewPager {
 	public Integer getLastNum() {
 		return lastNum;
 	}
-	public Integer getRest_num() {
+	public int getRest_num() {
 		return rest_num;
+	}
+		
+	public void setRest_num(int rest_num) {
+		this.rest_num = rest_num;
 	}
 	public void setRest_num(Integer rest_num) {
 		ReviewVO reviewVO = new ReviewVO();

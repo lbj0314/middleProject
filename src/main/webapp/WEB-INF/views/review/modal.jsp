@@ -1,17 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="../resources/css/review/review.css">
 
 
-</head>
-<body>
-
-
-	<div id="review_write_form" style="margin: 0 auto; background-color: white;">
+<!-- Modal -->
+<div id="review_write_form" style="margin: 0 auto; background-color: white;">
 
 		<div class="comment-list">
 			<form action="../review/reviewWrite" method="post" id="frm">
@@ -39,12 +32,3 @@
 		</form>
 		</div>
 	</div>
-
-
-
-
-
-</body>
-</html>
-
-

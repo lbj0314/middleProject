@@ -7,8 +7,10 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.mid.pro.model.RestaurantVO;
 import com.mid.pro.model.ReviewVO;
 import com.mid.pro.util.Pager;
+import com.mid.pro.util.ReviewPager;
 
 @Repository
 public class ReviewDAO {
@@ -44,5 +46,10 @@ public class ReviewDAO {
 	//totalScore
 	public int reviewScroe(ReviewVO reviewVO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE + "reviewScore", reviewVO);
+	}
+	
+	//reviewMain
+	public List<ReviewVO> reviewMain(ReviewVO reviewVO)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"reviewMain", reviewVO);
 	}
 }

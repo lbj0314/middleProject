@@ -51,8 +51,8 @@ public class RestaurantController {
 	@GetMapping(value = "restSelect")
 	public ModelAndView restSelect(RestaurantVO restaurantVO, ReviewVO reviewVO, ReservationVO reservationVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		restaurantVO = restaurantService.restSelect(restaurantVO);
 		reservationVO = reservationService.reservationSelect(reservationVO);
+		restaurantVO = restaurantService.restSelect(restaurantVO);
 		if (restaurantVO != null) {
 			mv.addObject("vo", restaurantVO);
 			mv.addObject("review", reviewVO);
