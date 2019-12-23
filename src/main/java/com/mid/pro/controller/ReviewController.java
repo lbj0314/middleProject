@@ -129,6 +129,7 @@ public class ReviewController {
 		String msg = "리뷰 삭제에 실패하였습니다. 다시 시도해주세요.";
 		if (result > 0) {
 				msg = "리뷰가 삭제되었습니다.";
+				
 		} else {
 			
 		}
