@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mid.pro.model.RestaurantVO;
@@ -101,7 +102,7 @@ public class ReviewController {
 	@PostMapping(value = "reviewUpdate")
 	public ModelAndView reviewUpdate2(ReviewVO reviewVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		
+		System.out.println("ddddddd");
 		
 		int result = reviewService.reviewUpdate(reviewVO);
 		String msg = "리뷰 수정에 실패하였습니다.";
@@ -112,6 +113,9 @@ public class ReviewController {
 			mv.addObject("path", "../restaurant/restList");
 			mv.setViewName("common/common_result");
 		}
+		mv.addObject("result",result);
+		mv.setViewName("common/common_ajaxResult");
+		
 		return mv;
 		
 

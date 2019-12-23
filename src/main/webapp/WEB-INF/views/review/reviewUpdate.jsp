@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="../resources/fonts/flat-icon/flaticon.css">
     
     <!-- Javascript -->
-    <script src="../resources/js/vendor/jquery-2.2.4.min.js"></script>
+<!--    <script src="../resources/js/vendor/jquery-2.2.4.min.js"></script> -->
 	<script src="../resources/js/vendor/bootstrap-4.1.3.min.js"></script>
     <script src="../resources/js/vendor/wow.min.js"></script>
     <script src="../resources/js/vendor/owl-carousel.min.js"></script>
@@ -32,7 +32,19 @@
     <script src="../resources/js/main.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-
+	<script type="text/javascript">
+		var msg ='${msg}';
+		if(msg !=''){
+			if(msg=='1'){
+				alert('수정 성공');
+				self.close();
+				opener.reload();
+			}else {
+				alert('수정 실패');
+				self.close();
+			}
+		}
+	</script>
 </head>
 <body>
 
@@ -52,11 +64,11 @@
 						readonly="readonly" style="margin-left: 20px; border: none;">
 					
 		 		<select name="score" id="score">
-						<option value="1" <c:if test="${vo.score == 1}">selected</c:if>>★☆☆☆☆</option>
-						<option value="2" <c:if test="${vo.score == 2}">selected</c:if>>★★☆☆☆</option>
-						<option value="3" <c:if test="${vo.score == 3}">selected</c:if>>★★★☆☆</option>
-						<option value="4" <c:if test="${vo.score == 4}">selected</c:if>>★★★★☆</option>
-						<option value="5" <c:if test="${vo.score == 5}">selected</c:if>>★★★★★</option>
+						<option class="score_1" value="1" <c:if test="${vo.score == 1}">selected</c:if>>★☆☆☆☆</option>
+						<option class="score_1" value="2" <c:if test="${vo.score == 2}">selected</c:if>>★★☆☆☆</option>
+						<option class="score_1" value="3" <c:if test="${vo.score == 3}">selected</c:if>>★★★☆☆</option>
+						<option class="score_1" value="4" <c:if test="${vo.score == 4}">selected</c:if>>★★★★☆</option>
+						<option class="score_1" value="5" <c:if test="${vo.score == 5}">selected</c:if>>★★★★★</option>
 					</select> 
 	
 
@@ -65,37 +77,50 @@
 					placeholder="" maxlength="10000" 
 					required class="single-input" id="contents">${vo.contents}</textarea> 
 			
-				<button class="genric-btn primary" id="review_update_btn">확인</button>
 				 <input type="button" class="genric-btn primary danger" onclick="window.close()" value="취소"> 
 		</form>
-				
+				<input type="submit" class="genric-btn primary" id="review_update_btn2" value="확인">
 		</div>
 	</div>
 
 <script type="text/javascript">
 
  			
-	  	$('#review_update_btn').click(function() {
-	  		
+	$('#review_update_btn2').click(function() {
 			var member_num = $('#member_num').val();
  			var writer = $('#writer').val();
  			var rest_num = $('#rest_num').val();
  			var review_num = $('#review_num').val();
- 			var sccore = $('#score').val();
  			var contents = $('#contents').val();
+ 			var sccore = 0;
+ 			$(".score_1").each(function(){
+ 				if($(this).prop("selected")){
+ 					score=$(this).val();
+ 				}
+ 			});
+ 			alert("score: "+score);
+ 			alert(review_num);
+ 			alert(contents);
  		
  		var allData= {"member_num":member_num, "rest_num":rest_num,"review_num":review_num, "writer":writer, "score":score, "contents":contents}
- 		
- 				
- 			$.ajax({
+
+			$.ajax({
  				url: "reviewUpdate",
- 				type: "post",
- 				data: allData,
+ 				type: "POST",
+ 				data: {score:score, review_num:review_num,contents:contents},
  				
  				success:function(data){
+ 					data=data.trim();
+ 					if(data=='1'){
+ 						
  					alert('댓글이 수정되었습니다.');
  					opener.document.location.reload();
- 					window.close();
+ 					window.self.close();
+ 						
+ 					}else{
+ 						alert('댓글 수정에 실패하였습니다.')
+ 					
+ 					}
  					
  					
  					
@@ -104,7 +129,7 @@
  					
  				}
 				
- 			}); 
+ 			});  
 
 	}); 
 	  	
