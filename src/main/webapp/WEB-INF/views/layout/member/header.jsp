@@ -1,3 +1,6 @@
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <!-- Header Area Starts -->
 	<header class="header-area header-area2">
         <div class="container">
@@ -16,10 +19,20 @@
                     <div class="main-menu main-menu2">
                         <ul>
                             <li class="active"><a href="../">home</a></li>
-                            <li><a href="./restList">restaurant</a></li>
+                            <li><a href="../restaurant/restList">restaurant</a></li>
                               <li><a href="#">notice</a></li>
                             <li><a href="#">Q&A</a></li>
-                            <li><a href="../member/memberLogin">LogIn</a></li>
+                        <c:choose>
+							<c:when test="${not empty member}">
+								<li><a href="./memberMylist">MyPage</a></li>
+								<li><a href="./memberLogout">LogOut</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="./memberJoin">Sign In</a></li>
+								<li><a href="./memberLogin">Sign Up</a></li>
+							</c:otherwise>
+						</c:choose>
+						
                         </ul>
                     </div>
                 </div>
@@ -32,8 +45,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1><i>Log In</i></h1>
-                    <p class="pt-2"><i>Beast kind form divide night above let moveth bearing darkness.</i></p>
+                    <h1><i>맛있다!</i></h1>
+                    <p class="pt-2"><i>맛의 세계로 빠져보세요</i></p>
                 </div>
             </div>
         </div>

@@ -2,17 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
 <head>
-<c:import url="../layout/header.jsp"></c:import>
 <c:import url="../layout/header_mypage.jsp"></c:import>
-<c:import url="../layout/restaurant/bootStrap.jsp" />
+<c:import url="../layout/member/bootStrap.jsp"/>
 </head>
-<body>
-	<c:import url="../layout/header_area.jsp"></c:import>
+<body><!-- Preloader Starts -->
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+    <!-- Preloader End -->
+<c:import url="../layout/member/header.jsp"/>
 
-	<!--================Blog Area =================-->
-	
 	<!-- new -->
 	   <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo" id="page-wrapper">
         <div class="wrapper wrapper--w960">
@@ -61,7 +61,6 @@
 
   
 	<!--=============== footer =================-->
-	<c:import url="../layout/footer.jsp" />
+	<c:import url="../layout/member/footer.jsp" />
 
 </body>
-</html>

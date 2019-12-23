@@ -4,12 +4,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<c:import url="../layout/restaurant/bootStrap.jsp" />
+<c:import url="../layout/member/bootStrap.jsp" />
 <c:import url="../layout/header.jsp"></c:import>
 <c:import url="../layout/header_mypage.jsp"></c:import>
 </head>
 <body>
-	<c:import url="../layout/header_area.jsp"></c:import>
 
 	<!--================Blog Area =================-->	
 	<!-- new -->

@@ -19,7 +19,7 @@
 	<section class="contact-form section-padding3">
 		<div class="container" id="test">
 			<div class="row">
-				<div class="col-lg-9" id ="login_box" style="padding: 10px;">
+				<div class="col-lg-9" id ="login_box" style="padding: 10px; margin: 0 auto;">
 					<h3 class="mb-30 title_color">Login</h3>
 					
 					<form action="./memberLogin" method="post">
