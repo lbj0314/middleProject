@@ -25,6 +25,7 @@
   		<typeAlias type="java.lang.Integer" alias="Integer"/>
   		<typeAlias type="java.util.List" alias="List"/>
   		
+  		<typeAlias type="com.mid.pro.model.QnaVO" alias="QnaVO"/>
   		<typeAlias type="com.mid.pro.model.NoticeVO" alias="NoticeVO"/>
   		<typeAlias type="java.lang.Integer" alias="Integer"/>
  		<typeAlias type="java.lang.String" alias="String"/>
