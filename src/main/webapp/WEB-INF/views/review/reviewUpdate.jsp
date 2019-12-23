@@ -30,7 +30,7 @@
     <script src="../resources/js/vendor/jquery.datetimepicker.full.min.js"></script>
     <script src="../resources/js/vendor/jquery.nice-select.min.js"></script>
     <script src="../resources/js/main.js"></script>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
 </head>
@@ -41,29 +41,31 @@
 	<div id="review_write_form" style="width: 700px; margin-top: 50px">
 
 		<div class="comment-list">
-			<form action="./reviewUpdate" method="post" id="frm">
+			<form action="./reviewUpdate" method="post" name="frm">
+			
 				<input type="hidden" id="member_num" name="member_num"value="${member.member_num}">
 				 <input type="hidden" id="rest_num" name="rest_num" value="${vo.rest_num}">
+				 <input type="hidden" id="review_num" name="review_num" value="${vo.review_num}">
 
-				<c:if test="${ not empty member}">
+				
 					<input type="text" id="writer" name="writer" value="${member.name}"
 						readonly="readonly" style="margin-left: 20px; border: none;">
 					
-					<select name="score" id="score">
+		 		<select name="score" id="score">
 						<option value="1" <c:if test="${vo.score == 1}">selected</c:if>>★☆☆☆☆</option>
 						<option value="2" <c:if test="${vo.score == 2}">selected</c:if>>★★☆☆☆</option>
 						<option value="3" <c:if test="${vo.score == 3}">selected</c:if>>★★★☆☆</option>
 						<option value="4" <c:if test="${vo.score == 4}">selected</c:if>>★★★★☆</option>
 						<option value="5" <c:if test="${vo.score == 5}">selected</c:if>>★★★★★</option>
-					</select>
-				</c:if>
+					</select> 
+	
 
 
-				<textarea class="review_editor" name = "contents" 
+			<textarea class="review_editor" name = "contents" 
 					placeholder="" maxlength="10000" 
-					required class="single-input">${vo.contents}</textarea>
+					required class="single-input" id="contents">${vo.contents}</textarea> 
 			
-				<button class="genric-btn primary" id="review_update_btn" type="submit">확인</button>
+				<button class="genric-btn primary" id="review_update_btn">확인</button>
 				 <input type="button" class="genric-btn primary danger" onclick="window.close()" value="취소"> 
 		</form>
 				
@@ -71,12 +73,38 @@
 	</div>
 
 <script type="text/javascript">
-	
-/* 	$('#review_update_btn').click(function() {
-		opener.document.location.reload();
-		self.close();
-		
-	}); */
+
+ 			
+	  	$('#review_update_btn').click(function() {
+	  		
+ 			var member_num = $('#member_num').val();
+ 			var rest_num = $('#rest_num').val();
+ 			var review_num = $('#review_num').val();
+ 			var writer = $('#writer').val();
+ 			var sccore = $('#score').val();
+ 			var contents = $('#contents').val();
+ 		
+ 		var allData= {"member_num":member_num, "rest_num":rest_num, "review_num":review_num, "writer":writer, "score":score, "contents":contents}
+ 		
+ 				
+ 			$.ajax({
+ 				url: "reviewUpdate",
+ 				type: "post",
+ 				data:  {"member_num":member_num, "rest_num":rest_num, "review_num":review_num, "writer":writer, "score":score, "contents":contents},
+ 				success:function(data){
+ 					alert('댓글이 수정되었습니다.');
+ 					window.close();
+ 					opener.document.location.reload();
+ 					
+ 					
+ 				},error:function(){
+ 					alert('댓글 수정에 실패하였습니다.')
+ 					
+ 				}
+				
+ 			}); 
+
+	}); 
 </script>
 
 

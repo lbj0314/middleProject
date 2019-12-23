@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -91,25 +92,33 @@ public class ReviewController {
 			mv.setViewName("review/reviewUpdate");
 		} else {
 			mv.addObject("msg", "수정할 리뷰가 없습니다.");
-			mv.addObject("path", "restaurant/restList");
+			mv.addObject("path", "restaurant/restList"); 
 			mv.setViewName("common/common_result");
 		}
 		return mv;
 			
 	}
 	@PostMapping(value = "reviewUpdate")
-	public ModelAndView reviewUpdate2(ReviewVO reviewVO) throws Exception{
+	public ModelAndView reviewUpdate2(ReviewVO reviewVO, Model model) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
+		
 		int result = reviewService.reviewUpdate(reviewVO);
 		String msg = "리뷰 수정에 실패하였습니다.";
 		if (result > 0) {
-			mv.setViewName("redirct:../restaurant/restList");
+		/*	mv.setViewName("redirect:../restaurant/restList");*/
 		} else {
 			mv.addObject("msg", msg);
 			mv.addObject("path", "../restaurant/restList");
 			mv.setViewName("common/common_result");
 		}
 		return mv;
+		
+		/*int result = reviewService.reviewUpdate(reviewVO);
+		
+		model.addAttribute("result", result);
+	*/
+		
 	}
 	//delete
 	@GetMapping(value = "reviewDelete")
