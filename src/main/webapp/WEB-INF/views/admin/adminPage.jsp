@@ -17,6 +17,7 @@
 </style>
 
 <c:import url="../layout/admin/header.jsp"></c:import>
+<c:import url="../layout/admin/bootStrap.jsp" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="../resources/js/vendor/jquery-2.2.4.min.js"></script>
@@ -42,7 +43,7 @@
 
 			<!-- <a href="./allmember">회원 관리</a> -->
 
-	<div class="container" style="height: 700px;">
+	<div class="container" style="height: 700px; width: 1200">
 
 		<div class="nav nav-tabs ">
 			<a class="test" data-toggle="tab" href="#allmember"><button class="genric-btn primary-border">회원관리</button></a>
@@ -51,50 +52,111 @@
 			<a data-toggle="tab" href="#qna"><button class="genric-btn primary-border">문의 게시판 관리</button></a>
 		</div>
 
-		<div class="tab-content container " style="height: 500px; background-color: #EEEEEE;">
+		<div class="tab-content container " style="height: 600px; background-color: #EEEEEE;">
 			<div id="allmember" class="tab-pane fade in active">
 					<div>
-					<a href="${pageContext.request.contextPath}/admin/allmember"><button class="genric-btn primary-border">회원 목록</button></a>	
+					<a href="${pageContext.request.contextPath}/admin/allmember"><button class="genric-btn primary-border">회원 목록 수정하기</button></a>	
 					</div>	
-					<div style="width:1080px; height:450px; text-align: center; background-color: white;">
-	
+					<div style="width:1150px; height:550px;  background-color: white;">
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<div class="container">
+	<c:if test="${member.grade ==3}">
+	<table class="table ">
 
-		
+								<tr>
+									<th>아이디</th>
+									<th>패스워드</th>
+									<th>이름</th>
+									<th>이메일</th>
+									<th>전화번호</th>
+									<th>가입 날짜</th>
+									<th>등급</th>
 
-					
-					</div>
-            			
-				</div>					
-			</div>
+								</tr>
+								<c:forEach items="${list2}" var="vo" varStatus="c">
+									<tr>
+										<!-- ------------------- -->
+										<td><c:catch>
+												<c:forEach begin="1" end="1"></c:forEach>
+											</c:catch> ${ vo.id }</td>
+										<!-- ------------------- -->
+										<td><c:catch>
+												<c:forEach begin="1" end="1"></c:forEach>
+											</c:catch> ${ vo.pw }</td>
+										<!-- ------------------- -->
+										<td><c:catch>
+												<c:forEach begin="1" end="1"></c:forEach>
+											</c:catch> ${ vo.name }</td>
+										<!-- ------------------- -->
+										<td><c:catch>
+												<c:forEach begin="1" end="1"></c:forEach>
+											</c:catch> ${ vo.email }</td>
+										<!-- ------------------- -->
+										<td><c:catch>
+												<c:forEach begin="1" end="1"></c:forEach>
+											</c:catch> ${ vo.tel }</td>
+										<!-- ------------------- -->
+										<td><c:catch>
+												<c:forEach begin="1" end="1"></c:forEach>
+											</c:catch> ${ vo.joindate }</td>
+										<!-- ------------------- -->
+										<td><c:catch>
+												<c:forEach begin="2" end="${ vo.depth }"></c:forEach>
+											</c:catch> ${ vo.grade }</td>
+										<!-- ------------------- -->
+									</tr>
+								</c:forEach>
+
+							</table>
+
+<!-- 페이징 -->
+		<div>
+			<ul class="pagination">
+				<c:if test="${pager.curBlock gt 1 }">
+
+					<li><span id="${pager.startNum-1 }" class="list">이전</span></li>
+				</c:if>
+				<c:forEach begin="${ pager.startNum }" end="${ pager.lastNum }" var="i">
+					<li><span id="${i}" class="list">${i}</span></li>
+				</c:forEach>
+				<c:if test="${ pager.curBlock lt pager.totalBlock }">
+				<li><span id="${pager.lastNum + 1 }" class="list ">다음</span></li>
+				</c:if>
+			</ul>
+		</div><!--페이징 처리 -->				
+	</c:if>
+</div><!-- 출력문 s박스 container -->
+<!-- ------------------------------------------------------------------------------------------------------- -->					
+					</div> <!-- b출력박스 -->         			
+				</div>	<!-- allmember -->				
 			
 			
 			<div id="franchising" class="tab-pane fade">
 				<div>
-					<a href="${pageContext.request.contextPath}/"><button class="genric-btn primary-border">가맹주 목록</button></a>	
+					<a href="${pageContext.request.contextPath}/"><button class="genric-btn primary-border">가맹주 수정하기</button></a>	
 				</div>
-				<div style="width:1080px; height:250px; text-align: center; background-color: white;">222</div>	
-			</div>	
+				<div style="width:1150px; height:550px; text-align: center; background-color: white;">222</div>	
+			</div>	<!-- franchising -->
 			
 					
 			<div id="notice" class="tab-pane fade">
 				<div>
-					<a href="${pageContext.request.contextPath}/notice/noticeList"><button class="genric-btn primary-border">공지 게시판</button></a>	
+					<a href="${pageContext.request.contextPath}/notice/noticeList"><button class="genric-btn primary-border">공지 게시판 수정하기</button></a>	
 				</div>
-				<div style="width:1080px; height:250px; text-align: center; background-color: white;">333</div>	
-			</div>
+				<div style="width:1150px; height:550px; text-align: center; background-color: white;">333</div>	
+			</div><!-- notice -->
 			
 			
 			<div id="qna" class="tab-pane fade">
 				<div>
-					<a href="${pageContext.request.contextPath}/qna/qnaList"><button class="genric-btn primary-border">문의 게시판</button></a>	
+					<a href="${pageContext.request.contextPath}/qna/qnaList"><button class="genric-btn primary-border">문의 게시판 수정하기</button></a>	
 				</div>
-				<div style="width:1080px; height:250px; text-align: center; background-color: white;">444</div>	
+				<div style="width:1150px; height:550px; text-align: center; background-color: white;">444</div>	
+			</div><!-- qna -->
+			
 			</div>
 			
-			
-		</div>
-	</div>
-
+		</div><!-- boos box -->
 
 
 

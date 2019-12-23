@@ -25,6 +25,8 @@ public interface MemberService {
 	
 	public int memberUpdate2(MemberVO memberVO)throws Exception;
 	
-
+	public List<MemberVO> List2(Pager pager) throws Exception;
+	
+	
 
 }

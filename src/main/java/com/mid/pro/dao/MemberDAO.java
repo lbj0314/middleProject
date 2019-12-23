@@ -43,5 +43,9 @@ public interface MemberDAO {
 	//update
 	public int memberUpdate2(MemberVO memberVO)throws Exception;
 	
-
+	//adminPage
+	public List<MemberVO> List2(Pager pager)throws Exception;
+	
+	
+	public int Count2(Pager pager)throws Exception;
 }

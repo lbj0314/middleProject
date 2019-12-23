@@ -85,7 +85,13 @@ public class MemberDAOImpl implements MemberDAO{
 		return sqlSession.update(NAMESPACE+"memberUpdate2", memberVO);
 	}
 	
-
+	@Override
+	public List<MemberVO> List2(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "adminPage", pager);
+	}
 	
-
+	@Override
+	public int Count2(Pager pager) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "memberCount2", pager);
+	}
 }

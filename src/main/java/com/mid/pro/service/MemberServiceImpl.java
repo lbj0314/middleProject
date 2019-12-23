@@ -66,6 +66,11 @@ public class MemberServiceImpl implements MemberService {
 	public int memberUpdate2(MemberVO memberVO)throws Exception{
 		return memberDAOImpl.memberUpdate2(memberVO);
 	}
-	
+	@Override
+	public java.util.List<MemberVO> List2(Pager pager) throws Exception {
+		pager.makeRow();
+		pager.makePager(memberDAOImpl.Count2(pager));
+		return memberDAOImpl.List(pager);
+	}
 
 }

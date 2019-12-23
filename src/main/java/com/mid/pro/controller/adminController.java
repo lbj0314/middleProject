@@ -93,13 +93,13 @@ public class adminController {
 	  }
 	 
 	//adminPage1~4 이동
-
-	  		@RequestMapping("adminPage")
-	  		public ModelAndView admin(ModelAndView mv) throws Exception {
-		  
-	  		mv.setViewName("admin/adminPage");
-	  		return mv;
-	  		}
+	  //adminPage 대신
+//	  		@RequestMapping("adminPage")
+//	  		public ModelAndView admin(ModelAndView mv) throws Exception {
+//		  
+//	  		mv.setViewName("admin/adminPage");
+//	  		return mv;
+//	  		}
 
 
 		  @RequestMapping("adminPage2")
@@ -124,6 +124,23 @@ public class adminController {
 		  }
 		  
 		  
+		  
+		  //adminPage
+		  @RequestMapping("adminPage")
+			public ModelAndView adminPage(ModelAndView mv, MemberVO memberVO, Pager pager) throws Exception {
+
+
+				if (pager.getKind().equals("kc")) {
+					String date = pager.getSearch();
+					date = date.replace("-", "/");
+					pager.setSearch(date);
+				}
+				List<MemberVO> ar = memberServiceImpl.List(pager);
+				mv.addObject("list2", ar);
+				mv.setViewName("admin/adminPage");
+				mv.addObject("pager", pager);
+				return mv;
+			}
 		  
 		  
 		  
