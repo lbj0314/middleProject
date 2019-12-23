@@ -1,3 +1,6 @@
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <!-- Header Area Starts -->
 	<header class="header-area header-area2">
         <div class="container">
@@ -17,15 +20,19 @@
                         <ul>
                             <li class="active"><a href="../">home</a></li>
                             <li><a href="./restList">restaurant</a></li>
-                            <li><a href="../menu/menuList">menu</a></li>
-                            <li><a href="#">blog</a>
-                                <ul class="sub-menu">
-                                    <li><a href="#">Blog Home</a></li>
-                                    <li><a href="#">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">contact</a></li>
-                            <li><a href="#">Elements</a></li>
+                              <li><a href="#">notice</a></li>
+                            <li><a href="#">Q&A</a></li>
+                        <c:choose>
+							<c:when test="${not empty member}">
+								<li><a href="../member/memberMylist">MyPage</a></li>
+								<li><a href="../member/memberLogout">LogOut</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="../member/memberJoin">Sign In</a></li>
+								<li><a href="../member/memberLogin">Sign Up</a></li>
+							</c:otherwise>
+						</c:choose>
+						
                         </ul>
                     </div>
                 </div>
@@ -38,8 +45,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1><i>Our Menu</i></h1>
-                    <p class="pt-2"><i>Beast kind form divide night above let moveth bearing darkness.</i></p>
+                    <h1><i>다양한 음식점을 소개합니다.</i></h1>
+                    <p class="pt-2"><i>맛의 세계로 빠져보세요</i></p>
                 </div>
             </div>
         </div>

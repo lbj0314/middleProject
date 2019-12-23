@@ -12,14 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mid.pro.model.MemberVO;
-import com.mid.pro.model.MenuFilesVO;
 import com.mid.pro.model.ReservationVO;
 import com.mid.pro.model.RestaurantFilesVO;
 import com.mid.pro.model.RestaurantVO;
 import com.mid.pro.model.ReviewVO;
-import com.mid.pro.service.MemberService;
-import com.mid.pro.service.MemberServiceImpl;
 import com.mid.pro.service.ReservationService;
 import com.mid.pro.service.RestaurantService;
 import com.mid.pro.service.ReviewService;
@@ -49,13 +45,14 @@ public class RestaurantController {
 	}
 	//select One
 	@GetMapping(value = "restSelect")
-	public ModelAndView restSelect(RestaurantVO restaurantVO, ReviewVO reviewVO, ReservationVO reservationVO) throws Exception {
+	public ModelAndView restSelect(RestaurantVO restaurantVO, Pager pager, ReservationVO reservationVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		reservationVO = reservationService.reservationSelect(reservationVO);
 		restaurantVO = restaurantService.restSelect(restaurantVO);
+		List<ReviewVO> list = reviewService.reviewList(pager);
 		if (restaurantVO != null) {
 			mv.addObject("vo", restaurantVO);
-			mv.addObject("review", reviewVO);
+			mv.addObject("list", list);
 			mv.addObject("rev", reservationVO);
 			restaurantVO.getRest_contents().replace("\r\n", "<br>");
 			mv.setViewName("restaurant/restSelect");

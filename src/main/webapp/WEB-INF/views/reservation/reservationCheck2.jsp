@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Restaurant Reservation Check</title>
-<c:import url="../layout/restaurant/bootStrap.jsp" />
+<c:import url="../layout/reservation/bootStrap.jsp" />
 </head>
 <body>
 	<!-- Preloader Starts -->
@@ -14,7 +14,7 @@
 		<div class="spinner"></div>
 	</div>
 	<!-- Preloader End -->
-	<c:import url="../layout/restaurant/header.jsp" />
+	<c:import url="../layout/reservation/header.jsp" />
 	<div class="container col-12">
 
 		<%-- <input type="hidden" name="member_num" value="${rest.member_num}"> --%>
@@ -67,7 +67,7 @@
 		<button class="btn geric btn-primary" onclick="history.back()">뒤로 가기</button>
 		</div>
 	</div>
-	<c:import url="../layout/restaurant/footer.jsp" />
+	<c:import url="../layout/reservation/footer.jsp" />
 
 	<script type="text/javascript">
 	/* 	$("#allCheck").click(function() {

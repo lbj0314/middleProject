@@ -27,17 +27,17 @@
                         
         
                          <div class="input-group">  
-                         	<div class="input--style-2 column">비밀번호</div>
+                         	<div class="input--style-2 column">비밀번호 :&nbsp;&nbsp;</div>
                          	<div class="update_div">                                     
                             <input class="input--style-2 list member_update" type="password" placeholder="비밀번호" name="pw" id="pw" value="${member.pw}"
                             onfocus="this.placeholder = '비밀번호를 입력해주세요.'" onblur="this.placeholder = '비밀번호'">
                   			</div>
                        		
                        		 
-                       		<div class="input--style-2 column">비밀번호</div>  
+                       		<div class="input--style-2 column">비밀번호 확인 :&nbsp;&nbsp;</div>  
                        		<div class="update_div">                                          
                             <input class="input--style-2 list member_update" type="password" placeholder="비밀번호 확인" name="pw2" id="pw2"
-                            onfocus="this.placeholder = '비밀번호를 다시 입력해주세요.'">
+                            onfocus="this.placeholder = '비밀번호를 같게 입력해주세요.'">
                        		</div>
            
                        		<div   class="input--style-2 column" ></div> 
@@ -46,7 +46,7 @@
                         </div>
                         
                          <div class="input-group">  
-                       		<div class="input--style-2 column">이름</div>     
+                       		<div class="input--style-2 column">이름 :&nbsp;&nbsp;</div>     
                        		<div class="update_div">                                 
                             <input class="input--style-2 list member_update" type="text" placeholder="${member.name}" name="name" id="name" value="${member.name}"
                             onfocus="this.placeholder = ''" onblur="this.placeholder = '${member.name}'">
@@ -65,12 +65,12 @@
                         </div> --%>
                         
                         <div class="input-group">  
-                       		<div class="input--style-2 column">이메일</div>                                            
+                       		<div class="input--style-2 column">이메일 :&nbsp;&nbsp;</div>                                            
                             <input class="input--style-2 list" type="text" placeholder="${member.email}" name="email" value="${member.email}" >
                         </div>
                         
                          <div class="input-group">  
-                       		<div class="input--style-2 column">핸드폰번호</div>     
+                       		<div class="input--style-2 column">핸드폰번호 :&nbsp;&nbsp;</div>     
                        		<div class="update_div">                                 
                             <input class="input--style-2 list member_update" type="text" placeholder="${member.tel}" name="tel" id="tel" id="tel" value = "${member.tel}"
                             onfocus="this.placeholder = ''" onblur="this.placeholder = '${member.tel}'">                         
@@ -81,7 +81,7 @@
                         
                         <c:if test="${member.grade == 2}">
                          <div class="input-group">  
-                       		<div class="input--style-2 column">사업자번호</div>     
+                       		<div class="input--style-2 column">사업자번호 :&nbsp;&nbsp;	</div>     
                        		<div class="update_div">                                 
                             <input class="input--style-2 list member_update" type="text" placeholder="${member.reg_number}" name="reg_number" id="reg_number" value = "${member.reg_number}"
                             onfocus="this.placeholder = ''" onblur="this.placeholder = '${member.reg_number}'">

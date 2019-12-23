@@ -4,15 +4,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<c:import url="../layout/header.jsp"></c:import>
+<c:import url="../layout/member/header.jsp"/>
+<c:import url="../layout/member/bootStrap.jsp"/>
 </head>
 <body>
-	<c:import url="../layout/header_area.jsp"></c:import>
 
 	<!-- Align Area Start -->
 	<div class="section-top-border">
 		<div class="row">
-			<div class="col-lg-8 col-md-8" id=join-form>
+			<div class="col-lg-6 col-md-6" id=join-form style="margin: 0 auto;">
 				<h3 class="mb-30 title_color">Create account</h3>
 
 
@@ -24,8 +24,6 @@
 								<input type="radio" id="primary-radio" name="grade" value="1"
 									checked="checked"> <label for="primary-radio"></label>
 							</div>
-
-
 						</div>
 						<div class="switch-wrap d-flex justify-content-between">
 							<p id=check_cor>02. 기업회원</p>
@@ -115,7 +113,7 @@
 	<!-- End Align Area -->
 	
 <!--------------- Footer ----------------->
-<c:import url="../layout/footer.jsp" />
+<c:import url="../layout/member/footer.jsp" />
 
 
 

@@ -20,9 +20,6 @@
  			ORDER BY review_num DESC) RV)
  		WHERE R BETWEEN #{startRow} AND #{lastRow}
  	</select>
- 	
- 	
- 	
  	<!-- select -->
  	<select id="reviewSelect" resultType="ReviewVO" parameterType="ReviewVO">
  		SELECT * from review
