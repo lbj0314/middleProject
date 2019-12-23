@@ -11,7 +11,8 @@ public class MenuVO {
 	private String origin;
 	private int rest_num;
 	private List<MenuFilesVO> files;
-	
+	private String oname;
+	private String fname;
 
 	public int getMenu_num() {
 		return menu_num;
@@ -56,8 +57,18 @@ public class MenuVO {
 	public void setFiles(List<MenuFilesVO> files) {
 		this.files = files;
 	}
-
-	
+	public String getOname() {
+		return oname;
+	}
+	public void setOname(String oname) {
+		this.oname = oname;
+	}
+	public String getFname() {
+		return fname;
+	}
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
 }
 
 	

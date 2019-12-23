@@ -84,7 +84,7 @@
 		#{rest_num}, #{rest_name}, #{rest_contents}, #{rest_post1},
 		#{rest_addr1}, #{rest_addr2}, #{rest_tel}, #{rest_url},
 		#{kind}, SYSDATE, 0, 0, #{rest_time}, #{rest_accept}, #{member_num}, #{rest_id}
-
+		)
 	</insert>
 	<delete id="restaurantDelete" parameterType="Integer">
  		DELETE restaurant

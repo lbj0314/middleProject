@@ -64,4 +64,8 @@ public class MenuDAO {
 	public MenuFilesVO fileSelect(MenuFilesVO menufilesVO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE + "fileSelect", menufilesVO);
 	}
+	//fileSelect2
+	public MenuFilesVO fileSelect2(MenuFilesVO menuFilesVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE + "fileSelect2", menuFilesVO);
+	}
 }

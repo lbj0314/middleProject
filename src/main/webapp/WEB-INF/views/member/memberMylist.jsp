@@ -6,6 +6,7 @@
 <head>
 <c:import url="../layout/header.jsp"></c:import>
 <c:import url="../layout/header_mypage.jsp"></c:import>
+<c:import url="../layout/restaurant/bootStrap.jsp" />
 </head>
 <body>
 	<c:import url="../layout/header_area.jsp"></c:import>
@@ -48,8 +49,9 @@
                         </div>
                         </c:if>
                                              
-                        <div class="p-t-30">
-                            <a href="./memberUpdate?id=${member.id}#page-wrapper" class="btn btn--radius btn--green" >수정</a>          
+                        <div class="p-t-30" align="center">
+                            <a href="./memberUpdate?id=${member.id}#page-wrapper" class="genric-btn info" >수정</a>
+                            <a href="../reservation/reservationCheck2?member_num=${member.member_num}" class="genric-btn primary">예약 확인</a>        
                         </div>
                     </form>
                 </div>

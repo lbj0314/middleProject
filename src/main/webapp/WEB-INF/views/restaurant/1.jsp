@@ -14,6 +14,7 @@
 <meta charset="UTF-8">
 <title>restaurant List</title>
 <c:import url="../layout/restaurant/bootStrap.jsp"/>
+<link href="../resources/css/rest/rest.css" rel="stylesheet">
 </head>
 <body>
 <!-- Preloader Starts -->
@@ -22,40 +23,44 @@
     </div>
     <!-- Preloader End -->
 <c:import url="../layout/restaurant/header.jsp"/>
-<div class="container">
-<%-- <!-- search -->
-		<div>
+
+ <!-- Update Area Starts -->
+ 
+ 
+ 
+    <section class="update-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-top2 text-center">
+                        <h3>Our <span>restaurant</span> update</h3>
+                        <p><i>Beast kind form divide night above let moveth bearing darkness.</i></p>
+                    </div>
+                </div>
+            </div>
+            
+                
+ 			<%-- <div>
 			<form id="frm" action="./restList" method="get">
 			<input type="hidden" id="curPage" value="1" name="curPage">
 			<select name="kind">
 				<option id="kn" value="kn">name</option>
 				<option id="kc" value="kc">contents</option>
 			</select>
-			<input type="text" id="search" name="search" value="${pager.search }">
-			<button class="genric-btn success circle">SEARCH</button>
+			<div class="input-group">
+			<input type="text"  class="form-control" name="search" value="${pager.search }">
+			<span class="input-group-btn">
+			<button class= "btn btn-default">
+			<i class="fa fa-search">
+			</i>
+			</button>
+			</span>
+			</div>
 			</form>
 		</div> --%>
-		<%-- <table class="table ">
-
-			<tr>
-				<th>NUM</th>
-				<th width="60%">NAME</th>
-				<th>DATE</th>
-				<th>HIT</th>
-			</tr>
-			<c:forEach items="${list}" var="vo">
-				<tr>
-					<td>${ vo.rest_num }</td>	
-					<td>
-
-					<a href="restSelect?rest_num=${ vo.rest_num }">${ vo.rest_name }</a>
-					</td>
-					<td>${ vo.reg_date }</td>
-					<td>${ vo.hit }</td>
-				</tr>
-			</c:forEach>
-		</table> --%>
-		<div class="s003" >
+		
+            
+	<div class="s003" >
       <form action="./restList" method="get" id="frm" >
       <input type="hidden" id="curPage" value="1" name="curPage">
         <div class="inner-form" >
@@ -88,7 +93,9 @@
             	<c:forEach items="${list}" var="vo">
                 <div class="col-md-4">
                     <div class="single-food">
-                   
+                        <div class="food-img">
+                            <img src=" " class="img-fluid" alt="">
+                        </div>
                         <div class="food-content">
                             <div class="post-admin d-lg-flex mb-3">
                                 <span class="mr-5 d-block mb-2 mb-lg-0"><i class="fa fa-user-o mr-2"></i>${vo.rest_id}</span>
@@ -96,11 +103,7 @@
                             </div>
                             <h5>${vo.rest_name}</h5>
                             <div id="target">
-                             
-                        <div class="food-img">
-                            <a href="restSelect?rest_num=${ vo.rest_num }"><img src="../resources/upload/restaurant/${vo['fname']}" class="img-fluid" alt="${vo['oname']}"></a>
-                        </div>
-                      
+                            <p>${vo.rest_contents}</p>
                             </div>
                             <div id="restSelect_btn">
                             <a href="restSelect?rest_num=${ vo.rest_num }" class="template-btn3 mt-2">read more <span><i class="fa fa-long-arrow-right"></i></span></a>
@@ -110,7 +113,75 @@
                     </div>
                     </c:forEach>
                 </div>
-		<div>
+               <!--  <div class="col-md-4">
+                    <div class="single-food my-5 my-md-0">
+                        <div class="food-img">
+                            <img src="assets/images/update2.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="food-content">
+                            <div class="post-admin d-lg-flex mb-3">
+                                <span class="mr-5 d-block mb-2 mb-lg-0"><i class="fa fa-user-o mr-2"></i>Admin</span>
+                                <span><i class="fa fa-calendar-o mr-2"></i>20/09/2018</span>
+                            </div>
+                            <h5>things go better with food</h5>
+                            <p>nancy boy off his nut so I said chimney pot be James Bond aking cakes he.</p>
+                            <a href="#" class="template-btn3 mt-2">read more <span><i class="fa fa-long-arrow-right"></i></span></a>
+                        </div>
+                    </div>
+                </div> -->
+               <!--  <div class="col-md-4">
+                    <div class="single-food">
+                        <div class="food-img">
+                            <img src="assets/images/update3.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="food-content">
+                            <div class="post-admin d-lg-flex mb-3">
+                                <span class="mr-5 d-block mb-2 mb-lg-0"><i class="fa fa-user-o mr-2"></i>Admin</span>
+                                <span><i class="fa fa-calendar-o mr-2"></i>22/09/2018</span>
+                            </div>
+                            <h5>food head above the rest</h5>
+                            <p>nancy boy off his nut so I said chimney pot be James Bond aking cakes he.</p>
+                            <a href="#" class="template-btn3 mt-2">read more <span><i class="fa fa-long-arrow-right"></i></span></a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+    </section>
+    <!-- Update Area End -->   
+   
+
+
+<div class="container">
+<!-- search -->
+	 	<%-- <div>
+			<form id="frm" action="./restList" method="get">
+			<input type="hidden" id="curPage" value="1" name="curPage">
+			<select name="kind">
+				<option id="kn" value="kn">name</option>
+				<option id="kc" value="kc">contents</option>
+			</select>
+			<input type="text" id="search" name="search" value="${pager.search }">
+			<button class="genric-btn success circle">SEARCH</button>
+			</form>
+		</div>
+		
+		<table class="table ">
+			<tr>
+				<th>NUM</th>
+				<th width="60%">NAME</th>
+				<th>DATE</th>
+			</tr>
+			<c:forEach items="${list}" var="vo">
+				<tr>
+					<td>${ vo.rest_num }</td>	
+					<td>
+					<a href="restSelect?rest_num=${ vo.rest_num }">${ vo.rest_name }</a>
+					</td>
+					<td>${ vo.reg_date }</td>
+				</tr>
+			</c:forEach>
+		</table>
+		<div>  --%>
 			<!-- session member, memberDTO -->
 			<c:if test="${ not empty member  }">
 				<button type="button" class="genric-btn primary" id="btn_write">WRITE</button>
@@ -128,13 +199,15 @@
 				<li><span id="${pager.lastNum + 1 }" class="list">다음</span></li>
 				</c:if>
 			</ul>
-		</div>
-		
-<c:import url="../layout/restaurant/footer.jsp"/>
+	<!-- 	</div> -->
+	
+	
 	<script type="text/javascript">
 		$("#btn_write").click(function() {
 			location.href = "restWrite";
 		});	
+		
+		
 		var kind = '${pager.kind}';
 		if(kind == ''){
 			kind = "kn";
@@ -155,5 +228,8 @@
       });
       
     </script>
+<c:import url="../layout/restaurant/footer.jsp"/>
+
+
 </body>
 </html>

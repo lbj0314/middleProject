@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<c:import url="../layout/restaurant/bootStrap.jsp" />
 <c:import url="../layout/header.jsp"></c:import>
 <c:import url="../layout/header_mypage.jsp"></c:import>
 </head>
@@ -93,7 +94,7 @@
  	                  	<div class="p-t-30">
 			                  <button class="btn btn--radius btn--green" id="btn">적용</button>
 			                 
-			                  <input type="button" class="btn btn--radius" id = "btn--red" onclick="history.back()" value="취소">             
+			                  <input type="button" class="btn btn--radius btn--red" id = "btn--red" onclick="history.back()" value="취소">             
                         </div>
                        </form>
                         

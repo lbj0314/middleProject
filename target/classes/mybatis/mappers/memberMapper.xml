@@ -67,6 +67,9 @@
   	delete from member where id = #{id}
   </delete>
   
-  
-  
+  <!-- memberMyList -->
+  <select id="memberMylist" parameterType="MemberVO" resultType="memberVO">
+  	SELECT * FROM member
+  	WHERE id = #{id}
+  </select>
   </mapper>

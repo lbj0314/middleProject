@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<c:import url="../layout/restaurant/bootStrap.jsp"/>
+<c:import url="../layout/member/bootStrap.jsp"/>
 </head>
 <body>
 <!-- Preloader Starts -->
@@ -13,14 +13,13 @@
         <div class="spinner"></div>
     </div>
     <!-- Preloader End -->
-<c:import url="../layout/restaurant/header.jsp"/>
-	<c:import url="../layout/header_area.jsp"/>
+<c:import url="../layout/member/header.jsp"/>
 
 	<!-- Contact Form Starts -->
 	<section class="contact-form section-padding3">
 		<div class="container" id="test">
 			<div class="row">
-				<div class="col-lg-9" id = "login_box">
+				<div class="col-lg-9" id ="login_box" style="padding: 10px;">
 					<h3 class="mb-30 title_color">Login</h3>
 					
 					<form action="./memberLogin" method="post">
@@ -46,6 +45,6 @@
 
 
 	<!-- Footer Area Starts -->
-	<c:import url="../layout/restaurant/footer.jsp" />
+	<c:import url="../layout/member/footer.jsp" />
 </body>
 </html>

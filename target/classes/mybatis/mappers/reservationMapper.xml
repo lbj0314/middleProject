@@ -61,14 +61,15 @@
 	<!-- 회원이 예약 내역 확인 -->
 	<select id="reservationCheck2" parameterType="Integer"
 		resultType="Reservation2VO">
-		SELECT re.rest_num, re.rest_name, re.member_name,
-		re.rev_time,
-		re.rev_date, re.rev_num, re.table_num, m.email, m.tel
+		SELECT   re.rev_num, re.rest_num, re.rest_name, re.member_name,
+		 re.table_num, re.rev_date, re.rev_time,
+		 r.rest_addr1, r.rest_addr2, r.rest_tel, r.rest_url
 		FROM restaurant R JOIN
 		reservation RE ON r.rest_num = re.rest_num
 		JOIN member M ON
 		re.member_name = m.id
-		WHERE re.member_num = #{member_num} ORDER BY rev_date
+		WHERE re.member_num = #{member_num} 
+		ORDER BY rev_num
 	</select>
 	<!-- 회원이 예약 취소 -->
 	<delete id="reservationDelete2" parameterType="Integer">

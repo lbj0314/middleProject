@@ -22,7 +22,9 @@ public class RestaurantVO {
 	private int member_num;
 	private String rest_id;
 	private List<RestaurantFilesVO> files;
-
+	private String oname;
+	private String fname;
+	
 	public int getRest_num() {
 		return rest_num;
 	}
@@ -125,5 +127,17 @@ public class RestaurantVO {
 	public void setFiles(List<RestaurantFilesVO> files) {
 		this.files = files;
 	}
-
+	public String getOname() {
+		return oname;
+	}
+	public void setOname(String oname) {
+		this.oname = oname;
+	}
+	public String getFname() {
+		return fname;
+	}
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+	
 }

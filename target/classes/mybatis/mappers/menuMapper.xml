@@ -16,9 +16,23 @@
 		</choose>
 	</sql> -->
 	
+	  	<resultMap type="MenuVO" id="menuFiles">
+		<id property="menu_num" column="menu_num"/>
+		<result property="menu_name" column="menu_name"/>
+		<result property="menu_contents" column="menu_contents"/>
+		<result property="price" column="price"/>
+		<result property="origin" column="origin"/>
+		<result property="rest_num" column="rest_num"/>
+		<collection property="files" javaType="List" ofType="MenuFilesVO">
+			<id property="fnum" column="fnum"/>
+			<result property="fname" column="fname"/>
+			<result property="oname" column="oname"/>
+		</collection>
+	</resultMap>
+	
 
   	<!-- list -->
-  	<select id="menuList" resultType="MenuVO" parameterType="MenuVO" resultMap="menuFiles">
+  	<select id="menuList" parameterType="MenuVO" resultType="MenuVO">
   <!-- 		SELECT * FROM
 		(SELECT M.*, ROWNUM R FROM
 		(SELECT * FROM menu
@@ -31,26 +45,13 @@
 		ON (r.menu_num = m.menu_num)
 		FULL OUTER JOIN menuFiles f
 		ON (r.menu_num = f.menu_num)
-		WHERE r.menu_num = #{menu_num}
+		WHERE r.rest_num = #{rest_num}
 
   	</select>
   	
   	
   	<!-- select -->
-  	<resultMap type="MenuVO" id="menuFiles">
-		<id property="menu_num" column="menu_num"/>
-		<result property="menu_name" column="menu_name"/>
-		<result property="menu_contents" column="menu_contents"/>
-		<result property="price" column="price"/>
-		<result property="origin" column="origin"/>
-		
-		<collection property="files" javaType="List" ofType="MenuFilesVO">
-			<id property="fnum" column="fnum"/>
-			<result property="fname" column="fname"/>
-			<result property="oname" column="oname"/>
-		</collection>
-	</resultMap>
-	
+
 	
   	<select id="menuSelect" parameterType="MenuVO" resultMap="menuFiles">
   		SELECT m.*, f.fnum, f.fname, f.oname 
@@ -131,7 +132,11 @@
 		SELECT * FROM menufiles
 		WHERE fnum = #{fnum}
 	</select>
-	
+	<!-- select2 -->
+	<select id="fileSelect2" parameterType="MenuFilesVO" resultType="MenuFilesVO">
+		SELECT * FROM menufiles
+		WHERE menu_num = #{menu_num}
+	</select>
 	
 	<!-- Delete -->
 	<delete id="fileDelete" parameterType="MenuFilesVO">

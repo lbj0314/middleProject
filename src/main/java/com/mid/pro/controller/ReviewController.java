@@ -30,8 +30,8 @@ public class ReviewController {
 	//list
 	@GetMapping(value = "reviewList")
 	public ModelAndView reviewList(Pager pager) throws Exception{
-		List<ReviewVO> list = reviewService.reviewList(pager);
 		ModelAndView mv = new ModelAndView();	
+		List<ReviewVO> list = reviewService.reviewList(pager);
 //		System.out.println(list);
 //		mv.addObject("vo", restaurantVO);
 		mv.addObject("list", list);
@@ -40,8 +40,6 @@ public class ReviewController {
 		
 		return mv;
 	}
-	
-	
 	//select
 	@GetMapping(value = "reviewSelect")
 	public ModelAndView reviewSelect(ReviewVO reviewVO) throws Exception{

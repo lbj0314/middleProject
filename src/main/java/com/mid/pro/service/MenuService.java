@@ -113,6 +113,11 @@ public class MenuService {
 	public int menuDelete(MenuVO menuVO) throws Exception{
 		return menuDAO.menuDelete(menuVO);
 	}
+	//fileSelect2
+	public MenuFilesVO fileSelect2(MenuFilesVO menuFilesVO) throws Exception{
+		return menuDAO.fileSelect2(menuFilesVO);
+	}
+	
 	//fileSelect
 	public MenuFilesVO fileSelect(MenuFilesVO menufilesVO) throws Exception{
 		return menuDAO.fileSelect(menufilesVO);

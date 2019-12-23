@@ -19,12 +19,11 @@
                 <div class="col-md-4 col-sm-6 menu-list" >
                     <div class="single-food mt-5 mt-sm-">
                         <div class="food-img">
-                                
-                        	<c:forEach items="${vo.files}" var = "file">
-                        	<%-- <p>../resources/upload/menu/${file.fname}</p> --%>
-                           		  <img src="../resources/upload/menu/${file.fname}" class="img-fluid" alt="${file.oname}" > 
-                             				                           		
-                      		</c:forEach>
+							
+                        	
+                           		  <img src="../resources/upload/menu/${vo['fname']}" class="img-fluid" alt="${vo['oname']}" > 
+                                                    		
+                      		
                       		
                       			<!-- <img src = "../resources/images/food1.jpg"class="img-fluid"  > -->
                         </div>                     

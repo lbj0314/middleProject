@@ -27,15 +27,9 @@
                         <ul>
                             <li class="active"><a href="./">home</a></li>
                             <li><a href="./restaurant/restList">restaurant</a></li>
-                            <li><a href="./menu/menuList">menu</a></li>
-                            <li><a href="#">blog</a>
-                                <ul class="sub-menu">
-                                    <li><a href="#">Blog Home</a></li>
-                                    <li><a href="#">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">contact</a></li>
-                            <li><a href="#">Elements</a></li>
+                            <li><a href="#">notice</a></li>
+                            <li><a href="#">Q&A</a></li>
+                            <li><a href="./member/memberLogin">LogIn</a></li>
                         </ul>
                     </div>
                 </div>
