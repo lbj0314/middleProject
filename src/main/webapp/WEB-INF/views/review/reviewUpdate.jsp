@@ -98,9 +98,7 @@
  					score=$(this).val();
  				}
  			});
- 			alert("score: "+score);
- 			alert(review_num);
- 			alert(contents);
+ 		
  		
  		var allData= {"member_num":member_num, "rest_num":rest_num,"review_num":review_num, "writer":writer, "score":score, "contents":contents}
 
