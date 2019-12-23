@@ -62,14 +62,22 @@
 				<textarea class="review_editor" name = "contents" 
 					placeholder="" maxlength="10000" 
 					required class="single-input">${vo.contents}</textarea>
-				<button class="genric-btn primary" id="review_btn">확인</button>
+			
+				<button class="genric-btn primary" id="review_update_btn" type="submit">확인</button>
 				 <input type="button" class="genric-btn primary danger" onclick="window.close()" value="취소"> 
 		</form>
 				
 		</div>
 	</div>
 
-
+<script type="text/javascript">
+	
+/* 	$('#review_update_btn').click(function() {
+		opener.document.location.reload();
+		self.close();
+		
+	}); */
+</script>
 
 
 
