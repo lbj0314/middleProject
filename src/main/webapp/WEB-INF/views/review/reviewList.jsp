@@ -64,8 +64,8 @@
 		
 		<c:if test="${member.id eq r.writer }">
 		<div id= "review_List_btn">
-			<button class = "genric-btn primary-border small" id = "createBtn" type="button" data-toggle="modal">수정</button>
-			<a href="../review/reviewUpdate?review_num=${r.review_num}" class = "genric-btn primary-border small">수정하기</a>
+		
+			<a href="../review/reviewUpdate?review_num=${r.review_num}" class = "genric-btn primary-border small" onclick="window.open(this.href,'_blanck','width=800,height=400,left=500px,top=200px');return false">수정하기</a>
 			<a href="../review/reviewDelete?review_num=${r.review_num}" class = "genric-btn danger-border small" >삭제하기</a>
 		</div>	
 		</c:if>

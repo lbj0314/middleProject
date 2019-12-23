@@ -88,7 +88,7 @@ public class ReviewController {
 		reviewVO = reviewService.reviewSelect(reviewVO);
 		if (reviewVO != null) {
 			mv.addObject("vo", reviewVO);
-			mv.setViewName("restaurant/restList");
+			mv.setViewName("review/reviewUpdate");
 		} else {
 			mv.addObject("msg", "수정할 리뷰가 없습니다.");
 			mv.addObject("path", "restaurant/restList");
