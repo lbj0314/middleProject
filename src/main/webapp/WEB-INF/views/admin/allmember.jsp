@@ -16,7 +16,7 @@
 <!-- ------------------------------------------------------------------------ -->
 <h4 style="padding-left: 510px; font: 700 28px NEXON Gothic; color: #17191d;">회원 명단</h4>
  <div class="container">
-
+	<c:if test="${member.grade ==3}">
 	<table class="table ">
 		
 			<tr>
@@ -165,7 +165,7 @@
 	
 	</div>	
 <!-- ------------------------------------------------------------------------ -->
-
+	</c:if>
 </div>
 <script type="text/javascript">
 		var board = 'allmember';

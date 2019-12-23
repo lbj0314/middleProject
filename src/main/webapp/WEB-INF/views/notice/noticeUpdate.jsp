@@ -14,6 +14,7 @@
 	</div>	
 <!-- ------------------------------------------------------------------------ -->
 <div class="container">
+	<c:if test="${member.grade ==3}">
 	<div id="drm">
 	<form action="./noticeUpdate" method="post">
 			<input type="hidden" id="id" name="id" value="${vo.id}">
@@ -39,6 +40,7 @@
 		style="color: #fff; background: #f8b600; border: 1px solid transparent;">Update</button>
 	</form>
 	</div>
+	</c:if>
 </div>	
 <!-- ------------------------------------------------------------------------ -->
 	<div class="container" style="height: 100px;">

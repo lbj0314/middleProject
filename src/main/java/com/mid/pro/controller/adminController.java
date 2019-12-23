@@ -93,15 +93,14 @@ public class adminController {
 	 
 	//adminPage1~4 이동
 
-	  @RequestMapping("adminPage")
-	  public ModelAndView admin(ModelAndView mv) throws Exception {
+	  		@RequestMapping("adminPage")
+	  		public ModelAndView admin(ModelAndView mv) throws Exception {
 		  
-		  mv.setViewName("admin/adminPage");
-		  return mv;
-	  }
+	  		mv.setViewName("admin/adminPage");
+	  		return mv;
+	  		}
 
 
-		  
 		  @RequestMapping("adminPage2")
 		  public ModelAndView adminPage2(ModelAndView mv) throws Exception {
 			  
@@ -122,5 +121,11 @@ public class adminController {
 			  mv.setViewName("admin/adminPage4");
 			  return mv;
 		  }
+		  
+		  
+		  
+		  
+		  
+		  
 
 }

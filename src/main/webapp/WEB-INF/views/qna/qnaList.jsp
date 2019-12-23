@@ -42,12 +42,12 @@ color: black;
                     <!-- --------------- -->
                 </div>
                 <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0">
-                    <img src="../resources/images/deshes1.png" alt="" class="img-fluid">
+                    <img src="../resources/images/deshes2.png" alt="" class="img-fluid">
                 </div>
             </div>
             <div class="row mt-5">
                 <div class="col-lg-5 col-md-6 align-self-center order-2 order-md-1 mt-4 mt-md-0">
-                    <img src="../resources/images/deshes2.png" alt="" class="img-fluid">
+                    <img src="../resources/images/deshes1.png" alt="" class="img-fluid">
                 </div>
                 <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center order-1 order-md-2">
                     <!-- --------------- -->
@@ -137,10 +137,20 @@ color: black;
 			<button type="button" class="btn btn-info" id="btn_write" 
 			style="    color: #fff; background: #f8b600; border: 1px solid transparent;">작성</button>
 		</c:if>
+		
 	</div>
+	
+<!-- ------------------------------------------------------------------------ -->
+	<div class="container" style="height: 100px;">	
+	
+	</div>
+	
 <!-- ------------------------------------------------------------------------ -->
 	<div class="container" style="height: 100px;">
-	
+		<c:if test="${member.grade ==3}">
+		<a href="../admin/adminPage" class="btn btn-info"
+		style="color: #fff; background: #f8b600; border: 1px solid transparent;">관리자 페이지 </a>
+		</c:if>
 	</div>	
 <!-- ------------------------------------------------------------------------ -->
 		

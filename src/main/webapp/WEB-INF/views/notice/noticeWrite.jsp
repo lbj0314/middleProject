@@ -15,6 +15,7 @@
 	</div>	
 <!-- ------------------------------------------------------------------------ -->
 	<div class="container">
+	<c:if test="${member.grade ==3}">
 		<div id="drm">
 
 	<form action="./noticeWrite" method="post" enctype="multipart/form-data">
@@ -39,6 +40,7 @@
 				<button class="btn btn-info">저장하기</button>
 			</form>
 	</div>
+	</c:if>
 </div>
 
 <!-- ------------------------------------------------------------------------ -->
