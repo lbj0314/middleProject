@@ -77,14 +77,14 @@
  			
 	  	$('#review_update_btn').click(function() {
 	  		
- 			var member_num = $('#member_num').val();
+			var member_num = $('#member_num').val();
+ 			var writer = $('#writer').val();
  			var rest_num = $('#rest_num').val();
  			var review_num = $('#review_num').val();
- 			var writer = $('#writer').val();
  			var sccore = $('#score').val();
  			var contents = $('#contents').val();
  		
- 		var allData= {"member_num":member_num, "rest_num":rest_num, "review_num":review_num, "writer":writer, "score":score, "contents":contents}
+ 		var allData= {"member_num":member_num, "rest_num":rest_num,"review_num":review_num, "writer":writer, "score":score, "contents":contents}
  		
  				
  			$.ajax({
