@@ -135,7 +135,9 @@
 				<div>
 					<a href="${pageContext.request.contextPath}/"><button class="genric-btn primary-border">가맹주 수정하기</button></a>	
 				</div>
-				<div style="width:1150px; height:550px; text-align: center; background-color: white;">222</div>	
+				<div style="width:1150px; height:550px; text-align: center; background-color: white;">
+				222
+				</div>	
 			</div>	<!-- franchising -->
 			
 					
@@ -143,7 +145,9 @@
 				<div>
 					<a href="${pageContext.request.contextPath}/notice/noticeList"><button class="genric-btn primary-border">공지 게시판 수정하기</button></a>	
 				</div>
-				<div style="width:1150px; height:550px; text-align: center; background-color: white;">333</div>	
+				<div style="width:1150px; height:550px; text-align: center; background-color: white;">
+				333
+				</div>	
 			</div><!-- notice -->
 			
 			
@@ -151,7 +155,9 @@
 				<div>
 					<a href="${pageContext.request.contextPath}/qna/qnaList"><button class="genric-btn primary-border">문의 게시판 수정하기</button></a>	
 				</div>
-				<div style="width:1150px; height:550px; text-align: center; background-color: white;">444</div>	
+				<div style="width:1150px; height:550px; text-align: center; background-color: white;">
+				444
+				</div>	
 			</div><!-- qna -->
 			
 			</div>
