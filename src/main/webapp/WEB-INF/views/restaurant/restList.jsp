@@ -69,7 +69,7 @@
 			</ul>
 		</div>
 		
-	
+<c:import url="../layout/restaurant/footer.jsp"/>
 	<script type="text/javascript">
 		$("#btn_write").click(function() {
 			location.href = "restWrite";
@@ -85,8 +85,5 @@
 		
 		});
 	</script>
-<c:import url="../layout/restaurant/footer.jsp"/>
-
-
 </body>
 </html>

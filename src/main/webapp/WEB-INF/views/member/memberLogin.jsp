@@ -5,10 +5,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<c:import url="../layout/header.jsp"></c:import>
+<c:import url="../layout/restaurant/bootStrap.jsp"/>
 </head>
 <body>
-	<c:import url="../layout/header_area.jsp"></c:import>
+<!-- Preloader Starts -->
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+    <!-- Preloader End -->
+<c:import url="../layout/restaurant/header.jsp"/>
+	<c:import url="../layout/header_area.jsp"/>
 
 	<!-- Contact Form Starts -->
 	<section class="contact-form section-padding3">
@@ -40,6 +46,6 @@
 
 
 	<!-- Footer Area Starts -->
-	<c:import url="../layout/footer.jsp" />
+	<c:import url="../layout/restaurant/footer.jsp" />
 </body>
 </html>
