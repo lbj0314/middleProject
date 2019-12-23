@@ -84,7 +84,6 @@
 	</div>
 
 <script type="text/javascript">
-
  			
 	$('#review_update_btn2').click(function() {
 			var member_num = $('#member_num').val();
@@ -101,7 +100,6 @@
  		
  		
  		var allData= {"member_num":member_num, "rest_num":rest_num,"review_num":review_num, "writer":writer, "score":score, "contents":contents}
-
 			$.ajax({
  				url: "reviewUpdate",
  				type: "POST",
@@ -128,7 +126,6 @@
  				}
 				
  			});  
-
 	}); 
 	  	
 </script>

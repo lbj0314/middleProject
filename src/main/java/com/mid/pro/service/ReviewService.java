@@ -26,13 +26,12 @@ public class ReviewService {
 	public List<ReviewVO> reviewList(Pager pager) throws Exception{
 		pager.makeRow();
 		pager.makePager(reviewDAO.reviewCount(pager));
-//		System.out.println(pager.getStartRow());
-//		System.out.println(pager.getLastRow());
+		System.out.println(pager.getStartRow());
+		System.out.println(pager.getLastRow());
 		return reviewDAO.reviewList(pager);
 	}
 	//select
 	public ReviewVO reviewSelect(ReviewVO reviewVO) throws Exception{
-		reviewDAO.reviewScroe(reviewVO);
 		return reviewDAO.reviewSelect(reviewVO);
 	}
 	//write

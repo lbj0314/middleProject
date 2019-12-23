@@ -32,8 +32,8 @@ public class ReviewController {
 	//list
 	@GetMapping(value = "reviewList")
 	public ModelAndView reviewList(Pager pager) throws Exception{
-		ModelAndView mv = new ModelAndView();	
 		List<ReviewVO> list = reviewService.reviewList(pager);
+		ModelAndView mv = new ModelAndView();	
 //		System.out.println(list);
 //		mv.addObject("vo", restaurantVO);
 		mv.addObject("list", list);
@@ -42,6 +42,8 @@ public class ReviewController {
 		
 		return mv;
 	}
+	
+	
 	//select
 	@GetMapping(value = "reviewSelect")
 	public ModelAndView reviewSelect(ReviewVO reviewVO) throws Exception{
@@ -127,6 +129,7 @@ public class ReviewController {
 		String msg = "리뷰 삭제에 실패하였습니다. 다시 시도해주세요.";
 		if (result > 0) {
 				msg = "리뷰가 삭제되었습니다.";
+				
 		} else {
 			
 		}

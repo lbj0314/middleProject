@@ -5,8 +5,8 @@
 <html lang="en">
 <head>
 <c:import url="../layout/member/bootStrap.jsp" />
-<c:import url="../layout/header.jsp"></c:import>
-<c:import url="../layout/header_mypage.jsp"></c:import>
+<c:import url="../layout/member/header.jsp"></c:import>
+<c:import url="../layout/header_mypage.jsp"/>
 </head>
 <body>
 
@@ -27,17 +27,17 @@
                         
         
                          <div class="input-group">  
-                         	<div class="input--style-2 column"></div>
+                         	<div class="input--style-2 column">비밀번호</div>
                          	<div class="update_div">                                     
-                            <input class="input--style-2 list member_update" type="password" placeholder="새비밀번호" name="pw" id="pw" value="${member.pw}"
-                            onfocus="this.placeholder = ''" onblur="this.placeholder = '새비밀번호'">
+                            <input class="input--style-2 list member_update" type="password" placeholder="비밀번호" name="pw" id="pw" value="${member.pw}"
+                            onfocus="this.placeholder = '비밀번호를 입력해주세요.'" onblur="this.placeholder = '비밀번호'">
                   			</div>
                        		
                        		 
                        		<div class="input--style-2 column">비밀번호</div>  
                        		<div class="update_div">                                          
-                            <input class="input--style-2 list member_update" type="password" placeholder="새비밀번호 확인" name="pw2" id="pw2"
-                            onfocus="this.placeholder = ''" onblur="this.placeholder = '새비밀번호 확인'">
+                            <input class="input--style-2 list member_update" type="password" placeholder="비밀번호 확인" name="pw2" id="pw2"
+                            onfocus="this.placeholder = '비밀번호를 다시 입력해주세요.'">
                        		</div>
            
                        		<div   class="input--style-2 column" ></div> 
@@ -91,9 +91,9 @@
                         
                         
  	                  	<div class="p-t-30">
-			                  <button class="btn btn--radius btn--green" id="btn">적용</button>
+			                  <button class="btn btn--green col-md-12" id="btn">적용</button>
 			                 
-			                  <input type="button" class="btn btn--radius btn--red" id = "btn--red" onclick="history.back()" value="취소">             
+			                  <input type="button" class="btn btn--red" id = "btn--red" onclick="history.back()" value="취소">             
                         </div>
                        </form>
                         

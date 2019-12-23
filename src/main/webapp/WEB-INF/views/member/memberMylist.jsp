@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <head>
-<c:import url="../layout/header_mypage.jsp"></c:import>
+<c:import url="../layout/header_mypage.jsp"/>
 <c:import url="../layout/member/bootStrap.jsp"/>
 </head>
 <body><!-- Preloader Starts -->
