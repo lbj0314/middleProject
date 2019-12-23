@@ -14,7 +14,7 @@
         <div class="spinner"></div>
     </div>
     <!-- Preloader End -->
-<c:import url="../layout/restaurant/header.jsp"/>
+<c:import url="../layout/restaurant/header_area.jsp"/>
 <c:import url="../layout/restaurant/foodArea.jsp"/>
 <div class="container">
 <!-- search -->

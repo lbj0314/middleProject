@@ -1,16 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-  <!-- Favicon -->
-    <link rel="shortcut icon" href="resources/images/logo/favicon.png" type="image/x-icon">
-   
-  <!-- Preloader Starts -->
+ <!-- Preloader Starts -->
     <div class="preloader">
         <div class="spinner"></div>
     </div>
     <!-- Preloader End -->
 
-<!-- Header Area Starts -->
+    <!-- Header Area Starts -->
 	<header class="header-area header-area2">
         <div class="container">
             <div class="row">
@@ -28,7 +25,7 @@
                     <div class="main-menu main-menu2">
                         <ul>
                             <li class="active"><a href="#">home</a></li>
-                            <li><a href="./restaurant/restList">restaurant</a></li>
+                            <li><a href="./restList">restaurant</a></li>
                             <li><a href="./menu/menuList">menu</a></li>
                             <li><a href="#">blog</a>
                                 <ul class="sub-menu">
@@ -69,3 +66,18 @@
         </div>
     </header>
     <!-- Header Area End -->
+
+    <!-- Banner Area Starts -->
+    <section class="banner-area banner-area2 blog-page text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 style="color: white;"><i>Club Foodfun</i></h1>
+                    <a href="index.html">home</a>
+                    <span class="mx-2">/</span>
+                    <a href="blog-details.html">blog details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Area End -->
