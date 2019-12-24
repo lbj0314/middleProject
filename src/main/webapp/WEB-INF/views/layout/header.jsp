@@ -27,7 +27,7 @@
                     </div>  
                     <div class="main-menu main-menu2">
                         <ul>
-                            <li class="active"><a href="#">home</a></li>
+                            <li class="active"><a href="${pageContext.request.contextPath}/">home</a></li>
                             <li><a href="./restaurant/restList">restaurant</a></li>
                             <li><a href="./menu/menuList">menu</a></li>
                             <li><a href="#">blog</a>

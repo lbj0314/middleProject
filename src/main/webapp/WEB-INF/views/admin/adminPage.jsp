@@ -11,7 +11,9 @@
     background: #fff;
     font-weight: 500;  
 }
+#aaa{
 
+}
 
 
 </style>
@@ -145,8 +147,32 @@
 				<div>
 					<a href="${pageContext.request.contextPath}/notice/noticeList"><button class="genric-btn primary-border">공지 게시판 수정하기</button></a>	
 				</div>
-				<div style="width:1150px; height:550px; text-align: center; background-color: white;">
-				333
+				<div style="width:1150px; height:550px; background-color: white;">
+				<br>
+				<h5 style="font: bold;">현재 게시판 현황</h5>
+				<br>
+				현재 공지 게시판 등록 수 : 19개
+				<br>
+				<br>
+				<h5  style="font: bold;">게시판 등록 예정 목록</h5>
+				<br>
+				<h5>공지 예정 : 12/25(수) 농협은행 체크카드 결제 서비스 점검 안내</h5>
+				<br>
+				<h5>▣ 점검시간과 작업영향</h5>
+				<br>
+				<br>
+				- 12월 14일(토) 오전 1시 ~ 오전 4시 (3시간)
+				<br>
+				<br>
+   			     : 전북은행 체크카드 결제 서비스를 이용할 수 없습니다.
+				<br>
+				<br>
+				안내 드리는 내용 참고하셔서 이용에 불편 없으시길 바랍니다.
+				<br>
+				<br>
+				감사합니다
+				<br>
+				<br>
 				</div>	
 			</div><!-- notice -->
 			
@@ -156,7 +182,26 @@
 					<a href="${pageContext.request.contextPath}/qna/qnaList"><button class="genric-btn primary-border">문의 게시판 수정하기</button></a>	
 				</div>
 				<div style="width:1150px; height:550px; text-align: center; background-color: white;">
-				444
+				<br>
+				<br>
+				<h5  style="font: bold;">FoodFun 이용정책 현황</h5>
+				<br>
+				<br>
+				<br>
+				<a href="${pageContext.request.contextPath}/notice/noticeTermsofUse"><button class="genric-btn primary-border">▣ 이용약관</button></a>
+				<br>
+				<br>
+				<a href="${pageContext.request.contextPath}/notice/noticeNonmemberUserPolicy"><button class="genric-btn primary-border">▣ 비회원 이용자 이용정책</button></a>
+				<br>
+				<br>
+				<a href="${pageContext.request.contextPath}/notice/noticePrivacyPolicy"><button class="genric-btn primary-border">▣ 개인정보 처리 방침</button></a>
+				<br>
+				<br>
+				<a href="${pageContext.request.contextPath}/notice/noticeLocationBasedServiceTerms"><button class="genric-btn primary-border">▣ 위치기반서비스 이용약관</button></a>
+				<br>
+				<br>
+				<a href="${pageContext.request.contextPath}/notice/noticeCommunityGuidelines"><button class="genric-btn primary-border">▣ 커뮤니티 가이드라인</button></a>
+				<br>
 				</div>	
 			</div><!-- qna -->
 			

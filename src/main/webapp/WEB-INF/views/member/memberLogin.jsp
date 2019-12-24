@@ -37,7 +37,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="logo-area">
-                        <a href="index.html"><img src="../resources/images/logo/logo2.png" alt="logo"></a>
+                        <a href="${pageContext.request.contextPath}/"><img src="../resources/images/logo/logo2.png" alt="logo"></a>
                     </div>
                 </div>
                 <div class="col-lg-10">

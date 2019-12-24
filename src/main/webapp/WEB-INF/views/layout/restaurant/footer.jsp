@@ -27,7 +27,7 @@
                                 style="font-weight: 400; font-size:14px; color: #F9E79F; ">
                         		▣  비회원 이용자 이용정책</a></li>  
                         	
-                        	<li><a href="${pageContext.request.contextPath}/notice/noticeTermsofUse"
+                        	<li><a href="${pageContext.request.contextPath}/notice/noticePrivacyPolicy"
                                 style="font-weight: 400; font-size:14px; color: #F5CBA7;">
                         		<b>▣  개인정보 처리 방침</b></a></li>
                                
@@ -35,7 +35,7 @@
                                 style="font-weight: 400; font-size:14px; color: #F9E79F;">
                         		▣  위치기반서비스 이용약관</a></li>
                         		
-                        	<li><a href="${pageContext.request.contextPath}/notice/noticeTermsofUse"
+                        	<li><a href="${pageContext.request.contextPath}/notice/noticeCommunityGuidelines"
                                 style="font-weight: 400; font-size:14px; color: #F5CBA7;">
                         		<b>▣  커뮤니티 가이드라인</b></a></li>	
                         		
