@@ -1,6 +1,9 @@
 package com.mid.pro.dao;
 
+import java.util.List;
+
 import com.mid.pro.model.MemberVO;
+import com.mid.pro.util.Pager;
 
 public interface MemberDAO {
 	
@@ -21,7 +24,7 @@ public interface MemberDAO {
 	
 	//select
 	public MemberVO memberSelect(MemberVO memberVO)throws Exception;
-		
+	
 	//login 
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception;
 	
@@ -30,4 +33,19 @@ public interface MemberDAO {
 	
 	//delete
 	public int memberDelete(MemberVO memberVO)throws Exception;
+	
+	
+	public List<MemberVO> List(Pager pager)throws Exception;
+	
+	
+	public int Count (Pager pager)throws Exception;
+	
+	//update
+	public int memberUpdate2(MemberVO memberVO)throws Exception;
+	
+	//adminPage
+	public List<MemberVO> List2(Pager pager)throws Exception;
+	
+	
+	public int Count2(Pager pager)throws Exception;
 }

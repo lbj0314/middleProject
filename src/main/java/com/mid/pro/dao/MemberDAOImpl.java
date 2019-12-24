@@ -1,6 +1,8 @@
 package com.mid.pro.dao;
 
-
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -8,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.mid.pro.model.MemberVO;
+import com.mid.pro.util.Pager;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO{
@@ -44,11 +47,6 @@ public class MemberDAOImpl implements MemberDAO{
 	 * sqlSession.update(NAMESPACE+"userAuth", userEmail); }
 	 */
 	
-	@Override
-	public MemberVO memberSelect(MemberVO memberVO)throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"memberSelect", memberVO);
-	}
-	
 		
 	@Override
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception{
@@ -62,6 +60,35 @@ public class MemberDAOImpl implements MemberDAO{
 	
 	@Override
 	public int memberDelete(MemberVO memberVO)throws Exception{
-		return sqlSession.update(NAMESPACE+"memberDelete", memberVO);
+		return sqlSession.delete(NAMESPACE+"memberDelete", memberVO);
+	}
+
+	@Override
+	public List<MemberVO> List(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "allmember", pager);
+	}
+	
+	@Override
+	public int Count(Pager pager) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "memberCount", pager);
+	}
+	
+	@Override
+	public MemberVO memberSelect(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"memberSelect", memberVO);
+	}
+	@Override
+	public int memberUpdate2(MemberVO memberVO)throws Exception{
+		return sqlSession.update(NAMESPACE+"memberUpdate2", memberVO);
+	}
+	
+	@Override
+	public List<MemberVO> List2(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "adminPage", pager);
+	}
+	
+	@Override
+	public int Count2(Pager pager) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "memberCount2", pager);
 	}
 }

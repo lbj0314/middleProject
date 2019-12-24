@@ -25,7 +25,6 @@ public class MemberController {
 	@Inject
 	private MemberServiceImpl memberServiceImpl;
 
-
 	////////////Join	
 	@GetMapping(value = "memberJoin")	
 	public void memberJoin()throws Exception{
@@ -38,10 +37,8 @@ public class MemberController {
 		int result = memberServiceImpl.memberJoin(memberVO);
 
 		if(result>0) {
-			System.out.println("123");
 			mv.addObject("msg", "Join");
 		}else {
-			System.out.println("123");
 			mv.addObject("msg", "Fail");
 		}
 		mv.addObject("path", "../");
@@ -92,7 +89,6 @@ public class MemberController {
 	@PostMapping(value = "memberLogin")
 	public ModelAndView memberLogin(MemberVO memberVO, HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		
 		memberVO = memberServiceImpl.memberLogin(memberVO);		
 		if(memberVO !=null) {
 			session.setAttribute("member", memberVO);			

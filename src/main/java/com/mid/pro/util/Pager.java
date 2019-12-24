@@ -3,7 +3,7 @@ package com.mid.pro.util;
 public class Pager {
 	
 	public Pager() {
-		perPage = 6;
+		perPage = 10;
 		// TODO Auto-generated constructor stub
 	}
 	private int rest_num;
@@ -84,6 +84,9 @@ public class Pager {
 	}
 
 	public String getKind() {
+		if(this.kind == null) {
+			kind="kt";
+		}
 		return kind;
 	}
 

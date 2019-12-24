@@ -22,6 +22,7 @@
     </div>
     <!-- Preloader End -->
 <c:import url="../layout/restaurant/header.jsp"/>
+
 <div class="container">
 <%-- <!-- search -->
 		<div>

@@ -41,10 +41,7 @@
 			</div>
 		</div>
 	</section>
-	<!-- Contact Form End -->
 
-
-	<!-- Footer Area Starts -->
 	<c:import url="../layout/member/footer.jsp" />
 </body>
 </html>
