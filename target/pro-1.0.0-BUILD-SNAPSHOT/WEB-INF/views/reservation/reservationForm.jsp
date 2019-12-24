@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>restaurant Reservation</title>
-<c:import url="../layout/restaurant/bootStrap.jsp" />
+<c:import url="../layout/reservation/bootStrap.jsp" />
 </head>
 <body>
 	<!-- Preloader Starts -->
@@ -14,7 +14,7 @@
 		<div class="spinner"></div>
 	</div>
 	<!-- Preloader End -->
-	<c:import url="../layout/restaurant/header.jsp" />
+	<c:import url="../layout/reservation/header.jsp" />
 		 <div class="section">
 		      <div class="container">
 		      <form role="form" id="fgoreservation" name="fgoreservation"  method="POST">
@@ -38,7 +38,7 @@
 			 </form> 
 			 </div>  
 		</div>
-<c:import url="../layout/restaurant/footer.jsp" />
+<c:import url="../layout/reservation/footer.jsp" />
 <script type="text/javascript">
 	
 var freservation=function(){

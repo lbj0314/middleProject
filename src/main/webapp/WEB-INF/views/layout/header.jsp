@@ -1,3 +1,4 @@
+<
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- Favicon -->
 <link rel="shortcut icon" href="resources/images/logo/favicon.png"
@@ -33,7 +34,7 @@
 							<c:when test="${not empty member}">
 								<li><a href="${pageContext.request.contextPath}/member/memberMylist">MyPage</a></li>
 									<c:if test="${member.grade ==3}">
-                              			<li><a href="${pageContext.request.contextPath}/admin/adminPage">관리자</a></li>
+                              			<li><a href="${pageContext.request.contextPath}/admin/adminPage">Admin</a></li>
                               		</c:if>
 								<li><a href="${pageContext.request.contextPath}/member/memberLogout">LogOut</a></li>
 							</c:when>

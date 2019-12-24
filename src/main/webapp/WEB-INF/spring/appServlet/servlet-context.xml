@@ -37,6 +37,9 @@
 		<mapping path="/qna/*"/>
 		<mapping path="/notice/*"/>
 		<mapping path="/reservation/*"/>
+		<mapping path="/menu/*"/>
+		<exclude-mapping path="/menu/menuList"/>
+		<exclude-mapping path="/menu/menuSelect"/>
 		<exclude-mapping path="/restaurant/restList"/>
 		<exclude-mapping path="/restaurant/restSelect"/>
 		<exclude-mapping path="/member/memberLogin"/>

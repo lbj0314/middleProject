@@ -25,40 +25,23 @@
                     <div class="main-menu main-menu2">
                         <ul>
                             <li class="active"><a href="${pageContext.request.contextPath}/">home</a></li>
-                            <li><a href="./restList">restaurant</a></li>
-                            <li><a href="./menu/menuList">menu</a></li>
-                            <li><a href="#">blog</a>
-                                <ul class="sub-menu">
-                                    <li><a href="blog-home.html">Blog Home</a></li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact-us.html">contact</a></li>
-                             <li><a href="#">My Page</a>
-                               <ul class="sub-menu">
-                                	<c:if test= "${empty member}">                            
-                                    <li><a href="${pageContext.request.contextPath}/member/memberLogin">마이페이지</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/member/memberLogin">예약확인하기</a></li>
-                               		</c:if>
-                               		
-                               		<c:if test= "${not empty member}">
-                               		  <li><a href="${pageContext.request.contextPath}/member/memberMylist">마이페이지</a></li>                                   
-                                    <li><a href="${pageContext.request.contextPath}/member/memberMypage">예약확인하기</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/member/memberLogout">Logout</a></li>
-                                    </c:if>
-                            
-                               </ul>
-                            </li>
-                                  	<li><a href="#">Reservation</a></li>
-                               <li><a href="#">게시판</a> 
-                               	<ul class="sub-menu">    	
-                                  	<li><a href="${pageContext.request.contextPath}/notice/noticeList">공지 게시판</a></li>
-                              		<li><a href="${pageContext.request.contextPath}/qna/qnaList">문의 게시판</a></li>  
-                              	  </ul>
-                           		</li>	                            		
-                              		<c:if test="${member.grade ==3}">
-                              		<li><a href="${pageContext.request.contextPath}/admin/adminPage">관리자</a></li>
+                            <li><a href="${pageContext.request.contextPath}/restaurant/restList">restaurant</a></li>
+                              <li><a href="${pageContext.request.contextPath}/notice/noticeList">notice</a></li>
+                            <li><a href="${pageContext.request.contextPath}/qna/qnaList">Q&A</a></li>
+                        <c:choose>
+							<c:when test="${not empty member}">
+								<li><a href="${pageContext.request.contextPath}/member/memberMylist">MyPage</a></li>
+									<c:if test="${member.grade ==3}">
+                              			<li><a href="${pageContext.request.contextPath}/admin/adminPage">Admin</a></li>
                               		</c:if>
+								<li><a href="${pageContext.request.contextPath}/member/memberLogout">LogOut</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="${pageContext.request.contextPath}/member/memberJoin">Sign In</a></li>
+								<li><a href="${pageContext.request.contextPath}/member/memberLogin">Sign Up</a></li>
+							</c:otherwise>
+						</c:choose>
+					
                         </ul>
                     </div>
                 </div>
@@ -72,10 +55,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 style="color: white;"><i>Club Foodfun</i></h1>
-                    <a href="index.html">home</a>
-                    <span class="mx-2">/</span>
-                    <a href="blog-details.html">blog details</a>
+                    <h1 style="color: white;"><i>관리자 페이지입니다.</i></h1>
+                   
                 </div>
             </div>
         </div>

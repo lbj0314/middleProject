@@ -11,7 +11,6 @@
 <c:import url="../layout/notice/bootStrap.jsp" />
 </head>
 <body>
-	<c:import url="../layout/notice/header_area.jsp"></c:import>
 <!-- ------------------------------------------------------------------------ -->
 
     <!-- Asked Area Starts -->

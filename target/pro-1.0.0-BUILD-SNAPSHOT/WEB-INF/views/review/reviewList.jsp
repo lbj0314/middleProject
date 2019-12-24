@@ -17,7 +17,7 @@
  
 </head>
 <body>
- <div class="comments-area col-lg-8 col-md-8" style="margin: 15px auto; background-color: white; border: none;" >
+ <div class="comments-area col-lg-12 col-md-12" style="margin: 15px auto; background-color: white; border: none;" >
 	<div class="comment-list">
 		<div class="single-comment justify-content-between d-flex">
 			<div id = "review_header">
@@ -175,7 +175,5 @@
  <div class="modalBackground"></div>
  
 </div>
-
-
 </body>
 </html>	
