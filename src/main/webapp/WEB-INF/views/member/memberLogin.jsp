@@ -6,6 +6,7 @@
 <html lang="en">
 <head>
 <c:import url="../layout/header.jsp"></c:import>
+
 </head>
 <body>
 	<c:import url="../layout/header_area.jsp"></c:import>
