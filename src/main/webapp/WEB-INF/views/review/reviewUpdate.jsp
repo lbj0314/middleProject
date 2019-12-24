@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="../resources/fonts/flat-icon/flaticon.css">
     
     <!-- Javascript -->
-<!--    <script src="../resources/js/vendor/jquery-2.2.4.min.js"></script> -->
+   <script src="../resources/js/vendor/jquery-2.2.4.min.js"></script> 
 	<script src="../resources/js/vendor/bootstrap-4.1.3.min.js"></script>
     <script src="../resources/js/vendor/wow.min.js"></script>
     <script src="../resources/js/vendor/owl-carousel.min.js"></script>
@@ -77,9 +77,9 @@
 					placeholder="" maxlength="10000" 
 					required class="single-input" id="contents">${vo.contents}</textarea> 
 			
+				<input type="submit" class="genric-btn primary" id="review_update_btn2" value="확인">
 				 <input type="button" class="genric-btn primary danger" onclick="window.close()" value="취소"> 
 		</form>
-				<input type="submit" class="genric-btn primary" id="review_update_btn2" value="확인">
 		</div>
 	</div>
 
@@ -100,7 +100,8 @@
  			});
  		
  		
- 		var allData= {"member_num":member_num, "rest_num":rest_num,"review_num":review_num, "writer":writer, "score":score, "contents":contents}
+ 		var allData= {"member_num":member_num, "rest_num":rest_num,"review_num":review_num, 
+ 					"writer":writer, "score":score, "contents":contents}
 
 			$.ajax({
  				url: "reviewUpdate",
