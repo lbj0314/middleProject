@@ -19,6 +19,6 @@
 	<c:import url="../review/reviewWrite.jsp"/>
 	</c:if>
 	<c:import url="../review/reviewList.jsp" />
-	<c:import url="../layout/restaurant/footer.jsp" />
+<%--<c:import url="../layout/restaurant/footer.jsp" /> --%>
 </body>
 </html>

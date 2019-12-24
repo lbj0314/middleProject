@@ -3,7 +3,7 @@ package com.mid.pro.util;
 public class Pager {
 	
 	public Pager() {
-		perPage = 10;
+		perPage = 6;
 		// TODO Auto-generated constructor stub
 	}
 	private int rest_num;

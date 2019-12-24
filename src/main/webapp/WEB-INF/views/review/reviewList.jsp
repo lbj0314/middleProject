@@ -176,6 +176,6 @@
  
 </div>
 
-
+<c:import url="../layout/restaurant/footer.jsp"/>
 </body>
 </html>	
