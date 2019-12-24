@@ -7,7 +7,6 @@
 <c:import url="../layout/notice/header.jsp"></c:import>
 </head>
 <body>
-	<c:import url="../layout/notice/header_area.jsp"></c:import>
 <!-- ------------------------------------------------------------------------ -->
 	<div class="container" style="height: 100px;">
 	

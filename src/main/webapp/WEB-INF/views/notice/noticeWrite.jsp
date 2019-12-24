@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="../layout/bootStrap.jsp">
 </head>
 <body>
-	<c:import url="../layout/notice/header_area.jsp"></c:import>
 <!-- ------------------------------------------------------------------------ -->
 	<div class="container" style="height: 100px;">
 	

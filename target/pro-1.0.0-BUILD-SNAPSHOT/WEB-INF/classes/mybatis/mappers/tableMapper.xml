@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="tableMapper">
+
+<!-- 테이블  개수 보여주기 -->
+<select id="tableSelect" parameterType="Integer" resultType="TableVO">
+	SELECT table_user, count(table_user)  
+	FROM resttable
+	WHERE rest_num = #{rest_num}
+	GROUP BY table_user
+</select> 
+
+<!-- 테이블 입력 -->
+<insert id="tableWrite" parameterType="RestTableVO">
+	<selectKey order="BEFORE" resultType="Integer" keyProperty="table_num">
+			SELECT resttable_seq.nextval FROM dual
+		</selectKey>
+	INSERT INTO resttable
+	VALUES(
+		#{table_num}, #{table_user}, #{open_time}, #{close_time},
+		#{rest_num}, #{member_num}
+	) 
+</insert>
+<!-- 테이블 수정 -->
+<update id="tableUpdate" parameterType="RestTableVO">
+	UPDATE resttable
+	SET table_user = #{table_user}, open_time1 = {open_time1}, close_time1 = {close_time1},
+	open_time2 = #{open_time2}, close_time2 = #{close_time2}
+	WHERE table_num = #{table_num}
+</update>
+<!-- 테이블 삭제 -->
+<delete id="tableDelete" parameterType="Integer">
+	DELETE resttable
+	WHERE table_num = #{table_num}
+</delete>
+  </mapper>

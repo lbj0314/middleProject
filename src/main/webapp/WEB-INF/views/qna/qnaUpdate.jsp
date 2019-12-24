@@ -7,7 +7,6 @@
 <c:import url="../layout/qna/header.jsp"></c:import>
 </head>
 <body>
-	<c:import url="../layout/qna/header_area.jsp"></c:import>
 <!-- ------------------------------------------------------------------------ -->
 	<div class="container" style="height: 100px;">
 	

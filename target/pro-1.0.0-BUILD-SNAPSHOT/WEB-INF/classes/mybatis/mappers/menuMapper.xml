@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="menuMapper">
+  <!-- sql -->
+	<!-- <sql id="ms">
+		<choose>
+			<when test="kind == 'kn'">
+				WHERE name LIKE '%'||#{search}||'%'
+			</when>
+			<otherwise>
+				WHERE contents LIKE '%'||#{search}||'%'
+			</otherwise>
+		</choose>
+	</sql> -->
+	
+	  	<resultMap type="MenuVO" id="menuFiles">
+		<id property="menu_num" column="menu_num"/>
+		<result property="menu_name" column="menu_name"/>
+		<result property="menu_contents" column="menu_contents"/>
+		<result property="price" column="price"/>
+		<result property="origin" column="origin"/>
+		<result property="rest_num" column="rest_num"/>
+		<collection property="files" javaType="List" ofType="MenuFilesVO">
+			<id property="fnum" column="fnum"/>
+			<result property="fname" column="fname"/>
+			<result property="oname" column="oname"/>
+		</collection>
+	</resultMap>
+	
+
+  	<!-- list -->
+  	<select id="menuList" parameterType="MenuVO" resultType="MenuVO">
+  <!-- 		SELECT * FROM
+		(SELECT M.*, ROWNUM R FROM
+		(SELECT * FROM menu
+		 WHERE rest_num = #{rest_num}
+		ORDER BY menu_num DESC) M) -->
+		<!-- <include refid="ms"/> -->
+	<!-- 	WHERE R BETWEEN #{startRow} AND #{lastRow} -->
+	 	SELECT r.*, m.menu_num, f.fnum, f.oname, f.fname
+		FROM menu r FULL OUTER JOIN menu m
+		ON (r.menu_num = m.menu_num)
+		FULL OUTER JOIN menuFiles f
+		ON (r.menu_num = f.menu_num)
+		WHERE r.rest_num = #{rest_num}
+
+  	</select>
+  	
+  	
+  	<!-- select -->
+
+	
+  	<select id="menuSelect" parameterType="MenuVO" resultMap="menuFiles">
+  		SELECT m.*, f.fnum, f.fname, f.oname 
+ 		FROM menu m FULL OUTER JOIN menufiles f
+		ON (m.menu_num = f.menu_num)
+		WHERE m.menu_num = #{menu_num} 
+	
+  	</select>
+  	<!-- count -->
+  	<!-- <select id="menuCount" resultType="Integer" parameterType="Pager">
+  		SELECT COUNT(menu_num) 
+  		FROM menu
+  		<include refid="ms"/>
+  	</select> -->
+  	
+  	
+  	
+  	<!-- write -->
+  	<insert id="menuWrite" parameterType="MenuVO" >
+  		
+  		 <selectKey order="BEFORE" resultType="Integer" keyProperty="menu_num">
+			SELECT menu_seq.nextval FROM dual
+		</selectKey> 
+<!--  	<foreach collection="list" item="item" index="index" separator=" " open="INSERT ALL">  -->
+
+			INSERT INTO menu
+			( menu_num, menu_name, menu_contents, price, origin, rest_num )
+			VALUES 
+			(
+				#{menu_num}, #{menu_name}, #{menu_contents}, #{price}, #{origin}, #{rest_num}
+
+			)			
+			
+		<!-- </foreach> -->		
+
+  	</insert>
+  
+
+  	<!-- update -->
+  	<update id="menuUpdate" parameterType="MenuVO">
+  		UPDATE menu
+  		SET menu_name = #{menu_name}, menu_contents = #{menu_contents}, price = #{price}, origin = #{origin}
+  		WHERE menu_num = #{menu_num}
+  	</update>
+  	
+  	
+  	<!-- delete -->
+  	<delete id="menuDelete" parameterType="Integer">
+  		DELETE menu
+  		WHERE menu_num = #{menu_num}
+  	</delete>
+  	
+  	
+  	
+  	
+  	
+  <!--=================== FILE==========================  -->	
+  
+  
+  	<!-- wirte -->
+  	<insert id="fileWrite" parameterType="MenuFilesVO" >
+  	
+		INSERT INTO menufiles VALUES(
+		file_seq.nextval, #{menu_num}, #{fname}, #{oname}
+		)
+	</insert>
+	
+	
+	<!-- List -->
+	<select id="fileList" parameterType="Integer" resultType="MenuFilesVO">
+		SELECT * FROM menufiles
+		WHERE menu_num = #{menu_num}
+	</select>
+	
+	
+	<!-- SelectOne  -->
+	<select id="fileSelect" parameterType="MenuFilesVO" resultType="MenuFilesVO">
+		SELECT * FROM menufiles
+		WHERE fnum = #{fnum}
+	</select>
+	<!-- select2 -->
+	<select id="fileSelect2" parameterType="MenuFilesVO" resultType="MenuFilesVO">
+		SELECT * FROM menufiles
+		WHERE menu_num = #{menu_num}
+	</select>
+	
+	<!-- Delete -->
+	<delete id="fileDelete" parameterType="MenuFilesVO">
+		DELETE menufiles
+		WHERE fnum = #{fnum}	
+	</delete>
+	
+	
+  </mapper>

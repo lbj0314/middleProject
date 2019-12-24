@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="reviewMapper">
+<!--  	<resultMap type="ReviewVO" id="review">
+ 		<id property="review_num" column="review_num"/>
+ 		<result property="score" column="score"/>
+ 		<result property="contents" column="contents"/>
+ 		<result property="reg_date" column="reg_date"/>
+ 		<result property="member_num" column="member_num"/>
+ 	</resultMap> -->
+ 	<!-- List -->
+ 	<select id="reviewList" resultType="ReviewVO" parameterType="Pager">
+ 		SELECT * FROM
+ 			(SELECT RV.*, ROWNUM R FROM
+ 			(SELECT * FROM review
+ 			WHERE rest_num = #{rest_num}
+ 			ORDER BY review_num DESC) RV)
+ 		WHERE R BETWEEN #{startRow} AND #{lastRow}
+ 	</select>
+ 	<!-- select -->
+ 	<select id="reviewSelect" resultType="ReviewVO" parameterType="ReviewVO">
+ 		SELECT * from review
+ 		WHERE review_num = #{review_num}
+ 	</select>
+ 	<!-- count -->
+  	<select id="reviewCount" resultType="Integer">
+		SELECT COUNT(review_num) FROM review
+		WHERE rest_num = #{rest_num}
+	</select>
+	<!-- Avgscore -->
+  	<select id="reviewAvgScore" resultType="ReviewVO">
+		SELECT avg(score) score
+		FROM review
+		WHERE rest_num = #{rest_num}
+	</select>
+	<!-- write -->
+	<insert id="reviewWrite" parameterType="ReviewVO">
+		<selectKey order="BEFORE" resultType="Integer" keyProperty="review_num">
+			SELECT review_seq.nextval FROM dual
+		</selectKey>
+		INSERT INTO review
+		VALUES(
+			#{review_num}, #{writer}, #{score}, #{contents}, SYSDATE, #{member_num},
+			#{rest_num}
+		)
+	</insert>
+	<!-- update -->
+	<update id="reviewUpdate" parameterType="ReviewVO">
+		UPDATE review SET
+		score = #{score}, contents = #{contents}
+		WHERE review_num = #{review_num}
+	</update>
+	<!-- delete -->
+	<delete id="reviewDelete" parameterType="Integer">
+		DELETE review
+		WHERE review_num = #{review_num}
+	</delete>
+	
+	
+	<!-- main review -->
+	<select id="reviewMain" parameterType="ReviewVO" resultType="ReviewVO">	
+		<![CDATA[select*from review where rownum <=3 order by reg_date desc]]>
+	</select>
+	
+	
+  </mapper>

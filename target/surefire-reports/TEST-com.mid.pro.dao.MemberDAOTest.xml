@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="1" failures="0" name="com.mid.pro.dao.MemberDAOTest" time="0.269" errors="1" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_221\jre\bin"/>
+    <property name="java.vm.version" value="25.221-b11"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\lbj\middle\middleProject"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="KR"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\lbj\middle\middleProject"/>
+    <property name="java.runtime.version" value="1.8.0_221-b11"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_221\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\sist\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="C:\lbj\middle\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf6814988456749810264.tmp"/>
+    <property name="jansi.force" value="true"/>
+    <property name="sun.jnu.encoding" value="MS949"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_221\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_221/bin/server;C:/Program Files/Java/jre1.8.0_221/bin;C:/Program Files/Java/jre1.8.0_221/lib/amd64;C:\lbj\apache-tomcat-9.0.26\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_221\bin;C:\Users\sist\AppData\Local\Microsoft\WindowsApps;C:\Users\sist\AppData\Local\GitHubDesktop\bin;C:\Program Files\Bandizip\;C:\Users\sist\AppData\Local\Microsoft\WindowsApps;;C:\lbj\spring\sts-3.9.10.RELEASE;;."/>
+    <property name="jansi.passthrough" value="true"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\sist"/>
+    <property name="user.timezone" value="Asia/Seoul"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="sist"/>
+    <property name="java.class.path" value="C:\lbj\spring\sts-3.9.10.RELEASE\plugins\org.eclipse.m2e.maven.runtime_1.13.0.20190716-1623\jars\plexus-classworlds-2.6.0.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_221\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B install -Dstyle.color=always"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="ko"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_221"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_221\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_221\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_221\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_221\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_221\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_221\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_221\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_221\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_221\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\lbj\middle\middleProject\EMBEDDED"/>
+    <property name="style.color" value="always"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="com.mid.pro.dao.MemberDAOTest" name="memberJoinTest" time="0.269">
+    <error message="
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (MID.SYS_C007379) violated
+
+### The error may involve memberMapper.memberJoin-Inline
+### The error occurred while setting parameters
+### SQL: insert into member     values(member_seq.nextval,?,?,?,?,?,sysdate,0,?,?)
+### Cause: java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (MID.SYS_C007379) violated
+
+; SQL []; ORA-00001: unique constraint (MID.SYS_C007379) violated
+; nested exception is java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (MID.SYS_C007379) violated
+" type="org.springframework.dao.DuplicateKeyException">org.springframework.dao.DuplicateKeyException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (MID.SYS_C007379) violated
+
+### The error may involve memberMapper.memberJoin-Inline
+### The error occurred while setting parameters
+### SQL: insert into member     values(member_seq.nextval,?,?,?,?,?,sysdate,0,?,?)
+### Cause: java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (MID.SYS_C007379) violated
+
+; SQL []; ORA-00001: unique constraint (MID.SYS_C007379) violated
+; nested exception is java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (MID.SYS_C007379) violated
+
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:239)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy31.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at com.mid.pro.dao.MemberDAOImpl.memberJoin(MemberDAOImpl.java:24)
+	at com.mid.pro.dao.MemberDAOTest.memberJoinTest(MemberDAOTest.java:27)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:252)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (MID.SYS_C007379) violated
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:445)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:879)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:450)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:192)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:207)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1044)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1329)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3584)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3685)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1376)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:46)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 39 more
+</error>
+    <system-out>INFO : org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+INFO : org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@64bfbc86, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@64bf3bbf, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@55d56113, org.springframework.test.context.support.DirtiesContextTestExecutionListener@148080bb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@dc24521, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@10bdf5e5]
+INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from file [C:\lbj\middle\middleProject\src\main\webapp\WEB-INF\spring\appServlet\servlet-context.xml]
+INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from file [C:\lbj\middle\middleProject\target\classes\spring\context-data.xml]
+INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from file [C:\lbj\middle\middleProject\target\classes\spring\context-file.xml]
+INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from file [C:\lbj\middle\middleProject\src\main\webapp\WEB-INF\spring\root-context.xml]
+INFO : org.springframework.context.support.GenericApplicationContext - Refreshing org.springframework.context.support.GenericApplicationContext@50b494a6: startup date [Tue Dec 24 12:08:12 KST 2019]; root of context hierarchy
+INFO : org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 &apos;javax.inject.Inject&apos; annotation found and supported for autowiring
+INFO : org.springframework.beans.factory.config.PropertiesFactoryBean - Loading properties file from file [C:\lbj\middle\middleProject\target\classes\properties\DBSources.properties]
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/admin/**/allmemberUpdate],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.adminController.memberUpdate(com.mid.pro.model.MemberVO,javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/admin/**/allmemberDelete],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.adminController.memberDelete(com.mid.pro.model.MemberVO,javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/admin/**/adminPage3]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.adminController.adminPage3(org.springframework.web.servlet.ModelAndView) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/admin/**/adminPage]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.adminController.adminPage(org.springframework.web.servlet.ModelAndView,com.mid.pro.model.MemberVO,com.mid.pro.util.Pager) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/admin/**/adminPage4]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.adminController.adminPage4(org.springframework.web.servlet.ModelAndView) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/admin/**/adminPage2]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.adminController.adminPage2(org.springframework.web.servlet.ModelAndView) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/admin/**/allmember]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.adminController.amember(org.springframework.web.servlet.ModelAndView,com.mid.pro.model.MemberVO,com.mid.pro.util.Pager) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/admin/**/allmemberUpdate],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.adminController.allmemberUpdate(java.lang.String) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/],methods=[GET]}&quot; onto public java.lang.String com.mid.pro.controller.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/member/**/memberUpdate],methods=[GET]}&quot; onto public void com.mid.pro.controller.MemberController.memberUpdate() throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/member/**/memberUpdate],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.MemberController.memberUpdate(com.mid.pro.model.MemberVO,javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/member/**/memberLogin],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.MemberController.memberLogin(com.mid.pro.model.MemberVO,javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/member/**/memberLogin],methods=[GET]}&quot; onto public void com.mid.pro.controller.MemberController.memberLogin() throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/member/**/memberJoin],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.MemberController.memberJoin(com.mid.pro.model.MemberVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/member/**/memberJoin],methods=[GET]}&quot; onto public void com.mid.pro.controller.MemberController.memberJoin() throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/member/**/memberDelete],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.MemberController.memberDelete(com.mid.pro.model.MemberVO,javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/member/**/memberCheckEmail],methods=[POST]}&quot; onto public int com.mid.pro.controller.MemberController.memberCheckEmail(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/member/**/memberCheckId],methods=[POST]}&quot; onto public int com.mid.pro.controller.MemberController.memberCheckId(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/member/**/memberMyres],methods=[GET]}&quot; onto public void com.mid.pro.controller.MemberController.memberMypage() throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/member/**/memberLogout],methods=[GET]}&quot; onto public java.lang.String com.mid.pro.controller.MemberController.memberLogout(javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/member/**/memberMylist],methods=[GET]}&quot; onto public void com.mid.pro.controller.MemberController.memberMylist() throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/menu/**/menuUpdate],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.MenuController.menuUpdate(com.mid.pro.model.MenuVO,org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/menu/**/menuUpdate],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.MenuController.menuUpdate(com.mid.pro.model.MenuVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/menu/**/menuWrite],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.MenuController.menuWrite(com.mid.pro.model.RestaurantVO,javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/menu/**/menuWrite],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.MenuController.menuWrite(com.mid.pro.model.MenuListVO,javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/menu/**/summerFileDelete],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.MenuController.summerDelete(java.lang.String,javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/menu/**/fileDown],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.MenuController.fileDown(com.mid.pro.model.MenuFilesVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/menu/**/summerFile],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.MenuController.summerFile(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/menu/**/menuList],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.MenuController.menuList(com.mid.pro.model.MenuVO,com.mid.pro.model.RestaurantVO,com.mid.pro.model.MenuFilesVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/menu/**/menuSelect],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.MenuController.menuSelect(com.mid.pro.model.MenuVO,com.mid.pro.model.RestaurantVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/menu/**/menuDelete],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.MenuController.menuDelete(com.mid.pro.model.MenuVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/menu/**/fileDelete],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.MenuController.fileDelete(com.mid.pro.model.MenuFilesVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/notice/**/noticeList],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.NoticeController.List(com.mid.pro.model.NoticeVO,com.mid.pro.util.Pager) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/notice/**/noticeUpdate],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.NoticeController.boardUpdate(com.mid.pro.model.NoticeVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/notice/**/noticeUpdate],methods=[POST]}&quot; onto public java.lang.String com.mid.pro.controller.NoticeController.boardUpdate2(com.mid.pro.model.NoticeVO,org.springframework.web.multipart.MultipartFile[],javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/notice/**/noticeLocationBasedServiceTerms]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.NoticeController.notice4(org.springframework.web.servlet.ModelAndView) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/notice/**/noticeTermsofUse]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.NoticeController.notice(org.springframework.web.servlet.ModelAndView) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/notice/**/noticeWrite],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.NoticeController.boardWrite(com.mid.pro.model.NoticeVO,org.springframework.web.multipart.MultipartFile[],javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/notice/**/noticeWrite],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.NoticeController.boardWrite() throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/notice/**/noticeNonmemberUserPolicy]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.NoticeController.notice2(org.springframework.web.servlet.ModelAndView) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/notice/**/noticeCommunityGuidelines]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.NoticeController.notice5(org.springframework.web.servlet.ModelAndView) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/notice/**/noticePrivacyPolicy]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.NoticeController.notice3(org.springframework.web.servlet.ModelAndView) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/notice/**/noticeSelect],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.NoticeController.boardSelect(com.mid.pro.model.NoticeVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/notice/**/noticeDelete],methods=[GET]}&quot; onto public java.lang.String com.mid.pro.controller.NoticeController.boardDelete(com.mid.pro.model.NoticeVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/qna/**/qnaUpdate],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.QnaController.Update(com.mid.pro.model.QnaVO,javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/qna/**/qnaList],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.QnaController.boardList(com.mid.pro.util.Pager) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/qna/**/qnaReply],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.QnaController.boardReply2(com.mid.pro.model.QnaVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/qna/**/qnaUpdate],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.QnaController.Update2(com.mid.pro.model.QnaVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/qna/**/qnaReply],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.QnaController.boardReply(com.mid.pro.model.QnaVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/qna/**/qnaWrite],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.QnaController.Write2(com.mid.pro.model.QnaVO,javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/qna/**/qnaWrite],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.QnaController.Write() throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/qna/**/qnaSelect],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.QnaController.boardSelect(com.mid.pro.model.QnaVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/qna/**/qnaDelete],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.QnaController.boardDelete(com.mid.pro.model.QnaVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/reservation/**/calendar],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReservationController.cal(com.mid.pro.model.RestaurantVO,int,javax.servlet.http.HttpSession,java.lang.String) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/reservation/**/reservationCheck2],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReservationController.reservationCheck2(int) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/reservation/**/reservationDelete],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReservationController.reservationDelete(com.mid.pro.model.ReservationVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/reservation/**/reservationDelete2],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReservationController.reservationDelete2(com.mid.pro.model.ReservationVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/reservation/**/reservationWrite]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReservationController.reservationWrite(com.mid.pro.model.ReservationVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/reservation/**/reservationCheck],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReservationController.reservationCheck(int,com.mid.pro.model.RestaurantVO,com.mid.pro.model.ReservationVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/reservation/**/reservationForm],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReservationController.fcal(com.mid.pro.model.RestaurantVO,javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/reservation/**/pay],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReservationController.pay(com.mid.pro.model.PayVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/restaurant/**/restWrite],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.RestaurantController.restWrite() throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/restaurant/**/restWrite],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.RestaurantController.restWrite(com.mid.pro.model.RestaurantVO,org.springframework.web.multipart.MultipartFile[],javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/restaurant/**/restUpdate],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.RestaurantController.restUpdate(com.mid.pro.model.RestaurantVO,org.springframework.web.multipart.MultipartFile[],javax.servlet.http.HttpSession) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/restaurant/**/restUpdate],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.RestaurantController.restUpdate(com.mid.pro.model.RestaurantVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/restaurant/**/restList],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.RestaurantController.restList(com.mid.pro.util.Pager,com.mid.pro.model.RestaurantFilesVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/restaurant/**/restDelete],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.RestaurantController.restDelete(com.mid.pro.model.RestaurantVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/restaurant/**/restSelect],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.RestaurantController.restSelect(com.mid.pro.model.ReviewVO,com.mid.pro.model.RestaurantVO,com.mid.pro.util.Pager,com.mid.pro.model.ReservationVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/restaurant/**/fileDown],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.RestaurantController.fileDown(com.mid.pro.model.RestaurantFilesVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/restaurant/**/fileDelete],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.RestaurantController.fileDelete(com.mid.pro.model.RestaurantFilesVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/resttable/**/tableWrite],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.RestTableController.tableWrite(com.mid.pro.model.RestTableVO,int) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/resttable/**/tableWrite],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.RestTableController.tableWrite(com.mid.pro.model.RestaurantVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/resttable/**/tableUpdate],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.RestTableController.tableUpdate(com.mid.pro.model.RestTableVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/resttable/**/tableUpdate],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.RestTableController.tableUpdate2(com.mid.pro.model.RestTableVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/resttable/**/tableDelete],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.RestTableController.tableDelete(com.mid.pro.model.RestTableVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/resttable/**/tableList],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.RestTableController.tableList(int) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/**/reviewWrite],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReviewController.reviewWrite(com.mid.pro.model.ReviewVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/**/reviewWrite],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReviewController.reviewWrite(com.mid.pro.model.RestaurantVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/**/reviewDelete],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReviewController.reviewDelete(com.mid.pro.model.ReviewVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/**/reviewList],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReviewController.reviewList(com.mid.pro.util.Pager) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/**/reviewMain],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReviewController.reviewMain(com.mid.pro.model.ReviewVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/**/reviewUpdate],methods=[POST]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReviewController.reviewUpdate2(com.mid.pro.model.ReviewVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/**/reviewSelect],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReviewController.reviewSelect(com.mid.pro.model.ReviewVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/**/reviewUpdate],methods=[GET]}&quot; onto public org.springframework.web.servlet.ModelAndView com.mid.pro.controller.ReviewController.reviewUpdate(com.mid.pro.model.ReviewVO) throws java.lang.Exception
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.context.support.GenericApplicationContext@50b494a6: startup date [Tue Dec 24 12:08:12 KST 2019]; root of context hierarchy
+INFO : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.context.support.GenericApplicationContext@50b494a6: startup date [Tue Dec 24 12:08:12 KST 2019]; root of context hierarchy
+INFO : org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler &apos;org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0&apos;
+INFO : org.springframework.jdbc.datasource.DriverManagerDataSource - Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+INFO : org.springframework.jdbc.support.SQLErrorCodesFactory - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+</system-out>
+  </testcase>
+</testsuite>

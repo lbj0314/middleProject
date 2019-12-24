@@ -18,21 +18,24 @@
                     </div>  
                     <div class="main-menu main-menu2">
                         <ul>
-                            <li class="active"><a href="../">home</a></li>
-                            <li><a href="../restaurant/restList">restaurant</a></li>
-                              <li><a href="#">notice</a></li>
-                            <li><a href="#">Q&A</a></li>
+                            <li class="active"><a href="${pageContext.request.contextPath}/">home</a></li>
+                            <li><a href="${pageContext.request.contextPath}/restaurant/restList">restaurant</a></li>
+                              <li><a href="${pageContext.request.contextPath}/notice/noticeList">notice</a></li>
+                            <li><a href="${pageContext.request.contextPath}/qna/qnaList">Q&A</a></li>
                         <c:choose>
 							<c:when test="${not empty member}">
-								<li><a href="./memberMylist">MyPage</a></li>
-								<li><a href="./memberLogout">LogOut</a></li>
+								<li><a href="${pageContext.request.contextPath}/member/memberMylist">MyPage</a></li>
+									<c:if test="${member.grade ==3}">
+                              			<li><a href="${pageContext.request.contextPath}/admin/adminPage">관리자</a></li>
+                              		</c:if>
+								<li><a href="${pageContext.request.contextPath}/member/memberLogout">LogOut</a></li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="./memberJoin">Sign In</a></li>
-								<li><a href="./memberLogin">Sign Up</a></li>
+								<li><a href="${pageContext.request.contextPath}/member/memberJoin">Sign In</a></li>
+								<li><a href="${pageContext.request.contextPath}/member/memberLogin">Sign Up</a></li>
 							</c:otherwise>
 						</c:choose>
-						
+					
                         </ul>
                     </div>
                 </div>
@@ -45,7 +48,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1><i>맛있다!</i></h1>
+                    <h1><i>맛의 즐거움</i></h1>
                     <p class="pt-2"><i>맛의 세계로 빠져보세요</i></p>
                 </div>
             </div>

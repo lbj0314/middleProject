@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="memberMapper">
+  <!-- Join -->
+  <insert id="memberJoin" parameterType="MemberVO">
+  	insert into member 
+  	values(member_seq.nextval,#{id},#{pw},#{email},#{name},#{tel},sysdate,0,#{reg_number},#{grade})
+  </insert>
+  <!-- checkId -->
+  <select id="memberCheckId" resultType="MemberVO">
+  	select id from member where id=#{id}
+  </select>
+  <!-- checkEmail -->
+  <select id="memberCheckEmail" resultType="MemberVO">
+  	select email from member where email=#{email}
+  </select>
+  <!-- Email 인증키 -->
+<!--   <insert id="createAuthKey">
+  	insert into mailConfirm values(#{userEmail}, #{authKey})
+  </insert> -->
+  
+<!--  <update id="userAuth">
+  	<![CDATA[update member set authstatus = 1 
+  	where (select count(*) 
+  	from mailConfirm 
+  	where userEmail = #{userEmail})  > 0 ]]> 
+  </update> -->
+  
+  <!-- Login -->
+  <select id="memberLogin" resultType="MemberVO" parameterType="MemberVO">
+  	<!-- select member_num, id, email, name, tel, joindate, reg_number, grade from member where id=#{id} and pw = #{pw} -->
+  select * from member where id=#{id} and pw = #{pw}
+  </select>
+  
+  <!-- Select -->
+    <select id="memberSelect" resultType="MemberVO" parameterType="MemberVO">
+ 	select member_num, id, email, name, tel, reg_number from member where id=#{id}
+  </select>
+  <!-- update -->
+  <update id="memberUpdate" parameterType="MemberVO">
+  	 update member set pw=#{pw}, email=#{email}, name=#{name}, tel=#{tel}, reg_number=#{reg_number} where id = #{id} 
+  </update>
+  <!-- delete -->
+  <delete id="memberDelete" parameterType="MemberVO">
+  	delete from member where id = #{id}
+  </delete>
+  <!-- memberMyList -->
+  <select id="memberMylist" parameterType="MemberVO" resultType="memberVO">
+  	SELECT * FROM member
+  	WHERE id = #{id}
+  </select>
+<!--     SelectDAO
+  <select id="memberSelect" resultType="MemberVO" parameterType="MemberVO">
+ 	select id, pw, name, email, tel from member where id=#{id}
+  </select>
+   -->
+  	<!-- 관리자 회원 정보 리스트 조회 -->
+  	<select id="allmember" resultType="MemberVO" parameterType="Pager">
+		 select * from (select N.*, rownum R from
+		(select * from member	
+	 <include refid="ds"></include>		
+		order by member_num desc) N)
+		where R between #{startRow} and #{lastRow} 
+	</select>
+	<!-- 관리자 회원정보 리스트 검색 -->
+  	<sql id="ds">
+  		<choose>
+  			<when test="kind == 'kt'">
+				where name like '%'||#{search}||'%'
+			</when>
+			<when test="kind == 'kw'">
+				where id like '%'||#{search}||'%'
+			</when>
+  			<when test="kind == 'kc'">
+				where joindate like '%'||#{search}||'%'
+			</when> 
+		</choose>
+  	</sql>  
+  	<!-- 관리자 회원정보 리스트 페이징 처리 -->
+  	<select id="memberCount" resultType="Integer" parameterType="Pager">
+ 		SELECT COUNT(id) FROM member
+ 	</select> 
+ 	
+ 	<!-- 관리자 회원정보 수정 처리 -->
+  	<update id="memberUpdate2" parameterType="MemberVO">	
+ 		UPDATE member SET  pw = #{pw}, name = #{name}, tel = #{tel}, email = #{email}
+ 		WHERE id = #{id}		
+ 	</update>
+ 	
+ 	<!--adminPage 먼저 보기  -->
+ 	 <select id="adminPage" resultType="MemberVO" parameterType="Pager">
+		 select * from (select N.*, rownum R from
+		(select * from member	
+	 <include refid="ds"></include>		
+		order by member_num desc) N)
+		where R between #{startRow} and #{lastRow} 
+	</select>
+ 	
+ 	  	<select id="memberCount2" resultType="Integer" parameterType="Pager">
+ 		SELECT COUNT(id) FROM member
+ 	</select> 
+  </mapper>

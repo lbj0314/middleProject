@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  	
+<mapper namespace="qnaMapper">
+	
+	  	<update id="boardReplyUpdate" parameterType="QnaVO">
+  			update qna set step=step+1 
+  			where ref=(select ref from qna where qna_num=#{qna_num}) 
+  			and step > (select step from qna where qna_num=#{qna_num})
+  		</update>
+  		
+  		
+  		<insert id="boardReply" parameterType="QnaVO">
+  		
+  			insert into qna  (qna_num, title, contents, reg_date, id, hit, ref, step, depth)
+  			values(rev_num.nextval, #{title}, #{contents},SYSDATE, #{id}, 0,
+  			(select ref from qna where qna_num=#{qna_num}), 
+  			(select step from qna where qna_num=#{qna_num})+1, 
+  			(select depth from qna where qna_num=#{qna_num})+1)
+  		</insert>
+
+	
+  	<sql id="ds">
+  		<choose>
+			<when test="kind == 'kt'">
+				where title like '%'||#{search}||'%'
+			</when>
+			<when test="kind == 'kw'">
+				where id like '%'||#{search}||'%'
+			</when>
+ 			<when test="kind == 'kc'">
+				where reg_date like '%'||#{search}||'%'
+			</when> 
+		</choose>
+  	</sql>
+  	
+ 	<select id="qnaList" resultType="QnaVO" parameterType="Pager">
+		select * from (select Q.*, rownum R from
+		(select * from qna	
+		<include refid="ds"></include>	
+		order by ref desc, step asc) Q)
+		where R between #{startRow} and #{lastRow}
+	</select>  
+
+	 <select id="qnaSelect" resultType="QnaVO" parameterType="QnaVO">
+ 		SELECT * FROM qna
+ 		WHERE qna_num = #{qna_num}
+ 	</select>
+
+ 
+	<insert id="qnaWrite" parameterType="QnaVO">
+		<selectKey order="BEFORE" resultType="Integer" keyProperty="qna_num">
+			select rev_num.nextval from dual
+		</selectKey>
+ 		INSERT INTO qna(qna_num  ,title  ,contents   ,reg_date   ,hit ,ref, step, depth, id)
+ 		VALUES(#{qna_num},    #{title},  #{contents},    SYSDATE,     0,   #{qna_num},   0,   0,    #{id}) 		
+ 	</insert>
+ 	
+ 	<update id="qnaUpdate" parameterType="QnaVO">
+ 		
+ 		UPDATE qna SET title = #{title}, contents = #{contents}
+ 		WHERE qna_num = #{qna_num}		
+ 	</update>
+ 	
+	<delete id="qnaDelete" parameterType="Integer">
+ 		DELETE qna
+ 		WHERE qna_num = #{qna_num}
+ 	</delete>
+ 	
+ 	<select id="qnaCount" resultType="Integer" parameterType="Pager">
+ 		SELECT COUNT(qna_num) FROM qna
+ 	</select>
+ 	
+ 	
+ 	
+
+
+</mapper>

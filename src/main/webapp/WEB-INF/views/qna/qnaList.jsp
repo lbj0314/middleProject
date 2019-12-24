@@ -13,7 +13,6 @@ color: black;
 <c:import url="../layout/qna/bootStrap.jsp" />
 </head>
 <body>
-	<c:import url="../layout/qna/header_area.jsp"></c:import>
 <!-- ------------------------------------------------------------------------ -->	
 	<!-- Asked Area Starts -->
     <div class="deshes-area section-padding">
