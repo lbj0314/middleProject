@@ -34,26 +34,31 @@ public class RestaurantController {
 	
 	//list
 	@GetMapping(value = "restList")
-	public ModelAndView restList(Pager pager) throws Exception {
+	public ModelAndView restList(Pager pager, RestaurantFilesVO restaurantFilesVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		List<RestaurantVO> list = restaurantService.restList(pager);
+		List<RestaurantFilesVO> list2 = restaurantService.fileList(restaurantFilesVO);
 		mv.addObject("pager", pager);
 		mv.addObject("list", list);
+		mv.addObject("list2", list2);
 		mv.setViewName("restaurant/restList");
 
 		return mv;
 	}
 	//select One
 	@GetMapping(value = "restSelect")
-	public ModelAndView restSelect(RestaurantVO restaurantVO, Pager pager, ReservationVO reservationVO) throws Exception {
+	public ModelAndView restSelect(ReviewVO reviewVO, RestaurantVO restaurantVO, Pager pager, ReservationVO reservationVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		reservationVO = reservationService.reservationSelect(reservationVO);
 		restaurantVO = restaurantService.restSelect(restaurantVO);
+//		reviewVO = reviewService.reviewAvgScore(reviewVO);
 		List<ReviewVO> list = reviewService.reviewList(pager);
+		System.out.println(reviewVO.getReviewAvgScore());
 		if (restaurantVO != null) {
 			mv.addObject("vo", restaurantVO);
 			mv.addObject("list", list);
 			mv.addObject("rev", reservationVO);
+//			mv.addObject("review", reviewVO);
 			restaurantVO.getRest_contents().replace("\r\n", "<br>");
 			mv.setViewName("restaurant/restSelect");
 		} else {

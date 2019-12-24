@@ -70,10 +70,10 @@
             </div>
           </div>
           <div class="input-field second-wrap">
-            <input id="search" type="text" name="search" placeholder="Enter Keywords?" name="search" value="${pager.search }" />
+            <input class="single-input-secondary" id="search" type="text" name="search" placeholder="Enter Keywords?" name="search" value="${pager.search }" />
           </div>
           <div class="input-field third-wrap">
-            <button class="btn-search" style="background-color: #ffb606">
+            <button class="btn-search" style="background-color: #ffb606">click
               <svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
        		  <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
               </svg>
@@ -85,26 +85,19 @@
             
             
             <div class="row">
-            	<c:forEach items="${list}" var="vo">
+            	<c:forEach items="${list}" var="vo" varStatus="i">
                 <div class="col-md-4">
                     <div class="single-food">
                    
-                        <div class="food-content">
-                            <div class="post-admin d-lg-flex mb-3">
-                                <span class="mr-5 d-block mb-2 mb-lg-0"><i class="fa fa-user-o mr-2"></i>${vo.rest_id}</span>
-                                <span><i class="fa fa-calendar-o mr-2"></i>${vo.reg_date}</span>
-                            </div>
-                            <h5>${vo.rest_name}</h5>
-                            <div id="target">
-                             
+                  	
                         <div class="food-img">
-                            <a href="restSelect?rest_num=${ vo.rest_num }"><img src="../resources/upload/restaurant/${vo['fname']}" class="img-fluid" alt="${vo['oname']}"></a>
+                            <a href="restSelect?rest_num=${ vo.rest_num }"><img src="../resources/upload/restaurant/food${i.index}.jpg" class="img-fluid" alt="food${i.index }.jpg"></a>
                         </div>
-                      
-                            </div>
-                            <div id="restSelect_btn">
-                            <a href="restSelect?rest_num=${ vo.rest_num }" class="template-btn3 mt-2">read more <span><i class="fa fa-long-arrow-right"></i></span></a>
-							</div>
+                     
+                        <div class="food-content">
+                            <a href="restSelect?rest_num=${ vo.rest_num }" class="template-btn3 mt-2"><h5>${vo.rest_name}</h5></a>
+                           
+                         
                 		 </div>
                     </div>
                     </div>
@@ -112,7 +105,7 @@
                 </div>
 		<div>
 			<!-- session member, memberDTO -->
-			<c:if test="${ not empty member  }">
+			<c:if test="${ member.grade eq 2  }">
 				<button type="button" class="genric-btn primary" id="btn_write">WRITE</button>
 			</c:if>
 		</div>

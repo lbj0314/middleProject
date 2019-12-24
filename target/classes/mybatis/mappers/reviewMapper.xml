@@ -30,11 +30,11 @@
 		SELECT COUNT(review_num) FROM review
 		WHERE rest_num = #{rest_num}
 	</select>
-	<!-- score -->
-  	<select id="reviewScore" resultType="ReviewVO" parameterType="ReviewVO">
+	<!-- Avgscore -->
+  	<select id="reviewAvgScore" resultType="ReviewVO">
 		SELECT avg(score) score
 		FROM review
-		WHERE rest_num = #{rest_num};
+		WHERE rest_num = #{rest_num}
 	</select>
 	<!-- write -->
 	<insert id="reviewWrite" parameterType="ReviewVO">

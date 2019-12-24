@@ -83,6 +83,10 @@ public class RestaurantService {
 	public int restDelete(RestaurantVO restaurantVO) throws Exception{
 		return restaurantDAO.restDelete(restaurantVO);
 	}
+	//fileList
+	public List<RestaurantFilesVO> fileList(RestaurantFilesVO restaurantFilesVO) throws Exception{
+		return restaurantDAO.fileList(restaurantFilesVO);
+	}
 	//fileSelect
 	public RestaurantFilesVO fileSelect(RestaurantFilesVO restaurantFilesVO) throws Exception{
 		return restaurantDAO.fileSelect(restaurantFilesVO);

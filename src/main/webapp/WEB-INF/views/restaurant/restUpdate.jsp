@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -114,19 +115,19 @@ padding:0 20px
 				</div>
 			<div>
 			<c:forEach items="${vo.files}" var="file">
-				<div class="form-group" id="${file.fnum}" title="parent">
+				<div class="form-group" id="f${file.fnum}">
 					<p>${file.oname}</p>
-					<input type="button" class="genric-btn danger del" value="Del">
+					<input type="button" id="${file.fnum}"class="genric-btn danger del_file" value="Del">
 				</div>
 			</c:forEach>
-			</div>
 				<input type="button" class="genric-btn info" value="Add File" id="add">
+			</div>
 
 				<div class="mt-10">
 					<c:if test="${member.member_num eq vo.member_num }">
 						<button type="submit" class="genric-btn primary">UPDATE</button>
 					</c:if>
-					<a href="./restList" class="btn genric-btn info">List</a>
+					<button class="btn genric-btn info" onclick="history.back()">BACK</button>
 				</div>
 				
 			</form>
@@ -266,10 +267,19 @@ padding:0 20px
 	} */
 	
 	var files = $("#files").html();
-	var num = 0;
-	//var index = 1;
-	
+	var num = ${fn:length(vo.files)};
 	$("#files").empty();
+	//var index = 1;
+	$(".del_file").click(function() {
+		var fnum = $(this).attr("id");
+		$.post("./fileDelete", {fnum : fnum}, function(data) {
+			data = data.trim();
+			if(data == '1'){
+				$("#f"+fnum).remove();
+				num--;
+			}
+		});
+	});
 	
 		$("#files").on("click", ".del", function() {
 			

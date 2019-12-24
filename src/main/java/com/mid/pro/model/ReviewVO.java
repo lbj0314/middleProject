@@ -11,6 +11,7 @@ public class ReviewVO {
 	private Date reg_date;
 	private int member_num;
 	private int rest_num;
+	private int reviewAvgScore;
 	
 	public int getReview_num() {
 		return review_num;
@@ -53,6 +54,12 @@ public class ReviewVO {
 	}
 	public void setRest_num(int rest_num) {
 		this.rest_num = rest_num;
+	}
+	public int getReviewAvgScore() {
+		return reviewAvgScore;
+	}
+	public void setReviewAvgScore(int reviewAvgScore) {
+		this.reviewAvgScore = reviewAvgScore;
 	}
 	
 }

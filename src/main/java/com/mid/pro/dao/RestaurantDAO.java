@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.mid.pro.model.MenuFilesVO;
 import com.mid.pro.model.RestaurantFilesVO;
 import com.mid.pro.model.RestaurantVO;
+import com.mid.pro.model.ReviewVO;
 import com.mid.pro.util.Pager;
 
 @Repository
@@ -60,8 +61,8 @@ public class RestaurantDAO {
 		return sqlSession.selectOne(NAMESPACE + "restaurantImgCount", restaurantVO);
 	}
 	//fileList
-	public List<RestaurantFilesVO> fileList(int num) throws Exception{
-		return sqlSession.selectList(NAMESPACE + "fileList", num);
+	public List<RestaurantFilesVO> fileList(RestaurantFilesVO restaurantFilesVO) throws Exception{
+		return sqlSession.selectList(NAMESPACE + "fileList", restaurantFilesVO);
 	}
 	//fileWrite
 	public int fileWrite(RestaurantFilesVO restaurantFilesVO) throws Exception{

@@ -101,7 +101,7 @@ public class ReservationController {
 			//TableViewVO에 담기
 			for(int i = Integer.parseInt(hh); i < Integer.parseInt(hh2); i++){
 				tableViewVO = new TableViewVO();
-				tableViewVO.setRev_time(i+":00");
+				tableViewVO.setRev_time(i+":"+mm);
 				tableViewVO.setTable_num(ta.getTable_num());
 				tableViewVO.setTable_user(ta.getTable_user());
 				tarr.add(tableViewVO);

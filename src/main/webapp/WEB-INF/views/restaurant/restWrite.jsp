@@ -197,7 +197,7 @@ padding:0 20px
                 element_wrap.style.height = size.height+'px';
             },
             width : '100%',
-            height : '100%'
+            height : '50%'
         }).embed(element_wrap);
 
         // iframe을 넣은 element를 보이게 한다.

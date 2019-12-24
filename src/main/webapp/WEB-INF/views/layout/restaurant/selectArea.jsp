@@ -64,8 +64,8 @@ img {
 									<td>${vo.kind}&nbsp;<i class="fas fa-utensils"></i></td>
 									<td>${vo.reg_date}&nbsp;<i class="fa fa-calendar-o"></i></td>
 									<td>${vo.hit}&nbsp;<i class="fa fa-eye"></i></td>
-									<td>${vo.review_hit }&nbsp;<i class="fas fa-comment"></i></td>
-									<td>${review.score }&nbsp;<i class="fas fa-star"></i></td>
+									<%-- <td>${vo.review_hit }&nbsp;<i class="fas fa-comment"></i></td>
+									<td>${review.reviewAvgScore}&nbsp;<i class="fas fa-star"></i></td> --%>
 								</tr>
 							</table>
 						</div>
@@ -122,7 +122,7 @@ img {
 	</div>
 
 </section>
-<!--================Blog Area =================-->
+
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b39d75683dde78d308a077c0f0561a6e&libraries=services"></script>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 

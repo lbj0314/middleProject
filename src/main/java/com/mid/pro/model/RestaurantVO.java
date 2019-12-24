@@ -24,6 +24,7 @@ public class RestaurantVO {
 	private List<RestaurantFilesVO> files;
 	private String oname;
 	private String fname;
+	private int restaurantAvgScore;
 	
 	public int getRest_num() {
 		return rest_num;
@@ -139,5 +140,11 @@ public class RestaurantVO {
 	public void setFname(String fname) {
 		this.fname = fname;
 	}
-	
+	public int getRestaurantAvgScore() {
+		return restaurantAvgScore;
+	}
+	public void setRestaurantAvgScore(int restaurantAvgScore) {
+		this.restaurantAvgScore = restaurantAvgScore;
+	}
+
 }

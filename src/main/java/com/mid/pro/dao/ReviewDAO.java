@@ -41,9 +41,9 @@ public class ReviewDAO {
 	public int reviewCount(Pager pager) throws Exception{
 		return sqlSession.selectOne(NAMESPACE + "reviewCount", pager);
 	}
-	//totalScore
-	public int reviewScroe(ReviewVO reviewVO) throws Exception{
-		return sqlSession.selectOne(NAMESPACE + "reviewScore", reviewVO);
+	//reviewAvgScore
+	public ReviewVO reviewAvgScore(ReviewVO reviewVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE + "reviewAvgScore", reviewVO);
 	}
 	
 	//reviewMain
