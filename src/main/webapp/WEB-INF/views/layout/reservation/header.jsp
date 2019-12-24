@@ -19,7 +19,7 @@
                     <div class="main-menu main-menu2">
                         <ul>
                             <li class="active"><a href="../">home</a></li>
-                            <li><a href="./restList">restaurant</a></li>
+                            <li><a href="../restaurant/restList">restaurant</a></li>
                               <li><a href="#">notice</a></li>
                             <li><a href="#">Q&A</a></li>
                         <c:choose>

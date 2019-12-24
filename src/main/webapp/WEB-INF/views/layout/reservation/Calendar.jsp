@@ -40,8 +40,8 @@
 				<!-- 테이블 정보 보여주는 for -->
 				<c:forEach items="${table}" var="taable" varStatus="i">
 					<div class="col-md-12">
-						<img src="/restaurant/table/${table.table_user}.jpg" height="100"
-							width="100">
+						<%-- <img src="/restaurant/table/${table.table_user}.jpg" height="100"
+							width="100"> --%>
 						<h4>${table.table_user }인용테이블 &nbsp ${i.count }</h4>
 						<%-- //${ta.tablenum} --%>
 						<br>
