@@ -15,7 +15,7 @@ img {
 
 .img2 {
 	width: 100%;
-	height: 800px;
+	height: 600px;
 }
 </style>
 

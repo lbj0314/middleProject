@@ -9,7 +9,7 @@
                     <div class="col-md-4">
                         <div class="single-widget single-widget1">
 
-                             <a href="${pageContext.request.contextPath}/"><img src="./resources/images/logo/logo2.png" alt=""></a>
+                             <a href="${pageContext.request.contextPath}/"><img src="../resources/images/logo/logo2.png" alt=""></a>
                              <ul>
                              <br>
                         	 <li><a href="${pageContext.request.contextPath}/notice/noticeList"  
