@@ -26,7 +26,7 @@
 				<div class="main-menu">
                         <ul>
                             <li class="active"><a href="${pageContext.request.contextPath}/">home</a></li>
-                            <li><a href="./restList">restaurant</a></li>
+                            <li><a href="${pageContext.request.contextPath}/restaurant/restList">restaurant</a></li>
                               <li><a href="${pageContext.request.contextPath}/notice/noticeList">notice</a></li>
                             <li><a href="${pageContext.request.contextPath}/qna/qnaList">Q&A</a></li>
                         <c:choose>

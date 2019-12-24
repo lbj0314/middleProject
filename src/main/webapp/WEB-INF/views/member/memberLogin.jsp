@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<c:import url="../layout/member/bootStrap.jsp"/>
+<c:import url="./layout/bootStrap.jsp"/>
 </head>
 <body>
 <!-- Preloader Starts -->
@@ -13,7 +13,7 @@
         <div class="spinner"></div>
     </div>
     <!-- Preloader End -->
-<c:import url="../layout/member/header.jsp"/>
+<c:import url="./layout/header.jsp"/>
 
 	<!-- Contact Form Starts -->
 	<section class="contact-form section-padding3">
@@ -42,6 +42,6 @@
 		</div>
 	</section>
 
-	<c:import url="../layout/member/footer.jsp" />
+	<c:import url="./layout/footer.jsp" />
 </body>
 </html>
